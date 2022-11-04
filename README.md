@@ -16,7 +16,7 @@
 
 **下载离线安装包**，[点我下载](https://dev.mysql.com/downloads/installer/)， 如下图
 
-![image-20221103232217172](C:\Users\TMJIE5200\AppData\Roaming\Typora\typora-user-images\image-20221103232217172.png)
+![image-20221103232217172](C:\Users\TMJIE5200\Desktop\图片存储仓库\Image_storage_repository\image-20221103232217172.png)
 
 **说明：GA是稳定版，431.7M是已经打包好的，建议下载这个安装包，而上面5.5M的需要在线下载安装，速度可能比较慢。**
 
