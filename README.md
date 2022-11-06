@@ -44,7 +44,7 @@
 
 # Windows版MySQL安装教程
 
-## 下载
+## 下载与安装
 
 **下载离线安装包**，[点我下载](https://dev.mysql.com/downloads/installer/)， 如下图
 
