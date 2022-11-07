@@ -2,6 +2,7 @@ package top.keyle.online_video_learning_system.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.keyle.online_video_learning_system.pojo.EduTeacher;
@@ -11,6 +12,7 @@ import java.util.List;
 
 /**
  * 讲师前端控制器
+ *
  * @author TMJIE5200
  * @date 2022-11-07 22:01:37
  * @week 星期一
@@ -22,8 +24,18 @@ import java.util.List;
 public class EduTeacherController {
     @Autowired
     private EduTeacherService eduTeacherService;
+
     @GetMapping("/findAllTeacher")
-    public List<EduTeacher> findAllTeacher(){
+    public List<EduTeacher> findAllTeacher() {
         return eduTeacherService.list();
+    }
+
+    @GetMapping("/addEduTeacher")
+    public EduTeacher addEduTeacher(@RequestBody EduTeacher eduTeacher) {
+        if (eduTeacher != null) {
+            eduTeacherService.save(eduTeacher);
+        }
+        System.out.println(eduTeacher);
+        return eduTeacher;
     }
 }

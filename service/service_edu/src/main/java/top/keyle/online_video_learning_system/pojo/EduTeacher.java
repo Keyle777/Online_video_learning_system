@@ -1,8 +1,10 @@
 package top.keyle.online_video_learning_system.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -57,10 +59,12 @@ public class EduTeacher implements Serializable {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
     private Date gmtCreate;
     /**
      * 更新时间
      */
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date gmtModified;
 
     @Override

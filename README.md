@@ -1309,4 +1309,277 @@ INSERT INTO `ucenter_member` VALUES ('1295360104345935873', null, '', null, null
 INSERT INTO `ucenter_member` VALUES ('1295360157382909954', null, '', null, null, null, null, null, null, '0', '0', '2020-08-17 22:01:43', '2020-08-17 22:01:43');
 ```
 
-**最后一次更新时间：2022年11月6日21点08分**
+# 解决前端传Json数据服务端处理问题
+
+**控制器接受前端传过来的Json数据，需要在参数位置使用@RequestBody注解。**
+
+# 解决使用fastjson时可能遇到的问题
+
+**当你决定使用fastjson来处理json数据，而不是springboot自带的jackson处理json时，你需要定义一个配置类，使得系统使用fastjson的方式来管理json相关数据，如下：**
+
+```java
+package top.keyle.online_video_learning_system.config;
+
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+
+@Configuration
+public class FJsonConfig {
+    @Bean
+    public HttpMessageConverter configureMessageConverters() {
+        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        FastJsonConfig config = new FastJsonConfig();
+        config.setSerializerFeatures(
+                // 保留map空的字段
+                SerializerFeature.WriteMapNullValue,
+                // 将String类型的null转成""
+                SerializerFeature.WriteNullStringAsEmpty,
+                // 将Number类型的null转成0
+                SerializerFeature.WriteNullNumberAsZero,
+                // 将List类型的null转成[]
+                SerializerFeature.WriteNullListAsEmpty,
+                // 将Boolean类型的null转成false
+                SerializerFeature.WriteNullBooleanAsFalse,
+                // 避免循环引用
+                SerializerFeature.DisableCircularReferenceDetect);
+
+        converter.setFastJsonConfig(config);
+        converter.setDefaultCharset(StandardCharsets.UTF_8);
+        List<MediaType> mediaTypeList = new ArrayList<>();
+        // 解决中文乱码问题，相当于在Controller上的@RequestMapping中加了个属性produces = "application/json"
+        mediaTypeList.add(MediaType.APPLICATION_JSON);
+        converter.setSupportedMediaTypes(mediaTypeList);
+        return converter;
+    }
+}
+```
+
+## 此时处理时间你有以下2中选择
+
+### 全局配置，都使用这样的时间
+
+```java
+# 格式化全局时间字段
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+# 指定时间区域类型
+spring.jackson.time-zone=GMT+8
+```
+
+### 局部配置
+
+**使用fastjson**，此时便可以使用`@JSONField(format="yyyy-MM-dd HH:mm:ss")`注解放在字段上，便可将返回到前端的时间转为你想要的格式。
+
+如果你不想使用fastjson，而**使用默认的处理json的方式**，那么依旧有一种差不多的方式，`@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")`
+
+**注意**当你配置了上面的配置类后，原生注解`JsonFormat`将失效。
+
+# 处理时间
+
+UserInfo 实现代码如下：
+
+```java
+@Data
+public class UserInfo {
+    private int id;
+    private String username;
+    private Date createtime;
+    private Date updatetime;
+}
+```
+
+
+
+1. ## 前端时间格式化
+
+**JS 版时间格式化**
+
+```javascript
+function dateFormat(fmt, date) {
+    let ret;
+    const opt = {
+        "Y+": date.getFullYear().toString(),        // 年
+        "m+": (date.getMonth() + 1).toString(),     // 月
+        "d+": date.getDate().toString(),            // 日
+        "H+": date.getHours().toString(),           // 时
+        "M+": date.getMinutes().toString(),         // 分
+        "S+": date.getSeconds().toString()          // 秒
+        // 有其他格式化字符需求可以继续添加，必须转化成字符串
+    };
+    for (let k in opt) {
+        ret = new RegExp("(" + k + ")").exec(fmt);
+        if (ret) {
+            fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+        };
+    };
+    return fmt;
+}
+```
+
+方法调用：
+
+```javascript
+let date = new Date();
+dateFormat("YYYY-mm-dd HH:MM:SS", date);
+```
+
+![img](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211080013190.png)
+
+2. ## SimpleDateFormat格式化
+
+```java
+// 定义时间格式化对象和定义格式化样式
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+// 格式化时间对象
+String date = dateFormat.format(new Date())
+```
+
+接下来我们使用 `SimpleDateFormat` 来实现一下本项目中的时间格式化，它的实现代码如下：
+
+```java
+@RequestMapping("/list")
+public List<UserInfo> getList() {
+    // 定义时间格式化对象
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    List<UserInfo> list = userMapper.getList();
+    // 循环执行时间格式化
+    list.forEach(item -> {
+        // 使用预留字段 ctime 接收 createtime 格式化的时间(Date->String)
+        item.setCtime(dateFormat.format(item.getCreatetime()));
+        item.setUtime(dateFormat.format(item.getUpdatetime()));
+    });
+    return list;
+}
+```
+
+程序执行结果如下：
+
+![image-20221108000535954](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211080012870.png)
+
+从上述结果可以看出，时间格式化没有任何问题，以及到底我们预想的目的了。但细心的读者会发现，为什么接口的返回字段咋变了呢？（之前的字段是 `createtime` 现在却是 `ctime`...） 
+
+这是因为使用 `#SimpleDateFormat.format` 方法之后，它返回的是一个 `String` 类型的结果，而我们之前的 `createtime` 和 `updatetime` 字段都是 `Date` 类型的，因此它们是不能接收时间格式化得结果的。 
+
+所以此时我们就需要在实体类 `UserInfo` 新增两个字符串类型的“时间”字段，再将之前 `Data` 类型的时间字段进行隐藏，最终实体类 UserInfo 的实现代码如下：
+
+```java
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+public class UserInfo {
+    private int id;
+    private String username;
+    @JsonIgnore // 输出结果时隐藏此字段
+    private Date createtime;
+    // 时间格式化后的字段
+    private String ctime;
+    @JsonIgnore // 输出结果时隐藏此字段
+    private Date updatetime;
+    // 时间格式化后的字段
+    private String utime;
+}
+```
+
+我们可以使用 `@JsonIgnore` 注解将字段进行隐藏，隐藏之后的执行结果如下：
+
+![img](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211080014057.png)
+
+3. ## DateTimeFormatter格式化
+
+```java
+@RequestMapping("/list")
+public List<UserInfo> getList() {
+    // 定义时间格式化对象
+    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    List<UserInfo> list = userMapper.getList();
+    // 循环执行时间格式化
+    list.forEach(item -> {
+        // 使用预留字段 ctime 接收 createtime 格式化的时间(Date->String)
+        item.setCtime(dateFormat.format(item.getCreatetime()));
+        item.setUtime(dateFormat.format(item.getUpdatetime()));
+    });
+    return list;
+}	
+```
+
+执行结果如下所示：
+
+![img](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211080015617.png)
+
+`DateTimeFormatter` 和 `SimpleDateFormat` 在使用上的区别是 `DateTimeFormatter` 是用来格式化 JDK 8 提供的时间类型得，如 `LocalDateTime`，而 `SimpleDateFormat` 是用来格式化 `Date` 类型的，所以我们需要对 UserInfoer 实体类做如下的修改：
+
+```java
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Data
+public class UserInfo {
+    private int id;
+    private String username;
+    @JsonIgnore
+    private LocalDateTime createtime;
+    private String ctime;
+    @JsonIgnore
+    private LocalDateTime updatetime;
+    private String utime;
+}
+```
+
+我们可以使用 `LocalDateTime` 来接收 [MySQL](https://cloud.tencent.com/product/cdb?from=10680) 中的 `datetime` 类型。
+
+4. ## 全局时间格式化
+
+```xml
+# 格式化全局时间字段
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+# 指定时间区域类型
+spring.jackson.time-zone=GMT+8
+```
+
+然后我们运行程序，看到的执行结果如下：
+
+![img](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211080016029.png)
+
+5. ## 部分时间格式化
+
+使用springboot自带的处理json， `@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")`
+
+```java
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+public class UserInfo {
+    private int id;
+    private String username;
+    // 对 createtime 字段进行格式化处理
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
+    private Date createtime;
+    private Date updatetime;
+}
+```
+
+使用fastjson，`@JSONField(format="yyyy-MM-dd HH:mm:ss")`
+
+```java
+@JSONField(format="yyyy-MM-dd HH:mm:ss")
+private Date gmtModified;
+```
+
+
+
+**最后一次更新时间：2022年11月8日00点17分**
