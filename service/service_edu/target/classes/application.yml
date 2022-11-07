@@ -1,0 +1,46 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/online_video_learning_system_db?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 785099FFDD3F13D1ACEC7CBA98232021475759CE3AA9EFBF90CDD0E0
+    hikari:
+      pool-name: DateHikariCP
+      minimum-idle: 5
+      idle-timeout: 180000
+      auto-commit: true
+      connection-test-query: SELECT 1
+  #开启热加载
+  devtools:
+    restart:
+      enabled: true
+  #配置Redis相关信息
+  redis:
+    host: 127.0.0.1   #服务器地址 你服务器或本机地址
+    port: 6379           #连接端口
+    database: 0          #数据库索引，默认0
+    password: 123456     #密码
+    jedis:
+      pool:
+        max-active: 8    #连接池最大连接数(使用负值表示没有限制)
+        max-wait: -1     #最大阻塞等待时间(使用负值表示没有限制)
+        max-idle: 8      #最大空闲连接数
+        min-idle: 0      #最小空闲连接数
+    timeout: 5000        #连接超时时间（毫秒）
+
+  #文件存储配置(本地)
+  file-storage:
+    default-platform: local-1
+    thumbnail-suffix: ".min.jpg" #缩略图后缀
+    local:
+      - platform: local-1 # 存储平台标识
+        enable-storage: true #是否开启本存储（只能选一种）
+        enable-access: true #启用访问（线上请使用 Nginx 配置，效率更高）
+        domain: "http://127.0.0.1:8080/" #访问域名，注意后面要和path-patterns保持一致，“/”结尾
+        base-path: src/main/resources/static/Pictures/ # 存储地址,如果是本地的话地址是来自内容根的路径
+        path-patterns: /** #访问路径
+
+
