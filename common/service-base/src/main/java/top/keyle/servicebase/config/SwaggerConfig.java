@@ -12,8 +12,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author xppll
- * @date 2021/11/29 14:56
+ * @author TMJIE5200
+ * @version 1.0
+ * @date 2022/11/08 23:56
  */
 @Configuration  //配置类
 @EnableSwagger2 //swagger注解
@@ -21,21 +22,21 @@ public class SwaggerConfig {
     @Bean
     public Docket webApiConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .groupName("webApi")
-            .apiInfo(webApiInfo())
-            .select()
-            .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
-            .paths(Predicates.not(PathSelectors.regex("/error.*")))
-            .build();
+                .groupName("webApi")
+                .apiInfo(webApiInfo())
+                .select()
+                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
+                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                .build();
     }
 
     private ApiInfo webApiInfo() {
         return new ApiInfoBuilder()
-            .title("网站-课程中心API文档")
-            .description("本文档描述了课程中心微服务接口定义")
-            .version("1.0")
-            .contact(new Contact("Helen", "http://atguigu.com",
-                                 "55317332@qq.com"))
-            .build();
+                .title("在线学习网站API文档")
+                .description("本文档描述了课程中心微服务接口定义")
+                .version("1.0")
+                .contact(new Contact("时先生", "https://github.com/Keyle777",
+                        "1059819521@qq.com"))
+                .build();
     }
 }

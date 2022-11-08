@@ -22,6 +22,11 @@ public class WebMvcConfigurer implements org.springframework.web.servlet.config.
                 .allowedMethods("POST","GET","DELETE","PUT")
                 .allowedOrigins("*");
     }
+
+    /**
+     * swagger想要访问页面需要的配置
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations( "classpath:/static/");
