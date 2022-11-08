@@ -23,4 +23,47 @@
         sort,is_deleted,gmt_create,
         gmt_modified
     </sql>
+    <insert id="insertSelective">
+        insert into edu_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null">name,</if>
+            <if test="intro != null">intro,</if>
+            <if test="career != null">career,</if>
+            <if test="level != null">level,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="sort != null">sort,</if>
+            <if test="isDeleted != null">is_deleted,</if>
+            <if test="gmtCreate != null">gmt_create,</if>
+            <if test="gmtModified != null">gmt_modified,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id,jdbcType=CHAR},</if>
+            <if test="name != null">#{name,jdbcType=VARCHAR},</if>
+            <if test="intro != null">#{intro,jdbcType=VARCHAR},</if>
+            <if test="career != null">#{career,jdbcType=VARCHAR},</if>
+            <if test="level != null">#{level,jdbcType=OTHER},</if>
+            <if test="avatar != null">#{avatar,jdbcType=VARCHAR},</if>
+            <if test="sort != null">#{sort,jdbcType=OTHER},</if>
+            <if test="isDeleted != null">#{isDeleted,jdbcType=TINYINT},</if>
+            <if test="gmtCreate != null">#{gmtCreate,jdbcType=TIMESTAMP},</if>
+            <if test="gmtModified != null">#{gmtModified,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <insert id="insertBatch">
+        insert into edu_teacher(id,name,intro,
+        career,level,avatar,
+        sort,is_deleted,gmt_create,
+        gmt_modified)
+        values
+        <foreach collection="eduTeacherCollection" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR},#{item.name,jdbcType=VARCHAR},#{item.intro,jdbcType=VARCHAR},
+            #{item.career,jdbcType=VARCHAR},#{item.level},#{item.avatar,jdbcType=VARCHAR},
+            #{item.sort},#{item.isDeleted,jdbcType=NUMERIC},#{item.gmtCreate,jdbcType=TIMESTAMP},
+            #{item.gmtModified,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+
+
 </mapper>

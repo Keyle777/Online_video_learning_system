@@ -33,4 +33,21 @@
         th_size,th_content_type,object_id,
         object_type,attr,create_time
     </sql>
+    <insert id="insertBatch">
+        insert into file_detail(id,url,size,
+        filename,original_filename,base_path,
+        path,ext,content_type,
+        platform,th_url,th_filename,
+        th_size,th_content_type,object_id,
+        object_type,attr,create_time)
+        values
+        <foreach collection="fileDetailCollection" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR},#{item.url,jdbcType=VARCHAR},#{item.size,jdbcType=NUMERIC},
+            #{item.filename,jdbcType=VARCHAR},#{item.originalFilename,jdbcType=VARCHAR},#{item.basePath,jdbcType=VARCHAR},
+            #{item.path,jdbcType=VARCHAR},#{item.ext,jdbcType=VARCHAR},#{item.contentType,jdbcType=VARCHAR},
+            #{item.platform,jdbcType=VARCHAR},#{item.thUrl,jdbcType=VARCHAR},#{item.thFilename,jdbcType=VARCHAR},
+            #{item.thSize,jdbcType=NUMERIC},#{item.thContentType,jdbcType=VARCHAR},#{item.objectId,jdbcType=VARCHAR},
+            #{item.objectType,jdbcType=VARCHAR},#{item.attr,jdbcType=VARCHAR},#{item.createTime,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
 </mapper>

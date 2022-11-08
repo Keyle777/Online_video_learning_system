@@ -1580,6 +1580,83 @@ public class UserInfo {
 private Date gmtModified;
 ```
 
+# mybatis的相关应用及知识
 
+## 使用mybatisx来快速生成代码
+
+### 使用方法
+
+在mapper接口中，直接输入方法名，其他都不要输入，使用快捷键Alt+Enter选择Generate Mybatis Sql，当它自动把方法名全部补全完整就说明生成成功了，点击跳转可以检验一下。
+
+## mybatis自动生成主键策略
+
+默认的是使用雪花算法即：`@TableId(type = IdType.ASSIGN_ID)`与数据库id是否设置自增无关，常用的还有`IdType.AUTO`使用数据库的自增策略，注意，该类型请确保数据库设置了id自增， 否则无效。
+
+## mybatis逻辑删除
+
+使用TableLogic注解，放在逻辑判断字段上。
+
+```java
+@TableLogic(value = "0", delval = "1")
+@TableField(value = "is_deleted", fill = FieldFill.INSERT)
+private Integer isDeleted;
+```
+
+注：
+
+**TableLogic**中，value：逻辑删除前的值，delval：逻辑删除后的值。
+
+**TableField**中，value：映射到数据库中的列名，fill：是否自动填充，可以选择4种不同填充方式。
+
+**默认值是：FieldFill.DEFAULT**
+
+| 值            | 描述                 |
+| :------------ | :------------------- |
+| DEFAULT       | 默认不处理           |
+| INSERT        | 插入时填充字段       |
+| UPDATE        | 更新时填充字段       |
+| INSERT_UPDATE | 插入和更新时填充字段 |
+
+填充的值怎么配置，需要实现接口MetaObjectHandler
+
+```java
+package com.ws.api.config;
+ 
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
+ 
+import java.util.Date;
+ 
+/**
+ * 自动填充处理类
+ * @author badao
+ * @version 1.0
+ * @see
+ **/
+@Component
+public class MyMetaObjectHandler implements MetaObjectHandler {
+ 
+
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        this.setFieldValByName("modifierId", new Long(1), metaObject);
+        this.setFieldValByName("gmtModified", new Date(), metaObject);
+        this.setFieldValByName("creatorId", new Long(1), metaObject);
+        this.setFieldValByName("gmtCreat",new Date(), metaObject);
+        this.setFieldValByName("availableFlag",true, metaObject);
+    }
+ 
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        this.setFieldValByName("modifierId", new Long(123), metaObject);
+        this.setFieldValByName("gmtModified", new Date(), metaObject);
+    }
+}
+```
+
+其中方法参数中第一个是前面自动填充所对应的字段，第二个是要自动填充的值。
+
+**注意**：使用该自动填充值的时候，在传入数据的时候必须有这个字段，不能不写，虽然这个字段你传的时候不论写什么最终都会被改成填充值，但你依旧要保留传的参数中有该字段。
 
 **最后一次更新时间：2022年11月8日00点17分**

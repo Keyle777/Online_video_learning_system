@@ -2,7 +2,10 @@ package top.keyle.online_video_learning_system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.pojo.FileDetail;
+
+import java.util.Collection;
 
 /**
 * @author TMJIE5200
@@ -13,7 +16,7 @@ import top.keyle.online_video_learning_system.pojo.FileDetail;
 
 @Mapper
 public interface FileDetailMapper extends BaseMapper<FileDetail> {
-
+    int insertBatch(@Param("fileDetailCollection") Collection<FileDetail> fileDetailCollection);
 }
 
 

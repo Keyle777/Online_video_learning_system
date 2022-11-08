@@ -1,10 +1,7 @@
 package top.keyle.online_video_learning_system.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.pojo.EduTeacher;
 import top.keyle.online_video_learning_system.service.EduTeacherService;
 
@@ -30,12 +27,13 @@ public class EduTeacherController {
         return eduTeacherService.list();
     }
 
-    @GetMapping("/addEduTeacher")
-    public EduTeacher addEduTeacher(@RequestBody EduTeacher eduTeacher) {
-        if (eduTeacher != null) {
-            eduTeacherService.save(eduTeacher);
-        }
-        System.out.println(eduTeacher);
-        return eduTeacher;
+    @DeleteMapping("{id}")
+    public Boolean removeById(@PathVariable String id) {
+        return eduTeacherService.removeById(id);
+    }
+
+    @GetMapping("/insertEduTeacher")
+    public Boolean insertEduTeacher(@RequestBody EduTeacher eduTeacher){
+        return eduTeacherService.insertSelective(eduTeacher) > 0;
     }
 }
