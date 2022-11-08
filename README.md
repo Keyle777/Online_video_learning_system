@@ -1653,4 +1653,165 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
 **注意**：使用该自动填充值的时候，在传入数据的时候必须有这个字段，不能不写，虽然这个字段你传的时候不论写什么最终都会被改成填充值，但你依旧要保留传的参数中有该字段。
 
-**最后一次更新时间：2022年11月8日13点54分**
+# Swagger
+
+## 版本介绍
+
+> **springfox-swagger2：2.9.2**
+>
+> **springfox-swagger-ui：2.9.2**
+>
+> **springboot：2.7.5**
+
+**注意：不建议使用swagger3.0.0版本及以上，目前会和2.7.x版本出现很多问题。**
+
+## 依赖与配置类
+
+```xml
+<properties>
+        <java.version>17</java.version>
+        <swagger.version>2.9.2</swagger.version>
+</properties>
+<!--swagger-->
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>${swagger.version}</version>
+</dependency>
+<!--swagger ui-->
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>${swagger.version}</version>
+</dependency>
+```
+
+**以上**这些全部是在**最外面的pom文件**里面**配置**的。
+
+在**common模块下的pox文件下**需要引入：
+
+```xml
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+		<!--swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+```
+
+**因为**在启动类所在的模块内的pom文件里，需要引入common模块下的service-base模块中的配置类SwaggerConfig.java，**因此**需要将该service-base模块引入到启动类模块内的pom文件中，这样在主程序启动的时候就能够扫描到service-base中的类。
+
+```java
+package top.keyle.servicebase.config;
+
+import com.google.common.base.Predicates;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * @author TMJIE5200
+ * @version 1.0
+ * @date 2022/11/08 23:56
+ */
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+    @Bean
+    public Docket webApiConfig() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("webApi")
+                .apiInfo(webApiInfo())
+                .select()
+                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
+                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                .build();
+    }
+
+    private ApiInfo webApiInfo() {
+        return new ApiInfoBuilder()
+                .title("在线学习网站API文档")
+                .description("本文档描述了课程中心微服务接口定义")
+                .version("1.0")
+                .contact(new Contact("时先生", "https://github.com/Keyle777",
+                        "1059819521@qq.com"))
+                .build();
+    }
+}
+```
+
+**注意：在springboot2.7.5版本中不需要在主程序上添加@ComponentScan注解，只要引入了service-base模块，它就能自动扫描其中所有的能扫的东西。**
+
+**然后**，在启动类所在的包的配置类中添加以下代码：
+
+```yaml
+spring：
+	  mvc:
+    	pathmatch:
+      		matching-strategy: ant_path_matcher
+```
+
+**最后**，需要添加一个Web配置类，这个类是通用的，因此放在启动类所在的包里面就行，当然把它和SwaggerConfig放在一起也行，配置完后这样你才能访问到页面。
+
+```java
+package top.keyle.online_video_learning_system.config;
+
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+
+/**
+ * @author TMJIE5200
+ * @date 2022-09-28 14:39:40
+ * @week 星期三
+ */
+@Configuration
+@EnableCaching
+public class WebMvcConfigurer implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        org.springframework.web.servlet.config.annotation.WebMvcConfigurer.super.addCorsMappings(registry);
+        registry.addMapping("/cors/**")
+                .allowedHeaders("*")
+                .allowedMethods("POST","GET","DELETE","PUT")
+                .allowedOrigins("*");
+    }
+
+    /**
+     * swagger想要访问页面需要的配置
+     * @param registry
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations( "classpath:/static/");
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+}
+```
+
+访问路径：`http://localhost:8080/swagger-ui.html`
+
+![image-20221108231356976](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211082314631.png)
+
+
+
+**最后一次更新时间：2022年11月8日23点54分**
