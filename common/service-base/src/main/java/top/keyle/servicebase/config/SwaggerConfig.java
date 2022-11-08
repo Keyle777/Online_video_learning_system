@@ -18,9 +18,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration  //配置类
 @EnableSwagger2 //swagger注解
 public class SwaggerConfig {
-    public SwaggerConfig(){
-        System.out.println("扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了扫到了");
-    }
     @Bean
     public Docket webApiConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
