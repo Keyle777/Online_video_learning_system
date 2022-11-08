@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service_edu" />
+        <module name="service-base" />
       </profile>
     </annotationProcessing>
   </component>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Online_video_learning_system" options="" />
       <module name="service" options="" />
+      <module name="service-base" options="-parameters" />
       <module name="service_edu" options="-parameters" />
     </option>
   </component>

@@ -40,6 +40,9 @@ spring:
         domain: "http://127.0.0.1:8080/" #访问域名，注意后面要和path-patterns保持一致，“/”结尾
         base-path: src/main/resources/static/Pictures/ # 存储地址,如果是本地的话地址是来自内容根的路径
         path-patterns: /** #访问路径
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
