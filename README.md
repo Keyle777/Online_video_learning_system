@@ -1620,36 +1620,30 @@ private Integer isDeleted;
 填充的值怎么配置，需要实现接口MetaObjectHandler
 
 ```java
-package com.ws.api.config;
- 
+package top.keyle.online_video_learning_system.handler;
+
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
- 
+
 import java.util.Date;
- 
+
 /**
  * 自动填充处理类
- * @author badao
+ * @author TMJIE5200
  * @version 1.0
- * @see
  **/
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
- 
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.setFieldValByName("modifierId", new Long(1), metaObject);
+        this.setFieldValByName("gmtCreate", new Date(), metaObject);
         this.setFieldValByName("gmtModified", new Date(), metaObject);
-        this.setFieldValByName("creatorId", new Long(1), metaObject);
-        this.setFieldValByName("gmtCreat",new Date(), metaObject);
-        this.setFieldValByName("availableFlag",true, metaObject);
     }
- 
+
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.setFieldValByName("modifierId", new Long(123), metaObject);
         this.setFieldValByName("gmtModified", new Date(), metaObject);
     }
 }
