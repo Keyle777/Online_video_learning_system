@@ -1,11 +1,13 @@
 package top.keyle.online_video_learning_system.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.pojo.EduTeacher;
 import top.keyle.online_video_learning_system.service.EduTeacherService;
-
-import java.util.List;
+import top.keyle.universal_tool.RespBean;
 
 /**
  * 讲师前端控制器
@@ -18,22 +20,26 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/eduservice/teacher")
+@Api(tags = {"讲师管理"})
 public class EduTeacherController {
     @Autowired
     private EduTeacherService eduTeacherService;
 
+    @ApiOperation(value = "所有讲师列表")
     @GetMapping("/findAllTeacher")
-    public List<EduTeacher> findAllTeacher() {
-        return eduTeacherService.list();
+    public RespBean findAllTeacher() {
+        return RespBean.success("items",eduTeacherService.list());
     }
 
+    @ApiOperation(value = "根据ID删除讲师")
     @DeleteMapping("{id}")
-    public Boolean removeById(@PathVariable String id) {
-        return eduTeacherService.removeById(id);
+    public RespBean removeById(@ApiParam(name = "id", value = "讲师ID", required = true, example = "1") @PathVariable String id) {
+        return RespBean.success();
     }
 
+    @ApiOperation(value = "根据讲师实体添加讲师")
     @GetMapping("/insertEduTeacher")
-    public Boolean insertEduTeacher(@RequestBody EduTeacher eduTeacher){
-        return eduTeacherService.insertSelective(eduTeacher) > 0;
+    public RespBean insertEduTeacher(@ApiParam(name = "eduTeacher",value = "讲师实体",required = true) @RequestBody EduTeacher eduTeacher) {
+        return RespBean.success();
     }
 }
