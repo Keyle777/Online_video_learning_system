@@ -1,5 +1,7 @@
 package top.keyle.online_video_learning_system.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -8,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.pojo.EduTeacher;
 import top.keyle.online_video_learning_system.service.EduTeacherService;
 import top.keyle.universal_tool.RespBean;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * 讲师前端控制器
@@ -28,7 +33,7 @@ public class EduTeacherController {
     @ApiOperation(value = "所有讲师列表")
     @GetMapping("/findAllTeacher")
     public RespBean findAllTeacher() {
-        return RespBean.success("items",eduTeacherService.list());
+        return RespBean.success("items", eduTeacherService.list());
     }
 
     @ApiOperation(value = "根据ID删除讲师")
@@ -39,7 +44,25 @@ public class EduTeacherController {
 
     @ApiOperation(value = "根据讲师实体添加讲师")
     @GetMapping("/insertEduTeacher")
-    public RespBean insertEduTeacher(@ApiParam(name = "eduTeacher",value = "讲师实体",required = true) @RequestBody EduTeacher eduTeacher) {
+    public RespBean insertEduTeacher(@ApiParam(name = "eduTeacher", value = "讲师实体", required = true) @RequestBody EduTeacher eduTeacher) {
         return RespBean.success();
+    }
+
+    /**
+     * 分页查询教师列表
+     * todo 传参采用路径传值 xxx/pageEduTeacher/1/5
+     *
+     * @return RespBean
+     */
+    @ApiOperation(value = "分页查询讲师列表")
+    @GetMapping("/pageEduTeacher/{current}/{limit}")
+    public RespBean pageListEduTeacher(@PathVariable Integer current, @PathVariable Integer limit) {
+        PageHelper.startPage(current,limit);
+        List<EduTeacher> eduTeacherList = eduTeacherService.list();
+        PageInfo<EduTeacher> pageInfo = new PageInfo<>(eduTeacherList);
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("total", pageInfo.getPages());
+        data.put("items", pageInfo);
+        return RespBean.success(data);
     }
 }
