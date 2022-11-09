@@ -198,15 +198,6 @@
                 <artifactId>canal.client</artifactId>
                 <version>${canal.client.version}</version>
             </dependency>
-
-            <!-- 热部署-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-devtools</artifactId>
-                <!-- optional依赖是否传递,设置为true时,表示依赖不会传递（打包成jar包后） -->
-                <optional>true</optional>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 

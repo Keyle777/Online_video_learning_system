@@ -14,6 +14,8 @@ spring:
   #开启热加载
   devtools:
     restart:
+      additional-paths: src/main/java
+      exclude: WEB-INF/**,static/**,public/**,application-dev.properties
       enabled: true
   #配置Redis相关信息
   redis:

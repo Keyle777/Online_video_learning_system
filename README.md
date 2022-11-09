@@ -1812,6 +1812,221 @@ public class WebMvcConfigurer implements org.springframework.web.servlet.config.
 
 ![image-20221108231356976](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211082314631.png)
 
+# 热加载
 
+## 作用
+
+使我们不必每次更改完项目都要重启才能获得执行最新的更改，你只需要点击构建按钮即可，不需要重启项目，提高开发效率。
+
+## 使用
+
+在控制项目启动的模块中的POM引入依赖(不知道为什么在父类中引入，在子类中就找不到该依赖，咱也不知道为什么。)
+
+* 引入依赖
+
+```xml
+<!-- 热部署-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <!-- optional依赖是否传递,设置为true时,表示依赖不会传递（打包成jar包后） -->
+    <optional>true</optional>
+</dependency>
+```
+
+* 在启动项所在的模块中的resources中的application.yml中启动：
+
+```yaml
+spring: 
+  devtools:
+    restart:
+      additional-paths: src/main/java
+      exclude: WEB-INF/**,static/**,public/**,application-dev.properties
+      enabled: true
+```
+
+在你**修改完代码后**，**点击构建**即可**完成热加载**。
+
+# 统一数据返回
+
+## 相关类
+
+```java
+package top.keyle.universal_tool;
+
+import org.springframework.validation.BindException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+/**
+ *
+ * todo :声明为异常处理器类
+ * @date 2022-11-09 20:09:40
+ * @version 1.0
+ * @author TMJIE5200
+ */
+@SuppressWarnings("all")
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    //进行具体异常分类处理
+    //拦截所以异常进行抓取 处理
+    @ExceptionHandler(Exception.class)
+    public RespBean exceptionHandle(Exception exception) {
+        //判断异常类型
+        if (exception instanceof GlobalException) {
+            //拦截的是自定义的异常
+            GlobalException globalException = (GlobalException) exception;
+            // 参数为 全局异常的枚举
+            return RespBean.error(globalException.getRespBeanEnum());
+        } else if (exception instanceof BindException) {
+            //拦截的是validator绑定的异常
+            BindException bindException = (BindException) exception;
+            //定义返回为绑定错误
+            RespBean respBean = RespBean.error(RespBeanEnum.BIND_ERROR);
+            //设置数据为绑定消息
+            respBean.setMessage(
+                    RespBeanEnum.BIND_ERROR.getMessage()
+                            + ":::" + bindException.getBindingResult()
+                            .getAllErrors()
+                            .get(0)
+                            .getDefaultMessage()
+            );
+            return respBean;
+        }
+        //不属于那两个异常 就返回这
+        return RespBean.error(RespBeanEnum.ERROR);
+    }
+}
+```
+
+---
+
+```java
+package top.keyle.universal_tool;
+
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * todo : 统一返回结果
+ *
+ * @author TMJIE5200
+ * @date 2022-11-05 20:17:22
+ * @week 星期三
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class RespBean {
+    @ApiModelProperty(value = "状态码")
+    private long code;
+    @ApiModelProperty(value = "返回消息")
+    private String message;
+    @ApiModelProperty(value = "返回数据")
+    private Map<String, Object> data;
+
+    /**
+     * 成功返回结果不带参数
+     *
+     * @return RespBean
+     */
+    public static RespBean success() {
+        return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), null);
+    }
+
+    /**
+     * @param data
+     * @return RespBean
+     */
+    public static RespBean success(String key, Object value) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put(key, value);
+        return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
+    }
+
+    /**
+     * 失败返回信息
+     *
+     * @return
+     */
+    public static RespBean error() {
+        return new RespBean(RespBeanEnum.ERROR.getCode(), RespBeanEnum.ERROR.getMessage(), null);
+    }
+
+    /**
+     * @param respBeanEnum
+     * @return
+     */
+    public static RespBean error(RespBeanEnum respBeanEnum) {
+        return new RespBean(respBeanEnum.getCode(), respBeanEnum.getMessage(), null);
+    }
+
+    public static RespBean error(RespBeanEnum respBeanEnum, String key, Object value) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put(key, value);
+        return new RespBean(respBeanEnum.getCode(), respBeanEnum.getMessage(), data);
+    }
+}
+```
+
+----
+
+```java
+package top.keyle.universal_tool;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+
+/**
+ * todo :定义异常
+ * @author TMJIE5200
+ * @date 2022-10-05 20:12:57
+ * @week 星期三
+ */
+@ToString
+@AllArgsConstructor
+@Getter
+@SuppressWarnings("all")
+public enum RespBeanEnum {
+    ERROR(20001,"服务端异常"),
+    SUCCESS(20000,"SUCCESS"),
+    LOGIN_ERROR(40000,"用户名或密码不正确"),
+    MOBILE_ERROR(40001,"手机号码不正确"),
+    BIND_ERROR(40002,"绑定失败");
+    private final Integer code;
+    private final String message;
+}
+```
+
+----
+
+```java
+package top.keyle.universal_tool;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @author TMJIE5200
+ * @date 2022-10-06 00:03:06
+ * @week 星期四
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class GlobalException extends RuntimeException{
+    private RespBeanEnum respBeanEnum;
+}
+```
+
+**注意**：遇到依赖没加进去的，根据提示引入即可。
 
 **最后一次更新时间：2022年11月8日23点54分**
