@@ -25,7 +25,7 @@ public class RespBean {
     @ApiModelProperty(value = "返回消息")
     private String message;
     @ApiModelProperty(value = "返回数据")
-    private Map<String, Object> data;
+    private Object data;
 
     /**
      * 成功返回结果不带参数
@@ -40,13 +40,11 @@ public class RespBean {
      * @param data
      * @return RespBean
      */
-    public static RespBean success(String key, Object value) {
-        Map<String, Object> data = new HashMap<String, Object>();
-        data.put(key, value);
+    public static RespBean success(Object data) {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
     }
 
-    public static RespBean success(HashMap<String,Object> data) {
+    public static RespBean success(HashMap<String, Object> data) {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
     }
 
@@ -72,7 +70,8 @@ public class RespBean {
         data.put(key, value);
         return new RespBean(respBeanEnum.getCode(), respBeanEnum.getMessage(), data);
     }
-    public static RespBean error(HashMap<String,Object> data) {
+
+    public static RespBean error(HashMap<String, Object> data) {
         return new RespBean(RespBeanEnum.ERROR.getCode(), RespBeanEnum.ERROR.getMessage(), data);
     }
 }

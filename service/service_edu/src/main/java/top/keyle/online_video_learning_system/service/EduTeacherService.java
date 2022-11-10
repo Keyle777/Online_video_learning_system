@@ -3,6 +3,8 @@ package top.keyle.online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.pojo.EduTeacher;
+import top.keyle.online_video_learning_system.pojo.vo.EduTeacherQuery;
+import top.keyle.universal_tool.JsonPage;
 
 import java.util.Collection;
 
@@ -25,5 +27,7 @@ public interface EduTeacherService extends IService<EduTeacher> {
      * @return
      */
     int insertBatch(@Param("eduTeacherCollection") Collection<EduTeacher> eduTeacherCollection);
+    JsonPage<EduTeacher> getAllOrdersByPage(@Param("page") Integer page,@Param("pageSize") Integer pageSize);
 
+    JsonPage<EduTeacher> getAllOrdersByPageCondition(@Param("page") Integer page, @Param("pageSize") Integer pageSize,@Param("eduTeacherQuery") EduTeacherQuery eduTeacherQuery);
 }

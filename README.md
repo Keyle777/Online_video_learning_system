@@ -1653,6 +1653,216 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
 **注意**：使用该自动填充值的时候，在传入数据的时候必须有这个字段，不能不写，虽然这个字段你传的时候不论写什么最终都会被改成填充值，但你依旧要保留传的参数中有该字段。
 
+# Mybatis分页插件的使用
+
+## 使用性能更好的pageHelp
+
+### 使用
+
+引入依赖：
+
+```xml
+<!--分页插件-->
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper-spring-boot-starter</artifactId>
+    <version>1.4.5</version>
+</dependency>
+```
+
+```xml
+<!--为了将PageHelper框架中分页查询返回值PageInfo转换为JsonPage,添加的依赖  -->
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper</artifactId>
+    <version>5.3.2</version>
+</dependency>
+```
+
+通用的返回各种类型分页结果的信息类：
+
+```java
+package top.keyle.universal_tool;
+
+import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.List;
+
+// 通用的返回各种类型分页结果的信息类
+@Data
+public class JsonPage<T> implements Serializable {
+
+    // 根据实际需求,定义需要的分页信息
+    // 实际开发中可能较多,我们这里就声明4个基本的
+    @ApiModelProperty(value = "总页数",name = "totalPages")
+    private Integer totalPages;
+    @ApiModelProperty(value = "总条数",name = "totalCount")
+    private Long totalCount;
+    @ApiModelProperty(value = "当前页码",name = "page")
+    private Integer page;
+    @ApiModelProperty(value = "当前页的数据条数",name = "pageSize")
+    private Integer pageSize;
+    @ApiModelProperty(value = "前一页的页码",name = "prePage")
+    private Integer prePage;
+    @ApiModelProperty(value = "下一页的页码",name = "nextPage")
+    private Integer nextPage;
+    @ApiModelProperty(value = "是否为第一页",name = "isFirstPage")
+    private Boolean isFirstPage;
+    @ApiModelProperty(value = "是否为最后一页",name = "isLastPage")
+    private Boolean isLastPage;
+    @ApiModelProperty(value = "是否有前一页",name = "isLastPage")
+    private Boolean hasPreviousPage;
+    @ApiModelProperty(value = "是否有下一页",name = "isLastPage")
+    private Boolean hasNextPage;
+    @ApiModelProperty(value = "导航页码数",name = "navigatePages")
+    private Integer navigatePages;
+    @ApiModelProperty(value = "所有导航页号",name = "navigatePageNums")
+    private int[] navigatePageNums;
+    @ApiModelProperty(value = "导航条上的第一页",name = "navigateFirstPage")
+    private Integer navigateFirstPage;
+    @ApiModelProperty(value = "导航条上的最后一页",name = "navigateLastPage")
+    private Integer navigateLastPage;
+
+    // 如果需要再添加其它属性即可
+
+    // 除了分页信息,还有查询出的分页数据
+    @ApiModelProperty(value = "分页数据",name = "list")
+    private List<T> list;
+
+    // 上面定义了所有分页数据需要的属性
+    // 下面可以编写一个将PageInfo类型转换为JsonPage类型的方法
+    // 如果需要将其它框架的分页对象转换,例如SpringData的Page类,那么就再编写新的方法即可
+    public static <T> JsonPage<T> restPage(PageInfo<T> pageInfo){
+        // 开始进行转换,基本思路是将pageInfo对象中的数据赋值给JsonPage对象
+        JsonPage<T> result=new JsonPage<>();
+        // 赋值分页信息
+        result.setTotalPages(pageInfo.getPages());
+        result.setTotalCount(pageInfo.getTotal());
+        result.setPage(pageInfo.getPageNum());
+        result.setPageSize(pageInfo.getPageSize());
+        result.setPrePage(pageInfo.getPrePage());
+        result.setNextPage(pageInfo.getNextPage());
+        result.setIsFirstPage(pageInfo.isIsFirstPage());
+        result.setIsLastPage(pageInfo.isIsLastPage());
+        result.setHasPreviousPage(pageInfo.isHasPreviousPage());
+        result.setHasNextPage(pageInfo.isHasNextPage());
+        result.setNavigatePages(pageInfo.getNavigatePages());
+        result.setNavigateFirstPage(pageInfo.getNavigateFirstPage());
+        result.setNavigateLastPage(pageInfo.getNavigateLastPage());
+        result.setNavigatePageNums(pageInfo.getNavigatepageNums());
+        //  赋值分页数据
+        result.setList(pageInfo.getList());
+        // 别忘了返回
+        return result;
+    }
+}
+```
+
+使用：
+
+vo类：
+
+```java
+package top.keyle.online_video_learning_system.pojo.vo;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @author TMJIE5200
+ * @date 2022-11-10 20:05:02
+ * @week 星期四
+ * todo 讲师查询条件对象
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ApiModel(description = "条件查询讲师对象")
+public class EduTeacherQuery {
+    @ApiModelProperty(value = "讲师名称，模糊查询")
+    private String name;
+    /**
+     * todo String是因为前端传给后端的时间直接就是字符串类型，省得去转换了
+     */
+    @ApiModelProperty(value = "查询开始时间",example = "2020-08-02 16:54:17")
+    private String begin;
+    @ApiModelProperty(value = "查询结束时间",example = "2022-11-15 16:54:17")
+    private String end;
+    @ApiModelProperty(value = "头衔:1高级讲师，2首席讲师",example = "1")
+    private Integer level;
+}	
+```
+
+EduTeacherService
+
+```java
+    JsonPage<EduTeacher> getAllOrdersByPageCondition(@Param("page") Integer page, @Param("pageSize") Integer pageSize,@Param("eduTeacherQuery") EduTeacherQuery eduTeacherQuery);
+
+```
+
+EduTeacherServiceImpl
+
+```java
+@Override
+public JsonPage<EduTeacher> getAllOrdersByPageCondition(Integer page, Integer pageSize, EduTeacherQuery eduTeacherQuery) {
+    PageHelper.startPage(page, pageSize);
+    LambdaQueryWrapper<EduTeacher> wrapper = new LambdaQueryWrapper<>();
+    String name = eduTeacherQuery.getName();
+    String begin = eduTeacherQuery.getBegin();
+    String end = eduTeacherQuery.getEnd();
+    Integer level = eduTeacherQuery.getLevel();
+    wrapper.like(!ObjectUtils.isEmpty(name), EduTeacher::getName, name)
+            .eq(!ObjectUtils.isEmpty(level), EduTeacher::getLevel, level)
+            .ge(!ObjectUtils.isEmpty(begin), EduTeacher::getGmtCreate, begin)
+            .le(!ObjectUtils.isEmpty(end), EduTeacher::getGmtModified, end);
+    List<EduTeacher> eduTeacherList = eduTeacherMapper.selectList(wrapper);
+    return JsonPage.restPage(new PageInfo<>(eduTeacherList));
+}
+```
+
+controller
+
+```java
+@ApiOperation(value = "条件分页查询讲师列表")
+    @PostMapping("/pageEduTeacherCondition/{current}/{limit}")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "页码", name = "current", example = "1", required = true),
+            @ApiImplicitParam(value = "每页条数", name = "limit", example = "5", required = true),
+            @ApiImplicitParam(value = "讲师查询条件对象", name = "eduTeacherQuery",example = """
+                    {
+                        "name": "测试",
+                        "begin": "2020-08-02 16:54:17",
+                        "end": "2022-08-02 16:54:17",
+                        "level": 1
+                    }""")
+    })
+    public RespBean pageEduTeacherCondition(
+            @PathVariable Integer current,
+            @PathVariable Integer limit,
+            @RequestBody(required = false) EduTeacherQuery eduTeacherQuery) {
+        JsonPage<EduTeacher> jsonPage = eduTeacherService
+                .getAllOrdersByPageCondition(current, limit, eduTeacherQuery);
+        return RespBean.success(jsonPage);
+    }
+```
+
+@RequestBody使用时，**需要使用post请求**。
+
+@RequestBody使用时，**如果想要前端不必要传EduTeacherQuery对象的全部字段，需要加`required = false`**，否则必须以json格式传全部字段否则报错。
+
+**当参数的个对象时，你想要在swagger中有实例参数**，需要声明的参数如下
+
+```java
+@ApiImplicitParam(value = "讲师查询条件对象", name = "eduTeacherQuery",paramType = "body", dataType = "EduTeacherQuery")
+```
+
 # Swagger
 
 ## 版本介绍
@@ -1847,7 +2057,7 @@ spring:
 
 在你**修改完代码后**，**点击构建**即可**完成热加载**。
 
-# 统一数据返回
+# 统一数据返回与全局异常处理
 
 ## 相关类
 
@@ -2028,5 +2238,9 @@ public class GlobalException extends RuntimeException{
 ```
 
 **注意**：遇到依赖没加进去的，根据提示引入即可。
+
+
+
+
 
 **最后一次更新时间：2022年11月8日23点54分**

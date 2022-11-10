@@ -74,8 +74,8 @@
         <!--分页插件-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>5.3.2</version>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.5</version>
         </dependency>
         <!--mysql-->
         <dependency>
@@ -156,19 +156,4 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!-- 注意其他配置 -->
-        <property name="plugins">
-            <array>
-                <bean class="com.github.pagehelper.PageInterceptor">
-                    <property name="properties">
-                        <!--使用下面的方式配置参数，一行配置一个 -->
-                        <value>
-                            params=value1
-                        </value>
-                    </property>
-                </bean>
-            </array>
-        </property>
-    </bean>
 </project>
