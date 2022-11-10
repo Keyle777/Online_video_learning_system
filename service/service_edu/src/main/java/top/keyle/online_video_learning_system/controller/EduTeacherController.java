@@ -2,12 +2,14 @@ package top.keyle.online_video_learning_system.controller;
 
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.pojo.EduTeacher;
 import top.keyle.online_video_learning_system.pojo.vo.EduTeacherQuery;
 import top.keyle.online_video_learning_system.service.EduTeacherService;
 import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.HashMap;
 
@@ -38,18 +40,49 @@ public class EduTeacherController {
     @ApiOperation(value = "根据ID删除讲师")
     @DeleteMapping("{id}")
     public RespBean removeById(@ApiParam(name = "id", value = "讲师ID", required = true, example = "1") @PathVariable String id) {
-        return RespBean.success();
+        boolean flag = eduTeacherService.removeById(id);
+        if(flag){
+            return RespBean.success();
+        }
+        return RespBean.error(RespBeanEnum.SUCCESS);
     }
 
+    @ApiOperation(value = "根据ID查询讲师")
+    @GetMapping("/getEduTeacherById/{id}")
+    @ApiImplicitParam(value = "讲师ID", name = "id",required = true,example = "1")
+    public RespBean getEduTeacherById(@PathVariable String id) {
+        EduTeacher eduTeacher = eduTeacherService.getById(id);
+        if(!ObjectUtils.isEmpty(eduTeacher)){
+            HashMap<String, EduTeacher> hashMap = new HashMap<>();
+            hashMap.put("teacher",eduTeacher);
+            return RespBean.success(hashMap);
+        }
+        return RespBean.error(RespBeanEnum.SELECT_ERROR);
+    }
+
+    @ApiOperation(value = "修改讲师信息")
+    @PostMapping("/updateEduTeacherByEntry")
+    @ApiImplicitParam(value = "讲师实体", name = "eduTeacher",required = true,dataType = "EduTeacher")
+    public RespBean updateEduTeacherByEntry(@RequestBody EduTeacher eduTeacher) {
+        boolean flag = eduTeacherService.updateById(eduTeacher);
+        if(flag){
+            return RespBean.success();
+        }
+        return RespBean.error(RespBeanEnum.UPDATE_ERROR);
+    }
     /**
      * todo 使用@RequestBody需要使用post请求，否则对象里面的值取不到
      * @param eduTeacher 讲师
      * @return success/error
      */
-    @ApiOperation(value = "根据讲师实体添加讲师")
     @PostMapping ("/insertEduTeacher")
-    public RespBean insertEduTeacher(@ApiParam(name = "eduTeacher", value = "讲师实体", required = true) @RequestBody EduTeacher eduTeacher) {
-        return RespBean.success();
+    @ApiOperation(value = "根据讲师实体添加讲师")
+    @ApiImplicitParam(value = "讲师实体", name = "eduTeacher",paramType = "body", dataType = "EduTeacher")
+    public RespBean insertEduTeacher(@RequestBody(required = true) EduTeacher eduTeacher) {
+        if (eduTeacherService.save(eduTeacher)) {
+            return RespBean.success(eduTeacher);
+        }
+        return RespBean.error(RespBeanEnum.ADD_ERROR);
     }
 
     /**
