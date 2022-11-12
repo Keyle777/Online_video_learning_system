@@ -44,6 +44,10 @@ public class RespBean {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
     }
 
+    public static RespBean success(RespBeanEnum respBeanEnum) {
+        return new RespBean(respBeanEnum.getCode(), respBeanEnum.getMessage(), null);
+    }
+
     public static RespBean success(HashMap<String, Object> data) {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
     }

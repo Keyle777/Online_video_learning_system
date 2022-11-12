@@ -23,8 +23,9 @@ import java.util.HashMap;
  * RequestMapping 访问此控制器基础路径
  */
 @RestController
-@RequestMapping("/eduservice/teacher")
+@RequestMapping("/eduService/teacher")
 @Api(tags = {"讲师管理"})
+@CrossOrigin
 public class EduTeacherController {
     @Autowired
     private EduTeacherService eduTeacherService;
