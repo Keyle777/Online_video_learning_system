@@ -45,7 +45,7 @@ public class EduTeacherController {
         if(flag){
             return RespBean.success();
         }
-        return RespBean.error(RespBeanEnum.SUCCESS);
+        return RespBean.error(RespBeanEnum.DELETE_ERROR);
     }
 
     @ApiOperation(value = "根据ID查询讲师")
@@ -79,7 +79,7 @@ public class EduTeacherController {
     @PostMapping ("/insertEduTeacher")
     @ApiOperation(value = "根据讲师实体添加讲师")
     @ApiImplicitParam(value = "讲师实体", name = "eduTeacher",paramType = "body", dataType = "EduTeacher")
-    public RespBean insertEduTeacher(@RequestBody(required = true) EduTeacher eduTeacher) {
+    public RespBean insertEduTeacher(@RequestBody(required = false) EduTeacher eduTeacher) {
         if (eduTeacherService.save(eduTeacher)) {
             return RespBean.success(eduTeacher);
         }
