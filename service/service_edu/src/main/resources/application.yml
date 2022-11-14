@@ -32,16 +32,19 @@ spring:
     timeout: 5000        #连接超时时间（毫秒）
 
   #文件存储配置(本地)
-  file-storage:
-    default-platform: local-1
-    thumbnail-suffix: ".min.jpg" #缩略图后缀
-    local:
-      - platform: local-1 # 存储平台标识
-        enable-storage: true #是否开启本存储（只能选一种）
-        enable-access: true #启用访问（线上请使用 Nginx 配置，效率更高）
-        domain: "http://127.0.0.1:8080/" #访问域名，注意后面要和path-patterns保持一致，“/”结尾
-        base-path: src/main/resources/static/Pictures/ # 存储地址,如果是本地的话地址是来自内容根的路径
-        path-patterns: /** #访问路径
+  file-storage: #文件存储配置
+    thumbnail-suffix: ".min.jpg" #缩略图后缀，例如【.min.jpg】【.png】
+    aliyun-oss: # 阿里云 OSS ，不使用的情况下可以不写
+      - platform: aliyun-oss-1 # 存储平台标识
+        enable-storage: true  # 启用存储
+        access-key: LTAI5tDA1Ud51HRmc62j2mMm
+        secret-key: 2j4PIY8uQ7WEatCOPMZYbhqtBcnzS1
+        end-point: oss-cn-nanjing.aliyuncs.com
+        bucket-name: keyle777
+        domain: https://keyle777.oss-cn-nanjing.aliyuncs.com/ # 访问域名，注意“/”结尾，例如：https://abc.oss-cn-shanghai.aliyuncs.com/
+        base-path: image/ # 基础路径
+    default-platform: aliyun-oss-1
+
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -52,3 +55,5 @@ pagehelper:
   propertyName: propertyValue
   reasonable: false
   defaultCount: true # 分页插件默认参数支持 default-count 形式，自定义扩展的参数，必须大小写一致
+
+

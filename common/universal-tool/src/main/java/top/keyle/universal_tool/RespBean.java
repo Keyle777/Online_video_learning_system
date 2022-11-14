@@ -51,6 +51,11 @@ public class RespBean {
     public static RespBean success(HashMap<String, Object> data) {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
     }
+    public static RespBean success(String key, Object value) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put(key, value);
+        return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), data);
+    }
 
     /**
      * 失败返回信息
