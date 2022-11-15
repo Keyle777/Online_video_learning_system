@@ -74,6 +74,7 @@ public class FileController {
     @ApiOperation(value = "传入图片文件删除图片")
     public RespBean deleteImageBasedOnUrl(@RequestBody(required = false) FileDetail imageFile){
         if (fileStorageService.exists(imageFile.getUrl())){
+            //直接通过文件信息中的 url 删除，省去手动查询文件信息记录的过程
             return fileDetailService.delete(imageFile.getUrl())?RespBean.success():RespBean.error(RespBeanEnum.DELETE_ERROR);
         }
         return RespBean.error(RespBeanEnum.FIND_PICTURES_ERROR);

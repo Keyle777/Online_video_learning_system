@@ -42,7 +42,7 @@ public class EduTeacherController {
     @DeleteMapping("{id}")
     public RespBean removeById(@ApiParam(name = "id", value = "讲师ID", required = true, example = "1") @PathVariable String id) {
         boolean flag = eduTeacherService.removeById(id);
-        if(flag){
+        if (flag) {
             return RespBean.success();
         }
         return RespBean.error(RespBeanEnum.DELETE_ERROR);
@@ -50,12 +50,12 @@ public class EduTeacherController {
 
     @ApiOperation(value = "根据ID查询讲师")
     @GetMapping("/getEduTeacherById/{id}")
-    @ApiImplicitParam(value = "讲师ID", name = "id",required = true,example = "1")
+    @ApiImplicitParam(value = "讲师ID", name = "id", required = true, example = "1")
     public RespBean getEduTeacherById(@PathVariable String id) {
         EduTeacher eduTeacher = eduTeacherService.getById(id);
-        if(!ObjectUtils.isEmpty(eduTeacher)){
+        if (!ObjectUtils.isEmpty(eduTeacher)) {
             HashMap<String, EduTeacher> hashMap = new HashMap<>();
-            hashMap.put("teacher",eduTeacher);
+            hashMap.put("teacher", eduTeacher);
             return RespBean.success(hashMap);
         }
         return RespBean.error(RespBeanEnum.SELECT_ERROR);
@@ -63,22 +63,24 @@ public class EduTeacherController {
 
     @ApiOperation(value = "修改讲师信息")
     @PostMapping("/updateEduTeacherByEntry")
-    @ApiImplicitParam(value = "讲师实体", name = "eduTeacher",required = true,dataType = "EduTeacher")
+    @ApiImplicitParam(value = "讲师实体", name = "eduTeacher", required = true, dataType = "EduTeacher")
     public RespBean updateEduTeacherByEntry(@RequestBody EduTeacher eduTeacher) {
         boolean flag = eduTeacherService.updateById(eduTeacher);
-        if(flag){
+        if (flag) {
             return RespBean.success();
         }
         return RespBean.error(RespBeanEnum.UPDATE_ERROR);
     }
+
     /**
      * todo 使用@RequestBody需要使用post请求，否则对象里面的值取不到
+     *
      * @param eduTeacher 讲师
      * @return success/error
      */
-    @PostMapping ("/insertEduTeacher")
+    @PostMapping("/insertEduTeacher")
     @ApiOperation(value = "根据讲师实体添加讲师")
-    @ApiImplicitParam(value = "讲师实体", name = "eduTeacher",paramType = "body", dataType = "EduTeacher")
+    @ApiImplicitParam(value = "讲师实体", name = "eduTeacher", paramType = "body", dataType = "EduTeacher")
     public RespBean insertEduTeacher(@RequestBody(required = false) EduTeacher eduTeacher) {
         if (eduTeacherService.save(eduTeacher)) {
             return RespBean.success(eduTeacher);
@@ -110,7 +112,7 @@ public class EduTeacherController {
     @ApiImplicitParams({
             @ApiImplicitParam(value = "页码", name = "current", example = "1", required = true),
             @ApiImplicitParam(value = "每页条数", name = "limit", example = "5", required = true),
-            @ApiImplicitParam(value = "讲师查询条件对象", name = "eduTeacherQuery",paramType = "body", dataType = "EduTeacherQuery")
+            @ApiImplicitParam(value = "讲师查询条件对象", name = "eduTeacherQuery", paramType = "body", dataType = "EduTeacherQuery")
     })
     public RespBean pageEduTeacherCondition(
             @PathVariable Integer current,
@@ -119,5 +121,19 @@ public class EduTeacherController {
         JsonPage<EduTeacher> jsonPage = eduTeacherService
                 .getAllOrdersByPageCondition(current, limit, eduTeacherQuery);
         return RespBean.success(jsonPage);
+    }
+
+    @ApiOperation(value = "根据ID修改讲师信息")
+    @PostMapping("/modifyLecturerInformation")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "讲师对象", name = "eduTeacher", paramType = "body", dataType = "EduTeacher")
+    })
+    public RespBean modifyLecturerInformation(
+            @RequestBody(required = false) EduTeacher eduTeacher) {
+        boolean flag = eduTeacherService.updateSelective(eduTeacher);
+        if (flag) {
+            return RespBean.success("eduTeacher",eduTeacherService.getById(eduTeacher.getId()));
+        }
+        return RespBean.error(RespBeanEnum.UPDATE_ERROR);
     }
 }

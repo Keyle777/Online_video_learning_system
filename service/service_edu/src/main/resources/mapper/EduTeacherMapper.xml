@@ -64,6 +64,21 @@
             #{item.gmtModified,jdbcType=TIMESTAMP})
         </foreach>
     </insert>
+    <update id="updateSelective">
+        update edu_teacher
+        <set>
+            <if test="name != null">name=#{name,jdbcType=VARCHAR},</if>
+            <if test="intro != null">intro=#{intro,jdbcType=VARCHAR},</if>
+            <if test="career != null">career=#{career,jdbcType=VARCHAR},</if>
+            <if test="level != null">level=#{level},</if>
+            <if test="avatar != null">avatar=#{avatar,jdbcType=VARCHAR},</if>
+            <if test="sort != null">sort=#{sort},</if>
+            <if test="isDeleted != null">is_deleted=#{isDeleted,jdbcType=NUMERIC},</if>
+            <if test="gmtCreate != null">gmt_create=#{gmtCreate,jdbcType=TIMESTAMP},</if>
+            <if test="gmtModified != null">gmt_modified=#{gmtModified,jdbcType=TIMESTAMP},</if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 
 
 </mapper>

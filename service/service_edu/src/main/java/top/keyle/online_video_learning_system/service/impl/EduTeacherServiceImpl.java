@@ -61,6 +61,11 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
         List<EduTeacher> eduTeacherList = eduTeacherMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduTeacherList));
     }
+
+    @Override
+    public boolean updateSelective(EduTeacher eduTeacher) {
+        return eduTeacherMapper.updateSelective(eduTeacher)>0;
+    }
 }
 
 
