@@ -23,6 +23,7 @@ public enum RespBeanEnum {
     SELECT_ERROR(40012,"查询失败"),
     UPDATE_ERROR(40012,"修改失败"),
     DELETE_ERROR(20015,"删除失败"),
+    FIND_PICTURES_ERROR(20025,"该图片不存在"),
     ERROR_LOGIN50008(50008,"Illegal token"),
     ERROR_LOGIN50012(50012,"Other clients logged in"),
     ERROR_LOGIN50014(50014,"Token expired"),

@@ -6,11 +6,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import top.keyle.online_video_learning_system.pojo.FileDetail;
+import top.keyle.online_video_learning_system.service.FileDetailService;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
@@ -24,6 +23,8 @@ public class FileController {
     @Autowired
     private FileStorageService fileStorageService;//注入实列
 
+    @Autowired
+    FileDetailService fileDetailService;
     /**
      * 上传文件，成功返回文件 url
      */
@@ -63,9 +64,18 @@ public class FileController {
      */
     @PostMapping("/upload-platform")
     @ApiOperation(value = "上传图片到oss，成功则返回文件详情信息")
-    public FileInfo uploadPlatform(MultipartFile file) {
-        return fileStorageService.of(file)
+    public RespBean uploadPlatform(MultipartFile file) {
+        return RespBean.success("imageFile",fileStorageService.of(file)
                 .setPlatform("aliyun-oss-1")    //使用指定的存储平台
-                .upload();
+                .upload());
+    }
+
+    @DeleteMapping("/deleteImageBasedOnUrl")
+    @ApiOperation(value = "传入图片文件删除图片")
+    public RespBean deleteImageBasedOnUrl(@RequestBody(required = false) FileDetail imageFile){
+        if (fileStorageService.exists(imageFile.getUrl())){
+            return fileDetailService.delete(imageFile.getUrl())?RespBean.success():RespBean.error(RespBeanEnum.DELETE_ERROR);
+        }
+        return RespBean.error(RespBeanEnum.FIND_PICTURES_ERROR);
     }
 }
