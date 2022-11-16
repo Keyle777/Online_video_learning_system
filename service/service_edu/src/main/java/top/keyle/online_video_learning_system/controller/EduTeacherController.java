@@ -11,6 +11,7 @@ import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -132,8 +133,24 @@ public class EduTeacherController {
             @RequestBody(required = false) EduTeacher eduTeacher) {
         boolean flag = eduTeacherService.updateSelective(eduTeacher);
         if (flag) {
-            return RespBean.success("eduTeacher",eduTeacherService.getById(eduTeacher.getId()));
+            return RespBean.success("eduTeacher", eduTeacherService.getById(eduTeacher.getId()));
         }
         return RespBean.error(RespBeanEnum.UPDATE_ERROR);
+    }
+
+    @ApiOperation(value = "根据Id批量删除讲师")
+    @GetMapping("/deleteLecturersInBatchesById")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "所勾选的讲师ID", name = "eduTeachersId")
+    })
+    public RespBean deleteLecturersInBatchesById(
+            String eduTeachersId
+    ) {
+
+        if (eduTeachersId.isEmpty()) {
+            return RespBean.error();
+        }
+        return eduTeacherService.removeBatchByIds(Arrays.asList(eduTeachersId.split(",")))
+                ? RespBean.success() : RespBean.error(RespBeanEnum.DELETE_ERROR);
     }
 }

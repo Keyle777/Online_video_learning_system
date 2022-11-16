@@ -32,6 +32,7 @@ public interface EduTeacherMapper extends BaseMapper<EduTeacher> {
     int insertBatch(@Param("eduTeacherCollection") Collection<EduTeacher> eduTeacherCollection);
 
     int updateSelective(EduTeacher eduTeacher);
+
 }
 
 
