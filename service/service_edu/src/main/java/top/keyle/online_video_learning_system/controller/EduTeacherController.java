@@ -11,7 +11,6 @@ import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -150,7 +149,10 @@ public class EduTeacherController {
         if (eduTeachersId.isEmpty()) {
             return RespBean.error();
         }
-        return eduTeacherService.removeBatchByIds(Arrays.asList(eduTeachersId.split(",")))
-                ? RespBean.success() : RespBean.error(RespBeanEnum.DELETE_ERROR);
+        String[] Ids = eduTeachersId.split(",");
+        for (String id : Ids) {
+            eduTeacherService.removeById(id);
+        }
+        return RespBean.success();
     }
 }

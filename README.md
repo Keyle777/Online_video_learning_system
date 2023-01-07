@@ -2241,6 +2241,29 @@ public class GlobalException extends RuntimeException{
 
 
 
+# ngnix的配置
+
+
+位置：xx\nginx-1.22.1\conf\nginx.conf
+
+更改配置：
+
+![image-20221117153656381](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211171537678.png)
+
+匹配规则设置
+
+![image-20221117154642647](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202211171546347.png)
+
+启动：xx\nginx-1.22.1下 cmd start nginx.exe
+
+
+
+
+
+
+
+
+
 
 
 **最后一次更新时间：2022年11月8日23点54分**
