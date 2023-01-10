@@ -8,7 +8,7 @@ import java.util.Random;
 
 @SuppressWarnings("all")
 /**
- * 获取随机数
+ * 获取4位随机数
  *
  */
 public class RandomUtil {

@@ -21,6 +21,9 @@ import java.util.Map;
  */
 @Service
 public class MsmServiceImpl implements MsmService {
+    /**
+     * 发送短信
+     */
     @Override
     public boolean send(String PhoneNumbers, String templateCode, Map<String, Object> param) {
             if (ObjectUtils.isEmpty(PhoneNumbers)) {
@@ -57,8 +60,4 @@ public class MsmServiceImpl implements MsmService {
             return false;
 
     }
-    /**
-     * 发送短信
-     */
-
 }
