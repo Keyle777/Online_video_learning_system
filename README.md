@@ -2588,7 +2588,7 @@ public class RandomUtil {
 原因：未使用阿里云官方案例中使用的参数，参数不一致，比如PhoneNumbers你写成了phoneNumbers，就报上面的错误
 ```
 
-![image-202301101802796](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101802796.png)
+![image-20230110184530222](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101845396.png)
 
 
 
