@@ -5,7 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>service</module>
-        <module>common/universal-tool</module>
+        <module>common</module>
+<!--        <module>common/universal-tool</module>-->
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

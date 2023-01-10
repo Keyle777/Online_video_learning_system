@@ -27,6 +27,7 @@ public enum RespBeanEnum {
     ERROR_LOGIN50008(50008,"Illegal token"),
     ERROR_LOGIN50012(50012,"Other clients logged in"),
     ERROR_LOGIN50014(50014,"Token expired"),
+    ERROR_FAILED_TO_SEND_MSM(20020,"发送短信失败"),
     ADD_ERROR(20004,"添加用户失败");
     private final Integer code;
     private final String message;

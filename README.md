@@ -2262,8 +2262,18 @@ public class GlobalException extends RuntimeException{
 
 
 
+Failed to start bean 'documentationPluginsBootstrapper'; 报错
+原因：高版springboot 不兼容 swagger-ui
+解决方法：
+spring:
+mvc:
+pathmatch:
+matching-strategy: ant_path_matcher
+
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
 
 
-
-
+com.aliyuncs.exceptions.ClientException: MissingPhoneNumbers : PhoneNumbers is mandatory for this actionl;报错
+原因：未使用阿里云官方案例中使用的参数，参数不一致，比如PhoneNumbers你写成了phoneNumbers，就报上面的错误
+![image-202301101802796](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101802796.png)
 **最后一次更新时间：2022年11月8日23点54分**

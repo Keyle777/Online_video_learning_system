@@ -34,6 +34,8 @@ public class RespBean {
      */
     public static RespBean success() {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), null);
+
+
     }
 
     /**

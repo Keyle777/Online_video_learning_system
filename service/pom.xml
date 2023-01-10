@@ -25,6 +25,7 @@
     </build>
     <modules>
         <module>service_edu</module>
+        <module>service_msm</module>
     </modules>
 
     <dependencies>

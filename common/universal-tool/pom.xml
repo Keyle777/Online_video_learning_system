@@ -11,6 +11,12 @@
 
     <artifactId>universal-tool</artifactId>
     <dependencies>
+        <!-- JWT-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+        </dependency>
+        <!--swagger服务-->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
