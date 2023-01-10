@@ -2256,24 +2256,350 @@ public class GlobalException extends RuntimeException{
 
 启动：xx\nginx-1.22.1下 cmd start nginx.exe
 
+# 阿里云短信服务开发流程：
+
+## 一、开通阿里云短信服务
+
+1、进入阿里云，搜索短信服务，开通即可。
+
+2、如果你仅仅是测试软件，而不用上线。那么就不用购买套餐，新用户那个也别买浪费。
+
+3、下面以测试用途来说明该怎么操作。
+
+4、点击下图中的快速学习，绑定测试手机号码，点击下面调用测试签名模板API，选择【专用】，点击调用API发送短信。
+
+![image-20230110181407250](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101814500.png)
+
+5、这一页信息很多，很重要，下面我圈主的左侧这一部分，你在写程序参数名称的时候切记一定要一致,否则报错MISSING…。下面教你怎么获取右上方圈主的这2个东西。
+
+![image-20230110181720550](C:/Users/TMJIE5200/AppData/Roaming/Typora/typora-user-images/image-20230110181720550.png)
 
 
 
+6、[RAM 访问控制 (aliyun.com)](https://ram.console.aliyun.com/overview)进入该网站，点击用户，创建用户，选择OpenAPI 调用访问启用 AccessKey ID 和 AccessKey Secret，支持通过 API 或其他开发工具访问如果有了请忽略，然后点击授权，授权范围嫌麻烦就直接选整个云账号，授权主体输入你的用户名，系统策略这里添加下图中的4个（或者2个圈主的）。
+
+![image-20230110182212853](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101822521.png)
+
+确定后会给你AccessKey ID 和 AccessKey Secret，保存好。
+
+7、写程序
+
+结构如下：
+
+![image-20230110182342102](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101823497.png)
+
+代码：
+
+1、controller
+
+```java
+package top.keyle.msm_service.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.*;
+import top.keyle.msm_service.service.MsmService;
+import top.keyle.universal_tool.RandomUtil;
+import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
-Failed to start bean 'documentationPluginsBootstrapper'; 报错
-原因：高版springboot 不兼容 swagger-ui
-解决方法：
-spring:
-mvc:
-pathmatch:
-matching-strategy: ant_path_matcher
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * @author TMJIE5200
+ * @date 2023-01-10 14:42:53
+ * @week 星期二
+ */
+@RestController
+@RequestMapping("/edumsm/msm")
+@CrossOrigin
+
+public class MsmApiController {
+    @Autowired
+    private MsmService msmService;
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
+    /**
+     *
+     * @param phone 电话号码
+     * @return
+     */
+    @GetMapping(value = "/send/{phone}")
+    public RespBean code(@PathVariable String phone) {
+        // 通过电话号码从redis中获取对应的code
+        String code = redisTemplate.opsForValue().get(phone);
+        if(!ObjectUtils.isEmpty(code)) {
+            // 如果发现存在code，则表明发送成功。
+            return RespBean.success();
+        }
+        // 生成随机数字作为code
+        code = RandomUtil.getFourBitRandom();
+        Map<String,Object> param = new HashMap<>();
+        param.put("code", code);
+        // 通过阿里云的短信服务将code发送到手机上，返回发送结果成功或是失败
+        boolean isSend = msmService.send(phone, "SMS_154950909", param);
+        if(isSend) {
+            // 设置 电话、验证码、过期时间、时间单位
+            redisTemplate.opsForValue().set(phone, code,5, TimeUnit.MINUTES);
+            // 表明发送成功
+            return RespBean.success();
+        } else {
+            // 发送失败
+            return RespBean.error(RespBeanEnum.ERROR_FAILED_TO_SEND_MSM);
+        }
+    }
+}
+```
+
+2、service
+
+```Java
+package top.keyle.msm_service.service;
+import java.util.Map;
+
+/**
+ * @author TMJIE5200
+ * @date 2023-01-10 14:43:57
+ * @week 星期二
+ */
+public interface MsmService {
+    boolean send(String PhoneNumbers, String templateCode,
+                        Map<String, Object> param);
+}
+```
+
+3、serviceImpl
+
+```java
+package top.keyle.msm_service.service.impl;
+
+import com.alibaba.fastjson.JSONObject;
+import com.aliyuncs.CommonRequest;
+import com.aliyuncs.CommonResponse;
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
+import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.profile.DefaultProfile;
+import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
+import top.keyle.msm_service.service.MsmService;
+
+import java.util.Map;
+
+/**
+ * @author TMJIE5200
+ * @date 2023-01-10 14:43:49
+ * @week 星期二
+ */
+@Service
+public class MsmServiceImpl implements MsmService {
+     /**
+     * 发送短信
+     */
+    @Override
+    public boolean send(String PhoneNumbers, String templateCode, Map<String, Object> param) {
+            if (ObjectUtils.isEmpty(PhoneNumbers)) {
+                return false;
+            }
+        // cn-hangzhou固定，后面是你生成的AccessKey ID 和 AccessKey Secret
+            DefaultProfile profile =
+                    DefaultProfile.getProfile("cn-hangzhou", "xxxxxxx",
+                            "xxxxxx");
+            IAcsClient client = new DefaultAcsClient(profile);
+
+            CommonRequest request = new CommonRequest();
+            // 设置相关固定的参数，固定、固定、固定。
+            request.setMethod(MethodType.POST);
+            request.setDomain("dysmsapi.aliyuncs.com");
+            request.setVersion("2017-05-25");
+            request.setAction("SendSms");
+        
+            // 设置相关的参数
+            // 手机号
+            request.putQueryParameter("PhoneNumbers", PhoneNumbers);
+            // 必须和上图名称一致
+            request.putQueryParameter("SignName", "阿里云短信测试");
+            //申请阿里云 模板code
+            request.putQueryParameter("TemplateCode", templateCode);
+            //验证码数据，转换json数据传递
+            request.putQueryParameter("TemplateParam",
+                    JSONObject.toJSONString(param));
+            try {
+                CommonResponse response = client.getCommonResponse(request);
+                System.out.println(response.getData());
+                return response.getHttpResponse().isSuccess();
+            } catch (ClientException e) {
+                e.printStackTrace();
+            }
+            return false;
+    }
+}
+```
+
+4、properties
+
+```properties
+# 服务端口
+server.port=8006
+# 服务名
+spring.application.name=service_msm
+# mysql数据库连接
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/online_video_learning_system_db?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+spring.datasource.username=root
+spring.datasource.password=785099FFDD3F13D1ACEC7CBA98232021475759CE3AA9EFBF90CDD0E0
+# redis配置
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=123456
+spring.redis.database= 0
+spring.redis.timeout=1800000
+spring.redis.lettuce.pool.max-active=20
+spring.redis.lettuce.pool.max-wait=-1
+#最大阻塞等待时间(负数表示没限制)
+spring.redis.lettuce.pool.max-idle=5
+spring.redis.lettuce.pool.min-idle=0
+#最小空闲
+#返回json的全局时间格式
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone=GMT+8
+
+#mybatis日志
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+
 
 spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+```
 
 
-com.aliyuncs.exceptions.ClientException: MissingPhoneNumbers : PhoneNumbers is mandatory for this actionl;报错
+
+上面用到的包：RandomUtil
+
+```java
+package top.keyle.universal_tool;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+
+@SuppressWarnings("all")
+/**
+ * 获取4位随机数
+ *
+ */
+public class RandomUtil {
+
+   private static final Random random = new Random();
+
+   private static final DecimalFormat fourdf = new DecimalFormat("0000");
+
+   private static final DecimalFormat sixdf = new DecimalFormat("000000");
+
+   public static String getFourBitRandom() {
+      return fourdf.format(random.nextInt(10000));
+   }
+
+   public static String getSixBitRandom() {
+      return sixdf.format(random.nextInt(1000000));
+   }
+
+   /**
+    * 给定数组，抽取n个数据
+    * @param list
+    * @param n
+    * @return
+    */
+   public static ArrayList getRandom(List list, int n) {
+
+      Random random = new Random();
+
+      HashMap<Object, Object> hashMap = new HashMap<Object, Object>();
+
+      // 生成随机数字并存入HashMap
+      for (int i = 0; i < list.size(); i++) {
+
+         int number = random.nextInt(100) + 1;
+
+         hashMap.put(number, i);
+      }
+
+      // 从HashMap导入数组
+      Object[] robjs = hashMap.values().toArray();
+
+      ArrayList r = new ArrayList();
+
+      // 遍历数组并打印数据
+      for (int i = 0; i < n; i++) {
+         r.add(list.get((int) robjs[i]));
+         System.out.print(list.get((int) robjs[i]) + "\t");
+      }
+      System.out.print("\n");
+      return r;
+   }
+}
+```
+
+用到的依赖：
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-core</artifactId>
+    </dependency>
+</dependencies>
+```
+
+## 解决开发短信服务时遇到的问题
+
+
+
+### 1、Failed to start bean 'documentationPluginsBootstrapper'
+
+> ```yml
+> 原因：高版springboot 不兼容 swagger-ui
+> 解决方法：在配置文件中添加
+> spring:
+> 	mvc:
+> 		pathmatch:
+> 			matching-strategy: ant_path_matcher
+> 或者
+> spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+> ```
+>
+> 
+>
+
+### 2、com.aliyuncs.exceptions.ClientException: MissingPhoneNumbers : PhoneNumbers is mandatory for this actionl
+
+```
 原因：未使用阿里云官方案例中使用的参数，参数不一致，比如PhoneNumbers你写成了phoneNumbers，就报上面的错误
+```
+
 ![image-202301101802796](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202301101802796.png)
-**最后一次更新时间：2022年11月8日23点54分**
+
+
+
+
+
+
+
+
+
+
+
+
+
+**最后一次更新时间：2023年01月10日18点10分**
