@@ -3,6 +3,9 @@ package top.keyle.online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 import top.keyle.online_video_learning_system.entry.EduSubject;
+import top.keyle.online_video_learning_system.entry.vo.subject.OneSubject;
+
+import java.util.List;
 
 /**
 * @author TMJIE5200
@@ -13,4 +16,6 @@ import top.keyle.online_video_learning_system.entry.EduSubject;
 public interface EduSubjectService extends IService<EduSubject> {
     //添加课程分类
     void savaSubject(MultipartFile file,EduSubjectService eduSubjectService);
+
+    List<OneSubject> nestedList();
 }
