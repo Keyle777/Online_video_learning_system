@@ -3,8 +3,8 @@ package top.keyle.online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import top.keyle.online_video_learning_system.entry.EduComment;
 import top.keyle.online_video_learning_system.mapper.EduCommentMapper;
-import top.keyle.online_video_learning_system.pojo.EduComment;
 import top.keyle.online_video_learning_system.service.EduCommentService;
 
 /**

@@ -1,7 +1,7 @@
 package top.keyle.online_video_learning_system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.keyle.online_video_learning_system.pojo.EduComment;
+import top.keyle.online_video_learning_system.entry.EduComment;
 
 /**
 * @author TMJIE5200

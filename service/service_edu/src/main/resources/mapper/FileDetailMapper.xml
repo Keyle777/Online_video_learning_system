@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.keyle.online_video_learning_system.mapper.FileDetailMapper">
 
-    <resultMap id="BaseResultMap" type="top.keyle.online_video_learning_system.pojo.FileDetail">
+    <resultMap id="BaseResultMap" type="top.keyle.online_video_learning_system.entry.FileDetail">
             <id property="id" column="id" jdbcType="VARCHAR"/>
             <result property="url" column="url" jdbcType="VARCHAR"/>
             <result property="size" column="size" jdbcType="BIGINT"/>

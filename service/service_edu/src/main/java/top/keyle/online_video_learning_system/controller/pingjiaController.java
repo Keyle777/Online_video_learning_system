@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import top.keyle.online_video_learning_system.entry.EduComment;
 import top.keyle.online_video_learning_system.mapper.EduCommentMapper;
-import top.keyle.online_video_learning_system.pojo.EduComment;
 import top.keyle.universal_tool.RespBean;
 
 import java.util.Date;

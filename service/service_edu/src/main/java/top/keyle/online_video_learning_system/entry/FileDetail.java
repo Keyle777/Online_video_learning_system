@@ -1,4 +1,4 @@
-package top.keyle.online_video_learning_system.pojo;
+package top.keyle.online_video_learning_system.entry;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

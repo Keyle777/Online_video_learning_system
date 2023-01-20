@@ -1766,7 +1766,7 @@ public class JsonPage<T> implements Serializable {
 vo类：
 
 ```java
-package top.keyle.online_video_learning_system.pojo.vo;
+package top.keyle.online_video_learning_system.entry.vo;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;

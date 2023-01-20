@@ -3,7 +3,7 @@ package top.keyle.online_video_learning_system.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import top.keyle.online_video_learning_system.pojo.FileDetail;
+import top.keyle.online_video_learning_system.entry.FileDetail;
 
 import java.util.Collection;
 

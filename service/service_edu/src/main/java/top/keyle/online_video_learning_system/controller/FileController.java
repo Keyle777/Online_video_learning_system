@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import top.keyle.online_video_learning_system.pojo.FileDetail;
-import top.keyle.online_video_learning_system.service.FileDetailService;
+import top.keyle.online_video_learning_system.entry.FileDetail;
+import top.keyle.online_video_learning_system.service.impl.FileDetailService;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
@@ -68,6 +68,17 @@ public class FileController {
     public RespBean uploadPlatform(MultipartFile file) {
         return RespBean.success("imageFile",fileStorageService.of(file)
                 .setPlatform("aliyun-oss-1")    //使用指定的存储平台
+                .upload());
+    }
+
+    /**
+     * 上传文件到指定存储平台，成功返回文件信息
+     */
+    @PostMapping("/uploadExcel")
+    @ApiOperation(value = "上传Excel到oss，成功则返回文件详情信息")
+    public RespBean uploadExcel(MultipartFile file) {
+        return RespBean.success("ExcelFile",fileStorageService.of(file)
+                .setPlatform("aliyun-oss-2")    //使用指定的存储平台
                 .upload());
     }
 

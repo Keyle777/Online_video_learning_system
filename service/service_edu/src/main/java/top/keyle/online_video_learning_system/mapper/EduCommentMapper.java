@@ -2,7 +2,7 @@ package top.keyle.online_video_learning_system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import top.keyle.online_video_learning_system.pojo.EduComment;
+import top.keyle.online_video_learning_system.entry.EduComment;
 
 
 /**

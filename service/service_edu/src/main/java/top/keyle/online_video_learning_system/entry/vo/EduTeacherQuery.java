@@ -1,4 +1,4 @@
-package top.keyle.online_video_learning_system.pojo.vo;
+package top.keyle.online_video_learning_system.entry.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

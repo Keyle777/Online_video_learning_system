@@ -1,74 +1,69 @@
-package top.keyle.online_video_learning_system.pojo;
+package top.keyle.online_video_learning_system.entry;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.baomidou.mybatisplus.annotation.*;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 讲师
- * @TableName edu_teacher
+ * 评论表
+ * @TableName edu_comment
  */
-@TableName(value ="edu_teacher")
+@TableName(value ="edu_comment")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class EduTeacher implements Serializable {
+public class EduComment implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
     /**
-     * 讲师ID
+     * 评论id
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId
     private String id;
     /**
-     * 讲师姓名
+     * 课程id
      */
-    private String name;
+    private String courseId;
     /**
-     * 讲师简介
+     * 讲师id
      */
-    private String intro;
+    private String teacherId;
     /**
-     * 讲师资历,一句话说明讲师
+     * 会员id
      */
-    private String career;
+    private String memberId;
     /**
-     * 头衔 1高级讲师 2首席讲师
+     * 会员昵称
      */
-    private Object level;
+    private String nickname;
     /**
-     * 讲师头像
+     * 会员头像
      */
     private String avatar;
     /**
-     * 排序
+     * 星级
      */
-    private Object sort;
+    private String star;
+    /**
+     * 评论内容
+     */
+    private String content;
     /**
      * 逻辑删除 1（true）已删除， 0（false）未删除
      */
-    @TableLogic(value = "0", delval = "1")
-    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
     private Integer isDeleted;
     /**
      * 创建时间
      */
-    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
-    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
     private Date gmtCreate;
     /**
      * 更新时间
      */
-    @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
-    @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
 
     @Override
@@ -82,14 +77,15 @@ public class EduTeacher implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        EduTeacher other = (EduTeacher) that;
+        EduComment other = (EduComment) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getIntro() == null ? other.getIntro() == null : this.getIntro().equals(other.getIntro()))
-            && (this.getCareer() == null ? other.getCareer() == null : this.getCareer().equals(other.getCareer()))
-            && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()))
+            && (this.getCourseId() == null ? other.getCourseId() == null : this.getCourseId().equals(other.getCourseId()))
+            && (this.getTeacherId() == null ? other.getTeacherId() == null : this.getTeacherId().equals(other.getTeacherId()))
+            && (this.getMemberId() == null ? other.getMemberId() == null : this.getMemberId().equals(other.getMemberId()))
+            && (this.getNickname() == null ? other.getNickname() == null : this.getNickname().equals(other.getNickname()))
             && (this.getAvatar() == null ? other.getAvatar() == null : this.getAvatar().equals(other.getAvatar()))
-            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
+            && (this.getStar() == null ? other.getStar() == null : this.getStar().equals(other.getStar()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
             && (this.getGmtCreate() == null ? other.getGmtCreate() == null : this.getGmtCreate().equals(other.getGmtCreate()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()));
@@ -100,12 +96,13 @@ public class EduTeacher implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getIntro() == null) ? 0 : getIntro().hashCode());
-        result = prime * result + ((getCareer() == null) ? 0 : getCareer().hashCode());
-        result = prime * result + ((getLevel() == null) ? 0 : getLevel().hashCode());
+        result = prime * result + ((getCourseId() == null) ? 0 : getCourseId().hashCode());
+        result = prime * result + ((getTeacherId() == null) ? 0 : getTeacherId().hashCode());
+        result = prime * result + ((getMemberId() == null) ? 0 : getMemberId().hashCode());
+        result = prime * result + ((getNickname() == null) ? 0 : getNickname().hashCode());
         result = prime * result + ((getAvatar() == null) ? 0 : getAvatar().hashCode());
-        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
+        result = prime * result + ((getStar() == null) ? 0 : getStar().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
         result = prime * result + ((getGmtCreate() == null) ? 0 : getGmtCreate().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
@@ -119,12 +116,13 @@ public class EduTeacher implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", intro=").append(intro);
-        sb.append(", career=").append(career);
-        sb.append(", level=").append(level);
+        sb.append(", courseId=").append(courseId);
+        sb.append(", teacherId=").append(teacherId);
+        sb.append(", memberId=").append(memberId);
+        sb.append(", nickname=").append(nickname);
         sb.append(", avatar=").append(avatar);
-        sb.append(", sort=").append(sort);
+        sb.append(", star=").append(star);
+        sb.append(", content=").append(content);
         sb.append(", isDeleted=").append(isDeleted);
         sb.append(", gmtCreate=").append(gmtCreate);
         sb.append(", gmtModified=").append(gmtModified);

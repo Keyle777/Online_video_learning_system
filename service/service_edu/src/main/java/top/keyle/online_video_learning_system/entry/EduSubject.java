@@ -1,8 +1,10 @@
-package online_video_learning_system.pojo;
+package top.keyle.online_video_learning_system.entry;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,6 +16,7 @@ import java.util.Date;
  */
 @TableName(value ="edu_subject")
 @Data
+@ApiModel(value = "EduSubject对象",description = "课程科目")
 public class EduSubject implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -37,10 +40,12 @@ public class EduSubject implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private Date gmtCreate;
     /**
      * 更新时间
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
 
     @Override

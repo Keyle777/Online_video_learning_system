@@ -1,4 +1,4 @@
-package top.keyle.online_video_learning_system.service;
+package top.keyle.online_video_learning_system.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.lang.Dict;
@@ -10,8 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
+import top.keyle.online_video_learning_system.entry.FileDetail;
 import top.keyle.online_video_learning_system.mapper.FileDetailMapper;
-import top.keyle.online_video_learning_system.pojo.FileDetail;
 
 /**
  * 用来将文件上传记录保存到数据库，这里使用了 MyBatis-Plus 和 Hutool 工具类
