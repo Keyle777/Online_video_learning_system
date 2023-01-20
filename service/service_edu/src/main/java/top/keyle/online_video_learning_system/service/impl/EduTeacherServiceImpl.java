@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import top.keyle.online_video_learning_system.entry.EduTeacher;
-import top.keyle.online_video_learning_system.entry.vo.EduTeacherQuery;
+import top.keyle.online_video_learning_system.entry.vo.eduTeacher.EduTeacherQuery;
 import top.keyle.online_video_learning_system.mapper.EduTeacherMapper;
 import top.keyle.online_video_learning_system.service.EduTeacherService;
 import top.keyle.universal_tool.JsonPage;
