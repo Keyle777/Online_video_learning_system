@@ -51,6 +51,7 @@ public class FileController {
         FileInfo fileInfo = fileStorageService.of(file)
                 .image(img -> img.size(1000,1000))  //将图片大小调整到 1000*1000
                 .thumbnail(th -> th.size(120,120))  //再生成一张 120*120 的缩略图
+                .setPlatform("aliyun-oss-1")
                 .upload();
         if(ObjectUtils.isEmpty(fileInfo)){
             return RespBean.error(RespBeanEnum.ERROR);
