@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseInfoVO;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
+
+import java.util.HashMap;
 
 /**
  * @author TMJIE5200
@@ -30,7 +33,13 @@ public class EduCourseController {
     public RespBean addCourseInfo(
             @ApiParam(name = "CourseInfoVO", value = "课程基本信息的表单对象", required = true) @RequestBody CourseInfoVO courseInfoVO
     ){
-        String id = courseService.saveCourseInfo(courseInfoVO);
-        return RespBean.success("CourseID:"+id);
+        String courseID = courseService.saveCourseInfo(courseInfoVO);
+        if (!courseID.isEmpty()) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("CourseId",courseID);
+            return RespBean.success(hashMap);
+        }else{
+            return RespBean.error(RespBeanEnum.COURSE_ADDITION_FAILED);
+        }
     }
 }

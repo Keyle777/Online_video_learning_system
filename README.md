@@ -1653,6 +1653,17 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
 **注意**：使用该自动填充值的时候，在传入数据的时候必须有这个字段，不能不写，虽然这个字段你传的时候不论写什么最终都会被改成填充值，但你依旧要保留传的参数中有该字段。
 
+## mysql 选择语句的使用
+
+1、只有表的主键是**自增型**的才能在**insert**中使用if语句时可以选择不给实体传入ID，否则必须传ID。
+
+## mybatis插入后返回主键
+
+1. 对于支持生成自增主键的数据库，可以使用useGenerateKeys和keyProperty 来返回插入后的主键。
+2. 可以直接使用mybatis-plus的save方法，在serviceimpl里使用this.save保存之后，在用所存对象的getID()放方法即可得到。
+
+
+
 # Mybatis分页插件的使用
 
 ## 使用性能更好的pageHelp

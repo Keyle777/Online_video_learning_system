@@ -2,6 +2,7 @@ package top.keyle.online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.keyle.online_video_learning_system.entry.EduCourse;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseInfoVO;
@@ -18,7 +19,8 @@ import top.keyle.universal_tool.RespBeanEnum;
 @Service
 public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse>
     implements EduCourseService {
-
+    @Autowired
+    EduCourseMapper eduCourseMapper;
     /**
      * 添加课程基本信息
      * @param courseInfoVO 课程基本信息的表单对象
@@ -29,8 +31,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         // 向课程表添加课程基本信息
         EduCourse eduCourse = new EduCourse();
         BeanUtils.copyProperties(courseInfoVO, eduCourse);
-        boolean isSave = this.save(eduCourse);
-        if(!isSave) {
+        if(!this.save(eduCourse)) {
             // 添加失败
             throw new GlobalException(RespBeanEnum.COURSE_ADDITION_FAILED);
         }

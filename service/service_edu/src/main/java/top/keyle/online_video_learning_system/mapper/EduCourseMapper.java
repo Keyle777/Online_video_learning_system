@@ -13,6 +13,7 @@ import top.keyle.online_video_learning_system.entry.EduCourse;
 @Mapper
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
 
+
 }
 
 
