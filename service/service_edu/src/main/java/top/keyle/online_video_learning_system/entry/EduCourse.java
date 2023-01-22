@@ -83,6 +83,7 @@ public class EduCourse implements Serializable {
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
+
     /**
      * 课程简介
      */

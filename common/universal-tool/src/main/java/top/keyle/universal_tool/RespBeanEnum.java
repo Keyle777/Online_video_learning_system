@@ -29,7 +29,8 @@ public enum RespBeanEnum {
     ERROR_LOGIN50014(50014,"Token expired"),
     ERROR_FAILED_TO_SEND_MSM(20020,"发送短信失败"),
     ERROR_THE_FILE_DATA_IS_EMPTY(20021,"文件数据为空"),
-    ADD_ERROR(20004,"添加用户失败");
+    ADD_ERROR(20004,"添加用户失败"),
+    COURSE_ADDITION_FAILED(20005, "添加课程信息失败");
     private final Integer code;
     private final String message;
 }
