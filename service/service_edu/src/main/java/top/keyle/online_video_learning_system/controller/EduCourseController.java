@@ -42,4 +42,13 @@ public class EduCourseController {
             return RespBean.error(RespBeanEnum.COURSE_ADDITION_FAILED);
         }
     }
+
+    // 根据课程id查询课程基本信息
+    @GetMapping("getCourseInfo/{courseId}")
+    public RespBean getCourseInfo(@PathVariable String courseId) {
+        CourseInfoVO courseInfoVo = courseService.getCourseInfo(courseId);
+        return RespBean.success("courseInfoVo",courseInfoVo);
+    }
+
+
 }

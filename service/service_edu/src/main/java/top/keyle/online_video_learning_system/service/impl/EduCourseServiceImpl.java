@@ -37,6 +37,28 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         }
         return eduCourse.getId();
     }
+
+    // 根据课程id查询课程基本信息
+    @Override
+    public CourseInfoVO getCourseInfo(String courseId) {
+
+        // 查询课程表
+        EduCourse eduCourse = baseMapper.selectById(courseId);
+        CourseInfoVO courseInfoVo = new CourseInfoVO();
+        BeanUtils.copyProperties(eduCourse, courseInfoVo);
+        return courseInfoVo;
+    }
+    // 修改课程信息
+    @Override
+    public void updateCourseInfo(CourseInfoVO courseInfoVo) {
+        // 1.修改课程表
+        EduCourse eduCourse = new EduCourse();
+        BeanUtils.copyProperties(courseInfoVo, eduCourse);
+        int update = baseMapper.updateById(eduCourse);
+        if (update == 0) {
+            throw new GlobalException(RespBeanEnum.FAILED_TO_MODIFY_COURSE);
+        }
+    }
 }
 
 
