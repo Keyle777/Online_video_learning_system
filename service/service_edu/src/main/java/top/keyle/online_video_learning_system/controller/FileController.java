@@ -82,6 +82,17 @@ public class FileController {
                 .upload());
     }
 
+    /**
+     * 上传文件到指定存储平台，成功返回文件信息
+     */
+    @PostMapping("/uploadCover")
+    @ApiOperation(value = "上传课程封面到oss，成功则返回文件详情信息")
+    public RespBean uploadCover(MultipartFile file) {
+        return RespBean.success("CoverFile",fileStorageService.of(file)
+                .setPlatform("aliyun-oss-3")    //使用指定的存储平台
+                .upload());
+    }
+
     @DeleteMapping("/deleteImageBasedOnUrl")
     @ApiOperation(value = "传入图片文件删除图片")
     public RespBean deleteImageBasedOnUrl(@RequestBody(required = false) FileDetail imageFile){

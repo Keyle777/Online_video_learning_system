@@ -52,6 +52,16 @@ spring:
         bucket-name: keyle777
         domain: https://keyle777.oss-cn-nanjing.aliyuncs.com/ # 访问域名，注意“/”结尾，例如：https://abc.oss-cn-shanghai.aliyuncs.com/
         base-path: subject/ # 基础路径
+
+      - platform: aliyun-oss-3 # 存储平台标识
+        enable-storage: true  # 启用存储
+        access-key: LTAI5tDA1Ud51HRmc62j2mMm
+        secret-key: 2j4PIY8uQ7WEatCOPMZYbhqtBcnzS1
+        end-point: oss-cn-nanjing.aliyuncs.com
+        bucket-name: keyle777
+        domain: https://keyle777.oss-cn-nanjing.aliyuncs.com/ # 访问域名，注意“/”结尾，例如：https://abc.oss-cn-shanghai.aliyuncs.com/
+        base-path: cover/ # 基础路径
+
     default-platform: aliyun-oss-1
 
   mvc:

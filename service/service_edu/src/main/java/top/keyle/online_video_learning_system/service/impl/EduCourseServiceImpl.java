@@ -44,15 +44,15 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
         // 查询课程表
         EduCourse eduCourse = baseMapper.selectById(courseId);
+        System.out.println("我是根据课程id查询课程基本信息"+eduCourse);
         CourseInfoVO courseInfoVo = new CourseInfoVO();
         BeanUtils.copyProperties(eduCourse, courseInfoVo);
         return courseInfoVo;
     }
     // 修改课程信息
     @Override
-    public void updateCourseInfo(CourseInfoVO courseInfoVo) {
-        // 1.修改课程表
-        EduCourse eduCourse = new EduCourse();
+    public void updateCourseInfo(EduCourse eduCourse,CourseInfoVO courseInfoVo) {
+        // 资源 目标
         BeanUtils.copyProperties(courseInfoVo, eduCourse);
         int update = baseMapper.updateById(eduCourse);
         if (update == 0) {

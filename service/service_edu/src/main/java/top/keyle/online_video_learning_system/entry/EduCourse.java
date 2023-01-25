@@ -48,7 +48,7 @@ public class EduCourse implements Serializable {
     /**
      * 总课时
      */
-    private Object lessonNum;
+    private Integer lessonNum;
     /**
      * 课程封面图片路径
      */
