@@ -1,5 +1,6 @@
 package top.keyle.online_video_learning_system.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.keyle.online_video_learning_system.entry.EduVideo;
@@ -14,7 +15,13 @@ import top.keyle.online_video_learning_system.service.EduVideoService;
 @Service
 public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     implements EduVideoService {
-
+    @Override
+    public boolean getCountByChapterId(String chapterId) {
+        QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("chapter_id", chapterId);
+        Long count = baseMapper.selectCount(queryWrapper);
+        return null != count && count > 0;
+    }
 }
 
 

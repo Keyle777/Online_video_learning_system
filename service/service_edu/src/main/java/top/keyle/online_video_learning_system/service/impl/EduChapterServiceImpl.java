@@ -12,6 +12,8 @@ import top.keyle.online_video_learning_system.entry.vo.video.VideoVo;
 import top.keyle.online_video_learning_system.mapper.EduChapterMapper;
 import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduVideoService;
+import top.keyle.universal_tool.GlobalException;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,53 +29,54 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
 
     @Autowired
     private EduVideoService eduVideoService;
-
     @Override
     public List<ChapterVo> getChapterVideoByCourseId(String courseId) {
-
-        //1 根据课程id查询课程里面的章节
-        QueryWrapper<EduChapter> wrapperChapter = new QueryWrapper<>();
-        wrapperChapter.eq("course_id",courseId);
-        List<EduChapter> eduChapterList = baseMapper.selectList(wrapperChapter);
-
-        //2 根据课程id查询课程里面的小节
-        QueryWrapper<EduVideo> wrapperVideo = new QueryWrapper<>();
-        wrapperVideo.eq("course_id",courseId);
-        List<EduVideo> eduVideoList = eduVideoService.list(wrapperVideo);
-
-        //创建list集合，用于最终封装的集合
-        List<ChapterVo> finallList = new ArrayList<>();
-
-        //3 遍历查询章节list集合进行封装
-        for (int i = 0; i < eduChapterList.size(); i++) {
-            //得到每个章节
-            EduChapter eduChapter = eduChapterList.get(i);
-            //将edChapter对象复制到ChapterVo里面
+        //最终要的到的数据列表
+        ArrayList<ChapterVo> chapterVoArrayList = new ArrayList<>();
+        //获取章节信息
+        QueryWrapper<EduChapter> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.eq("course_id", courseId);
+        queryWrapper1.orderByAsc("sort", "id");
+        List<EduChapter> chapters = baseMapper.selectList(queryWrapper1);
+        //获取课时信息
+        QueryWrapper<EduVideo> queryWrapper2 = new QueryWrapper<>();
+        queryWrapper2.eq("course_id", courseId);
+        queryWrapper2.orderByAsc("sort", "id");
+        List<EduVideo> videos = eduVideoService.list(queryWrapper2);
+        //填充章节vo数据
+        int count1 = chapters.size();
+        for (int i = 0; i < count1; i++) {
+            EduChapter chapter = chapters.get(i);
+            //创建章节vo对象
             ChapterVo chapterVo = new ChapterVo();
-            BeanUtils.copyProperties(eduChapter,chapterVo);
-            //把chapterVo放到最终的list集合中
-            finallList.add(chapterVo);
-
-            //创建集合，用于封装章节中的小节
-            List<VideoVo> videoList = new ArrayList<>();
-
-            //4 遍历查询小节list集合进行封装
-            for (int m = 0; m < eduVideoList.size(); m++) {
-                //得到每个小节
-                EduVideo eduVideo = eduVideoList.get(m);
-                //判断：小节里面chapterid和章节里面的id是否一样
-                if (eduVideo.getChapterId().equals(eduChapter.getId())) {
-                    //进行封装
+            BeanUtils.copyProperties(chapter, chapterVo);
+            chapterVoArrayList.add(chapterVo);
+            //填充课时vo数据
+            ArrayList<VideoVo> videoVoArrayList = new ArrayList<>();
+            int count2 = videos.size();
+            for (int j = 0; j < count2; j++) {
+                EduVideo video = videos.get(j);
+                if(chapter.getId().equals(video.getChapterId())){
+                    //创建课时vo对象
                     VideoVo videoVo = new VideoVo();
-                    BeanUtils.copyProperties(eduVideo,videoVo);
-                    //放在小节的集合中
-                    videoList.add(videoVo);
+                    BeanUtils.copyProperties(video, videoVo);
+                    videoVoArrayList.add(videoVo);
                 }
             }
-            //把封装之后的小节list集合，放到章节对象里面
-            chapterVo.setChildren(videoList);
+            chapterVo.setChildren(videoVoArrayList);
         }
-        return finallList;
+        return chapterVoArrayList;
+    }
+
+
+    @Override
+    public boolean removeChapterById(String id) {
+        //根据id查询是否存在视频，如果有则提示用户尚有子节点
+        if(eduVideoService.getCountByChapterId(id)){
+            throw new GlobalException(RespBeanEnum.VIDEO_PRESENCE_PROMPT);
+        }
+        Integer result = baseMapper.deleteById(id);
+        return null != result && result > 0;
     }
 }
 

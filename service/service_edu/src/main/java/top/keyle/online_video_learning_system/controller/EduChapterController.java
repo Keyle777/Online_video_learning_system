@@ -1,24 +1,20 @@
 package top.keyle.online_video_learning_system.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import top.keyle.online_video_learning_system.entry.EduChapter;
 import top.keyle.online_video_learning_system.entry.vo.chapter.ChapterVo;
 import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/eduService/chapter")
 @CrossOrigin
-@Api(tags = {"章节控制器"})
+@Api(tags = {"课程章节管理"})
 public class EduChapterController {
     @Autowired
     private EduChapterService eduChapterService;
@@ -29,12 +25,56 @@ public class EduChapterController {
      * @return
      */
     @ApiOperation(value = "课程大纲列表")
-    @GetMapping("/getChapterVideo")
+    @GetMapping("/getChapterVideo/{courseId}")
     @ApiImplicitParams({
             @ApiImplicitParam(value = "课程ID", name = "courseId")
     })
     public RespBean getChapterVideo(String courseId){
         List<ChapterVo> list = eduChapterService.getChapterVideoByCourseId(courseId);
-        return RespBean.success("allChapterVideo",list);
+        return RespBean.success("items",list);
+    }
+
+
+    @ApiOperation(value = "新增章节")
+    @PostMapping("/addedChapters")
+    public RespBean save(
+            @ApiParam(name = "chapterVo", value = "章节对象", required = true)
+            @RequestBody EduChapter chapter){
+        eduChapterService.save(chapter);
+        return RespBean.success();
+    }
+
+    @ApiOperation(value = "根据ID查询章节")
+    @GetMapping("{id}")
+    public RespBean getById(
+            @ApiParam(name = "id", value = "章节ID", required = true)
+            @PathVariable String id){
+        EduChapter chapter = eduChapterService.getById(id);
+        return RespBean.success("item", chapter);
+    }
+
+    @ApiOperation(value = "根据ID修改章节")
+    @PutMapping("{id}")
+    public RespBean updateById(
+            @ApiParam(name = "id", value = "章节ID", required = true)
+            @PathVariable String id,
+            @ApiParam(name = "chapter", value = "章节对象", required = true)
+            @RequestBody EduChapter chapter){
+        chapter.setId(id);
+        eduChapterService.updateById(chapter);
+        return RespBean.success();
+    }
+
+    @ApiOperation(value = "根据ID删除章节")
+    @DeleteMapping("{id}")
+    public RespBean removeById(
+            @ApiParam(name = "id", value = "章节ID", required = true)
+            @PathVariable String id){
+        boolean result = eduChapterService.removeChapterById(id);
+        if(result){
+            return RespBean.success();
+        }else{
+            return RespBean.error(RespBeanEnum.DELETE_ERROR);
+        }
     }
 }

@@ -10,4 +10,5 @@ import top.keyle.online_video_learning_system.entry.EduVideo;
 */
 public interface EduVideoService extends IService<EduVideo> {
 
+    boolean getCountByChapterId(String chapterId);
 }

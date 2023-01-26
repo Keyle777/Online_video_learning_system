@@ -31,7 +31,9 @@ public enum RespBeanEnum {
     ERROR_THE_FILE_DATA_IS_EMPTY(20021,"文件数据为空"),
     ADD_ERROR(20004,"添加用户失败"),
     COURSE_ADDITION_FAILED(20005, "添加课程信息失败"),
-    FAILED_TO_MODIFY_COURSE(20006,"修改课程信息失败"),;
+    FAILED_TO_MODIFY_COURSE(20006,"修改课程信息失败"),
+
+    VIDEO_PRESENCE_PROMPT(20007,"该分章节下存在视频课程，请先删除视频课程");
     private final Integer code;
     private final String message;
 }

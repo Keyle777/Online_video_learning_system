@@ -18,4 +18,6 @@ public interface EduChapterService extends IService<EduChapter> {
      * @return
      */
     public List<ChapterVo> getChapterVideoByCourseId(String courseId);
+
+    boolean removeChapterById(String id);
 }
