@@ -93,6 +93,17 @@ public class FileController {
                 .upload());
     }
 
+    /**
+     * 上传文件到指定存储平台，成功返回文件信息
+     */
+    @PostMapping("/uploadVideo")
+    @ApiOperation(value = "上传视频到oss，成功则返回文件详情信息")
+    public RespBean uploadVideo(MultipartFile file) {
+        return RespBean.success("VideoFile",fileStorageService.of(file)
+                .setPlatform("aliyun-oss-4")    //使用指定的存储平台
+                .upload());
+    }
+
     @DeleteMapping("/deleteImageBasedOnUrl")
     @ApiOperation(value = "传入图片文件删除图片")
     public RespBean deleteImageBasedOnUrl(@RequestBody(required = false) FileDetail imageFile){

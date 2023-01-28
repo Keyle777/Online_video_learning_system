@@ -29,7 +29,7 @@ public class EduChapterController {
     @ApiImplicitParams({
             @ApiImplicitParam(value = "课程ID", name = "courseId")
     })
-    public RespBean getChapterVideo(String courseId){
+    public RespBean getChapterVideo(@PathVariable String courseId){
         List<ChapterVo> list = eduChapterService.getChapterVideoByCourseId(courseId);
         return RespBean.success("items",list);
     }

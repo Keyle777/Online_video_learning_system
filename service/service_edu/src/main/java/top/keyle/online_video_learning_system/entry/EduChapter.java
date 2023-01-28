@@ -1,8 +1,10 @@
 package top.keyle.online_video_learning_system.entry;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.Api;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,6 +16,7 @@ import java.util.Date;
  */
 @TableName(value ="edu_chapter")
 @Data
+@Api(value = "章节对象",description = "章节对象")
 public class EduChapter implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -34,13 +37,16 @@ public class EduChapter implements Serializable {
      * 显示排序
      */
     private Object sort;
-    /**
+
+
+    @TableField(fill = FieldFill.INSERT)    /**
      * 创建时间
      */
     private Date gmtCreate;
     /**
      * 更新时间
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
 
     @Override

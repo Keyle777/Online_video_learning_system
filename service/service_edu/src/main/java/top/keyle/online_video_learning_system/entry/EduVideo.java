@@ -1,5 +1,6 @@
 package top.keyle.online_video_learning_system.entry;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -70,10 +71,13 @@ public class EduVideo implements Serializable {
      * 乐观锁
      */
     private Long version;
-    /**
+
+    @TableField(fill = FieldFill.INSERT)    /**
      * 创建时间
      */
     private Date gmtCreate;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     /**
      * 更新时间
      */

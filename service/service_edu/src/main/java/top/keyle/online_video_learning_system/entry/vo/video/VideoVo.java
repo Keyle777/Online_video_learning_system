@@ -10,6 +10,7 @@ public class VideoVo {
     private static final long serialVersionUID = 1L;
     private String id;
     private String title;
+    private String videoSourceId;//视频id
     // 0收费 1免费
     private Integer free;
 
