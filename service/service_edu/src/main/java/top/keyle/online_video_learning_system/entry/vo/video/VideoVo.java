@@ -16,6 +16,6 @@ public class VideoVo {
     @ApiModelProperty(value = "视频资源")
     private String videoSourceId;
     @ApiModelProperty(value = "是否可以试听：0默认 1免费")
-    private Integer free;
+    private Integer isFree;
 
 }

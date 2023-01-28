@@ -56,7 +56,7 @@ public class EduVideo implements Serializable {
      * 排序字段
      */
     @ApiModelProperty(value = "排序字段")
-    private Object sort;
+    private Integer sort;
     /**
      * 视频播放总次数
      */

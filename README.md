@@ -2604,12 +2604,12 @@ public class RandomUtil {
 
 
 
+BeanUtils.copyProperties(videoInfoForm, video); 使用
 
 
 
 
-
-
+使用RequestBody的时候记得前端传的参数名和RequestBody后面对象的参数名保持一致，否则就会出现我这种isFree传不进的情况。
 
 
 
