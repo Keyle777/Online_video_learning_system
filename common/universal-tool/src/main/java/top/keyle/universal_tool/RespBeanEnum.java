@@ -34,7 +34,9 @@ public enum RespBeanEnum {
     FAILED_TO_MODIFY_COURSE(20006,"修改课程信息失败"),
 
     VIDEO_PRESENCE_PROMPT(20007,"该分章节下存在视频课程，请先删除视频课程"),
-    DELETING_VIDEO_FAILED(20008,"删除视频失败，熔断器...");
+    DELETING_VIDEO_FAILED(20008,"删除视频失败，熔断器..."),
+    LESSON_SAVING_FAILED(20009,"课时信息保存失败"),
+    THE_DATA_DOES_NOT_EXIST(20010,"数据不存在");
     private final Integer code;
     private final String message;
 }

@@ -1,9 +1,11 @@
 package top.keyle.online_video_learning_system.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.keyle.online_video_learning_system.entry.EduVideo;
+import top.keyle.online_video_learning_system.entry.vo.video.VideoInfoForm;
 import top.keyle.online_video_learning_system.service.EduVideoService;
 import top.keyle.universal_tool.RespBean;
 
@@ -15,15 +17,17 @@ import top.keyle.universal_tool.RespBean;
 @RestController
 @RequestMapping("/eduService/video")
 @CrossOrigin
-@Api(tags = {"视频控制器"})
+@Api(tags = {"视频(课时)管理"})
 public class EduVideoController {
 
     @Autowired
     private EduVideoService videoService;
-/**/
-    @PostMapping("save")
-    public RespBean save(@RequestBody EduVideo video) {
-        boolean save = videoService.save(video);
+    @PostMapping("/addVideo")
+    @ApiOperation(value = "新增课时")
+    public RespBean addVideo(
+            @ApiParam(name = "videoInfoForm", value = "课时对象", required = true)
+            @RequestBody VideoInfoForm videoInfoForm) {
+        boolean save = videoService.saveVideoInfo(videoInfoForm);
         if (save) {
             return RespBean.success();
         } else {
@@ -38,9 +42,11 @@ public class EduVideoController {
      * @return
      */
     @GetMapping("{id}")
-    public RespBean getVideoById(@PathVariable String id) {
-        EduVideo video = videoService.getById(id);
-        return RespBean.success("video", video);
+    public RespBean getVideoById(
+            @ApiParam(name = "id", value = "课时ID", required = true)
+            @PathVariable String id) {
+        VideoInfoForm videoInfoForm = videoService.getVideoInfoFormById(id);
+        return RespBean.success("item", videoInfoForm);
     }
 
     /**
@@ -50,8 +56,10 @@ public class EduVideoController {
      * @return
      */
     @PutMapping("update")
-    public RespBean update(@RequestBody EduVideo video) {
-        boolean update = videoService.updateById(video);
+    public RespBean update(
+            @ApiParam(name = "VideoInfoForm", value = "课时基本信息", required = true)
+            @RequestBody VideoInfoForm videoInfoForm) {
+        boolean update = videoService.updateVideoInfoById(videoInfoForm);
         if (update) {
             return RespBean.success();
         } else {
@@ -59,27 +67,15 @@ public class EduVideoController {
         }
     }
 
-    /*@DeleteMapping("{id}")
-    public RespBean deleteById(@PathVariable String id) {
-        // 根据小节id获取视频id，调用方法实现视频删除
-        EduVideo eduVideo = videoService.getById(id);
-        String videoSourceId = eduVideo.getVideoSourceId();
-
-        // 判断小节里面是否有视频id
-        if(videoSourceId.isEmpty()){
-            // 根据视频id,远程调用实现视频删除
-            RespBean result = vodClient.getVideoPlayAuth(videoSourceId);
-            if(result.getCode() == 20001){
-                throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
-            }
-        }
-
-        // 删除小节
-        Boolean flag = videoService.removeVideoById(id);
-        if(flag){
-            return Result.ok();
+    @DeleteMapping("{id}")
+    public RespBean deleteById(
+            @ApiParam(name = "id", value = "课时ID", required = true)
+            @PathVariable String id) {
+        boolean result = videoService.removeVideoById(id);
+        if(result){
+            return RespBean.success();
         }else{
-            return Result.error();
+            return RespBean.error();
         }
-    }*/
+    }
 }
