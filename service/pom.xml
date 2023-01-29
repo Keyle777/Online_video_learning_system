@@ -26,6 +26,7 @@
     <modules>
         <module>service_edu</module>
         <module>service_msm</module>
+        <module>service_vod</module>
     </modules>
 
     <dependencies>

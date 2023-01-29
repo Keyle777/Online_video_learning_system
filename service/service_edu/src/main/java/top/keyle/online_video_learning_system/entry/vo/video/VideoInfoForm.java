@@ -20,4 +20,6 @@ public class VideoInfoForm {
  private Integer sort;
  @ApiModelProperty(value = "是否可以试听：0默认 1免费")
  private Integer isFree;
+ @ApiModelProperty(value = "视频大小")
+ private Long size;
 }

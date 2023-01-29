@@ -78,7 +78,7 @@ public class EduCourse implements Serializable {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT)
     private Date gmtCreate;
     /**
      * 更新时间

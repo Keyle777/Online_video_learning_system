@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @week 星期二
  */
 @RestController
-@RequestMapping("/edumsm/msm")
+@RequestMapping("/msmService/msm")
 @CrossOrigin
 
 public class MsmApiController {

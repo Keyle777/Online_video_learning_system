@@ -13,6 +13,8 @@ spring:
       connection-test-query: SELECT 1
   #开启热加载
   devtools:
+    livereload:
+      port: 35779
     restart:
       additional-paths: src/main/java
       exclude: WEB-INF/**,static/**,public/**,application-dev.properties

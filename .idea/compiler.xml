@@ -10,6 +10,7 @@
         <module name="service_edu" />
         <module name="service_msm" />
         <module name="universal-tool" />
+        <module name="service_vod" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="service-base" options="" />
       <module name="service_edu" options="-parameters" />
       <module name="service_msm" options="-parameters" />
+      <module name="service_vod" options="-parameters" />
       <module name="universal-tool" options="-parameters" />
     </option>
   </component>
