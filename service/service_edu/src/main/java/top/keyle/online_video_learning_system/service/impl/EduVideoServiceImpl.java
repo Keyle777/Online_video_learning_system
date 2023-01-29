@@ -12,13 +12,13 @@ import top.keyle.universal_tool.GlobalException;
 import top.keyle.universal_tool.RespBeanEnum;
 
 /**
-* @author TMJIE5200
-* @description 针对表【edu_video(课程视频表)】的数据库操作Service实现
-* @createDate 2023-01-23 21:11:51
-*/
+ * @author TMJIE5200
+ * @description 针对表【edu_video(课程视频表)】的数据库操作Service实现
+ * @createDate 2023-01-23 21:11:51
+ */
 @Service
 public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
-    implements EduVideoService {
+        implements EduVideoService {
     @Override
     public boolean getCountByChapterId(String chapterId) {
         QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
@@ -32,7 +32,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         EduVideo video = new EduVideo();
         BeanUtils.copyProperties(videoInfoForm, video);
         boolean result = this.save(video);
-        if(!result){
+        if (!result) {
             throw new GlobalException(RespBeanEnum.LESSON_SAVING_FAILED);
         }
         return true;
@@ -42,7 +42,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     public VideoInfoForm getVideoInfoFormById(String id) {
         //从video表中取数据
         EduVideo video = this.getById(id);
-        if(video == null){
+        if (video == null) {
             throw new GlobalException(RespBeanEnum.THE_DATA_DOES_NOT_EXIST);
         }
         //创建videoInfoForm对象
@@ -57,7 +57,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         EduVideo video = new EduVideo();
         BeanUtils.copyProperties(videoInfoForm, video);
         boolean result = this.updateById(video);
-        if(!result){
+        if (!result) {
             throw new GlobalException(RespBeanEnum.LESSON_SAVING_FAILED);
         }
         return true;
@@ -67,6 +67,14 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     public boolean removeVideoById(String id) {
         Integer result = baseMapper.deleteById(id);
         return result > 0;
+    }
+
+    @Override
+    public boolean removeByCourseId(String courseId) {
+        QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id", courseId);
+        Integer count = baseMapper.delete(queryWrapper);
+        return count > 0;
     }
 }
 

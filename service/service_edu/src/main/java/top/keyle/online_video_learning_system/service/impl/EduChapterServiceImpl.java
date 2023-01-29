@@ -75,8 +75,10 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         if(eduVideoService.getCountByChapterId(id)){
             throw new GlobalException(RespBeanEnum.VIDEO_PRESENCE_PROMPT);
         }
-        Integer result = baseMapper.deleteById(id);
-        return null != result && result > 0;
+        QueryWrapper<EduChapter> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id", id);
+        Integer count = baseMapper.delete(queryWrapper);
+        return null != count && count > 0;
     }
 }
 

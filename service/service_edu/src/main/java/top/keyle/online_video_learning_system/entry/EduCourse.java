@@ -18,8 +18,10 @@ import java.util.Date;
 @Data
 @SuppressWarnings("all")
 public class EduCourse implements Serializable {
-    @TableField(exist = false)
+
     private static final long serialVersionUID = 1L;
+    public static final String COURSE_NORMAL = "Normal";
+    public static final String COURSE_DRAFT = "Draft";
     /**
      * 课程ID
      */

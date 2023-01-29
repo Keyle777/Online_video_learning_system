@@ -20,4 +20,6 @@ public interface EduVideoService extends IService<EduVideo> {
     Boolean updateVideoInfoById(VideoInfoForm videoInfoForm);
     // 根据课时ID删除课时
     boolean removeVideoById(String id);
+
+    boolean removeByCourseId(String courseId);
 }
