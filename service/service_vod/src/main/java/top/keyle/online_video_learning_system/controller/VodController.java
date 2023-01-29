@@ -2,6 +2,7 @@ package top.keyle.online_video_learning_system.controller;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.vod.model.v20170321.GetVideoInfoResponse;
 import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
 import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
 import io.swagger.annotations.Api;
@@ -27,6 +28,18 @@ import java.util.List;
 public class VodController {
     @Autowired
     private VodService vodService;
+
+    /**
+     * 根据id获得视频详细信息
+     * @param id
+     * @return
+     */
+    @GetMapping("{id}")
+    public RespBean queryDetailsBasedOnVideoID(@PathVariable String id){
+        GetVideoInfoResponse videoInfoResponse = vodService.queryDetailsBasedOnVideoID(id);
+        return RespBean.success("videoInfoResponse",videoInfoResponse);
+    }
+
 
     /**
      * 上传视频到阿里云
@@ -55,7 +68,6 @@ public class VodController {
         } else {
             return RespBean.error();
         }
-
     }
 
     // 删除多个阿里云视频的方法

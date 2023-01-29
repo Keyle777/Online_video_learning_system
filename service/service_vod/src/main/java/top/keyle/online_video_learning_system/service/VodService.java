@@ -1,5 +1,6 @@
 package top.keyle.online_video_learning_system.service;
 
+import com.aliyuncs.vod.model.v20170321.GetVideoInfoResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,5 +23,5 @@ public interface VodService {
      */
     Boolean removeMoreVideo(List<String> videoIdList);
 
-
+    GetVideoInfoResponse queryDetailsBasedOnVideoID(String videoID);
 }

@@ -5,9 +5,15 @@ import com.aliyun.vod.upload.impl.UploadVideoImpl;
 import com.aliyun.vod.upload.req.UploadStreamRequest;
 import com.aliyun.vod.upload.resp.UploadStreamResponse;
 import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.exceptions.ServerException;
+import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.vod.model.v20170321.DeleteVideoRequest;
 import com.aliyuncs.vod.model.v20170321.DeleteVideoResponse;
+import com.aliyuncs.vod.model.v20170321.GetVideoInfoRequest;
+import com.aliyuncs.vod.model.v20170321.GetVideoInfoResponse;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -101,4 +107,23 @@ public class VodServiceImpl implements VodService {
         }
     }
 
+    @Override
+    public GetVideoInfoResponse queryDetailsBasedOnVideoID(String videoID) {
+        DefaultProfile profile = DefaultProfile.getProfile("cn-shanghai", ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
+        IAcsClient client = new DefaultAcsClient(profile);
+        GetVideoInfoRequest request = new GetVideoInfoRequest();
+        request.setVideoId(videoID);
+        try {
+            GetVideoInfoResponse response = client.getAcsResponse(request);
+            System.out.println(new Gson().toJson(response));
+            return response;
+        } catch (ServerException e) {
+            e.printStackTrace();
+        } catch (ClientException e) {
+            System.out.println("ErrCode:" + e.getErrCode());
+            System.out.println("ErrMsg:" + e.getErrMsg());
+            System.out.println("RequestId:" + e.getRequestId());
+        }
+        return null;
+    }
 }

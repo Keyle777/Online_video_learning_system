@@ -22,4 +22,10 @@ public class VideoInfoForm {
  private Integer isFree;
  @ApiModelProperty(value = "视频大小")
  private Long size;
+ @ApiModelProperty(value = "视频时长（秒）")
+ private Double duration;
+ @ApiModelProperty(value = "视频状态:见阿里云文档")
+ private String status;
+ @ApiModelProperty(value = "云服务器上存储的视频文件名称")
+ private String videoOriginalName;
 }

@@ -15,4 +15,5 @@ public class AliyunVodSDKUtil {
         DefaultAcsClient client = new DefaultAcsClient(profile);
         return client;
     }
+
 }
