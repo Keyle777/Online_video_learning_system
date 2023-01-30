@@ -2,10 +2,12 @@ package top.keyle.online_video_learning_system.controller;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.vod.model.v20170321.GetMezzanineInfoResponse;
 import com.aliyuncs.vod.model.v20170321.GetVideoInfoResponse;
 import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
 import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,8 +37,10 @@ public class VodController {
      * @return
      */
     @GetMapping("{id}")
+    @ApiOperation(value = "根据课程ID获取视频全部信息")
     public RespBean queryDetailsBasedOnVideoID(@PathVariable String id){
         GetVideoInfoResponse videoInfoResponse = vodService.queryDetailsBasedOnVideoID(id);
+
         return RespBean.success("videoInfoResponse",videoInfoResponse);
     }
 
@@ -48,19 +52,20 @@ public class VodController {
      * @return
      */
     @PostMapping("/uploadVideo")
+    @ApiOperation(value = "上传视频至阿里云")
     public RespBean uploadAlyVideo(MultipartFile file) {
         // 返回上传视频的id值
         String videoId = vodService.uploadVideo(file);
-        return RespBean.success("videoId", videoId);
+        return RespBean.success("videoId",videoId);
     }
 
     /**
-     * 根据视频ID删除视频
      *
      * @param videoSourceId
      * @return
      */
     @DeleteMapping("{videoSourceId}")
+    @ApiOperation(value = "获取视频播放身份验证")
     public RespBean getVideoPlayAuth(@PathVariable String videoSourceId) {
         Boolean flag = vodService.deleteVodById(videoSourceId);
         if (flag) {
@@ -70,9 +75,8 @@ public class VodController {
         }
     }
 
-    // 删除多个阿里云视频的方法
-    // 参数多个视频id List videoIdList
     @DeleteMapping("delete-batch")
+    @ApiOperation(value = "删除多个阿里云视频的方法")
     public RespBean deleteBatch(@RequestParam("videoIdList") List<String> videoIdList) {
         Boolean flag = vodService.removeMoreVideo(videoIdList);
         if (flag) {
@@ -88,6 +92,7 @@ public class VodController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "根据id获取视频凭证")
     @GetMapping("getPlayAuth/{id}")
     public RespBean getPlayAuth(@PathVariable String id) {
         try {
@@ -107,4 +112,25 @@ public class VodController {
             throw new GlobalException(RespBeanEnum.FAILED_TO_GET_CREDENTIALS);
         }
     }
+
+    @ApiOperation(value = "人工审核通过方法")
+    @GetMapping("/CreateAudit/{AuditContent}")
+    public RespBean CreateAudit(@PathVariable String AuditContent){
+        return RespBean.success("CreateAudit",vodService.CreateAudit(AuditContent));
+    }
+
+    @ApiOperation(value = "获取音视频的源文件信息，包括文件地址、分辨率、码率等")
+    @GetMapping("/GetMezzanineInfo/{VideoId}")
+    public RespBean GetMezzanineInfo(@PathVariable String VideoId){
+        return RespBean.success("GetMezzanineInfo",vodService.GetMezzanineInfo(VideoId));
+    }
+
+    @ApiOperation(value = "获取音视频的时长")
+    @GetMapping("/getVideoDuration/{VideoId}")
+    public RespBean getVideoDuration(@PathVariable String VideoId){
+        GetMezzanineInfoResponse response = vodService.GetMezzanineInfo(VideoId);
+        Double duration = Double.valueOf(response.getMezzanine().getDuration());
+        return RespBean.success("duration",duration);
+    }
+
 }
