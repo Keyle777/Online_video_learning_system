@@ -1,6 +1,6 @@
 spring:
   application:
-    name: service_edu
+    name: service-edu
     # 项目在启动的时候根据下面的配置去寻找配置文件
   cloud:
     nacos:
