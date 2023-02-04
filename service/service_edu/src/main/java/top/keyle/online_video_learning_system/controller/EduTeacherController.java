@@ -103,7 +103,7 @@ public class EduTeacherController {
     })
     public RespBean pageListEduTeacher(@PathVariable Integer current, @PathVariable Integer limit) {
         // 分页调用
-        JsonPage<EduTeacher> jsonPage = eduTeacherService.getAllOrdersByPage(
+        JsonPage<EduTeacher> jsonPage = eduTeacherService.paginateToGetAListOfInstructors(
                 current, limit);
         return RespBean.success(jsonPage);
     }
@@ -120,7 +120,7 @@ public class EduTeacherController {
             @PathVariable Integer limit,
             @RequestBody(required = false) EduTeacherQuery eduTeacherQuery) {
         JsonPage<EduTeacher> jsonPage = eduTeacherService
-                .getAllOrdersByPageCondition(current, limit, eduTeacherQuery);
+                .getAListOfInstructorsBasedOnCriteria(current, limit, eduTeacherQuery);
         return RespBean.success(jsonPage);
     }
 

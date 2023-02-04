@@ -1,9 +1,6 @@
 package top.keyle.online_video_learning_system.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entry.EduCourse;
@@ -12,11 +9,11 @@ import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseQuery;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.universal_tool.GlobalException;
+import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * @author TMJIE5200
@@ -98,21 +95,21 @@ public class EduCourseController {
 
     @ApiOperation(value = "分页课程列表")
     @GetMapping("{page}/{limit}")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "页码", name = "page", example = "1", required = true),
+            @ApiImplicitParam(value = "每页条数", name = "limit", example = "5", required = true),
+            @ApiImplicitParam(value = "查询条件对象", name = "courseQuery", paramType = "body", dataType = "CourseQuery")
+    })
     public RespBean pageQuery(
             @ApiParam(name = "page", value = "当前页码", required = true)
-            @PathVariable Long page,
+            @PathVariable Integer page,
             @ApiParam(name = "limit", value = "每页记录数", required = true)
-            @PathVariable Long limit,
+            @PathVariable Integer limit,
             @ApiParam(name = "courseQuery", value = "查询对象", required = false)
             CourseQuery courseQuery){
-        Page<EduCourse> pageParam = new Page<>(page, limit);
-        courseService.pageQuery(pageParam, courseQuery);
-        List<EduCourse> records = pageParam.getRecords();
-        long total = pageParam.getTotal();
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("total", total);
-        hashMap.put("rows", records);
-        return RespBean.success(hashMap);
+        JsonPage<EduCourse> jsonPage = courseService
+                .getAListOfCoursesBasedOnCriteria(page, limit, courseQuery);
+        return RespBean.success(jsonPage);
     }
 
     @ApiOperation(value = "根据ID删除课程")

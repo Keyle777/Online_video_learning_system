@@ -40,14 +40,14 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
     }
 
     @Override
-    public JsonPage<EduTeacher> getAllOrdersByPage(Integer page, Integer pageSize) {
+    public JsonPage<EduTeacher> paginateToGetAListOfInstructors(Integer page, Integer pageSize) {
         PageHelper.startPage(page, pageSize);
         List<EduTeacher> eduTeacherList = eduTeacherMapper.selectList(null);
         return JsonPage.restPage(new PageInfo<>(eduTeacherList));
     }
 
     @Override
-    public JsonPage<EduTeacher> getAllOrdersByPageCondition(Integer page, Integer pageSize, EduTeacherQuery eduTeacherQuery) {
+    public JsonPage<EduTeacher> getAListOfInstructorsBasedOnCriteria(Integer page, Integer pageSize, EduTeacherQuery eduTeacherQuery) {
         PageHelper.startPage(page, pageSize);
         LambdaQueryWrapper<EduTeacher> wrapper = new LambdaQueryWrapper<>();
         String name = eduTeacherQuery.getName();

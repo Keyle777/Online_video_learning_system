@@ -27,9 +27,9 @@ public interface EduTeacherService extends IService<EduTeacher> {
      * @return
      */
     int insertBatch(@Param("eduTeacherCollection") Collection<EduTeacher> eduTeacherCollection);
-    JsonPage<EduTeacher> getAllOrdersByPage(@Param("page") Integer page,@Param("pageSize") Integer pageSize);
+    JsonPage<EduTeacher> paginateToGetAListOfInstructors(@Param("page") Integer page, @Param("pageSize") Integer pageSize);
 
-    JsonPage<EduTeacher> getAllOrdersByPageCondition(@Param("page") Integer page, @Param("pageSize") Integer pageSize,@Param("eduTeacherQuery") EduTeacherQuery eduTeacherQuery);
+    JsonPage<EduTeacher> getAListOfInstructorsBasedOnCriteria(@Param("page") Integer page, @Param("pageSize") Integer pageSize, @Param("eduTeacherQuery") EduTeacherQuery eduTeacherQuery);
 
     boolean updateSelective(EduTeacher eduTeacher);
 }

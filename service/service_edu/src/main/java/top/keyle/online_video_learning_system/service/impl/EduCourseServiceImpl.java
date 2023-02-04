@@ -1,8 +1,9 @@
 package top.keyle.online_video_learning_system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,10 @@ import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.online_video_learning_system.service.EduVideoService;
 import top.keyle.universal_tool.GlobalException;
+import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBeanEnum;
+
+import java.util.List;
 
 /**
  * @author TMJIE5200
@@ -88,32 +92,6 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     }
 
     @Override
-    public void pageQuery(Page<EduCourse> pageParam, CourseQuery courseQuery) {
-        QueryWrapper<EduCourse> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByDesc("gmt_create");
-        if (courseQuery == null) {
-            baseMapper.selectPage(pageParam, queryWrapper);
-        }
-        String title = courseQuery.getTitle();
-        String teacherId = courseQuery.getTeacherId();
-        String subjectParentId = courseQuery.getSubjectParentId();
-        String subjectId = courseQuery.getSubjectId();
-        if (!ObjectUtils.isEmpty(title)) {
-            queryWrapper.like("title", title);
-        }
-        if (!ObjectUtils.isEmpty(teacherId)) {
-            queryWrapper.eq("teacher_id", teacherId);
-        }
-        if (!ObjectUtils.isEmpty(subjectParentId)) {
-            queryWrapper.ge("subject_parent_id", subjectParentId);
-        }
-        if (!ObjectUtils.isEmpty(subjectId)) {
-            queryWrapper.ge("subject_id", subjectId);
-        }
-        baseMapper.selectPage(pageParam, queryWrapper);
-    }
-
-    @Override
     public boolean removeCourseById(String id) {
         //根据课程Id删除所有视频
         eduVideoService.removeByCourseId(id);
@@ -121,6 +99,29 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         eduChapterService.removeChapterById(id);
         Integer result = baseMapper.deleteById(id);
         return result > 0;
+    }
+
+    @Override
+    public JsonPage<EduCourse> getAListOfCoursesBasedOnCriteria(
+            Integer page,
+            Integer pageSize,
+            CourseQuery courseQuery) {
+
+        PageHelper.startPage(page, pageSize);
+        LambdaQueryWrapper<EduCourse> wrapper = new LambdaQueryWrapper<>();
+        String title = courseQuery.getTitle();
+        String teacherId = courseQuery.getTeacherId();
+        String subjectParentId = courseQuery.getSubjectParentId();
+        String subjectId = courseQuery.getSubjectId();
+        wrapper.like(!ObjectUtils.isEmpty(title), EduCourse::getTitle, title)
+                .eq(!ObjectUtils.isEmpty(teacherId), EduCourse::getTeacherId, teacherId)
+                .ge(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
+                .ge(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
+                .orderByDesc(EduCourse::getGmtCreate);
+
+        List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
+        return JsonPage.restPage(new PageInfo<>(eduCourseList));
+
     }
 }
 
