@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.entry.vo.video.VideoInfoForm;
 
+import java.util.List;
+
 /**
 * @author TMJIE5200
 * @description 针对表【edu_video(课程视频表)】的数据库操作Service
@@ -18,8 +20,8 @@ public interface EduVideoService extends IService<EduVideo> {
     VideoInfoForm getVideoInfoFormById(String id);
     // 更新课时
     Boolean updateVideoInfoById(VideoInfoForm videoInfoForm);
-    // 根据课时ID删除课时
+    // 根据视频资源ID删除
     boolean removeVideoById(String id);
-
+    boolean removeVideoList(List<String> videoIdList);
     boolean removeByCourseId(String courseId);
 }

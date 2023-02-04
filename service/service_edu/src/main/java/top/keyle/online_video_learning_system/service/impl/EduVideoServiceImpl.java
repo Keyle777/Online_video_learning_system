@@ -1,15 +1,20 @@
 package top.keyle.online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.keyle.online_video_learning_system.client.VodClient;
 import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.entry.vo.video.VideoInfoForm;
 import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
 import top.keyle.online_video_learning_system.service.EduVideoService;
 import top.keyle.universal_tool.GlobalException;
 import top.keyle.universal_tool.RespBeanEnum;
+
+import java.util.List;
 
 /**
  * @author TMJIE5200
@@ -19,6 +24,9 @@ import top.keyle.universal_tool.RespBeanEnum;
 @Service
 public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         implements EduVideoService {
+
+    @Autowired
+    VodClient vodClient;
     @Override
     public boolean getCountByChapterId(String chapterId) {
         QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
@@ -65,8 +73,20 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
 
     @Override
     public boolean removeVideoById(String id) {
-        Integer result = baseMapper.deleteById(id);
+        //查询云端视频id
+        EduVideo eduVideo = baseMapper.selectById(id);
+        String videoSourceId = eduVideo.getVideoSourceId();
+        //删除视频资源
+        if(!StringUtils.isEmpty(videoSourceId)){
+            vodClient.deleteAliVideoByVideoSourceId(videoSourceId);
+        }
+        int result = baseMapper.deleteById(id);
         return result > 0;
+    }
+
+    @Override
+    public boolean removeVideoList(List<String> videoIdList) {
+        return false;
     }
 
     @Override
