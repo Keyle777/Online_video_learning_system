@@ -124,4 +124,22 @@ public class EduCourseController {
             return RespBean.error(RespBeanEnum.DELETE_ERROR);
         }
     }
+
+    @ApiOperation(value = "根据ID批量删除课程")
+    @GetMapping("deleteCoursesInBulk")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "所勾选的课程ID", name = "theIDToDelete")
+    })
+    public RespBean deleteCoursesInBulk(
+            String theIDToDelete
+    ){
+        if (theIDToDelete.isEmpty()) {
+            return RespBean.error();
+        }
+        String[] Ids = theIDToDelete.split(",");
+        for (String id : Ids) {
+            courseService.removeCourseById(id);
+        }
+        return RespBean.success();
+    }
 }

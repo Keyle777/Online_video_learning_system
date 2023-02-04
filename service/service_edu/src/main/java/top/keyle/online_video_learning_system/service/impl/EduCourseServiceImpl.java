@@ -113,11 +113,13 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         String teacherId = courseQuery.getTeacherId();
         String subjectParentId = courseQuery.getSubjectParentId();
         String subjectId = courseQuery.getSubjectId();
+        String status = courseQuery.getStatus();
         wrapper.like(!ObjectUtils.isEmpty(title), EduCourse::getTitle, title)
                 .eq(!ObjectUtils.isEmpty(teacherId), EduCourse::getTeacherId, teacherId)
                 .ge(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
                 .ge(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
-                .orderByDesc(EduCourse::getGmtCreate);
+                .orderByDesc(EduCourse::getGmtCreate)
+                .eq(!ObjectUtils.isEmpty(status), EduCourse::getStatus, status);
 
         List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduCourseList));
