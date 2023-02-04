@@ -77,6 +77,11 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+      # nacos服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -86,4 +91,7 @@ pagehelper:
   defaultCount: true # 分页插件默认参数支持 default-count 形式，自定义扩展的参数，必须大小写一致
 server:
   port: 8080
+
+
+
 

@@ -75,7 +75,7 @@ public class VodController {
         }
     }
 
-    @DeleteMapping("delete-batch")
+    @DeleteMapping("deleteBatch")
     @ApiOperation(value = "删除多个阿里云视频的方法")
     public RespBean deleteBatch(@RequestParam("videoIdList") List<String> videoIdList) {
         Boolean flag = vodService.removeMoreVideo(videoIdList);

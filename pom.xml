@@ -3,6 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+
+
     <modules>
         <module>service</module>
         <module>common</module>
@@ -43,7 +45,9 @@
         <commons-dbutils.version>1.7</commons-dbutils.version>
         <canal.client.version>1.1.0</canal.client.version>
         <docker.image.prefix>zx</docker.image.prefix>
-        <cloud-alibaba.version>0.2.2.RELEASE</cloud-alibaba.version>
+
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
     </properties>
 
     <dependencyManagement>
@@ -54,19 +58,19 @@
                 <artifactId>aliyun-java-sdk-kms</artifactId>
                 <version>${aliyun-java-sdk-km.version}</version>
             </dependency>
-            <!--Spring Cloud-->
+            <!--Spring cloud Hoxton.SR1-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.RELEASE</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <!--Spring cloud alibaba 2.1.0.RELEASE-->
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
+                <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${cloud-alibaba.version}</version>
+                <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -208,6 +212,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
 
     <build>
         <plugins>

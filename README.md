@@ -2611,6 +2611,7 @@ BeanUtils.copyProperties(videoInfoForm, video); 使用
 
 使用RequestBody的时候记得前端传的参数名和RequestBody后面对象的参数名保持一致，否则就会出现我这种isFree传不进的情况。
 
-
+# nacos的使用
+1、startup.cmd -m standalone在bin文件夹里cmd启动
 
 **最后一次更新时间：2023年01月10日18点10分**
