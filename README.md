@@ -2614,4 +2614,118 @@ BeanUtils.copyProperties(videoInfoForm, video); 使用
 # nacos的使用
 1、startup.cmd -m standalone在bin文件夹里cmd启动
 
-**最后一次更新时间：2023年01月10日18点10分**
+
+
+
+
+# spring cloud
+
+## 引入spring cloud
+
+### 版本问题，如何查找与自己springboot版本匹配的版本。
+
+[点击查看](https://start.spring.io/actuator/info)
+
+![image-20230204184727363](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202302041847220.png)
+
+
+
+```xml
+<spring.cloud.version>2021.0.5</spring.cloud.version>
+
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-dependencies</artifactId>
+    <version>${spring.cloud.version}</version>
+    <type>pom</type>
+    <scope>import</scope>
+</dependency>
+```
+
+
+
+```xml
+<spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+    <version>${spring.cloud.alibaba.version}</version>
+    <type>pom</type>
+    <scope>import</scope>
+</dependency>
+```
+
+spring-cloud-alibaba-dependencies这个版本如何确定呢？
+
+![image-20230204185536969](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202302041855479.png)
+
+
+
+```xml
+<!--服务注册-->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+</dependency>
+
+
+<!--服务调用-->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+    <version>3.1.5</version>
+</dependency>
+```
+
+这2个怎么选择版本呢？
+
+**spring-cloud-starter-alibaba-nacos-discovery的版本和spring-cloud-alibaba-dependencies的版本相同**
+
+spring-cloud-starter-openfeign，进入spring官网，点击方框中的内容
+
+![image-20230204185828323](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202302041858552.png)
+
+![image-20230204185907735](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202302041859257.png)
+
+确定版本为3.1.5
+
+### 在配置文件中的启用2种方式：
+
+**一定要有个name**，否则网页上不显示。
+
+```yml
+spring:
+  application:
+    name: service_edu
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+```
+
+
+
+```properties
+spring.application.name=service_vod
+spring.cloud.nacos.discovery.server-addr=localhost:8848
+```
+
+
+
+启动类上加上注解@EnableDiscoveryClient，即可在http://localhost:8848/nacos/index.html上输入nacos/nacos登录查看
+
+
+
+
+
+
+
+
+
+**最后一次更新时间：2023年02月05日18点10分**
+
+
+
+
+
