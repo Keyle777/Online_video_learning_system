@@ -64,7 +64,7 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
 
     @Override
     public Boolean updateSelective(EduTeacher eduTeacher) {
-        return eduTeacherMapper.updateSelective(eduTeacher)>0;
+        return eduTeacherMapper.updateSelective(eduTeacher) > 0;
     }
 }
 

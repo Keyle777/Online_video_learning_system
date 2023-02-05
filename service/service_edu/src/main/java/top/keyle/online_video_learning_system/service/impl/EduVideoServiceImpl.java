@@ -12,8 +12,10 @@ import top.keyle.online_video_learning_system.entry.vo.video.VideoInfoForm;
 import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
 import top.keyle.online_video_learning_system.service.EduVideoService;
 import top.keyle.universal_tool.GlobalException;
+import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,8 +29,9 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
 
     @Autowired
     VodClient vodClient;
+
     @Override
-    public boolean getCountByChapterId(String chapterId) {
+    public Boolean getCountByChapterId(String chapterId) {
         QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("chapter_id", chapterId);
         // 根据 chapter_id 条件，查询总记录数
@@ -73,29 +76,73 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     }
 
     @Override
-    public boolean removeVideoById(String id) {
-        //查询云端视频id
+    public Boolean removeVideoById(String id) {
+        //1、查询云端视频id
         EduVideo eduVideo = baseMapper.selectById(id);
         String videoSourceId = eduVideo.getVideoSourceId();
-        //删除视频资源
-        if(!StringUtils.isEmpty(videoSourceId)){
-            vodClient.deleteAliVideoByVideoSourceId(videoSourceId);
+        //2、判断视频源ID是否为空，不为空则调用vod模块中的删除阿里云视频方法，删除视频资源。
+        if (!StringUtils.isEmpty(videoSourceId)) {
+            RespBean respBean = vodClient.deleteAliVideoByVideoSourceId(videoSourceId);
+            if (respBean.getCode() == 20008) {
+                throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
+            }
         }
-        int result = baseMapper.deleteById(id);
-        return result > 0;
+        //3、删除数据库中video记录
+        return baseMapper.deleteById(id) > 0;
     }
 
     @Override
-    public boolean removeVideoList(List<String> videoIdList) {
-        return false;
+    public Boolean removeVideoList(List<String> videoIdList) {
+        ArrayList<String> videoSourceIds = new ArrayList<>();
+        //1、根据视频ID获取阿里云视频ID并加入到List集合中
+        for (String videoID :
+                videoIdList) {
+            String videoSourceId = baseMapper.selectById(videoID).getVideoSourceId();
+            if (!StringUtils.isEmpty(videoSourceId)) {
+                videoSourceIds.add(videoSourceId);
+            }
+        }
+        //2、调用vod模块中的批量删除阿里云视频方法，删除视频资源。
+        if (videoSourceIds.size() > 0 ){
+            RespBean respBean = vodClient.deleteBatchByVideoSourceIds(videoSourceIds);
+            if (respBean.getCode() == 20008) {
+                throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
+            }
+        }
+        //3、批量删除数据库中video记录
+        return baseMapper.deleteBatchIds(videoIdList) > 0;
     }
 
     @Override
-    public boolean removeByCourseId(String courseId) {
-        QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("course_id", courseId);
-        Integer count = baseMapper.delete(queryWrapper);
-        return count > 0;
+    public Boolean removeVideoByCourseId(String courseId) {
+        // 1. 根据课程id查询其下所有的video记录
+        QueryWrapper<EduVideo> wrapperVideo = new QueryWrapper<>();
+        wrapperVideo.eq("course_id",courseId);
+        wrapperVideo.select("video_source_id");
+        List<EduVideo> eduVideoList = baseMapper.selectList(wrapperVideo);
+
+        // 2、获取video中阿里云资源id
+        ArrayList<String> videoIds = new ArrayList<>();
+        for(int i =0; i < eduVideoList.size(); i++){
+            EduVideo eduVideo = eduVideoList.get(i);
+            String videoSourceId = eduVideo.getVideoSourceId();
+            if(!StringUtils.isEmpty(videoSourceId)){
+                // 放到videoIds集合里面
+                videoIds.add(videoSourceId);
+            }
+        }
+
+        // 3、根据多个视频id删除多个视频
+        if(videoIds.size() > 0){
+            RespBean respBean = vodClient.deleteBatchByVideoSourceIds(videoIds);
+            if (respBean.getCode() == 20008) {
+                throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
+            }
+        }
+        // 4、根据课程ID删除课程记录
+        QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
+        wrapper.eq("course_id",courseId);
+        return baseMapper.delete(wrapper) > 0;
     }
 }
 

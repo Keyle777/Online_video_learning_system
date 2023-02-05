@@ -1,10 +1,13 @@
 package top.keyle;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import top.keyle.online_video_learning_system.entry.EduVideo;
+import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
 import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.online_video_learning_system.service.EduSubjectService;
@@ -43,5 +46,17 @@ public class test1 {
     @Test
     public void nestedList(){
         System.out.println(eduSubjectService.nestedList());
+    }
+
+    @Autowired
+    EduVideoMapper eduVideoMapper;
+    @Test
+    public void getCountByChapterId(){
+
+        QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("chapter_id", "1619720061850308609");
+        // 根据 chapter_id 条件，查询总记录数
+        Long count = eduVideoMapper.selectCount(queryWrapper);
+        System.out.println(count);
     }
 }

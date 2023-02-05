@@ -68,13 +68,9 @@ public class VodServiceImpl implements VodService {
                     ConstantVodUtils.ACCESS_KEY_ID,
                     ConstantVodUtils.ACCESS_KEY_SECRET);
 
-            DeleteVideoResponse response = new DeleteVideoResponse();
             DeleteVideoRequest request = new DeleteVideoRequest();
-            //支持传入多个视频ID，多个用逗号分隔
             request.setVideoIds(videoSourceId);
-
-            response = client.getAcsResponse(request);
-
+            client.getAcsResponse(request);
             return true;
         } catch (Exception e) {
             System.out.print("ErrorMessage = " + e.getLocalizedMessage());
@@ -89,10 +85,8 @@ public class VodServiceImpl implements VodService {
             DefaultAcsClient client = AliyunVodSDKUtil.initVodClient(ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
             // 创建删除视频request对象
             DeleteVideoRequest request = new DeleteVideoRequest();
-
             // videoIdList值转成 1,2,3
             String videoIds = StringUtils.join(String.valueOf(videoIdList.toArray()), ",");
-
             // 向request设置视频id
             request.setVideoIds(videoIds);
             // 调用初始化对象的方法实现删除
