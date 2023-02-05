@@ -9,7 +9,6 @@ spring:
         file-extension: yml # 文件类型
 
 
-
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -100,7 +99,13 @@ pagehelper:
   defaultCount: true # 分页插件默认参数支持 default-count 形式，自定义扩展的参数，必须大小写一致
 server:
   port: 8080
-
+#  开启熔断
+feign:
+  circuitbreaker:
+    enabled: true
+#    连接超时时间6s
+  httpclient:
+    connection-timeout: 6000
 
 
 

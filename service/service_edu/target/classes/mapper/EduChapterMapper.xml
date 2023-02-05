@@ -17,4 +17,16 @@
         id,course_id,title,
         sort,gmt_create,gmt_modified
     </sql>
+    <select id="selectByCourseId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from edu_chapter
+        where
+        course_id = #{courseId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByCourseId">
+        delete
+        from edu_chapter
+        where course_id = #{courseId,jdbcType=VARCHAR}
+    </delete>
 </mapper>
