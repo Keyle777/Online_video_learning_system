@@ -13,6 +13,11 @@ import java.util.List;
 */
 public interface EduVideoService extends IService<EduVideo> {
 
+    /**
+     * 根据 chapter_id 条件，查询是否存在此章节，存在则返回true
+     * @param chapterId
+     * @return
+     */
     boolean getCountByChapterId(String chapterId);
     // 保存video表单数据
     Boolean saveVideoInfo(VideoInfoForm videoInfoForm);
@@ -23,5 +28,11 @@ public interface EduVideoService extends IService<EduVideo> {
     // 根据视频资源ID删除
     boolean removeVideoById(String id);
     boolean removeVideoList(List<String> videoIdList);
+
+    /**
+     * 根据课程ID删除课程
+     * @param courseId
+     * @return
+     */
     boolean removeByCourseId(String courseId);
 }

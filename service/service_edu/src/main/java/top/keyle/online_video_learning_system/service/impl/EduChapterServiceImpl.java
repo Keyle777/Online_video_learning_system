@@ -70,15 +70,19 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
 
 
     @Override
-    public boolean removeChapterById(String id) {
-        //根据id查询是否存在视频，如果有则提示用户尚有子节点
-        if(eduVideoService.getCountByChapterId(id)){
-            throw new GlobalException(RespBeanEnum.VIDEO_PRESENCE_PROMPT);
+    public Boolean removeChapterById(String id) {
+        // 1、判断章节的ID下面是否存在小节
+        QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
+        wrapper.eq("chapter_id",id);
+        List<EduVideo> list = eduVideoService.list(wrapper);
+        if(list.size() != 0){
+            throw new GlobalException(RespBeanEnum.THERE_ARE_SUBSECTIONS_UNDER_THIS_SECTION);
         }
-        QueryWrapper<EduChapter> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("course_id", id);
-        Integer count = baseMapper.delete(queryWrapper);
-        return null != count && count > 0;
+        // 2、执行到这里说明此章节id下没有查到video记录,可以删除
+        int i = baseMapper.deleteById(id);
+
+        // 3、删除章节
+        return i == 1;
     }
 }
 

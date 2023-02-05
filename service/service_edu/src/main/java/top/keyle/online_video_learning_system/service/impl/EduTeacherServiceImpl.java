@@ -30,13 +30,13 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
     EduTeacherMapper eduTeacherMapper;
 
     @Override
-    public int insertSelective(EduTeacher eduTeacher) {
-        return eduTeacherMapper.insertSelective(eduTeacher);
+    public Boolean insertSelective(EduTeacher eduTeacher) {
+        return eduTeacherMapper.insertSelective(eduTeacher) > 0;
     }
 
     @Override
-    public int insertBatch(Collection<EduTeacher> eduTeacherCollection) {
-        return eduTeacherMapper.insertBatch(eduTeacherCollection);
+    public Boolean insertBatch(Collection<EduTeacher> eduTeacherCollection) {
+        return eduTeacherMapper.insertBatch(eduTeacherCollection) > 0;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
     }
 
     @Override
-    public boolean updateSelective(EduTeacher eduTeacher) {
+    public Boolean updateSelective(EduTeacher eduTeacher) {
         return eduTeacherMapper.updateSelective(eduTeacher)>0;
     }
 }

@@ -44,7 +44,6 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         } catch (IOException e) {
             throw new GlobalException(RespBeanEnum.ERROR);
         }
-
     }
 
     /**

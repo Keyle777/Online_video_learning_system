@@ -14,8 +14,16 @@ import java.util.List;
 */
 
 public interface EduSubjectService extends IService<EduSubject> {
-    //添加课程分类
+    /**
+     * 添加记录在课程科目表中
+     * @param file excel文件
+     * @param eduSubjectService
+     */
     void savaSubject(MultipartFile file,EduSubjectService eduSubjectService);
 
+    /**
+     * 获取数据库中所有一级课程科目列表和其下的子课程科目列表
+     * @return 一级课程科目列表和其下的子课程科目列表
+     */
     List<OneSubject> nestedList();
 }

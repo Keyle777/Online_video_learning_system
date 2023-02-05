@@ -87,18 +87,17 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         EduCourse course = new EduCourse();
         course.setId(id);
         course.setStatus(EduCourse.COURSE_NORMAL);
-        Integer count = baseMapper.updateById(course);
-        return count > 0;
+        return baseMapper.updateById(course) > 0;
     }
 
     @Override
-    public boolean removeCourseById(String id) {
-        //根据课程Id删除所有视频
+    public Boolean removeCourseById(String id) {
+        //1、先根据课程Id删除video记录
         eduVideoService.removeByCourseId(id);
-        //根据课程Id删除所有章节
+        //2、根据课程Id删除chapter记录
         eduChapterService.removeChapterById(id);
-        Integer result = baseMapper.deleteById(id);
-        return result > 0;
+        //3、删除完所有依赖课程的记录后，删除课程。
+        return baseMapper.deleteById(id) > 0;
     }
 
     @Override

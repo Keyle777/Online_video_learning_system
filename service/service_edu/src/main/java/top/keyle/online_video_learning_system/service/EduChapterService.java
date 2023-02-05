@@ -13,13 +13,17 @@ import java.util.List;
 */
 public interface EduChapterService extends IService<EduChapter> {
     /**
-     * 按课程 ID 获取章节以及对应的小节视频
-     * @param courseId
-     * @return
+     * 按courseId(课程ID) 获取章节以及对应的video信息
+     * @param courseId 课程ID
+     * @return ChapterVo(章节信息)
      */
-    public List<ChapterVo> getChapterVideoByCourseId(String courseId);
+    List<ChapterVo> getChapterVideoByCourseId(String courseId);
 
-    boolean removeChapterById(String id);
-
+    /**
+     * 根据chapter_id(章节ID)删除章节，首先判断章节下是否有video记录，没有则删除，有则抛出错误。
+     * @param id 章节ID
+     * @return 没有video记录则删除章节成功true/失败false，否抛出错误。
+     */
+    Boolean removeChapterById(String id);
 
 }

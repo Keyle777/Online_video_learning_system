@@ -20,23 +20,52 @@ public interface EduCourseService extends IService<EduCourse> {
      * @return 返回添加后的课程信息id
      */
     String saveCourseInfo(CourseInfoVO courseInfoVO);
-    // 根据课程id查询课程基本信息
+
+    /**
+     * 根据课程id查询课程基本信息
+     * @param courseId 课程id
+     * @return CourseInfoVO(课程详情表单)
+     */
     CourseInfoVO getCourseInfo(String courseId);
 
-    // 修改课程信息
+    /**
+     * 修改课程信息
+     * @param eduCourse 课程对象
+     * @param courseInfoVo 课程详情表单对象
+     */
     void updateCourseInfo(EduCourse eduCourse,CourseInfoVO courseInfoVo);
 
-    // 根据id查询课程发布信息
+
+    /**
+     * 根据课程ID获取课程发布信息
+     * @param id 课程ID
+     * @return CoursePublishVo 发布课程表单对象
+     */
     CoursePublishVo getCoursePublishVoById(String id);
-    // 根据id发布课程
+
+    /**
+     * 根据课程id发布课程
+     * @param id 课程id
+     * @return 发布成功返回true,失败返回false
+     */
     Boolean publishCourseById(String id);
 
-    // 根据课程id删除章节
-    boolean removeCourseById(String id);
-    // 根据条件获取课程列表
+    /**
+     * 根据课程id删除课程记录
+     * @param id 课程id
+     * @return 成功返回true，否则返回false
+     */
+    Boolean removeCourseById(String id);
+
+    /**
+     * 根据分页条件获取课程列表
+     * @param page 页码
+     * @param pageSize 每页展示条数
+     * @param courseQuery 搜索条件对象
+     * @return 课程列表
+     */
     JsonPage<EduCourse> getAListOfCoursesBasedOnCriteria(
             @Param("page") Integer page,
             @Param("pageSize") Integer pageSize,
             @Param("courseQuery") CourseQuery courseQuery);
-
 }

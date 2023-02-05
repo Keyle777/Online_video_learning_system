@@ -72,6 +72,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--引入单元测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
         <!--引入mybatis-plus-->
         <dependency>
             <groupId>com.baomidou</groupId>

@@ -31,6 +31,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     public boolean getCountByChapterId(String chapterId) {
         QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("chapter_id", chapterId);
+        // 根据 chapter_id 条件，查询总记录数
         Long count = baseMapper.selectCount(queryWrapper);
         return null != count && count > 0;
     }

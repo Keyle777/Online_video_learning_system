@@ -408,7 +408,7 @@ CREATE TABLE `crm_banner` (
 -- ----------------------------
 -- Records of crm_banner
 -- ----------------------------
-INSERT INTO `crm_banner` VALUES ('1194556896025845762', 'test1', 'https://online-teach-file.oss-cn-beijing.aliyuncs.com/cms/2019/11/14/297acd3b-b592-4cfb-a446-a28310369675.jpg', '/course', '1', '0', '2019-11-13 18:05:32', '2019-11-18 10:28:22');
+INSERT INTO `crm_banner` VALUES ('1194556896025845762', 'top.keyle.test1', 'https://online-teach-file.oss-cn-beijing.aliyuncs.com/cms/2019/11/14/297acd3b-b592-4cfb-a446-a28310369675.jpg', '/course', '1', '0', '2019-11-13 18:05:32', '2019-11-18 10:28:22');
 INSERT INTO `crm_banner` VALUES ('1194607458461216769', 'test2', 'https://online-teach-file.oss-cn-beijing.aliyuncs.com/cms/2019/11/13/8f80790d-d736-4842-a6a4-4dcb0d684d4e.jpg', '/teacher', '2', '0', '2019-11-13 21:26:27', '2019-11-14 09:12:15');
 
 -- ----------------------------
@@ -1380,6 +1380,18 @@ spring.jackson.time-zone=GMT+8
 如果你不想使用fastjson，而**使用默认的处理json的方式**，那么依旧有一种差不多的方式，`@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")`
 
 **注意**当你配置了上面的配置类后，原生注解`JsonFormat`将失效。
+
+
+
+# 解决springboot测试中主程序中能加载bean测试中无法加载bean
+
+**测试类的报名必须和启动类的包名一致**
+
+![image-20230205143545972](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202302051435378.png)
+
+![image-20230205143607366](https://keyle777.oss-cn-nanjing.aliyuncs.com/image/202302051436690.png)
+
+
 
 # 处理时间
 
