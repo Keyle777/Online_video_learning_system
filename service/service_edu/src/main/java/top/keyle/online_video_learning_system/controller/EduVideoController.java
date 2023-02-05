@@ -9,6 +9,8 @@ import top.keyle.online_video_learning_system.entry.vo.video.VideoInfoForm;
 import top.keyle.online_video_learning_system.service.EduVideoService;
 import top.keyle.universal_tool.RespBean;
 
+import java.util.List;
+
 /**
  * @author TMJIE5200
  * @date 2023-01-23 22:06:02
@@ -77,5 +79,18 @@ public class EduVideoController {
         }else{
             return RespBean.error();
         }
+    }
+
+    /**
+     * 根据视频IDs，批量删除视频
+     * @param videoIdList videoIds
+     * @return 成功返回success，否则返回error
+     */
+    @DeleteMapping("deleteBatch")
+    public RespBean removeVideoList(
+            @ApiParam(name = "videoIdList", value = "云端视频id", required = true)
+            @RequestParam("videoIdList") List<String> videoIdList){
+        videoService.removeVideoList(videoIdList);
+        return RespBean.success();
     }
 }

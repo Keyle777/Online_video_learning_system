@@ -59,4 +59,9 @@ public class test1 {
         Long count = eduVideoMapper.selectCount(queryWrapper);
         System.out.println(count);
     }
+
+    @Test
+    public void removeVideoByCourseId(){
+        System.out.println(eduVideoService.removeVideoByCourseId("1622144153572409345"));
+    }
 }
