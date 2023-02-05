@@ -52,10 +52,9 @@ public class EduVideoController {
     }
 
     /**
-     * 修改
-     *
-     * @param video
-     * @return
+     * 修改视频信息
+     * @param videoInfoForm 视频表单
+     * @return success/error
      */
     @PutMapping("update")
     public RespBean update(

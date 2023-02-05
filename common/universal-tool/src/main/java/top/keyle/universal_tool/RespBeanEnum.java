@@ -39,7 +39,8 @@ public enum RespBeanEnum {
     THE_DATA_DOES_NOT_EXIST(20010,"数据不存在"),
     THE_VIDEO_ID_IS_EMPTY(20011,"videoId为空"),
     THERE_ARE_SUBSECTIONS_UNDER_THIS_SECTION(20012,"此章节下有小节，先删除"),
-    FAILED_TO_GET_CREDENTIALS(20013,"获取凭证失败");
+    FAILED_TO_GET_CREDENTIALS(20013,"获取凭证失败"),
+    CONNECTION_TIMED_OUT(20014,"连接超时");
     private final Integer code;
     private final String message;
 }

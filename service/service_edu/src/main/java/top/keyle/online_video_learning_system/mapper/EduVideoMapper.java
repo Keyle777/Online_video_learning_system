@@ -2,7 +2,10 @@ package top.keyle.online_video_learning_system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entry.EduVideo;
+
+import java.util.List;
 
 /**
 * @author TMJIE5200
@@ -12,6 +15,10 @@ import top.keyle.online_video_learning_system.entry.EduVideo;
 */
 @Mapper
 public interface EduVideoMapper extends BaseMapper<EduVideo> {
+
+    List<EduVideo> selectByChapterId(@Param("chapterId") String chapterId);
+
+    List<EduVideo> selectByCourseId(@Param("courseId") String courseId);
 
 }
 

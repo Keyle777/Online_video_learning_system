@@ -11,7 +11,7 @@
             <result property="title" column="title" jdbcType="VARCHAR"/>
             <result property="videoSourceId" column="video_source_id" jdbcType="VARCHAR"/>
             <result property="videoOriginalName" column="video_original_name" jdbcType="VARCHAR"/>
-            <result property="sort" column="sort" jdbcType="OTHER"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
             <result property="playCount" column="play_count" jdbcType="BIGINT"/>
             <result property="isFree" column="is_free" jdbcType="TINYINT"/>
             <result property="duration" column="duration" jdbcType="FLOAT"/>
@@ -29,4 +29,18 @@
         duration,status,size,
         version,gmt_create,gmt_modified
     </sql>
+    <select id="selectByChapterId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from edu_video
+        where
+        chapter_id = #{chapterId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByCourseId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from edu_video
+        where
+        course_id = #{courseId,jdbcType=VARCHAR}
+    </select>
 </mapper>

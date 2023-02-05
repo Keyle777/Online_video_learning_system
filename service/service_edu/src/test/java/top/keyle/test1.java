@@ -62,6 +62,12 @@ public class test1 {
 
     @Test
     public void removeVideoByCourseId(){
-        System.out.println(eduVideoService.removeVideoByCourseId("1622144153572409345"));
+            /*eduVideoService.removeVideoByCourseId("1622144153572409345");
+            * 这个没问题
+            *
+            * */
+
+            eduChapterService.removeChapterById("1622205121534935041");
+
     }
 }

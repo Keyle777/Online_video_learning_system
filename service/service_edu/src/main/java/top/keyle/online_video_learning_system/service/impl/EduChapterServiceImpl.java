@@ -10,10 +10,9 @@ import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.entry.vo.chapter.ChapterVo;
 import top.keyle.online_video_learning_system.entry.vo.video.VideoVo;
 import top.keyle.online_video_learning_system.mapper.EduChapterMapper;
+import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
 import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduVideoService;
-import top.keyle.universal_tool.GlobalException;
-import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,12 @@ import java.util.List;
 public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChapter> implements EduChapterService {
 
     @Autowired
-    private EduVideoService eduVideoService;
+    EduVideoService eduVideoService;
+
+    @Autowired
+    EduVideoMapper eduVideoMapper;
+    @Autowired
+    EduChapterMapper eduChapterMapper;
     @Override
     public List<ChapterVo> getChapterVideoByCourseId(String courseId) {
         //最终要的到的数据列表
@@ -72,14 +76,33 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
     @Override
     public Boolean removeChapterById(String id) {
         // 1、判断章节的ID下面是否存在小节
+        List<EduVideo> eduVideos = eduVideoMapper.selectByChapterId(id);
+        // 2、执行到这里说明此章节id下没有查到video记录,可以删除
+        if(eduVideos.size() != 0){
+            for (EduVideo eduVideo : eduVideos) {
+                QueryWrapper<EduVideo> videoQueryWrapper = new QueryWrapper<>();
+                String chapterId = eduVideo.getChapterId();
+                String videoSourceId = eduVideo.getId();
+                eduVideoService.removeVideoById(videoSourceId);
+                videoQueryWrapper.eq("chapter_id",chapterId);
+                eduVideoService.remove(videoQueryWrapper);
+            }
+        }
+        int delete = eduChapterMapper.deleteById(id);
+        return delete > 0;
+    }
+
+    @Override
+    public Boolean removeChapterByCourseId(String courseId) {
+        // 判断章节的ID下面是否存在小节
         QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
-        wrapper.eq("chapter_id",id);
+        wrapper.eq("course_id",courseId);
         List<EduVideo> list = eduVideoService.list(wrapper);
         if(list.size() != 0){
-            throw new GlobalException(RespBeanEnum.THERE_ARE_SUBSECTIONS_UNDER_THIS_SECTION);
+            eduVideoService.removeVideoByCourseId(courseId);
         }
-        // 2、执行到这里说明此章节id下没有查到video记录,可以删除
-        int i = baseMapper.deleteById(id);
+        // 2、如果有不能删除直接false
+        int i = eduChapterMapper.deleteByCourseId(courseId);
 
         // 3、删除章节
         return i == 1;

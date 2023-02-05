@@ -20,10 +20,16 @@ public interface EduChapterService extends IService<EduChapter> {
     List<ChapterVo> getChapterVideoByCourseId(String courseId);
 
     /**
-     * 根据chapter_id(章节ID)删除章节，首先判断章节下是否有video记录，没有则删除，有则抛出错误。
+     * 根据chapter_id(章节ID)删除章节以及其下的课时
      * @param id 章节ID
      * @return 没有video记录则删除章节成功true/失败false，否抛出错误。
      */
     Boolean removeChapterById(String id);
 
+    /**
+     * 根据课程id删除其下所有章节和章节下面的所有video
+     * @param courseId 课程id
+     * @return 成功返回true，失败返回false
+     */
+    Boolean removeChapterByCourseId(String courseId);
 }

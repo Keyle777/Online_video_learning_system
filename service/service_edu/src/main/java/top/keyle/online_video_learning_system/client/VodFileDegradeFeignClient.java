@@ -8,17 +8,19 @@ import top.keyle.universal_tool.RespBeanEnum;
 import java.util.List;
 
 /**
+ * 熔断器执行开始，连接超时则返回下面结果
  * @author TMJIE5200
  */
 @Component
 public class VodFileDegradeFeignClient implements VodClient{
+
     @Override
     public RespBean deleteAliVideoByVideoSourceId(String videoSourceId) {
-        return RespBean.error(RespBeanEnum.DELETING_VIDEO_FAILED);
+        return RespBean.error(RespBeanEnum.CONNECTION_TIMED_OUT);
     }
 
     @Override
     public RespBean deleteBatchByVideoSourceIds(List<String> videoIdList) {
-        return RespBean.error(RespBeanEnum.DELETING_VIDEO_FAILED);
+        return RespBean.error(RespBeanEnum.CONNECTION_TIMED_OUT);
     }
 }
