@@ -1,20 +1,13 @@
 package top.keyle.online_video_learning_system.controller;
 
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.vod.model.v20170321.GetMezzanineInfoResponse;
 import com.aliyuncs.vod.model.v20170321.GetVideoInfoResponse;
-import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
-import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import top.keyle.online_video_learning_system.service.VodService;
-import top.keyle.online_video_learning_system.utils.AliyunVodSDKUtil;
-import top.keyle.online_video_learning_system.utils.ConstantVodUtils;
-import top.keyle.universal_tool.GlobalException;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
@@ -60,13 +53,13 @@ public class VodController {
     }
 
     /**
-     *
-     * @param videoSourceId
-     * @return
+     * 删除视频
+     * @param videoSourceId 阿里云视频ID
+     * @return flag
      */
     @DeleteMapping("{videoSourceId}")
-    @ApiOperation(value = "获取视频播放身份验证")
-    public RespBean getVideoPlayAuth(@PathVariable String videoSourceId) {
+    @ApiOperation(value = "删除视频")
+    public RespBean deleteVodById(@PathVariable String videoSourceId) {
         Boolean flag = vodService.deleteVodById(videoSourceId);
         if (flag) {
             return RespBean.success();
@@ -95,22 +88,8 @@ public class VodController {
     @ApiOperation(value = "根据id获取视频凭证")
     @GetMapping("getPlayAuth/{id}")
     public RespBean getPlayAuth(@PathVariable String id) {
-        try {
-            // 创建初始化对象
-            DefaultAcsClient client = AliyunVodSDKUtil.initVodClient(ConstantVodUtils.ACCESS_KEY_ID,
-                    ConstantVodUtils.ACCESS_KEY_SECRET);
-            // 创建对象获取凭证request和response对象
-            GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
-            // 向request设置视频id
-            request.setVideoId(id);
-            // 调用方法得到凭证
-            GetVideoPlayAuthResponse response = client.getAcsResponse(request);
-            String playAuth = response.getPlayAuth();
-            return RespBean.success("playAuth", playAuth);
-        } catch (ClientException e) {
-            // 获取凭证失败
-            throw new GlobalException(RespBeanEnum.FAILED_TO_GET_CREDENTIALS);
-        }
+        String playAuth = vodService.getPlayAuth(id);
+        return RespBean.success("playAuth",playAuth);
     }
 
     @ApiOperation(value = "人工审核通过方法")

@@ -92,9 +92,9 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
     @Override
     public Boolean removeCourseById(String id) {
-        //2、根据课程Id删除chapter记录
+        //1、根据课程Id删除chapter记录
         eduChapterService.removeChapterByCourseId(id);
-        //3、删除完所有依赖课程的记录后，删除课程。
+        //2、删除完所有依赖课程的记录后，删除课程。
         return baseMapper.deleteById(id) > 0;
     }
 

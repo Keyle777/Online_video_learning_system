@@ -2727,6 +2727,126 @@ spring.cloud.nacos.discovery.server-addr=localhost:8848
 
 启动类上加上注解@EnableDiscoveryClient，即可在http://localhost:8848/nacos/index.html上输入nacos/nacos登录查看
 
+## 引入spring-cloud-Feign服务
+
+### 1、介绍
+
+- Feign是Netflix开发的声明式、模板化的HTTP客户端， Feign可以帮助我们更快捷、优雅地调 用HTTP API。
+- Feign支持多种注解，例如Feign自带的注解或者JAX-RS注解等。
+- Spring Cloud对Feign进行了增强，使Feign支持了Spring MVC注解，并整合了Ribbon和Eureka，从而让Feign的使用更加方便。
+- Spring Cloud Feign是基于Netflix feign实现，整合了Spring Cloud Ribbon和Spring Cloud Hystrix，除了提供这两者的强大功能外，还提供了一种声明式的Web服务客户端定义的方式。
+- Spring Cloud Feign帮助我们定义和实现依赖服务接口的定义。在Spring Cloud feign的实现下，只需要创建一个接口并用注解方式配置它，即可完成服务提供方的接口绑定，简化了在使用Spring Cloud Ribbon时自行封装服务调用客户端的开发量。
+
+### 2、删除小节删除视频
+
+#### （1）引入依赖
+
+在 service 模块的 pom 文件中：
+
+```xml
+<!-- 服务调用 -->
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+```
+
+#### （2）添加注解
+
+在**调用端的启动类（service_edu）**上添加注解：`@EnableFeignClients`
+
+#### （3）创建interface
+
+在com.atguigu.eduservice包下建立client包，并创建接口VodClient：
+
+```java
+@Component
+@FeignClient(name = "service-vod", fallback = VodFileDegradeFeignClient.class)
+public interface VodClient {
+    // 定义调用的方法路径
+    // 根据视频id删除阿里云视频
+    // @PathVariable注解一定要指定参数名称，否则出错
+@DeleteMapping("/vodService/video/{videoSourceId}")
+    public RespBean deleteAliVideoByVideoSourceId(@PathVariable("videoSourceId") String videoSourceId);
+}
+```
+
+####   (4)  实现该接口
+
+目的：调用该方法报错时，会调用实现方法内的代码。
+
+```java
+    @Override
+    public RespBean deleteAliVideoByVideoSourceId(String videoSourceId) {
+        return RespBean.error(RespBeanEnum.CONNECTION_TIMED_OUT);
+    }
+```
+
+#### （5）调用服务方法
+
+```java
+@Override
+public Boolean removeVideoById(String id) {
+    //1、查询云端视频id
+    EduVideo eduVideo = baseMapper.selectById(id);
+    String videoSourceId = eduVideo.getVideoSourceId();
+    //2、判断视频源ID是否为空，不为空则调用vod模块中的删除阿里云视频方法，删除视频资源。
+    if (!StringUtils.isEmpty(videoSourceId)) {
+        RespBean respBean = vodClient.deleteAliVideoByVideoSourceId(videoSourceId);
+        if (respBean.getCode() == 20008) {
+            throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
+        }
+    }
+    //3、删除数据库中video记录
+    return baseMapper.deleteById(id) > 0;
+}
+```
+
+在 EduVideoController 中修改：
+
+```java
+// 注入vodClient
+	@Autowired
+	private VodClient vodClient;
+
+    @DeleteMapping("{id}")
+    public RespBean deleteById(
+            @ApiParam(name = "id", value = "课时ID", required = true)
+            @PathVariable String id) {
+        boolean result = videoService.removeVideoById(id);
+        if(result){
+            return RespBean.success();
+        }else{
+            return RespBean.error();
+        }
+    }
+```
+
+## 报错：
+
+1、在**调用端的启动类（service_edu）**上添加注解：`@EnableFeignClients`时报错：No Feign Client for loadBalancing defined. Did you forget to include spring-cloud-starter-loadbalancer?
+
+解决办法：
+
+```xml
+ 其实解决原因他已经告诉我们了，就是说忘记加上 spring-cloud-starter-loadbalancer
+ 这是因为由于SpringCloud Feign在Hoxton.M2 RELEASED版本之后不再使用Ribbon而是使用spring-cloud-loadbalancer，所以不引入spring-cloud-loadbalancer会报错。
+ 需要在nacos注册发现依赖中把Ribbon 进行客户端负载均衡去掉就可以了
+ 
+ <!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <version>2.2.10.RELEASE</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+        
+```
+
 
 
 

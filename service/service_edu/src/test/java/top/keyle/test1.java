@@ -6,12 +6,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import top.keyle.online_video_learning_system.client.VodClient;
 import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
 import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.online_video_learning_system.service.EduSubjectService;
 import top.keyle.online_video_learning_system.service.EduVideoService;
+import top.keyle.universal_tool.RespBean;
 
 /**
  * @author TMJIE5200
@@ -60,6 +62,9 @@ public class test1 {
         System.out.println(count);
     }
 
+    @Autowired
+    VodClient vodClient;
+
     @Test
     public void removeVideoByCourseId(){
             /*eduVideoService.removeVideoByCourseId("1622144153572409345");
@@ -69,5 +74,11 @@ public class test1 {
 
             eduChapterService.removeChapterById("1622205121534935041");
 
+    }
+
+    @Test
+    public void deleteVideo(){
+        RespBean respBean = vodClient.deleteAliVideoByVideoSourceId("a4e3da50a5d071ed9dac6732b68e0102");
+        System.out.println(respBean);
     }
 }

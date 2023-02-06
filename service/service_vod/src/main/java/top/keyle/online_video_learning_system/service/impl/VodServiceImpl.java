@@ -27,7 +27,28 @@ import java.util.List;
 
 @Service
 @Slf4j
+@SuppressWarnings("all")
 public class VodServiceImpl implements VodService {
+    @Override
+    public String getPlayAuth(String videoId) {
+        try {
+            // 创建初始化对象
+            IAcsClient client = AliyunVodSDKUtil.initVodClient(ConstantVodUtils.ACCESS_KEY_ID,
+                    ConstantVodUtils.ACCESS_KEY_SECRET);
+            // 创建对象获取凭证request和response对象
+            GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
+            // 向request设置视频id
+            request.setVideoId(videoId);
+            // 调用方法得到凭证
+            GetVideoPlayAuthResponse response = client.getAcsResponse(request);
+            String playAuth = response.getPlayAuth();
+            return playAuth;
+        } catch (ClientException e) {
+            // 获取凭证失败
+            throw new GlobalException(RespBeanEnum.FAILED_TO_GET_CREDENTIALS);
+        }
+    }
+
     // 上传视频到阿里云
     @Override
     public String uploadVideo(MultipartFile file) {
@@ -63,39 +84,45 @@ public class VodServiceImpl implements VodService {
 
     @Override
     public Boolean deleteVodById(String videoSourceId) {
+        IAcsClient client = AliyunVodSDKUtil.initVodClient(
+                ConstantVodUtils.ACCESS_KEY_ID,
+                ConstantVodUtils.ACCESS_KEY_SECRET);
+        DeleteVideoRequest request = new DeleteVideoRequest();
+        request.setVideoIds(videoSourceId);
         try {
-            DefaultAcsClient client = AliyunVodSDKUtil.initVodClient(
-                    ConstantVodUtils.ACCESS_KEY_ID,
-                    ConstantVodUtils.ACCESS_KEY_SECRET);
-
-            DeleteVideoRequest request = new DeleteVideoRequest();
-            request.setVideoIds(videoSourceId);
-            client.getAcsResponse(request);
-            return true;
-        } catch (Exception e) {
-            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
-            return false;
+            DeleteVideoResponse response = client.getAcsResponse(request);
+            System.out.println(new Gson().toJson(response));
+        } catch (ServerException e) {
+            e.printStackTrace();
+        } catch (ClientException e) {
+            System.out.println("ErrCode:" + e.getErrCode());
+            System.out.println("ErrMsg:" + e.getErrMsg());
+            System.out.println("RequestId:" + e.getRequestId());
         }
+        return true;
     }
 
     @Override
     public Boolean removeMoreVideo(List<String> videoIdList) {
+        // 初始化对象
+        IAcsClient client = AliyunVodSDKUtil.initVodClient(ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
+        // 创建删除视频request对象
+        DeleteVideoRequest request = new DeleteVideoRequest();
+        // videoIdList值转成 1,2,3,一次最多删除20个视频
+        String videoIds = StringUtils.join(String.valueOf(videoIdList.toArray()), ",");
+        // 向request设置视频id
+        request.setVideoIds(videoIds);
         try {
-            // 初始化对象
-            DefaultAcsClient client = AliyunVodSDKUtil.initVodClient(ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
-            // 创建删除视频request对象
-            DeleteVideoRequest request = new DeleteVideoRequest();
-            // videoIdList值转成 1,2,3
-            String videoIds = StringUtils.join(String.valueOf(videoIdList.toArray()), ",");
-            // 向request设置视频id
-            request.setVideoIds(videoIds);
-            // 调用初始化对象的方法实现删除
-            client.getAcsResponse(request);
-            return true;
+            DeleteVideoResponse response = client.getAcsResponse(request);
+            System.out.println(new Gson().toJson(response));
+        } catch (ServerException e) {
+            e.printStackTrace();
         } catch (ClientException e) {
-            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
-            return false;
+            System.out.println("ErrCode:" + e.getErrCode());
+            System.out.println("ErrMsg:" + e.getErrMsg());
+            System.out.println("RequestId:" + e.getRequestId());
         }
+        return true;
     }
 
     @Override

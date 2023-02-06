@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public interface VodService {
+    String getPlayAuth(String videoId);
     String uploadVideo(MultipartFile file);
 
     /**
