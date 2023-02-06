@@ -120,18 +120,12 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         wrapperVideo.eq("course_id",courseId);
         wrapperVideo.select("video_source_id");
         List<EduVideo> eduVideoList = baseMapper.selectList(wrapperVideo);
-
+        System.out.println(eduVideoList);
         // 2、获取video中阿里云资源id
-        ArrayList<String> videoIds = new ArrayList<>();
-        for(int i =0; i < eduVideoList.size(); i++){
-            EduVideo eduVideo = eduVideoList.get(i);
-            String videoSourceId = eduVideo.getVideoSourceId();
-            if(!StringUtils.isEmpty(videoSourceId)){
-                // 放到videoIds集合里面
-                videoIds.add(videoSourceId);
-            }
+        List<String> videoIds = new ArrayList<>();
+        for (EduVideo video : eduVideoList) {
+            videoIds.add(video.getVideoSourceId());
         }
-
         // 3、根据多个视频id删除多个视频
         if(videoIds.size() > 0){
             RespBean respBean = vodClient.deleteBatchByVideoSourceIds(videoIds);

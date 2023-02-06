@@ -13,7 +13,6 @@ import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.online_video_learning_system.service.EduSubjectService;
 import top.keyle.online_video_learning_system.service.EduVideoService;
-import top.keyle.universal_tool.RespBean;
 
 /**
  * @author TMJIE5200
@@ -78,7 +77,7 @@ public class test1 {
 
     @Test
     public void deleteVideo(){
-        RespBean respBean = vodClient.deleteAliVideoByVideoSourceId("a4e3da50a5d071ed9dac6732b68e0102");
-        System.out.println(respBean);
+        Boolean aBoolean = eduVideoService.removeVideoById("1622465136619536386");
+        System.out.println(aBoolean);
     }
 }

@@ -1,6 +1,5 @@
 package top.keyle.online_video_learning_system.service.impl;
 
-import com.aliyun.oss.common.utils.StringUtils;
 import com.aliyun.vod.upload.impl.UploadVideoImpl;
 import com.aliyun.vod.upload.req.UploadStreamRequest;
 import com.aliyun.vod.upload.resp.UploadStreamResponse;
@@ -109,7 +108,14 @@ public class VodServiceImpl implements VodService {
         // 创建删除视频request对象
         DeleteVideoRequest request = new DeleteVideoRequest();
         // videoIdList值转成 1,2,3,一次最多删除20个视频
-        String videoIds = StringUtils.join(String.valueOf(videoIdList.toArray()), ",");
+        String videoIds="";
+        for (int i = 0; i < videoIdList.size(); i++) {
+            if (i + 1 == videoIdList.size()){
+                videoIds+=videoIdList.get(i);
+            }else{
+                videoIds+=videoIdList.get(i)+',';
+            }
+        }
         // 向request设置视频id
         request.setVideoIds(videoIds);
         try {
