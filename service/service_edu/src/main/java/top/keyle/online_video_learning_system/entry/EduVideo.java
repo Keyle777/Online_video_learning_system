@@ -25,6 +25,9 @@ public class EduVideo implements Serializable {
     @ApiModelProperty(value = "视频ID")
     @TableId
     private String id;
+
+    @ApiModelProperty(value = "视频封面")
+    private String cover;
     /**
      * 课程ID
      */

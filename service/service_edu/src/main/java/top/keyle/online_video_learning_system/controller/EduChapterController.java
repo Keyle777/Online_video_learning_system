@@ -34,6 +34,13 @@ public class EduChapterController {
         return RespBean.success("items",list);
     }
 
+    @ApiOperation(value = "根据课程ID查询其下章节记录中sort最大的数字并返回")
+    @GetMapping("/selectMaxSortByCourseId/{courseId}")
+    public RespBean getTheMaximumSort(
+            @PathVariable String courseId){
+        Integer result = eduChapterService.selectMaxSortByCourseId(courseId);
+        return RespBean.success("maxSort",result);
+    }
 
     @ApiOperation(value = "新增章节")
     @PostMapping("/addedChapters")
@@ -77,4 +84,7 @@ public class EduChapterController {
             return RespBean.error(RespBeanEnum.DELETE_ERROR);
         }
     }
+
+
+
 }

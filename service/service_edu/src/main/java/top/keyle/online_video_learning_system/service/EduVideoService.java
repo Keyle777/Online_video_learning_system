@@ -1,6 +1,7 @@
 package top.keyle.online_video_learning_system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.entry.vo.video.VideoInfoForm;
 
@@ -12,6 +13,9 @@ import java.util.List;
 * @createDate 2023-01-23 21:11:51
 */
 public interface EduVideoService extends IService<EduVideo> {
+
+    Integer getTheMaximumSort(@Param("chapterId") String chapterId);
+
 
     /**
      * 根据 chapter_id(章节ID)，查询是否存在此章节，存在则返回true
@@ -41,6 +45,7 @@ public interface EduVideoService extends IService<EduVideo> {
      */
     Boolean updateVideoInfoById(VideoInfoForm videoInfoForm);
     // 根据视频资源ID删除
+    Boolean deleteByVideoSourceId(String videoSourceId);
 
     /**
      * 根据videoID查询video获取它的视频资源ID，判断视频源ID是否为空，不为空则调用vod模块中的删除阿里云视频方法，删除视频资源。

@@ -3,6 +3,7 @@ package top.keyle.online_video_learning_system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,8 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     @Autowired
     VodClient vodClient;
 
+    @Autowired
+    EduVideoMapper eduVideoMapper;
     @Override
     public Boolean getCountByChapterId(String chapterId) {
         QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
@@ -73,6 +76,20 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
             throw new GlobalException(RespBeanEnum.LESSON_SAVING_FAILED);
         }
         return true;
+    }
+
+    @Override
+    public Integer getTheMaximumSort(@Param("chapterId") String chapterId) {
+        return eduVideoMapper.getTheMaximumSort(chapterId);
+    }
+
+    @Override
+    public Boolean deleteByVideoSourceId(String videoSourceId) {
+        RespBean respBean = vodClient.deleteAliVideoByVideoSourceId(videoSourceId);
+        if(respBean.getCode() == 20000){
+            return true;
+        }
+        return false;
     }
 
     @Override

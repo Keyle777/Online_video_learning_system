@@ -1,6 +1,7 @@
 package top.keyle.online_video_learning_system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entry.EduChapter;
 import top.keyle.online_video_learning_system.entry.vo.chapter.ChapterVo;
 
@@ -32,4 +33,10 @@ public interface EduChapterService extends IService<EduChapter> {
      * @return 成功返回true，失败返回false
      */
     Boolean removeChapterByCourseId(String courseId);
+
+    /**
+     * 根据课程ID查询其下章节中sort最大的数
+     * @return 最大的sort
+     */
+    Integer selectMaxSortByCourseId(@Param("courseId") String courseId);
 }

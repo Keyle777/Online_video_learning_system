@@ -24,6 +24,17 @@ public class EduVideoController {
 
     @Autowired
     private EduVideoService videoService;
+
+    @ApiOperation(value = "根据章节ID查询其下视频排序最大的数字")
+    @GetMapping("/getTheMaximumSort/{chapterId}")
+    public RespBean getTheMaximumSort(
+            @ApiParam(name = "chapterId", value = "章节ID", required = true)
+            @PathVariable String chapterId){
+        System.out.println(chapterId);
+        Integer result = videoService.getTheMaximumSort(chapterId);
+        return RespBean.success("maxSort",result);
+    }
+
     @PostMapping("/addVideo")
     @ApiOperation(value = "新增课时")
     public RespBean addVideo(
@@ -74,6 +85,19 @@ public class EduVideoController {
             @PathVariable String id) {
 
         boolean result = videoService.removeVideoById(id);
+        if(result){
+            return RespBean.success();
+        }else{
+            return RespBean.error();
+        }
+    }
+
+    @DeleteMapping("/deleteByVideoSourceId/{id}")
+    public RespBean deleteByVideoSourceId(
+            @ApiParam(name = "id", value = "阿里云视频ID", required = true)
+            @PathVariable String id) {
+
+        boolean result = videoService.deleteByVideoSourceId(id);
         if(result){
             return RespBean.success();
         }else{

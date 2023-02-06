@@ -8,6 +8,8 @@ import lombok.Data;
 public class VideoInfoForm {
  @ApiModelProperty(value = "视频ID")
  private String id;
+ @ApiModelProperty(value = "视频封面")
+ private String cover;
  @ApiModelProperty(value = "节点名称")
  private String title;
  @ApiModelProperty(value = "课程ID")

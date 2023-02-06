@@ -11,6 +11,8 @@ public class VideoVo {
     private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "视频ID")
     private String id;
+    @ApiModelProperty(value = "视频封面")
+    private String cover;
     @ApiModelProperty(value = "节点名称")
     private String title;
     @ApiModelProperty(value = "视频资源")

@@ -19,6 +19,8 @@ public interface EduChapterMapper extends BaseMapper<EduChapter> {
     List<EduChapter> selectByCourseId(@Param("courseId") String courseId);
 
     int deleteByCourseId(@Param("courseId") String courseId);
+
+    Integer selectMaxSortByCourseId(@Param("courseId") String courseId);
 }
 
 

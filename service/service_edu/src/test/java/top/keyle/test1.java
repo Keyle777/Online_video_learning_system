@@ -80,4 +80,6 @@ public class test1 {
         Boolean aBoolean = eduVideoService.removeVideoById("1622465136619536386");
         System.out.println(aBoolean);
     }
+
+
 }

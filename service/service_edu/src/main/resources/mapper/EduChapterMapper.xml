@@ -29,4 +29,10 @@
         from edu_chapter
         where course_id = #{courseId,jdbcType=VARCHAR}
     </delete>
+    <select id="selectMaxSortByCourseId" resultType="Integer">
+        SELECT MAX(sort) FROM edu_chapter
+        WHERE course_id = #{courseId,jdbcType=VARCHAR}
+    </select>
+
+
 </mapper>

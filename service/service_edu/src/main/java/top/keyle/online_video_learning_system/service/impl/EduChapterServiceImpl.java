@@ -2,6 +2,7 @@ package top.keyle.online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -106,6 +107,11 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
 
         // 3、删除章节
         return i == 1;
+    }
+
+    @Override
+    public Integer selectMaxSortByCourseId(@Param("courseId") String courseId) {
+        return eduChapterMapper.selectMaxSortByCourseId(courseId);
     }
 }
 

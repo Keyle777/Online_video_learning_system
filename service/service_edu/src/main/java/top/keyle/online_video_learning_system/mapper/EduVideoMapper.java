@@ -20,6 +20,7 @@ public interface EduVideoMapper extends BaseMapper<EduVideo> {
 
     List<EduVideo> selectByCourseId(@Param("courseId") String courseId);
 
+    Integer getTheMaximumSort(@Param("chapterId") String chapterId);
 }
 
 
