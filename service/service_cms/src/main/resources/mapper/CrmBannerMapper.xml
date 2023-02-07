@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="service/service_cms.mapper.CrmBannerMapper">
+<mapper namespace="top.keyle.mapper.CrmBannerMapper">
 
-    <resultMap id="BaseResultMap" type="service/service_cms.entry.CrmBanner">
+    <resultMap id="BaseResultMap" type="top.keyle.entry.CrmBanner">
             <id property="id" column="id" jdbcType="CHAR"/>
             <result property="title" column="title" jdbcType="VARCHAR"/>
             <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>

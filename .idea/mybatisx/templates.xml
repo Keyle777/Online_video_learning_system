@@ -6,7 +6,7 @@
         <option name="generateConfig">
           <GenerateConfig>
             <option name="annotationType" value="MYBATIS_PLUS3" />
-            <option name="basePackage" value="service/service_cms" />
+            <option name="basePackage" value="service/service_cms/src/main/java/" />
             <option name="basePath" value="top.keyle" />
             <option name="classNameStrategy" value="camel" />
             <option name="encoding" value="UTF-8" />
