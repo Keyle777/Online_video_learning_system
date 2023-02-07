@@ -1,6 +1,5 @@
 package top.keyle.Online_video_learning_system.mapper;
 
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import top.keyle.Online_video_learning_system.entry.CrmBanner;
@@ -13,7 +12,7 @@ import top.keyle.Online_video_learning_system.entry.CrmBanner;
 */
 @Mapper
 public interface CrmBannerMapper extends BaseMapper<CrmBanner> {
-
+    Integer selectSort();
 }
 
 

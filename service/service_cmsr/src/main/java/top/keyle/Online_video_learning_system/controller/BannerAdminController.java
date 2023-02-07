@@ -88,5 +88,10 @@ public class BannerAdminController {
         return RespBean.error(RespBeanEnum.DELETE_ERROR);
     }
 
+    @GetMapping("getMaxSort")
+    public RespBean getMaxSort(){
+        return RespBean.success("maxSort",bannerService.getMaxSort());
+    }
+
 }
 

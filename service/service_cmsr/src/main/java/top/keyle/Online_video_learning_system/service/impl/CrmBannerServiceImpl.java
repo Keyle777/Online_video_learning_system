@@ -56,6 +56,11 @@ public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner
         List<CrmBanner> eduBannerList = crmBannerMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduBannerList));
     }
+
+    @Override
+    public Integer getMaxSort() {
+        return crmBannerMapper.selectSort();
+    }
 }
 
 

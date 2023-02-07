@@ -5,29 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增轮播图管理功能">
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/config/FJsonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/entry/vo/CrmBannerVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/test/java/top/keyle/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/src/main/java/top/CmsApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/src/main/java/top/keyle/entry/CrmBanner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/src/main/java/top/keyle/mapper/CrmBannerMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/src/main/java/top/keyle/service/CrmBannerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/src/main/java/top/keyle/service/impl/CrmBannerServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cms/src/main/resources/mapper/CrmBannerMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/entry/CrmBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/entry/CrmBanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/mapper/CrmBannerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/mapper/CrmBannerMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/CrmBannerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/CrmBannerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/impl/CrmBannerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/impl/CrmBannerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_vod/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/mapper/CrmBannerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/mapper/CrmBannerMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +183,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.CmsrApplication">
     <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -389,21 +372,7 @@
       <workItem from="1675739570059" duration="5299000" />
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
-      <workItem from="1675775633035" duration="8362000" />
-    </task>
-    <task id="LOCAL-00041" summary="修复了一些功能">
-      <created>1668604939022</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1668604939022</updated>
-    </task>
-    <task id="LOCAL-00042" summary="更新">
-      <created>1673095915820</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1673095915820</updated>
+      <workItem from="1675775633035" duration="8668000" />
     </task>
     <task id="LOCAL-00043" summary="增添了短信服务功能。">
       <created>1673345281292</created>
@@ -734,7 +703,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675778153829</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="新增轮播图管理功能">
+      <created>1675784005348</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1675784005348</updated>
+    </task>
+    <task id="LOCAL-00091" summary="新增轮播图管理功能">
+      <created>1675784052455</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1675784052455</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -23,4 +23,5 @@ public interface CrmBannerService extends IService<CrmBanner> {
 
     JsonPage<CrmBanner> paginateToGetListOfBanners(@Param("page") Integer page, @Param("pageSize") Integer pageSize,@Param("query") CrmBannerVo query);
 
+    Integer getMaxSort();
 }
