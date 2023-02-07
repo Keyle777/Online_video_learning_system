@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增轮播图">
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/CmsrApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/entry/CrmBanner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/mapper/CrmBannerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/CrmBannerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/impl/CrmBannerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/mapper/CrmBannerMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="jdbc" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;Keyle777&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;author&quot;: &quot;Keyle777&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f5353685-9aa3-4179-bf62-7c5549a59be0" />
+        <option name="url" value="https://github.com/Keyle777/Online_video_learning_system.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/common/service-base/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_edu/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduTeacherController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_edu/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/ServiceMsmApplication.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://E:/Java-JDK-17/lib/src.zip!/java.base/java/util/HashMap.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://E:/apache-maven-3.8.5/repository/org/springframework/spring-webmvc/5.3.23/spring-webmvc-5.3.23-sources.jar!/org/springframework/web/servlet/config/annotation/CorsRegistry.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\apache-maven-3.8.5\repository" />
+        <option name="mavenHome" value="使用 Maven 包装器" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.8.5\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="17" />
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectId" id="2Gx2KbJPNrGlKjs2V5KA8WEYSbP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_cms/src/main/java",
+    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_cmsr/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
+    "spring.configuration.checksum": "d79a54842f531937ef4295ebb0017265",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
+      "MySQL"
+    ]
+  }
+}]]></component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="main" />
+    </force-push-targets>
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="top.keyle.online_video_learning_system.listener" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cmsr\src\main\resources" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cmsr\src\main\java\top\keyle\Online_video_learning_system" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java\top\keyle" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\resources" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_msm\src\main\resources\lib" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_edu\src\main\resources\mapper" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_edu\src\main\java\top\keyle\online_video_learning_system\mapper" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="top.keyle" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="top.keyle" />
+      <recent name="top.keyle.online_video_learning_system.service.impl" />
+      <recent name="top.keyle.online_video_learning_system.service" />
+      <recent name="top.keyle.online_video_learning_system.mapper" />
+      <recent name="top.keyle.online_video_learning_system.pojo" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn  install:install-file -DgroupId=com.aliyun -DartifactId=aliyun-sdk-vod-upload -Dversion=1.4.15 -Dpackaging=jar -Dfile=aliyun-java-vod-upload-1.4.15.jar" />
+      <command value="mvn install:install-file -DgroupId=com.aliyun -DartifactId=aliyun-sdk-vod-upload -Dversion=1.4.15 -Dpackaging=jar -Dfile=aliyun-java-vod-upload-1.4.15.jar install" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.EduApplication">
+    <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service_edu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.keyle" />
+      <option name="MAIN_CLASS_NAME" value="top.keyle.test1" />
+      <option name="METHOD_NAME" value="deleteVideo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test1.removeVideoByCourseId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service_edu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.keyle" />
+      <option name="MAIN_CLASS_NAME" value="top.keyle.test1" />
+      <option name="METHOD_NAME" value="removeVideoByCourseId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CmsrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="service_cmsr" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CmsrApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EduApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="service_edu" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.EduApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceMsmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="service_msm" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.msm_service.ServiceMsmApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VodApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="service_vod" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.VodApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.test1.deleteVideo" />
+      <item itemvalue="JUnit.test1.removeVideoByCourseId" />
+      <item itemvalue="Spring Boot.EduApplication" />
+      <item itemvalue="Spring Boot.ServiceMsmApplication" />
+      <item itemvalue="Spring Boot.VodApplication" />
+      <item itemvalue="Spring Boot.CmsrApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CmsrApplication" />
+        <item itemvalue="JUnit.test1.deleteVideo" />
+        <item itemvalue="JUnit.test1.removeVideoByCourseId" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBeansView">
+    <option name="showGraph" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="" />
+      <created>1667315852758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667315852758</updated>
+      <workItem from="1667315930264" duration="739000" />
+      <workItem from="1667316691934" duration="1640000" />
+      <workItem from="1667487559956" duration="4047000" />
+      <workItem from="1667567433448" duration="3604000" />
+      <workItem from="1667571229769" duration="1662000" />
+      <workItem from="1667572913937" duration="4766000" />
+      <workItem from="1667740179482" duration="569000" />
+      <workItem from="1667740877215" duration="5443000" />
+      <workItem from="1667825073672" duration="12286000" />
+      <workItem from="1667880926104" duration="12388000" />
+      <workItem from="1667915130835" duration="2132000" />
+      <workItem from="1667917292202" duration="1231000" />
+      <workItem from="1667918574124" duration="2651000" />
+      <workItem from="1667991817916" duration="16811000" />
+      <workItem from="1668075778279" duration="15671000" />
+      <workItem from="1668244127394" duration="279000" />
+      <workItem from="1668244423625" duration="84000" />
+      <workItem from="1668244525290" duration="19888000" />
+      <workItem from="1668329487364" duration="2171000" />
+      <workItem from="1668332353471" duration="2822000" />
+      <workItem from="1668336354853" duration="16529000" />
+      <workItem from="1668411948332" duration="13586000" />
+      <workItem from="1668483683600" duration="25424000" />
+      <workItem from="1668577998440" duration="16548000" />
+      <workItem from="1668669477918" duration="5029000" />
+      <workItem from="1670666215875" duration="3350000" />
+      <workItem from="1670670615524" duration="398000" />
+      <workItem from="1670742197637" duration="5000" />
+      <workItem from="1670824268363" duration="3519000" />
+      <workItem from="1671776082537" duration="1555000" />
+      <workItem from="1671778073934" duration="30000" />
+      <workItem from="1671956936701" duration="252000" />
+      <workItem from="1671957225472" duration="2143000" />
+      <workItem from="1671966155219" duration="52000" />
+      <workItem from="1671966238596" duration="192000" />
+      <workItem from="1671966605854" duration="32000" />
+      <workItem from="1671966654885" duration="976000" />
+      <workItem from="1671967843712" duration="597000" />
+      <workItem from="1671968455911" duration="315000" />
+      <workItem from="1671969208499" duration="657000" />
+      <workItem from="1671970587284" duration="2243000" />
+      <workItem from="1672029140688" duration="4329000" />
+      <workItem from="1672114927053" duration="5407000" />
+      <workItem from="1672554376496" duration="617000" />
+      <workItem from="1673094740868" duration="32000" />
+      <workItem from="1673095877819" duration="1090000" />
+      <workItem from="1673247940749" duration="1352000" />
+      <workItem from="1673331642325" duration="7757000" />
+      <workItem from="1673339550464" duration="8507000" />
+      <workItem from="1673367005006" duration="1495000" />
+      <workItem from="1673410654261" duration="3826000" />
+      <workItem from="1673665363230" duration="9000" />
+      <workItem from="1673762156410" duration="10627000" />
+      <workItem from="1673862679160" duration="17000" />
+      <workItem from="1674134324560" duration="3199000" />
+      <workItem from="1674190748438" duration="17237000" />
+      <workItem from="1674370284715" duration="14229000" />
+      <workItem from="1674453609068" duration="15605000" />
+      <workItem from="1674634896257" duration="8746000" />
+      <workItem from="1674698370285" duration="4237000" />
+      <workItem from="1674898331951" duration="11381000" />
+      <workItem from="1674960503809" duration="37887000" />
+      <workItem from="1675473467077" duration="19859000" />
+      <workItem from="1675501288473" duration="878000" />
+      <workItem from="1675502234456" duration="8089000" />
+      <workItem from="1675522195513" duration="5094000" />
+      <workItem from="1675527407371" duration="3786000" />
+      <workItem from="1675569583630" duration="4810000" />
+      <workItem from="1675579834190" duration="16836000" />
+      <workItem from="1675652347825" duration="90000" />
+      <workItem from="1675652802481" duration="23957000" />
+      <workItem from="1675739570059" duration="5299000" />
+      <workItem from="1675768999133" duration="2822000" />
+      <workItem from="1675772463042" duration="3133000" />
+      <workItem from="1675775633035" duration="1848000" />
+    </task>
+    <task id="LOCAL-00039" summary="更新">
+      <created>1668429427727</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1668429427727</updated>
+    </task>
+    <task id="LOCAL-00040" summary="更新上传文件并添加到数据库">
+      <created>1668521057757</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1668521057757</updated>
+    </task>
+    <task id="LOCAL-00041" summary="修复了一些功能">
+      <created>1668604939022</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1668604939022</updated>
+    </task>
+    <task id="LOCAL-00042" summary="更新">
+      <created>1673095915820</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1673095915820</updated>
+    </task>
+    <task id="LOCAL-00043" summary="增添了短信服务功能。">
+      <created>1673345281292</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1673345281292</updated>
+    </task>
+    <task id="LOCAL-00044" summary="更新了一些注释">
+      <created>1673346572765</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1673346572765</updated>
+    </task>
+    <task id="LOCAL-00045" summary="更新了内容">
+      <created>1673346592344</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1673346592344</updated>
+    </task>
+    <task id="LOCAL-00046" summary="更新了内容">
+      <created>1673347369511</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1673347369511</updated>
+    </task>
+    <task id="LOCAL-00047" summary="更新了内容">
+      <created>1673347545604</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1673347545604</updated>
+    </task>
+    <task id="LOCAL-00048" summary="更新">
+      <created>1674191931441</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1674191931441</updated>
+    </task>
+    <task id="LOCAL-00049" summary="更新">
+      <created>1674193755125</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1674193755125</updated>
+    </task>
+    <task id="LOCAL-00050" summary="更新">
+      <created>1674211314318</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1674211314318</updated>
+    </task>
+    <task id="LOCAL-00051" summary="更新">
+      <created>1674211426246</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1674211426246</updated>
+    </task>
+    <task id="LOCAL-00052" summary="更新了课程科目管理">
+      <created>1674213188724</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1674213188724</updated>
+    </task>
+    <task id="LOCAL-00053" summary="更新">
+      <created>1674371545484</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1674371545485</updated>
+    </task>
+    <task id="LOCAL-00054" summary="更新">
+      <created>1674372551603</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1674372551603</updated>
+    </task>
+    <task id="LOCAL-00055" summary="更新">
+      <created>1674383990907</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1674383990907</updated>
+    </task>
+    <task id="LOCAL-00056" summary="更新">
+      <created>1674479244583</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1674479244583</updated>
+    </task>
+    <task id="LOCAL-00057" summary="更新">
+      <created>1674486015509</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1674486015509</updated>
+    </task>
+    <task id="LOCAL-00058" summary="在课程控制器新增了一些功能">
+      <created>1674643654982</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1674643654982</updated>
+    </task>
+    <task id="LOCAL-00059" summary="在课程控制器新增了一些功能">
+      <created>1674662922934</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1674662922934</updated>
+    </task>
+    <task id="LOCAL-00060" summary="在课程控制器新增了一些功能">
+      <created>1674748923377</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1674748923377</updated>
+    </task>
+    <task id="LOCAL-00061" summary="新增了章节添加与显示">
+      <created>1674905990582</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1674905990583</updated>
+    </task>
+    <task id="LOCAL-00062" summary="新增了章节添加与显示">
+      <created>1674906042703</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1674906042703</updated>
+    </task>
+    <task id="LOCAL-00063" summary="新增了小节添加">
+      <created>1674909185338</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1674909185338</updated>
+    </task>
+    <task id="LOCAL-00064" summary="新增了小节添加">
+      <created>1674911223727</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1674911223727</updated>
+    </task>
+    <task id="LOCAL-00065" summary="新增发布课程功能">
+      <created>1674981817558</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1674981817559</updated>
+    </task>
+    <task id="LOCAL-00066" summary="新增发布课程功能">
+      <created>1675013027064</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1675013027064</updated>
+    </task>
+    <task id="LOCAL-00067" summary="新增发布课程功能">
+      <created>1675016546738</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1675016546738</updated>
+    </task>
+    <task id="LOCAL-00068" summary="新增发布课程功能">
+      <created>1675016550715</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1675016550715</updated>
+    </task>
+    <task id="LOCAL-00069" summary="新增发布课程功能">
+      <created>1675068666346</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1675068666346</updated>
+    </task>
+    <task id="LOCAL-00070" summary="更新了课程列表">
+      <created>1675479024795</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1675479024795</updated>
+    </task>
+    <task id="LOCAL-00071" summary="更新了课程列表">
+      <created>1675491117472</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1675491117472</updated>
+    </task>
+    <task id="LOCAL-00072" summary="引入了spring cloud">
+      <created>1675507258441</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1675507258442</updated>
+    </task>
+    <task id="LOCAL-00073" summary="引入了spring cloud">
+      <created>1675511539907</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1675511539907</updated>
+    </task>
+    <task id="LOCAL-00074" summary="使用微服务">
+      <created>1675529185841</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1675529185841</updated>
+    </task>
+    <task id="LOCAL-00075" summary="引入spring cloud">
+      <created>1675529825904</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1675529825905</updated>
+    </task>
+    <task id="LOCAL-00076" summary="解决报错">
+      <created>1675531033784</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1675531033784</updated>
+    </task>
+    <task id="LOCAL-00077" summary="优化了一些方法细节">
+      <created>1675581423666</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1675581423666</updated>
+    </task>
+    <task id="LOCAL-00078" summary="优化了一些方法细节2">
+      <created>1675584033754</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1675584033754</updated>
+    </task>
+    <task id="LOCAL-00079" summary="优化了一些方法细节3">
+      <created>1675584797103</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1675584797103</updated>
+    </task>
+    <task id="LOCAL-00080" summary="新增了删除章节和清除课程功能">
+      <created>1675600135204</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1675600135204</updated>
+    </task>
+    <task id="LOCAL-00081" summary="新增了删除章节和清除课程功能">
+      <created>1675600158990</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1675600158990</updated>
+    </task>
+    <task id="LOCAL-00082" summary="新增了删除章节和清除课程功能">
+      <created>1675657806713</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1675657806713</updated>
+    </task>
+    <task id="LOCAL-00083" summary="新增了删除课程">
+      <created>1675662975455</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1675662975455</updated>
+    </task>
+    <task id="LOCAL-00084" summary="优化了添加课程功能体验">
+      <created>1675681655724</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1675681655724</updated>
+    </task>
+    <task id="LOCAL-00085" summary="优化了添加课程功能体验">
+      <created>1675681752878</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1675681752878</updated>
+    </task>
+    <task id="LOCAL-00086" summary="新增轮播图">
+      <created>1675768927940</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1675768927941</updated>
+    </task>
+    <task id="LOCAL-00087" summary="新增轮播图">
+      <created>1675769424144</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1675769424144</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="添加了统一数据管理" />
+    <MESSAGE value="添加了分页查询" />
+    <MESSAGE value="更新上传文件并添加到数据库" />
+    <MESSAGE value="修复了一些功能" />
+    <MESSAGE value="增添了短信服务功能。" />
+    <MESSAGE value="更新了一些注释" />
+    <MESSAGE value="更新了内容" />
+    <MESSAGE value="更新了课程科目管理" />
+    <MESSAGE value="更新" />
+    <MESSAGE value="在课程控制器新增了一些功能" />
+    <MESSAGE value="新增了章节添加与显示" />
+    <MESSAGE value="新增了小节添加" />
+    <MESSAGE value="新增发布课程功能" />
+    <MESSAGE value="更新了课程列表" />
+    <MESSAGE value="引入了spring cloud" />
+    <MESSAGE value="使用微服务" />
+    <MESSAGE value="引入spring cloud" />
+    <MESSAGE value="解决报错" />
+    <MESSAGE value="优化了一些方法细节" />
+    <MESSAGE value="优化了一些方法细节2" />
+    <MESSAGE value="优化了一些方法细节3" />
+    <MESSAGE value="新增了删除章节和清除课程功能" />
+    <MESSAGE value="新增了删除课程" />
+    <MESSAGE value="优化了添加课程功能体验" />
+    <MESSAGE value="新增轮播图" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增轮播图" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
