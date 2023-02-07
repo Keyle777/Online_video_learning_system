@@ -9,10 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import top.keyle.online_video_learning_system.client.VodClient;
 import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
-import top.keyle.online_video_learning_system.service.EduChapterService;
-import top.keyle.online_video_learning_system.service.EduCourseService;
-import top.keyle.online_video_learning_system.service.EduSubjectService;
-import top.keyle.online_video_learning_system.service.EduVideoService;
+import top.keyle.online_video_learning_system.service.*;
 
 /**
  * @author TMJIE5200
@@ -80,6 +77,7 @@ public class test1 {
         Boolean aBoolean = eduVideoService.removeVideoById("1622465136619536386");
         System.out.println(aBoolean);
     }
-
+    @Autowired
+    EduTeacherService eduTeacherService;
 
 }

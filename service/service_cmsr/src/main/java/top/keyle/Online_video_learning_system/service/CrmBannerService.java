@@ -4,6 +4,7 @@ package top.keyle.Online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.data.repository.query.Param;
 import top.keyle.Online_video_learning_system.entry.CrmBanner;
+import top.keyle.Online_video_learning_system.entry.vo.CrmBannerVo;
 import top.keyle.universal_tool.JsonPage;
 
 import java.util.List;
@@ -20,6 +21,6 @@ public interface CrmBannerService extends IService<CrmBanner> {
      */
     List<CrmBanner> selectAllBanner();
 
-    JsonPage<CrmBanner> paginateToGetListOfBanners(@Param("page") Integer page, @Param("pageSize") Integer pageSize);
+    JsonPage<CrmBanner> paginateToGetListOfBanners(@Param("page") Integer page, @Param("pageSize") Integer pageSize,@Param("query") CrmBannerVo query);
 
 }

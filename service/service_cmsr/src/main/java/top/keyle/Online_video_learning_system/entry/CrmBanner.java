@@ -1,26 +1,31 @@
 package top.keyle.Online_video_learning_system.entry;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 首页banner表
+ * @author TMJIE5200
  * @TableName crm_banner
  */
 @TableName(value ="crm_banner")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CrmBanner implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
     /**
      * ID
      */
-    @TableId
+    @TableId(type = IdType.ASSIGN_ID)
     private String id;
     /**
      * 标题
@@ -37,18 +42,27 @@ public class CrmBanner implements Serializable {
     /**
      * 排序
      */
-    private Object sort;
+    private Integer sort;
     /**
      * 逻辑删除 1（true）已删除， 0（false）未删除
      */
+    @TableLogic(value = "0", delval = "1")
+    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
     private Integer isDeleted;
+
     /**
      * 创建时间
      */
+    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(value = "创建时间")
     private Date gmtCreate;
     /**
      * 更新时间
      */
+    @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(value = "更新时间")
     private Date gmtModified;
 
     @Override
