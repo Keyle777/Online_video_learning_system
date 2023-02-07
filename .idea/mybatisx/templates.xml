@@ -6,8 +6,8 @@
         <option name="generateConfig">
           <GenerateConfig>
             <option name="annotationType" value="MYBATIS_PLUS3" />
-            <option name="basePackage" value="service/service_edu" />
-            <option name="basePath" value="src/main/java/top/keyle/online_video_learning_system/service" />
+            <option name="basePackage" value="service/service_cms" />
+            <option name="basePath" value="top.keyle" />
             <option name="classNameStrategy" value="camel" />
             <option name="encoding" value="UTF-8" />
             <option name="extraClassSuffix" value="" />
@@ -64,13 +64,13 @@
             <option name="needToStringHashcodeEquals" value="true" />
             <option name="needsComment" value="true" />
             <option name="needsModel" value="true" />
-            <option name="relativePackage" value="pojo" />
+            <option name="relativePackage" value="entry" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="EduVideo" />
-                  <option name="tableName" value="edu_video" />
+                  <option name="className" value="CrmBanner" />
+                  <option name="tableName" value="crm_banner" />
                 </TableUIInfo>
               </list>
             </option>
