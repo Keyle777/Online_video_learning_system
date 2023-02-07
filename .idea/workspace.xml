@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增轮播图">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增轮播图管理功能">
       <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/config/FJsonConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/entry/vo/CrmBannerVo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
@@ -26,17 +26,6 @@
       <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_cmsr/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduChapterMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCommentMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduSubjectMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduTeacherMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduVideoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/FileDetailMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/static/Pictures/6365182422cb7d26bee08b13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/static/Pictures/63652cc87fcbd528c3c3028f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/static/Pictures/636530bc7fcb596758c29b8a.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_msm/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_vod/target/classes/application.properties" beforeDir="false" />
     </list>
@@ -400,7 +389,7 @@
       <workItem from="1675739570059" duration="5299000" />
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
-      <workItem from="1675775633035" duration="8058000" />
+      <workItem from="1675775633035" duration="8362000" />
     </task>
     <task id="LOCAL-00041" summary="修复了一些功能">
       <created>1668604939022</created>
@@ -810,7 +799,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="添加了统一数据管理" />
     <MESSAGE value="添加了分页查询" />
     <MESSAGE value="更新上传文件并添加到数据库" />
     <MESSAGE value="修复了一些功能" />
@@ -835,7 +823,8 @@
     <MESSAGE value="新增了删除课程" />
     <MESSAGE value="优化了添加课程功能体验" />
     <MESSAGE value="新增轮播图" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增轮播图" />
+    <MESSAGE value="新增轮播图管理功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增轮播图管理功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
