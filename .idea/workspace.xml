@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增轮播图">
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/CmsrApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerAdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/entry/CrmBanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/mapper/CrmBannerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/CrmBannerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/impl/CrmBannerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/mapper/CrmBannerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +21,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -198,7 +177,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.CmsrApplication">
     <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -232,6 +211,7 @@
       </method>
     </configuration>
     <configuration name="CmsrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
       <module name="service_cmsr" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CmsrApplication" />
       <extension name="coverage">
@@ -369,14 +349,7 @@
       <workItem from="1675739570059" duration="5299000" />
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
-      <workItem from="1675775633035" duration="1848000" />
-    </task>
-    <task id="LOCAL-00039" summary="更新">
-      <created>1668429427727</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1668429427727</updated>
+      <workItem from="1675775633035" duration="2429000" />
     </task>
     <task id="LOCAL-00040" summary="更新上传文件并添加到数据库">
       <created>1668521057757</created>
@@ -714,7 +687,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675769424144</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="新增轮播图">
+      <created>1675777624147</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1675777624147</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
