@@ -376,14 +376,7 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="14114000" />
-    </task>
-    <task id="LOCAL-00046" summary="更新了内容">
-      <created>1673347369511</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1673347369511</updated>
+      <workItem from="1675845908003" duration="14134000" />
     </task>
     <task id="LOCAL-00047" summary="更新了内容">
       <created>1673347545604</created>
@@ -721,7 +714,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675856572578</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="前端课程模块">
+      <created>1675887934703</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1675887934703</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
