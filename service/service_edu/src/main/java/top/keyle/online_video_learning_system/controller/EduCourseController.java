@@ -112,6 +112,7 @@ public class EduCourseController {
         return RespBean.success(jsonPage);
     }
 
+
     @ApiOperation(value = "根据课程ID删除课程")
     @DeleteMapping("{id}")
     public RespBean removeById(
@@ -142,4 +143,7 @@ public class EduCourseController {
         }
         return RespBean.success();
     }
+
+
+
 }

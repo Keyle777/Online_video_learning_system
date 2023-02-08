@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import top.keyle.online_video_learning_system.entry.EduCourse;
+import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseFrontQuery;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseInfoVO;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseQuery;
@@ -20,6 +21,7 @@ import top.keyle.universal_tool.GlobalException;
 import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBeanEnum;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -30,6 +32,7 @@ import java.util.List;
 @Service
 public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse>
         implements EduCourseService {
+
     @Autowired
     EduCourseMapper eduCourseMapper;
     @Autowired
@@ -119,7 +122,25 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
         List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduCourseList));
+    }
 
+    @Override
+    public JsonPage<EduCourse> getCourseFrontList(Integer page, Integer pageSize, CourseFrontQuery courseQuery) {
+        PageHelper.startPage(page, pageSize);
+        LambdaQueryWrapper<EduCourse> wrapper = new LambdaQueryWrapper<>();
+        Long buyCountSort = courseQuery.getBuyCountSort();
+        String gmtCreateSort = courseQuery.getGmtCreateSort();
+        String subjectParentId = courseQuery.getSubjectParentId();
+        String subjectId = courseQuery.getSubjectId();
+        BigDecimal priceSort = courseQuery.getPriceSort();
+        wrapper.orderByDesc(!ObjectUtils.isEmpty(buyCountSort), EduCourse::getBuyCount)
+                .eq(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
+                .eq(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
+                .orderByDesc(!ObjectUtils.isEmpty(gmtCreateSort),EduCourse::getGmtCreate)
+                .orderByDesc(!ObjectUtils.isEmpty(priceSort), EduCourse::getPrice);
+
+        List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
+        return JsonPage.restPage(new PageInfo<>(eduCourseList));
     }
 }
 

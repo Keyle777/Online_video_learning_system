@@ -36,4 +36,6 @@ public class BannerFrontController {
         List<CrmBanner> list = bannerService.selectAllBanner();
         return RespBean.success("list",list);
     }
+
+
 }

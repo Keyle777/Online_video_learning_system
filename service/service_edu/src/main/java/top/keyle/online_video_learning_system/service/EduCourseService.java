@@ -3,6 +3,7 @@ package top.keyle.online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entry.EduCourse;
+import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseFrontQuery;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseInfoVO;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseQuery;
@@ -68,4 +69,8 @@ public interface EduCourseService extends IService<EduCourse> {
             @Param("page") Integer page,
             @Param("pageSize") Integer pageSize,
             @Param("courseQuery") CourseQuery courseQuery);
+    JsonPage<EduCourse> getCourseFrontList(
+            @Param("page") Integer page,
+            @Param("pageSize") Integer pageSize,
+            @Param("courseQuery") CourseFrontQuery courseQuery);
 }
