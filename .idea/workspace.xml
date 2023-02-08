@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增轮播图管理功能">
-      <changelist_data name="Keyle777" email="1059819521@qq.com" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CommentFrontController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/IndexFrontController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/TeacherFrontController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/IndexFrontService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/IndexFrontServiceImpl.java" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="前端课程模块">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
     </list>
@@ -386,14 +376,7 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="10094000" />
-    </task>
-    <task id="LOCAL-00045" summary="更新了内容">
-      <created>1673346592344</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1673346592344</updated>
+      <workItem from="1675845908003" duration="14114000" />
     </task>
     <task id="LOCAL-00046" summary="更新了内容">
       <created>1673347369511</created>
@@ -731,7 +714,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675785555080</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="前端课程模块">
+      <created>1675856572578</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1675856572578</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -796,7 +786,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="添加了分页查询" />
     <MESSAGE value="更新上传文件并添加到数据库" />
     <MESSAGE value="修复了一些功能" />
     <MESSAGE value="增添了短信服务功能。" />
@@ -821,7 +810,8 @@
     <MESSAGE value="优化了添加课程功能体验" />
     <MESSAGE value="新增轮播图" />
     <MESSAGE value="新增轮播图管理功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增轮播图管理功能" />
+    <MESSAGE value="前端课程模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端课程模块" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

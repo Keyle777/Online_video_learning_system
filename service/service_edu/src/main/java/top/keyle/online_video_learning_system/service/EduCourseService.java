@@ -69,6 +69,14 @@ public interface EduCourseService extends IService<EduCourse> {
             @Param("page") Integer page,
             @Param("pageSize") Integer pageSize,
             @Param("courseQuery") CourseQuery courseQuery);
+
+    /**
+     * 只要排序的为空就是不执行那个排序的desc，只要不是空就执行
+     * @param page
+     * @param pageSize
+     * @param courseQuery
+     * @return
+     */
     JsonPage<EduCourse> getCourseFrontList(
             @Param("page") Integer page,
             @Param("pageSize") Integer pageSize,

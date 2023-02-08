@@ -115,8 +115,8 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         String status = courseQuery.getStatus();
         wrapper.like(!ObjectUtils.isEmpty(title), EduCourse::getTitle, title)
                 .eq(!ObjectUtils.isEmpty(teacherId), EduCourse::getTeacherId, teacherId)
-                .ge(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
-                .ge(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
+                .eq(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
+                .eq(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
                 .orderByDesc(EduCourse::getGmtCreate)
                 .eq(!ObjectUtils.isEmpty(status), EduCourse::getStatus, status);
 
