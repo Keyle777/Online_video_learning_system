@@ -45,7 +45,7 @@ public class CourseFrontController {
     @ApiImplicitParams({
             @ApiImplicitParam(value = "页码", name = "page", example = "1", required = true),
             @ApiImplicitParam(value = "每页条数", name = "limit", example = "5", required = true),
-            @ApiImplicitParam(value = "查询条件对象", name = "courseFrontQuery", paramType = "body", dataType = "top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseFrontQuery")
+            @ApiImplicitParam(value = "查询条件对象", name = "courseFrontQuery", dataType = "CourseFrontQuery")
     })
     public RespBean getFrontCourseList(
             @ApiParam(name = "page", value = "当前页码", required = true)

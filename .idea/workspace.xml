@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="前端课程模块">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/service-base/src/main/java/top/keyle/servicebase/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_msm/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_msm/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,14 +379,7 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="14134000" />
-    </task>
-    <task id="LOCAL-00047" summary="更新了内容">
-      <created>1673347545604</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1673347545604</updated>
+      <workItem from="1675845908003" duration="17089000" />
     </task>
     <task id="LOCAL-00048" summary="更新">
       <created>1674191931441</created>
@@ -721,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675887934703</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="前端课程模块">
+      <created>1675887969521</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1675887969521</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

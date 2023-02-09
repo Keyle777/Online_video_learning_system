@@ -1,4 +1,4 @@
-package top.keyle.Online_video_learning_system.config;
+package top.keyle.servicebase.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
