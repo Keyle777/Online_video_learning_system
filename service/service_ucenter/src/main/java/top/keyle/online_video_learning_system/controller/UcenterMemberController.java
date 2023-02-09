@@ -36,15 +36,9 @@ public class UcenterMemberController {
         return RespBean.success("token",token);
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public RespBean registerUser(@RequestBody RegisterVo registerVo){
-        try {
-            memberService.register(registerVo);
-            return RespBean.success();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return RespBean.error();
-        }
+            return memberService.register(registerVo);
     }
 
     /**
@@ -100,5 +94,6 @@ public class UcenterMemberController {
         Integer count = memberService.countRegisterDay(day);
         return RespBean.success("countRegister",count);
     }
+
 }
 

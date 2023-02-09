@@ -68,6 +68,12 @@ public class RespBean {
         return new RespBean(RespBeanEnum.ERROR.getCode(), RespBeanEnum.ERROR.getMessage(), null);
     }
 
+    public static RespBean error(String key, Object value) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put(key, value);
+        return new RespBean(RespBeanEnum.ERROR.getCode(), RespBeanEnum.ERROR.getMessage(), data);
+    }
+
     /**
      * @param respBeanEnum
      * @return

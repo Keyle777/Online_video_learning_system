@@ -43,7 +43,11 @@ public enum RespBeanEnum {
     CONNECTION_TIMED_OUT(20014,"连接超时"),
     LOGIN_FAILED(20015,"登录失败"),
     REGISTRATION_FAILED(20016,"注册失败"),
-    USERS_WITH_THE_SAME_PHONE_NUMBER(20017,"存在相同手机号用户");
+    USERS_WITH_THE_SAME_PHONE_NUMBER(20017,"存在相同手机号用户"),
+    CAPTCHA_ERROR(20018,"验证码错误"),
+    THE_PASSWORD_IS_INCORRECT(20019,"密码不正确"),
+    THE_ACCOUNT_IS_NOT_REGISTERED(20020,"该账号未注册"),
+    THE_MOBILE_PHONE_NUMBER_IS_NOT_LINKED(20021,"该邮箱未绑定手机号");
     private final Integer code;
     private final String message;
 }

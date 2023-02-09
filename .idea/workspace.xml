@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="增加了登录注册功能">
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/test.java" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="整合了JWT登录功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/UcenterMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/UcenterMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,14 +412,7 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="33810000" />
-    </task>
-    <task id="LOCAL-00050" summary="更新">
-      <created>1674211314318</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1674211314318</updated>
+      <workItem from="1675845908003" duration="44051000" />
     </task>
     <task id="LOCAL-00051" summary="更新">
       <created>1674211426246</created>
@@ -755,7 +750,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675942032049</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="整合了JWT登录功能">
+      <created>1675944967328</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1675944967328</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -820,7 +822,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="增添了短信服务功能。" />
     <MESSAGE value="更新了一些注释" />
     <MESSAGE value="更新了内容" />
     <MESSAGE value="更新了课程科目管理" />
@@ -845,20 +846,17 @@
     <MESSAGE value="前端课程模块" />
     <MESSAGE value="优化了查询课程功能" />
     <MESSAGE value="增加了登录注册功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加了登录注册功能" />
+    <MESSAGE value="整合了JWT登录功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="整合了JWT登录功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="top.keyle.online_video_learning_system.entity.vo.LoginVo" memberName="password" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

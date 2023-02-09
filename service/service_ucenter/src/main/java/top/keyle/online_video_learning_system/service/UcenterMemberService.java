@@ -19,7 +19,7 @@ public interface UcenterMemberService extends IService<UcenterMember> {
      * 注册用户
      * @param registerVo
      */
-    void register(RegisterVo registerVo);
+    RespBean register(RegisterVo registerVo);
 
     /**
      * 查询某一天注册人数
