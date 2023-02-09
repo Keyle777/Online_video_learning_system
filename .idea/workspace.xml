@@ -4,13 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="前端课程模块">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了查询课程功能">
+      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/FastJsonRedisSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/MD5SaltUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RedisCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/UcenterApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/UcenterMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/vo/LoginVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/vo/RegisterVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/UcenterMemberMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/UcenterMemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/utils/HttpClientUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/UcenterMemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/service-base/src/main/java/top/keyle/servicebase/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/controller/MsmApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/controller/MsmApiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +135,7 @@
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
     "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_cms/src/main/java",
-    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_cmsr/src/main/resources",
+    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/SpringSecurityJwt-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,7 +144,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Errors",
+    "settings.editor.selected.configurable": "configurable.group.editor",
     "spring.configuration.checksum": "2f6c0bedfce254baefb143993df4e41a",
     "vue.rearranger.settings.migration": "true"
   },
@@ -151,29 +170,29 @@
       <recent name="top.keyle.online_video_learning_system.listener" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cmsr\src\main\resources" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cmsr\src\main\java\top\keyle\Online_video_learning_system" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java\top\keyle" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\common\universal-tool\src\main\java\top\keyle\universal_tool" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\java\top\keyle\online_video_learning_system" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\java\top\keyle\online_video_learning_system\config" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\resources\mapper" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\java\top\keyle" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\resources\mapper" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_msm\src\main\resources\lib" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_edu\src\main\resources\mapper" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_edu\src\main\java\top\keyle\online_video_learning_system\mapper" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="top.keyle" />
       <recent name="top.keyle.Online_video_learning_system" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="top.keyle.online_video_learning_system.entity.vo" />
       <recent name="top.keyle.Online_video_learning_system.handler" />
       <recent name="top.keyle" />
       <recent name="top.keyle.online_video_learning_system.service.impl" />
       <recent name="top.keyle.online_video_learning_system.service" />
-      <recent name="top.keyle.online_video_learning_system.mapper" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -189,7 +208,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.UcenterApplication">
     <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -268,6 +287,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UcenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
+      <module name="service_ucenter" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.UcenterApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VodApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="service_vod" />
@@ -284,9 +317,11 @@
       <item itemvalue="Spring Boot.ServiceMsmApplication" />
       <item itemvalue="Spring Boot.VodApplication" />
       <item itemvalue="Spring Boot.CmsrApplication" />
+      <item itemvalue="Spring Boot.UcenterApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.UcenterApplication" />
         <item itemvalue="JUnit.test.test1" />
         <item itemvalue="JUnit.test1.deleteVideo" />
         <item itemvalue="JUnit.test1.removeVideoByCourseId" />
@@ -379,14 +414,7 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="17089000" />
-    </task>
-    <task id="LOCAL-00048" summary="更新">
-      <created>1674191931441</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1674191931441</updated>
+      <workItem from="1675845908003" duration="31089000" />
     </task>
     <task id="LOCAL-00049" summary="更新">
       <created>1674193755125</created>
@@ -724,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675887969521</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="优化了查询课程功能">
+      <created>1675927956318</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1675927956318</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +824,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="更新上传文件并添加到数据库" />
     <MESSAGE value="修复了一些功能" />
     <MESSAGE value="增添了短信服务功能。" />
     <MESSAGE value="更新了一些注释" />
@@ -814,7 +848,8 @@
     <MESSAGE value="新增轮播图" />
     <MESSAGE value="新增轮播图管理功能" />
     <MESSAGE value="前端课程模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端课程模块" />
+    <MESSAGE value="优化了查询课程功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化了查询课程功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

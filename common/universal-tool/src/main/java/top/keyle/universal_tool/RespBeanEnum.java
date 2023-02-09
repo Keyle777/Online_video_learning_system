@@ -40,7 +40,10 @@ public enum RespBeanEnum {
     THE_VIDEO_ID_IS_EMPTY(20011,"videoId为空"),
     THERE_ARE_SUBSECTIONS_UNDER_THIS_SECTION(20012,"此章节下有小节，先删除"),
     FAILED_TO_GET_CREDENTIALS(20013,"获取凭证失败"),
-    CONNECTION_TIMED_OUT(20014,"连接超时");
+    CONNECTION_TIMED_OUT(20014,"连接超时"),
+    LOGIN_FAILED(20015,"登录失败"),
+    REGISTRATION_FAILED(20016,"注册失败"),
+    USERS_WITH_THE_SAME_PHONE_NUMBER(20017,"存在相同手机号用户");
     private final Integer code;
     private final String message;
 }

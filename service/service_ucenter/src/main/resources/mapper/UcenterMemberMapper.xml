@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.keyle.online_video_learning_system.mapper.UcenterMemberMapper">
+
+    <resultMap id="BaseResultMap" type="top.keyle.online_video_learning_system.entity.UcenterMember">
+            <id property="id" column="id" jdbcType="CHAR"/>
+            <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="TINYINT"/>
+            <result property="age" column="age" jdbcType="TINYINT"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="sign" column="sign" jdbcType="VARCHAR"/>
+            <result property="isDisabled" column="is_disabled" jdbcType="TINYINT"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,mobile,password,
+        email,nickname,sex,
+        age,avatar,sign,
+        is_disabled,is_deleted,gmt_create,
+        gmt_modified
+    </sql>
+
+    <select id="countRegisterDay" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM ucenter_member as uc
+        WHERE DATE(uc.gmt_create) = #{day}
+    </select>
+</mapper>

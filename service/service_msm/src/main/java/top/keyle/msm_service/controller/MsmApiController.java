@@ -43,14 +43,14 @@ public class MsmApiController {
             return RespBean.success();
         }
         // 生成随机数字作为code
-        code = RandomUtil.getFourBitRandom();
+        code = RandomUtil.getSixBitRandom();
         Map<String,Object> param = new HashMap<>();
         param.put("code", code);
         // 通过阿里云的短信服务将code发送到手机上，返回发送结果成功或是失败
         boolean isSend = msmService.send(phone, "SMS_154950909", param);
         if(isSend) {
             // 设置 电话、验证码、过期时间、时间单位
-            redisTemplate.opsForValue().set(phone, code,5, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(phone, code,1, TimeUnit.MINUTES);
             // 表明发送成功
             return RespBean.success();
         } else {

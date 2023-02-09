@@ -10,6 +10,7 @@
         <module name="service_edu" />
         <module name="universal-tool" />
         <module name="service_msm" />
+        <module name="service_ucenter" />
         <module name="service_vod" />
         <module name="service_cmsr" />
       </profile>
@@ -27,6 +28,7 @@
       <module name="service_cmsr" options="-parameters" />
       <module name="service_edu" options="-parameters" />
       <module name="service_msm" options="-parameters" />
+      <module name="service_ucenter" options="-parameters" />
       <module name="service_vod" options="-parameters" />
       <module name="universal-tool" options="-parameters" />
     </option>
