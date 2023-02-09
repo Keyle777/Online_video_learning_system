@@ -1,10 +1,10 @@
 package top.keyle.universal_tool;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.util.StringUtils;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -54,10 +54,9 @@ public class JwtUtils {
         String JwtToken = Jwts.builder()
                 .setHeaderParam("typ", "JWT")
                 .setHeaderParam("alg", "HS256")
-                .setSubject("OnlineVideo-user")
+                .setSubject("onlineVideo_token")
                 .setIssuedAt(new Date())
-                .setId(getUUID())
-                .setIssuer("Keyle")     // 签发者
+                .setIssuer("onlineVideo_token")     // 签发者
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
                 .claim("id", id)
                 .claim("nickname", nickname)
@@ -128,17 +127,15 @@ public class JwtUtils {
      * @param request
      * @return
      */
-    public static String getMemberIdByJwtToken(HttpServletRequest request) {
-        String jwtToken = request.getHeader("token");
-        if (StringUtils.isEmpty(jwtToken)) {
-            return "";
+        public static String getMemberIdByJwtToken(HttpServletRequest request) {
+            String jwtToken = request.getHeader("token");
+            if(StringUtils.isEmpty(jwtToken)) {
+                return "没有获取到token";
+            }
+            SecretKey secretKey = generalKey();
+            Jws<Claims> claimsJws = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtToken);
+            Claims claims = claimsJws.getBody();
+            return (String)claims.get("id");
         }
-        Jws<Claims> claimsJws =
-                Jwts.parser()
-                        .setSigningKey(APP_SECRET)
-                        .parseClaimsJws(jwtToken);
-        Claims claims = claimsJws.getBody();
-        return (String) claims.get("id");
-    }
 
 }

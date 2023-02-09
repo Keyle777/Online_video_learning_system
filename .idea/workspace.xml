@@ -4,32 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了查询课程功能">
-      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/FastJsonRedisSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/MD5SaltUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/UcenterApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/UcenterMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/vo/LoginVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/vo/RegisterVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/UcenterMemberMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/UcenterMemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/utils/HttpClientUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/UcenterMemberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="增加了登录注册功能">
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/controller/MsmApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/controller/MsmApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,6 +220,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service_ucenter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.keyle" />
+      <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_cmsr" />
       <extension name="coverage">
@@ -287,7 +282,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UcenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="UcenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" />
       <module name="service_ucenter" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.UcenterApplication" />
@@ -310,6 +305,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test.test1" />
       <item itemvalue="JUnit.test1.deleteVideo" />
       <item itemvalue="JUnit.test1.removeVideoByCourseId" />
@@ -321,7 +317,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.UcenterApplication" />
+        <item itemvalue="JUnit.test.test1 (1)" />
         <item itemvalue="JUnit.test.test1" />
         <item itemvalue="JUnit.test1.deleteVideo" />
         <item itemvalue="JUnit.test1.removeVideoByCourseId" />
@@ -414,14 +410,7 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="31089000" />
-    </task>
-    <task id="LOCAL-00049" summary="更新">
-      <created>1674193755125</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1674193755125</updated>
+      <workItem from="1675845908003" duration="33810000" />
     </task>
     <task id="LOCAL-00050" summary="更新">
       <created>1674211314318</created>
@@ -759,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675927956318</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="增加了登录注册功能">
+      <created>1675942032049</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1675942032049</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -824,7 +820,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="修复了一些功能" />
     <MESSAGE value="增添了短信服务功能。" />
     <MESSAGE value="更新了一些注释" />
     <MESSAGE value="更新了内容" />
@@ -849,9 +844,21 @@
     <MESSAGE value="新增轮播图管理功能" />
     <MESSAGE value="前端课程模块" />
     <MESSAGE value="优化了查询课程功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化了查询课程功能" />
+    <MESSAGE value="增加了登录注册功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了登录注册功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
