@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.keyle.online_video_learning_system.client.VodClient;
 import top.keyle.online_video_learning_system.entry.EduVideo;
+import top.keyle.online_video_learning_system.mapper.EduCourseMapper;
 import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
 import top.keyle.online_video_learning_system.service.*;
 
@@ -32,6 +33,12 @@ public class test1 {
     @Autowired
     EduVideoService eduVideoService;
 
+    @Autowired
+    EduCourseMapper eduCourseMapper;
+    @Test
+    public void tect(){
+        System.out.println(eduCourseMapper.selectAllByTeacherIdOrderByViewCount("11"));
+    }
     @Test
     public void removeChapterById(){
         System.out.println(eduChapterService.removeChapterById("1619732226820886530"));

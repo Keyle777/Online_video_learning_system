@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import top.keyle.online_video_learning_system.entry.EduCourse;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseFrontQuery;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseInfoVO;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseQuery;
+import top.keyle.online_video_learning_system.entry.vo.eduCourse.*;
 import top.keyle.online_video_learning_system.mapper.EduCourseMapper;
 import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
@@ -141,6 +138,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
         List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduCourseList));
+    }
+
+    @Override
+    public CourseAndTeacherVO selectAllByTeacherIdOrderByViewCount(String courseId) {
+        return eduCourseMapper.selectAllByTeacherIdOrderByViewCount(courseId);
     }
 }
 

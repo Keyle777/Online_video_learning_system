@@ -3,10 +3,7 @@ package top.keyle.online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entry.EduCourse;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseFrontQuery;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseInfoVO;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo;
-import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseQuery;
+import top.keyle.online_video_learning_system.entry.vo.eduCourse.*;
 import top.keyle.universal_tool.JsonPage;
 
 /**
@@ -81,4 +78,11 @@ public interface EduCourseService extends IService<EduCourse> {
             @Param("page") Integer page,
             @Param("pageSize") Integer pageSize,
             @Param("courseQuery") CourseFrontQuery courseQuery);
+
+    /**
+     * 根据课程ID获取课程相关信息以及导师信息
+     * @param courseId
+     * @return
+     */
+    CourseAndTeacherVO selectAllByTeacherIdOrderByViewCount(String courseId);
 }

@@ -50,4 +50,22 @@
             c.id = #{id}
     </select>
 
+    <select id="selectAllByTeacherIdOrderByViewCount" resultType="top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseAndTeacherVO">
+        select
+            c.title,
+            c.cover,
+            c.id as CourseId,
+            c.buy_count as buyCount,
+            c.view_count as viewCount,
+            c.gmt_create as gmtCreate,
+            c.lesson_num AS lessonNum,
+            CONVERT(c.price, DECIMAL(8,2)) AS price,
+            t.name AS teacherName,
+            c.teacher_id AS teacherId
+        from edu_course c
+            LEFT JOIN edu_teacher t ON c.teacher_id = t.id
+        where
+            c.id = #{courseId}
+    </select>
+
 </mapper>
