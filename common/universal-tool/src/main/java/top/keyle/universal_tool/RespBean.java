@@ -34,8 +34,12 @@ public class RespBean {
      */
     public static RespBean success() {
         return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), null);
+    }
 
-
+    public static RespBean success2(String key, Object value) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put(key, value);
+        return new RespBean(RespBeanEnum.SUCCESS2.getCode(), RespBeanEnum.SUCCESS2.getMessage(), data);
     }
 
     /**

@@ -1,7 +1,9 @@
 package top.keyle.online_video_learning_system.controller;
 
 
-import org.springframework.beans.BeanUtils;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entity.UcenterMember;
@@ -10,6 +12,7 @@ import top.keyle.online_video_learning_system.entity.vo.RegisterVo;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
 import top.keyle.universal_tool.JwtUtils;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -60,13 +63,13 @@ public class UcenterMemberController {
      * @param id
      * @return
      */
-    @GetMapping("getInfoUc/{id}")
-    public UcenterMember getInfo(@PathVariable String id) {
+    @GetMapping("/getInfoUc")
+    public RespBean getInfo(String id) {
         //根据用户id获取用户信息
+        System.out.println(id);
         UcenterMember ucenterMember = memberService.getById(id);
-        UcenterMember memeber = new UcenterMember();
-        BeanUtils.copyProperties(ucenterMember,memeber);
-        return memeber;
+        System.out.println(ucenterMember);
+        return RespBean.success("memeber",ucenterMember);
     }
 
     /**
@@ -94,6 +97,24 @@ public class UcenterMemberController {
         Integer count = memberService.countRegisterDay(day);
         return RespBean.success("countRegister",count);
     }
+
+    @PostMapping("updateUserInformation")
+    @ApiOperation(value = "修改用户信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "用户对象", name = "ucenterMember", paramType = "body", dataType = "UcenterMember")
+    })
+    public RespBean modifyLecturerInformation(
+            @RequestBody(required = false) UcenterMember ucenterMember) {
+        if(ucenterMember== null){
+            return RespBean.error(RespBeanEnum.UPDATE_ERROR);
+        }
+        boolean flag = memberService.updateById(ucenterMember);
+        if (flag) {
+            return RespBean.success();
+        }
+        return RespBean.error(RespBeanEnum.UPDATE_ERROR);
+    }
+
 
 }
 

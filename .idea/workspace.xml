@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了前端展示页面">
+      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/online_video_learning_system/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,11 +170,11 @@
       <recent name="top.keyle.Online_video_learning_system" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="top.keyle.online_video_learning_system" />
       <recent name="top.keyle.online_video_learning_system.mapper" />
       <recent name="top.keyle.online_video_learning_system.entity.vo" />
       <recent name="top.keyle.Online_video_learning_system.handler" />
       <recent name="top.keyle" />
-      <recent name="top.keyle.online_video_learning_system.service.impl" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -203,22 +207,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test1.removeVideoByCourseId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service_edu" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.keyle.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="top.keyle" />
-      <option name="MAIN_CLASS_NAME" value="top.keyle.test1" />
-      <option name="METHOD_NAME" value="removeVideoByCourseId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test1.tect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -245,6 +233,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="top.keyle" />
       <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test1 (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service_ucenter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.online_video_learning_system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.keyle.online_video_learning_system" />
+      <option name="MAIN_CLASS_NAME" value="top.keyle.online_video_learning_system.test" />
       <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -320,11 +324,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.test.test1 (2)" />
       <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test1.tect" />
       <item itemvalue="JUnit.test.test1" />
       <item itemvalue="JUnit.test1.deleteVideo" />
-      <item itemvalue="JUnit.test1.removeVideoByCourseId" />
       <item itemvalue="Spring Boot.EduApplication" />
       <item itemvalue="Spring Boot.ServiceMsmApplication" />
       <item itemvalue="Spring Boot.VodApplication" />
@@ -333,11 +337,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test1.tect" />
         <item itemvalue="JUnit.test.test1 (1)" />
+        <item itemvalue="JUnit.test.test1 (2)" />
+        <item itemvalue="JUnit.test1.tect" />
         <item itemvalue="JUnit.test.test1" />
         <item itemvalue="JUnit.test1.deleteVideo" />
-        <item itemvalue="JUnit.test1.removeVideoByCourseId" />
       </list>
     </recent_temporary>
   </component>
@@ -428,14 +432,7 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="4360000" />
-    </task>
-    <task id="LOCAL-00053" summary="更新">
-      <created>1674371545484</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1674371545485</updated>
+      <workItem from="1676034704317" duration="8085000" />
     </task>
     <task id="LOCAL-00054" summary="更新">
       <created>1674372551603</created>
@@ -773,7 +770,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676011746168</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="优化了前端展示页面">
+      <created>1676049189066</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1676049189067</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

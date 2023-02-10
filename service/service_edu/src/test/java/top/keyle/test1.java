@@ -35,6 +35,7 @@ public class test1 {
 
     @Autowired
     EduCourseMapper eduCourseMapper;
+
     @Test
     public void tect(){
         System.out.println(eduCourseMapper.selectAllByTeacherIdOrderByViewCount("11"));
