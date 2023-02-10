@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了前端展示页面">
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseAndTeacherVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/IndexFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/IndexFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/resources/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +123,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "configurable.group.editor",
-    "spring.configuration.checksum": "2f6c0bedfce254baefb143993df4e41a",
+    "spring.configuration.checksum": "57da4e8bf68c55469bd5ae735189adef",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -192,7 +186,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.UcenterApplication">
     <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -433,14 +427,8 @@
       <workItem from="1675768999133" duration="2822000" />
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
-      <workItem from="1675845908003" duration="53237000" />
-    </task>
-    <task id="LOCAL-00052" summary="更新了课程科目管理">
-      <created>1674213188724</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1674213188724</updated>
+      <workItem from="1675845908003" duration="57599000" />
+      <workItem from="1676034704317" duration="4360000" />
     </task>
     <task id="LOCAL-00053" summary="更新">
       <created>1674371545484</created>
@@ -778,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675955597959</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="优化了前端展示页面">
+      <created>1676011746168</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1676011746168</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -806,7 +801,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>

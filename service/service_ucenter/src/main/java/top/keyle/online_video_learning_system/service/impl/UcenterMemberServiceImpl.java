@@ -89,7 +89,7 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
                 UcenterMember mobileMember = baseMapper.selectOne(wrapper);
                 jwtToken = JwtUtils.getJwtToken(mobileMember.getId(), mobileMember.getNickname());
             }else{
-                throw new GlobalException(RespBeanEnum.LOGIN_FAILED);
+                throw new GlobalException(RespBeanEnum.CAPTCHA_ERROR);
             }
         }
         return jwtToken;
