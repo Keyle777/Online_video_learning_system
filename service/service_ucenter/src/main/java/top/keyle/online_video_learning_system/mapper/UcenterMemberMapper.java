@@ -8,4 +8,5 @@ import top.keyle.online_video_learning_system.entity.UcenterMember;
 public interface UcenterMemberMapper extends BaseMapper<UcenterMember> {
 
     Integer countRegisterDay(String day);
+
 }

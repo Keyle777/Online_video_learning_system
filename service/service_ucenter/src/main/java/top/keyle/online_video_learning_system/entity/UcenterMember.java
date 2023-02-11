@@ -1,9 +1,7 @@
 package top.keyle.online_video_learning_system.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -24,6 +22,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@TableName(value ="ucenter_member")
 @ApiModel(value="UcenterMember对象", description="学员表")
 public class UcenterMember implements Serializable {
 
@@ -60,6 +59,7 @@ public class UcenterMember implements Serializable {
     @ApiModelProperty(value = "是否禁用 1（true）已禁用，  0（false）未禁用")
     private Integer isDisabled;
 
+    @TableLogic(value = "0", delval = "1")
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
     private Integer isDeleted;
 

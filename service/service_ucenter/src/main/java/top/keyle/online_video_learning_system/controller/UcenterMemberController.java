@@ -1,6 +1,7 @@
 package top.keyle.online_video_learning_system.controller;
 
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -16,6 +17,7 @@ import top.keyle.universal_tool.RespBeanEnum;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Api(tags = {"前端用户管理"})
 @RestController
 @RequestMapping("/eduTraineeCenter/member")
 @CrossOrigin

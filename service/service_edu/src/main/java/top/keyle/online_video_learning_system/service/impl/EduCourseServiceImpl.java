@@ -144,6 +144,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     public CourseAndTeacherVO selectAllByTeacherIdOrderByViewCount(String courseId) {
         return eduCourseMapper.selectAllByTeacherIdOrderByViewCount(courseId);
     }
+
+    @Override
+    public List<EduCourse> SelectCourseListBySearchText(String courseName) {
+        return eduCourseMapper.SelectCourseListBySearchText(courseName);
+    }
 }
 
 

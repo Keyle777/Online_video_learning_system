@@ -14,6 +14,7 @@ import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author TMJIE5200
@@ -144,6 +145,14 @@ public class EduCourseController {
         return RespBean.success();
     }
 
-
-
+    @GetMapping("/SelectCourseListBySearchText/{courseName}")
+    public RespBean SelectCourseListBySearchText(@PathVariable String courseName){
+        List<EduCourse> eduCourseList = courseService.SelectCourseListBySearchText(courseName);
+        if(eduCourseList.size() == 0){
+            return RespBean.error();
+        }
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("eduCourseList",eduCourseList);
+        return RespBean.success(hashMap);
+    }
 }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.keyle.online_video_learning_system.mapper.EduCourseCollectMapper">
+
+    <resultMap id="BaseResultMap" type="top.keyle.online_video_learning_system.entity.EduCourseCollect">
+            <id property="id" column="id" jdbcType="CHAR"/>
+            <result property="courseId" column="course_id" jdbcType="CHAR"/>
+            <result property="memberId" column="member_id" jdbcType="CHAR"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,course_id,member_id,
+        is_deleted,gmt_create,gmt_modified
+    </sql>
+
+    <select id="selectDayCollectionCoutn" resultType="Integer">
+        SELECT
+            COUNT(*) AS total
+        FROM
+            edu_course_collect
+        WHERE
+            gmt_create > CURDATE() and
+            member_id = #{memberid}
+        and
+            is_deleted = 0
+        GROUP BY
+            gmt_create
+        ORDER BY
+            gmt_create DESC
+    </select>
+
+    <select id="SelectNumberOfCollectionsInAWeek" resultType="Integer">
+        SELECT
+            COUNT(*) AS total
+        FROM
+            edu_course_collect
+        WHERE
+            gmt_create BETWEEN DATE (
+                    subdate( curdate()- 1, date_format( curdate()- 1, '%w' )- 1 ))
+                AND DATE (
+                    subdate( curdate()- 1, date_format( curdate()- 1, '%w' )- 7 ))
+          AND
+            member_id = #{memberid}
+          AND
+            is_deleted = 0
+        GROUP BY
+            gmt_create
+        ORDER BY
+            gmt_create DESC
+    </select>
+
+    <select id="SelectFreeVsPaid" resultType="top.keyle.online_video_learning_system.entity.vo.collectionVO.NumberOfFavorites">
+        SELECT
+            c.price as price ,
+            COUNT(*) AS total
+        FROM
+            edu_course_collect cc
+                LEFT JOIN edu_course c ON c.id = cc.course_id
+        where member_id = #{memberid}
+          AND
+            cc.is_deleted = 0
+        GROUP BY
+            c.price
+    </select>
+    <select id="selectCollectList" resultType="top.keyle.online_video_learning_system.entity.vo.collectionVO.CollectDetail">
+        SELECT
+            cc.id AS collectId,
+            c.id AS courseId,
+            t.`name` AS teacherName,
+            c.title AS courseTitle,
+            c.price AS coursePrice,
+            c.description AS courseDescription,
+            cc.gmt_create AS collectGmtCreate,
+            s.title AS subjectTitle
+        FROM
+            edu_course_collect cc
+                LEFT JOIN edu_course c ON cc.course_id = c.id
+                LEFT JOIN edu_teacher t ON t.id = c.teacher_id
+                LEFT JOIN edu_subject s ON s.id = c.subject_parent_id
+        WHERE
+            cc.member_id = #{memberid}
+          AND
+            cc.is_deleted = 0
+    </select>
+</mapper>

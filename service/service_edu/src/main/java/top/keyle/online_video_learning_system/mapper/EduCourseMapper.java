@@ -6,6 +6,8 @@ import top.keyle.online_video_learning_system.entry.EduCourse;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseAndTeacherVO;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo;
 
+import java.util.List;
+
 /**
 * @author TMJIE5200
 * @description 针对表【edu_course(课程表)】的数据库操作Mapper
@@ -18,6 +20,8 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
     CoursePublishVo getCoursePublishVoById(String id);
 
     CourseAndTeacherVO selectAllByTeacherIdOrderByViewCount(String courseId);
+
+    List<EduCourse> SelectCourseListBySearchText(String courseName);
 
 }
 

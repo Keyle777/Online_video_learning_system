@@ -68,4 +68,13 @@
             c.id = #{courseId}
     </select>
 
+
+    <select id="SelectCourseListBySearchText" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            edu_course
+        WHERE
+            title LIKE '%' #{courseName} '%'
+    </select>
 </mapper>
