@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service_comment" />
         <module name="service_vod" />
         <module name="service_edu" />
         <module name="universal-tool" />
@@ -27,6 +28,7 @@
       <module name="service-base" options="" />
       <module name="service_cms" options="-parameters" />
       <module name="service_cmsr" options="-parameters" />
+      <module name="service_comment" options="-parameters" />
       <module name="service_edu" options="-parameters" />
       <module name="service_msm" options="-parameters" />
       <module name="service_order" options="-parameters" />

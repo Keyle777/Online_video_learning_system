@@ -6,8 +6,8 @@
         <option name="generateConfig">
           <GenerateConfig>
             <option name="annotationType" value="MYBATIS_PLUS3" />
-            <option name="basePackage" value="service" />
-            <option name="basePath" value="src/main/java" />
+            <option name="basePackage" value="top.keyle.Online_video_learning_system" />
+            <option name="basePath" value="service/service_comment/src/main/java" />
             <option name="classNameStrategy" value="camel" />
             <option name="encoding" value="UTF-8" />
             <option name="extraClassSuffix" value="" />
@@ -62,8 +62,9 @@
               </list>
             </option>
             <option name="needToStringHashcodeEquals" value="true" />
+            <option name="needsComment" value="true" />
             <option name="needsModel" value="false" />
-            <option name="relativePackage" value="domain" />
+            <option name="relativePackage" value="top.keyle.Online_video_learning_system/entry" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
               <list>
@@ -74,6 +75,7 @@
               </list>
             </option>
             <option name="templatesName" value="mybatis-plus3" />
+            <option name="useActualColumnAnnotationInject" value="true" />
             <option name="useLombokPlugin" value="true" />
           </GenerateConfig>
         </option>

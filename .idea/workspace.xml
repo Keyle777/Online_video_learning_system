@@ -4,23 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增了我的收藏功能">
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/frontvo/CourseFrontVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/frontvo/CourseWebVo.java" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增了课程详情界面">
+      <change afterPath="$PROJECT_DIR$/service/service_comment/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/CommentApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/client/UcenterClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/client/impl/UcenterClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/entry/EduComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/entry/UcenterMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCommentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/EduCommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/resources/mapper/EduCommentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/OrdersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/OrdersClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/resources/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CommentFrontController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +128,7 @@
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
     "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_cms/src/main/java",
-    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_common/src/main/resources",
+    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -161,29 +163,29 @@
       <recent name="top.keyle.online_video_learning_system.listener" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_comment\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_common\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\resources\mapper" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\common\universal-tool\src\main\java\top\keyle\universal_tool" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\java\top\keyle\online_video_learning_system" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\java\top\keyle\online_video_learning_system\config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_comment\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_common\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_ucenter\src\main\resources\mapper" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\java" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cms\src\main\resources" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_msm\src\main\resources\lib" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="top.keyle" />
       <recent name="top.keyle.Online_video_learning_system" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="top.keyle.Online_video_learning_system.entry" />
       <recent name="top.keyle" />
       <recent name="top.keyle.online_video_learning_system.service" />
       <recent name="top.keyle.online_video_learning_system.service.impl" />
       <recent name="top.keyle.online_video_learning_system.mapper" />
-      <recent name="top.keyle.online_video_learning_system" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -199,7 +201,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.CommentApplication">
     <configuration name="test.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_ucenter" />
       <extension name="coverage">
@@ -220,6 +222,19 @@
       <option name="ACTIVE_PROFILES" />
       <module name="service_cmsr" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CmsrApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="service_comment" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CommentApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="top.keyle.*" />
@@ -269,6 +284,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.CommentApplication" />
       <item itemvalue="Spring Boot.EduApplication" />
       <item itemvalue="Spring Boot.ServiceMsmApplication" />
       <item itemvalue="Spring Boot.VodApplication" />
@@ -363,14 +379,7 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="35457000" />
-    </task>
-    <task id="LOCAL-00056" summary="更新">
-      <created>1674479244583</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1674479244583</updated>
+      <workItem from="1676034704317" duration="39457000" />
     </task>
     <task id="LOCAL-00057" summary="更新">
       <created>1674486015509</created>
@@ -708,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676135803762</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="新增了课程详情界面">
+      <created>1676184842059</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1676184842059</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -773,7 +789,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="在课程控制器新增了一些功能" />
     <MESSAGE value="新增了章节添加与显示" />
     <MESSAGE value="新增了小节添加" />
     <MESSAGE value="新增发布课程功能" />
@@ -798,7 +813,8 @@
     <MESSAGE value="优化了前端展示页面" />
     <MESSAGE value="修复了后端接受前端的值，但是结果返回不到前端的问题，应该是不能用路径传。" />
     <MESSAGE value="新增了我的收藏功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增了我的收藏功能" />
+    <MESSAGE value="新增了课程详情界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增了课程详情界面" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

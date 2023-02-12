@@ -29,6 +29,7 @@
         <module>service_vod</module>
         <module>service_cmsr</module>
         <module>service_ucenter</module>
+        <module>service_comment</module>
     </modules>
 
     <dependencies>
