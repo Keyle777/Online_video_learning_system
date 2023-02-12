@@ -1,5 +1,6 @@
 package top.keyle.online_video_learning_system.controller.front;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -7,12 +8,19 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entry.EduCourse;
+import top.keyle.online_video_learning_system.entry.frontvo.CourseWebVo;
+import top.keyle.online_video_learning_system.entry.vo.chapter.ChapterVo;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseFrontQuery;
+import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.universal_tool.JsonPage;
+import top.keyle.universal_tool.JwtUtils;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @Author OY
@@ -28,10 +36,10 @@ public class CourseFrontController {
     @Autowired
     private EduCourseService courseService;
 
-/*    @Autowired
+    @Autowired
     private EduChapterService chapterService;
 
-    @Autowired
+/*    @Autowired
     private OrdersClient ordersClient;*/
 
     /**
@@ -68,23 +76,25 @@ public class CourseFrontController {
      */
     @GetMapping("getFrontCourseInfo/{courseId}")
     public RespBean getFrontCourseInfo(@PathVariable String courseId, HttpServletRequest request){
-        /*// 根据课程id, 编写sql语句查询课程信息
+        // 根据课程id, 编写sql语句查询课程信息
         CourseWebVo courseWebVo = courseService.getBaseCourseInfo(courseId);
 
         // 根据课程id查询章节和小节
-        List<OneChapter> chapterVideoList =  chapterService.getChapterAndVideoById(courseId);
+        List<ChapterVo> chapterVideoList =  chapterService.getChapterVideoByCourseId(courseId);
 
         //根据课程id和用户id查询当前课程是否已经支付过了
         String memberId = JwtUtils.getMemberIdByJwtToken(request);
         if(StringUtils.isEmpty(memberId)){
-            return Result.error().code(28004).message("请登入");
+            // 请登陆后重试
+            return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);
         }
-        boolean buyCourse = ordersClient.isBuyCourse(courseId, memberId);*/
+        // boolean buyCourse = ordersClient.isBuyCourse(courseId, memberId);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("courseWebVo",courseWebVo);
+        hashMap.put("chapterVideoList",chapterVideoList);
+        hashMap.put("isBuy",false);
+        return RespBean.success(hashMap);
 
-        /*return Result.ok().data("courseWebVo",courseWebVo).data("chapterVideoList",chapterVideoList)
-                .data("isBuy",buyCourse);*/
-
-        return RespBean.success();
     }
 
 /*    @PostMapping("getCourseInfoOrder/{id}")

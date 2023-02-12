@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import top.keyle.online_video_learning_system.entry.EduCourse;
+import top.keyle.online_video_learning_system.entry.frontvo.CourseWebVo;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.*;
 import top.keyle.online_video_learning_system.mapper.EduCourseMapper;
 import top.keyle.online_video_learning_system.service.EduChapterService;
@@ -130,11 +131,13 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         String subjectParentId = courseQuery.getSubjectParentId();
         String subjectId = courseQuery.getSubjectId();
         BigDecimal priceSort = courseQuery.getPriceSort();
+        String searchText = courseQuery.getSearchText();
         wrapper.orderByDesc(!ObjectUtils.isEmpty(buyCountSort), EduCourse::getBuyCount)
                 .eq(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
                 .eq(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
                 .orderByDesc(!ObjectUtils.isEmpty(gmtCreateSort),EduCourse::getGmtCreate)
-                .orderByDesc(!ObjectUtils.isEmpty(priceSort), EduCourse::getPrice);
+                .orderByDesc(!ObjectUtils.isEmpty(priceSort), EduCourse::getPrice)
+                .like(!ObjectUtils.isEmpty(searchText),EduCourse::getTitle,searchText);
 
         List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduCourseList));
@@ -148,6 +151,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Override
     public List<EduCourse> SelectCourseListBySearchText(String courseName) {
         return eduCourseMapper.SelectCourseListBySearchText(courseName);
+    }
+
+    @Override
+    public CourseWebVo getBaseCourseInfo(String courseId) {
+        return baseMapper.getBaseCourseInfo(courseId);
     }
 }
 

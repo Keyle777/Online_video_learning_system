@@ -20,4 +20,5 @@ public class CourseFrontQuery {
     private Long buyCountSort;
     private String gmtCreateSort;
     private BigDecimal priceSort;
+    private String searchText;
 }

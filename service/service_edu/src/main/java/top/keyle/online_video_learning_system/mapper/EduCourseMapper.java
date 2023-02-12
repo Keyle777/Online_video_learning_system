@@ -3,6 +3,7 @@ package top.keyle.online_video_learning_system.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import top.keyle.online_video_learning_system.entry.EduCourse;
+import top.keyle.online_video_learning_system.entry.frontvo.CourseWebVo;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CourseAndTeacherVO;
 import top.keyle.online_video_learning_system.entry.vo.eduCourse.CoursePublishVo;
 
@@ -22,6 +23,8 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
     CourseAndTeacherVO selectAllByTeacherIdOrderByViewCount(String courseId);
 
     List<EduCourse> SelectCourseListBySearchText(String courseName);
+
+    CourseWebVo getBaseCourseInfo(String courseId);
 
 }
 

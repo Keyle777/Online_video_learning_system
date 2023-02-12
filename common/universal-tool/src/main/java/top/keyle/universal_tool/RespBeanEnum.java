@@ -48,7 +48,8 @@ public enum RespBeanEnum {
     CAPTCHA_ERROR(20018,"验证码不正确"),
     THE_PASSWORD_IS_INCORRECT(20019,"密码不正确"),
     THE_ACCOUNT_IS_NOT_REGISTERED(20020,"该账号未注册"),
-    THE_MOBILE_PHONE_NUMBER_IS_NOT_LINKED(20021,"该邮箱未绑定手机号");
+    THE_MOBILE_PHONE_NUMBER_IS_NOT_LINKED(20021,"该邮箱未绑定手机号"),
+    NOT_LOGGED_IN(20022,"请登录后重试");
     private final Integer code;
     private final String message;
 }
