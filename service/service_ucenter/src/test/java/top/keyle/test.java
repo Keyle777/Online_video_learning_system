@@ -10,8 +10,6 @@ import top.keyle.online_video_learning_system.mapper.UcenterMemberMapper;
 import top.keyle.online_video_learning_system.service.EduCourseCollectService;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
 
-import java.util.HashMap;
-
 /**
  * @author TMJIE5200
  * @date 2023-02-09 19:47:57
@@ -36,13 +34,6 @@ public class test {
     @Test
     public void test1(){
         String id ="1623698548130955265";
-        HashMap<String, Object> hashMap = new HashMap<>();
-        if (memberService.getById(id) != null) {
-            Integer i = eduCourseCollectService.selectDayCollectionCount(id);
-            hashMap.put("CollectionCoutn",i);
-            System.out.println(hashMap);
-        }
-        hashMap.put("CollectionCount",0);
-        System.out.println(hashMap);
+        System.out.println(eduCourseCollectMapper.SelectFreeVsPaid(id));
     }
 }

@@ -90,4 +90,13 @@
                            LEFT OUTER JOIN edu_subject es2 ON ec.subject_id=es2.id
         WHERE ec.id=#{courseId}
     </select>
+
+    <select id="selectCollectByCourseIdAndMemberId" resultType="String">
+        SELECT
+            id
+        FROM
+            edu_course_collect
+        WHERE
+            member_id = #{memberId} AND course_id = #{courseId} and is_deleted = 0
+    </select>
 </mapper>

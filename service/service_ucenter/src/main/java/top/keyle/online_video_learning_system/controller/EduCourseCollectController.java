@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entity.EduCourseCollect;
 import top.keyle.online_video_learning_system.entity.vo.collectionVO.CollectDetail;
+import top.keyle.online_video_learning_system.mapper.EduCourseCollectMapper;
 import top.keyle.online_video_learning_system.service.EduCourseCollectService;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
 import top.keyle.universal_tool.JsonPage;
@@ -113,6 +114,9 @@ public class EduCourseCollectController {
     }
 
 
+    @Autowired
+    EduCourseCollectMapper eduCourseCollectMapper;
+
     @DeleteMapping("{id}")
     public RespBean deleteCollect(@PathVariable String id){
         if(StringUtils.isEmpty(id)){
@@ -121,6 +125,17 @@ public class EduCourseCollectController {
         boolean removeById = eduCourseCollectService.removeById(id);
         if (removeById){
             return RespBean.success();
+        }
+        return RespBean.error();
+    }
+
+    @PostMapping("insertCollect")
+    public RespBean insertCollect(@RequestBody EduCourseCollect eduCourseCollect){
+        if(eduCourseCollect !=null){
+            Integer result = eduCourseCollectService.saveEduCourseCollect(eduCourseCollect);
+            // 直接查对象的id就能得到 新增后得id
+            String collectId =eduCourseCollect.getId();
+            return RespBean.success("collectId",collectId);
         }
         return RespBean.error();
     }

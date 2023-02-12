@@ -25,6 +25,8 @@ public interface EduCourseCollectMapper extends BaseMapper<EduCourseCollect> {
 
     List<CollectDetail> selectCollectList(String memberid);
 
+    Integer saveEduCourseCollect(EduCourseCollect eduCourseCollect);
+
 }
 
 

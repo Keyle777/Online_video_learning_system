@@ -26,6 +26,8 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
 
     CourseWebVo getBaseCourseInfo(String courseId);
 
+    String selectCollectByCourseIdAndMemberId(String courseId, String memberId);
+
 }
 
 

@@ -98,4 +98,7 @@ public interface EduCourseService extends IService<EduCourse> {
      * @return
      */
     CourseWebVo getBaseCourseInfo(String courseId);
+
+    String selectCollectByCourseIdAndMemberId(String courseId, String memberId);
 }
+

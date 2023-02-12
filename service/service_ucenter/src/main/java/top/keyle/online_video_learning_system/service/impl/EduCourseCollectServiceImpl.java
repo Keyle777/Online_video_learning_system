@@ -79,6 +79,11 @@ public class EduCourseCollectServiceImpl extends ServiceImpl<EduCourseCollectMap
         List<CollectDetail> eduCourseCollectList = eduCourseCollectMapper.selectCollectList(id);
         return JsonPage.restPage(new PageInfo<>(eduCourseCollectList));
     }
+
+    @Override
+    public Integer saveEduCourseCollect(EduCourseCollect eduCourseCollect) {
+        return eduCourseCollectMapper.saveEduCourseCollect(eduCourseCollect);
+    }
 }
 
 

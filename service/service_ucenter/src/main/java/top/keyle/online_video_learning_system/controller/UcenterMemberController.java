@@ -65,13 +65,11 @@ public class UcenterMemberController {
      * @param id
      * @return
      */
-    @GetMapping("/getInfoUc")
-    public RespBean getInfo(String id) {
+    @GetMapping("/getInfoUc/{id}")
+    public UcenterMember getInfo(@PathVariable String id) {
         //根据用户id获取用户信息
-        System.out.println(id);
         UcenterMember ucenterMember = memberService.getById(id);
-        System.out.println(ucenterMember);
-        return RespBean.success("memeber",ucenterMember);
+        return ucenterMember;
     }
 
     /**

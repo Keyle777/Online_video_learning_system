@@ -46,4 +46,6 @@ public interface EduCourseCollectService extends IService<EduCourseCollect> {
 
     JsonPage<CollectDetail> paginateToGetAListOfInstructors(@Param("page") Integer page, @Param("pageSize") Integer pageSize,String id);
 
+    Integer saveEduCourseCollect(EduCourseCollect eduCourseCollect);
+
 }

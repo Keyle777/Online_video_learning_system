@@ -1,6 +1,8 @@
 package top.keyle.online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -132,12 +134,14 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         String subjectId = courseQuery.getSubjectId();
         BigDecimal priceSort = courseQuery.getPriceSort();
         String searchText = courseQuery.getSearchText();
+        String teacherId = courseQuery.getTeacherId();
         wrapper.orderByDesc(!ObjectUtils.isEmpty(buyCountSort), EduCourse::getBuyCount)
                 .eq(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
                 .eq(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
                 .orderByDesc(!ObjectUtils.isEmpty(gmtCreateSort),EduCourse::getGmtCreate)
                 .orderByDesc(!ObjectUtils.isEmpty(priceSort), EduCourse::getPrice)
-                .like(!ObjectUtils.isEmpty(searchText),EduCourse::getTitle,searchText);
+                .like(!ObjectUtils.isEmpty(searchText),EduCourse::getTitle,searchText)
+                .eq(!ObjectUtils.isEmpty(teacherId),EduCourse::getTeacherId,teacherId);
 
         List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduCourseList));
@@ -156,6 +160,17 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Override
     public CourseWebVo getBaseCourseInfo(String courseId) {
         return baseMapper.getBaseCourseInfo(courseId);
+    }
+
+    @Override
+    public String selectCollectByCourseIdAndMemberId(String courseId, String memberId) {
+        QueryWrapper<EduCourse> courseQueryWrapper = new QueryWrapper<>();
+        courseQueryWrapper.eq(!StringUtils.isEmpty(courseId),"id",courseId);
+        EduCourse eduCourse = eduCourseMapper.selectOne(courseQueryWrapper);
+        if(memberId == null || eduCourse==null){
+            return null;
+        }
+        return eduCourseMapper.selectCollectByCourseIdAndMemberId(courseId,memberId);
     }
 }
 

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -25,6 +26,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel(value="UcenterMember对象", description="学员表")
+@TableName(value ="ucenter_member")
 public class UcenterMember implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,9 +62,6 @@ public class UcenterMember implements Serializable {
     @ApiModelProperty(value = "是否禁用 1（true）已禁用，  0（false）未禁用")
     private Integer isDisabled;
 
-    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
-    private Integer isDeleted;
-
     @ApiModelProperty(value = "创建时间")
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
@@ -72,6 +71,5 @@ public class UcenterMember implements Serializable {
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
 
 }

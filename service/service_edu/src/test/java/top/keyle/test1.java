@@ -35,7 +35,10 @@ public class test1 {
 
     @Autowired
     EduCourseMapper eduCourseMapper;
-
+    @Test
+    public void tetete(){
+        System.out.println(eduCourseService.selectCollectByCourseIdAndMemberId("11", "1623698548130955265"));
+    }
     @Test
     public void tect(){
         System.out.println(eduCourseMapper.selectAllByTeacherIdOrderByViewCount("11"));

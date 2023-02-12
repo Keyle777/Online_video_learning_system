@@ -22,10 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Author OY
- * @Date 2021/3/31
- */
 @RestController
 @Api(tags = "前端课程控制器")
 @RequestMapping("/eduService/courseFront")
@@ -104,4 +100,23 @@ public class CourseFrontController {
         BeanUtils.copyProperties(courseInfo,courseWebVoOrder);
         return courseWebVoOrder;
     }*/
+
+    @GetMapping("/selectCollect/{courseid}/{memberId}")
+    public RespBean selectCollect(
+            @PathVariable String courseid,
+            @PathVariable String memberId
+    ){
+        HashMap<String, Object> hashMap = new HashMap<>();
+        String collectId = courseService.selectCollectByCourseIdAndMemberId(courseid, memberId);
+        if(collectId != null){
+            hashMap.put("collectId",collectId);
+            hashMap.put("IsCollect",true);
+            return RespBean.success(hashMap);
+        }else {
+            hashMap.put("collectId",null);
+            hashMap.put("IsCollect",false);
+            return RespBean.success(hashMap);
+        }
+    }
+
 }

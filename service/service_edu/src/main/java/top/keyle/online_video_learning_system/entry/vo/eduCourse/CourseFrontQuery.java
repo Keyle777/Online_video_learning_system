@@ -21,4 +21,5 @@ public class CourseFrontQuery {
     private String gmtCreateSort;
     private BigDecimal priceSort;
     private String searchText;
+    private String teacherId;
 }
