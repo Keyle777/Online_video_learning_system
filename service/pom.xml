@@ -30,6 +30,7 @@
         <module>service_cmsr</module>
         <module>service_ucenter</module>
         <module>service_comment</module>
+        <module>service_order</module>
     </modules>
 
     <dependencies>

@@ -12,13 +12,13 @@
         <module name="service_edu" />
         <module name="universal-tool" />
         <module name="service_msm" />
+        <module name="service_order" />
         <module name="service_ucenter" />
         <module name="service_cmsr" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="service_cms" target="17" />
-      <module name="service_order" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

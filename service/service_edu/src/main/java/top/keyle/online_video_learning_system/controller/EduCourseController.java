@@ -63,6 +63,20 @@ public class EduCourseController {
         return RespBean.success("courseInfoVo", courseInfoVo);
     }
 
+
+
+    // 根据课程id查询课程基本信息
+    @GetMapping("getCourseInfoFront/{courseId}")
+    @ApiOperation(value = "根据课程ID获取课程信息")
+    public EduCourse getCourseInfoFront(@PathVariable String courseId) {
+        EduCourse course = courseService.getById(courseId);
+        if (course == null) {
+            throw new GlobalException(RespBeanEnum.SELECT_ERROR);
+        }
+        // 返回表单信息，不必返回整个course课程信息。
+        return course;
+    }
+
     // 根据ID修改课程信息
     @ApiOperation(value = "更新课程")
     @PostMapping("updateCourseInformationByID/{id}")
