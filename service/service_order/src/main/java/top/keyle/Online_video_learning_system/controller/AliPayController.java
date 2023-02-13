@@ -19,7 +19,7 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/ali-pay")
+@RequestMapping("/orderService/ali-pay")
 @Api(tags = "网站支付宝支付")
 @Slf4j
 public class AliPayController {
@@ -40,6 +40,7 @@ public class AliPayController {
             @PathVariable String memberId)
     {
         log.info("统一收单下单并支付页面接口的调用");
+        log.info("课程ID:"+courseId+"用户ID:"+memberId);
         //支付宝开放平台接受 request 请求对象后
         // 会为开发者生成一个html 形式的 form表单，包含自动提交的脚本
         String formStr = aliPayService.tradeCreate(courseId,memberId);

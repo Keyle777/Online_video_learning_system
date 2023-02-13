@@ -10,15 +10,13 @@ import top.keyle.Online_video_learning_system.entity.EduTeacher;
 
 @Component
 @FeignClient(name = "service-edu", fallback = EduClientImpl.class)
-@SuppressWarnings("all")
 public interface EduClient {
 
     //根据课程ID查询课程详细信息
-    @GetMapping("/eduService/eduCourse/getCourseInfoFront/{courseId}")
-    public EduCourse getCourseInfo(@PathVariable("courseId") String courseId);
-
+    @GetMapping("/eduService/eduCourse/getEduCourseByIdFrontOther/{id}")
+    public EduCourse getEduCourseByIdFrontOther(@PathVariable String id);
     // 根据讲师ID 获取讲师详情
     @GetMapping("/eduService/teacher/getEduTeacherByIdFront/{id}")
-    public EduTeacher getEduTeacherByIdFront(@PathVariable("id") String id);
+    public EduTeacher getEduTeacherByIdFront(@PathVariable String id);
 
 }

@@ -27,9 +27,9 @@ public class AliPayTask {
     @Scheduled(cron = "0/30 * * * * ?")
     public void orderConfirm(){
 
-        log.info("orderConfirm 被执行......");
+        log.info("orderConfirm 被执行......支付类型"+ PayType.ALIPAY.getType());
 
-        List<OrderInfo> orderInfoList = orderInfoService.getNoPayOrderByDuration(1, PayType.ALIPAY.getType());
+        List<OrderInfo> orderInfoList = orderInfoService.getNoPayOrderByDuration(1);
 
         for (OrderInfo orderInfo : orderInfoList) {
             String orderNo = orderInfo.getOrderNo();

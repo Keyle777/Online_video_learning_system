@@ -3,6 +3,8 @@ package top.keyle.Online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import top.keyle.Online_video_learning_system.enums.OrderStatus;
 import top.keyle.Online_video_learning_system.mapper.OrderInfoMapper;
 import top.keyle.Online_video_learning_system.service.OrderInfoService;
 import top.keyle.Online_video_learning_system.util.OrderNoUtils;
+import top.keyle.universal_tool.JsonPage;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -30,6 +33,8 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     @Autowired
     MemberClient memberClient;
 
+    @Autowired
+    OrderInfoMapper orderInfoMapper;
     @Override
     public OrderInfo createOrderByProductId(String courseId, String memberId) {
         OrderInfo orderInfo = this.getNoPayOrderByProductId(courseId, memberId);
@@ -37,7 +42,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
             return orderInfo;
         }
         //获取一些信息填入订单表中
-        EduCourse courseInfo = eduClient.getCourseInfo(courseId);
+        EduCourse courseInfo = orderInfoMapper.selectCourseByCourseId(courseId);
         EduTeacher eduTeacher = eduClient.getEduTeacherByIdFront(courseInfo.getTeacherId());
         UcenterMember ucenterMember = memberClient.getInfo(memberId);
         //生成订单
@@ -45,6 +50,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         orderInfo.setCourseTitle(courseInfo.getTitle());
         orderInfo.setOrderNo(OrderNoUtils.getOrderNo());
         orderInfo.setTotalFee(courseInfo.getPrice());
+        orderInfo.setNickname(ucenterMember.getNickname());
         orderInfo.setCourseId(courseInfo.getId());
         orderInfo.setCourseCover(courseInfo.getCover());
         orderInfo.setTeacherName(eduTeacher.getName());
@@ -107,14 +113,14 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
      * @return
      */
     @Override
-    public List<OrderInfo> getNoPayOrderByDuration(int minutes,String memberId) {
+    public List<OrderInfo> getNoPayOrderByDuration(int minutes) {
 
         Instant instant = Instant.now().minus(Duration.ofMinutes(minutes));
 
         QueryWrapper<OrderInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("status", OrderStatus.NOTPAY.getType());
         queryWrapper.le("gmt_create", instant);
-        queryWrapper.eq("member_id", memberId);
+        queryWrapper.eq("pay_type", 2);
 
         return baseMapper.selectList(queryWrapper);
     }
@@ -147,5 +153,29 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         queryWrapper.eq("status", OrderStatus.NOTPAY.getType());
         queryWrapper.eq("member_id", memberId);
         return baseMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public JsonPage<OrderInfo> pageListOrders(Integer page, Integer pageSize, String memberId) {
+        PageHelper.startPage(page, pageSize);
+        QueryWrapper<OrderInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("member_id",memberId);
+        List<OrderInfo> eduOrderInfoList = orderInfoMapper.selectList(wrapper);
+        return JsonPage.restPage(new PageInfo<>(eduOrderInfoList));
+    }
+
+    @Override
+    public Integer selectCurrentWeekOrder(String memberId) {
+        return orderInfoMapper.selectCurrentMonthOrder(memberId);
+    }
+
+    @Override
+    public Integer selectCurrentDayOrder(String memberId) {
+        return orderInfoMapper.selectCurrentDayOrder(memberId);
+    }
+
+    @Override
+    public Integer selectCurrentAllOrder(String memberId) {
+        return orderInfoMapper.selectCurrentAllOrder(memberId);
     }
 }

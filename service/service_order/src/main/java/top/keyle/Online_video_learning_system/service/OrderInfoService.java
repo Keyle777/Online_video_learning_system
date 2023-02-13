@@ -1,10 +1,11 @@
 package top.keyle.Online_video_learning_system.service;
 
 
-
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
 import top.keyle.Online_video_learning_system.entity.OrderInfo;
 import top.keyle.Online_video_learning_system.enums.OrderStatus;
+import top.keyle.universal_tool.JsonPage;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public interface OrderInfoService extends IService<OrderInfo> {
      * @param memberId 用户ID
      * @return
      */
-    List<OrderInfo> getNoPayOrderByDuration(int minutes,String memberId);
+    List<OrderInfo> getNoPayOrderByDuration(int minutes);
 
     /**
      * 根据订单号获取订单
@@ -51,4 +52,13 @@ public interface OrderInfoService extends IService<OrderInfo> {
      * @return
      */
     OrderInfo getOrderByOrderNo(String orderNo);
+
+    JsonPage<OrderInfo> pageListOrders(@Param("page") Integer page, @Param("pageSize") Integer pageSize,String memberId);
+
+
+    Integer selectCurrentWeekOrder(String memberId);
+
+    Integer selectCurrentDayOrder(String memberId);
+
+    Integer selectCurrentAllOrder(String memberId);
 }

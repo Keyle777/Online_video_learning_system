@@ -9,8 +9,10 @@ import top.keyle.Online_video_learning_system.entity.EduTeacher;
 @Component
 public class EduClientImpl implements EduClient {
 
+
     @Override
-    public EduCourse getCourseInfo(String courseId) {
+    public EduCourse getEduCourseByIdFrontOther(String id) {
+        System.out.println(id);
         return null;
     }
 

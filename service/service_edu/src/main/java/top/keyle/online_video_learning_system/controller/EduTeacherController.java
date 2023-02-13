@@ -64,7 +64,6 @@ public class EduTeacherController {
 
     @ApiOperation(value = "根据ID查询讲师other")
     @GetMapping("/getEduTeacherByIdFront/{id}")
-    @ApiImplicitParam(value = "讲师ID", name = "id", required = true, example = "1")
     public EduTeacher getEduTeacherByIdFront(@PathVariable String id) {
         EduTeacher eduTeacher = eduTeacherService.getById(id);
         return eduTeacher;

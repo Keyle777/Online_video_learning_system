@@ -66,14 +66,14 @@ public class EduCourseController {
 
 
     // 根据课程id查询课程基本信息
-    @GetMapping("getCourseInfoFront/{courseId}")
-    @ApiOperation(value = "根据课程ID获取课程信息")
-    public EduCourse getCourseInfoFront(@PathVariable String courseId) {
-        EduCourse course = courseService.getById(courseId);
-        if (course == null) {
-            throw new GlobalException(RespBeanEnum.SELECT_ERROR);
+    @ApiOperation(value = "根据ID查询讲师other")
+    @GetMapping("/getEduTeacherByIdFront/{id}")
+    public EduCourse getEduCourseByIdFrontOther(@PathVariable String id) {
+        if(id == null){
+            System.out.println("===============主键不能不能为空============");
         }
-        // 返回表单信息，不必返回整个course课程信息。
+        EduCourse course = courseService.getById(id);
+        System.out.println(course);
         return course;
     }
 

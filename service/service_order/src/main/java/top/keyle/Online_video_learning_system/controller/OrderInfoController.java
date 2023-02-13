@@ -7,23 +7,36 @@ import top.keyle.Online_video_learning_system.entity.OrderInfo;
 import top.keyle.Online_video_learning_system.enums.OrderStatus;
 import top.keyle.Online_video_learning_system.service.OrderInfoService;
 import top.keyle.Online_video_learning_system.vo.R;
+import top.keyle.universal_tool.JsonPage;
+import top.keyle.universal_tool.RespBean;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 @CrossOrigin //开放前端的跨域访问
 @Api(tags = "商品订单管理")
 @RestController
-@RequestMapping("/api/order-info")
+@RequestMapping("/orderService/order-info")
 public class OrderInfoController {
 
     @Resource
     private OrderInfoService orderInfoService;
 
+    @ApiOperation(value = "条件分页查询某用户订单列表")
+    @PostMapping("/pageListOrders/{current}/{limit}/{memberId}")
+    public RespBean pageListOrders(
+            @PathVariable Integer current,
+            @PathVariable Integer limit,
+            @PathVariable String memberId) {
+        JsonPage<OrderInfo> jsonPage = orderInfoService
+                .pageListOrders(current, limit, memberId);
+        return RespBean.success(jsonPage);
+    }
+
     @ApiOperation("订单列表")
     @GetMapping("/list")
     public R list(){
-
         List<OrderInfo> list = orderInfoService.listOrderByCreateTimeDesc();
         return R.ok().data("list", list);
     }
@@ -45,6 +58,24 @@ public class OrderInfoController {
         return R.ok().setCode(101).setMessage("支付中......");
     }
 
-
-
+    @GetMapping("selectCurrentOrderTotal/{member}")
+    public RespBean selectCurrentOrderTotal(@PathVariable String member){
+        Integer dayOrder = orderInfoService.selectCurrentDayOrder(member);
+        Integer weekOrder = orderInfoService.selectCurrentWeekOrder(member);
+        Integer allOrder = orderInfoService.selectCurrentAllOrder(member);
+        if(dayOrder == null){
+            dayOrder = 0;
+        }
+        if(weekOrder == null){
+            dayOrder = 0;
+        }
+        if(allOrder == null){
+            dayOrder = 0;
+        }
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("dayOrder",dayOrder);
+        hashMap.put("monthOrder",weekOrder);
+        hashMap.put("allOrder",allOrder);
+        return RespBean.success(hashMap);
+    }
 }

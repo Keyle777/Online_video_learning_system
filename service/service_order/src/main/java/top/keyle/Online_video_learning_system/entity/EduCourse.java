@@ -21,9 +21,9 @@ import java.util.Date;
 @SuppressWarnings("all")
 public class EduCourse implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     public static final String COURSE_NORMAL = "Normal";
     public static final String COURSE_DRAFT = "Draft";
-    private static final long serialVersionUID = 1L;
     /**
      * 课程ID
      */
