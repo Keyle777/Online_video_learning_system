@@ -30,10 +30,10 @@ public class VodController {
      * @return
      */
     @GetMapping("{id}")
-    @ApiOperation(value = "根据课程ID获取视频全部信息")
+    @ApiOperation(value = "根据阿里云视频ID获取视频全部信息")
     public RespBean queryDetailsBasedOnVideoID(@PathVariable String id){
         GetVideoInfoResponse videoInfoResponse = vodService.queryDetailsBasedOnVideoID(id);
-
+        System.out.println("根据阿里云视频ID获取视频全部信息"+ videoInfoResponse);
         return RespBean.success("videoInfoResponse",videoInfoResponse);
     }
 
@@ -88,6 +88,7 @@ public class VodController {
     @ApiOperation(value = "根据id获取视频凭证")
     @GetMapping("getPlayAuth/{id}")
     public RespBean getPlayAuth(@PathVariable String id) {
+        System.out.println(id);
         String playAuth = vodService.getPlayAuth(id);
         return RespBean.success("playAuth",playAuth);
     }

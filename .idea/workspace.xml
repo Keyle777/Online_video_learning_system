@@ -5,37 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化">
-      <change afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_comment/src/test/java/top/keyle/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_comment/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_comment/target/classes/mapper/EduCommentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/frontvo/CollectByCourseIdAndMeMberIdVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/handler/MyMetaObjectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/CommentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/CommentApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/client/UcenterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/client/UcenterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/client/impl/UcenterClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/client/impl/UcenterClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/entry/UcenterMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/entry/UcenterMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/UcenterMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/UcenterMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/vo/eduCourse/CourseFrontQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/resources/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/target/classes/mapper/EduCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/UcenterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/UcenterApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseCollectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseCollectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseCollectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseCollectMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/EduCourseCollectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/EduCourseCollectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseCollectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseCollectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/EduCourseCollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/EduCourseCollectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/test/java/top/keyle/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/EduCourseCollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/EduCourseCollectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_vod/src/main/java/top/keyle/online_video_learning_system/controller/VodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_vod/src/main/java/top/keyle/online_video_learning_system/controller/VodController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +185,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.VodApplication">
     <configuration name="test1.tetete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -434,14 +405,7 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="54840000" />
-    </task>
-    <task id="LOCAL-00058" summary="在课程控制器新增了一些功能">
-      <created>1674643654982</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1674643654982</updated>
+      <workItem from="1676034704317" duration="61155000" />
     </task>
     <task id="LOCAL-00059" summary="在课程控制器新增了一些功能">
       <created>1674662922934</created>
@@ -779,7 +743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676189031462</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="优化">
+      <created>1676209547573</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1676209547573</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
