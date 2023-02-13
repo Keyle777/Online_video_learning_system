@@ -53,7 +53,10 @@ public class EduCourseCollectController {
     public RespBean SelectNumberOfCollectionsInAWeek(String id){
         HashMap<String, Object> hashMap = new HashMap<>();
         if (memberService.getById(id) != null) {
-            int count = eduCourseCollectService.SelectNumberOfCollectionsInAWeek(id);
+            Integer count = eduCourseCollectService.SelectNumberOfCollectionsInAWeek(id);
+            if(count == null){
+                count = 0 ;
+            }
             hashMap.put("CollectionCount",count);
             return RespBean.success(hashMap);
         }

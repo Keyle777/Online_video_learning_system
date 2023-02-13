@@ -36,22 +36,13 @@
 
     <select id="SelectNumberOfCollectionsInAWeek" resultType="Integer">
         SELECT
-            COUNT(*) AS total
+            COUNT( id ) AS total
         FROM
             edu_course_collect
         WHERE
-            gmt_create BETWEEN DATE (
-                    subdate( curdate()- 1, date_format( curdate()- 1, '%w' )- 1 ))
-                AND DATE (
-                    subdate( curdate()- 1, date_format( curdate()- 1, '%w' )- 7 ))
-          AND
-            member_id = #{memberid}
-          AND
-            is_deleted = 0
-        GROUP BY
-            gmt_create
-        ORDER BY
-            gmt_create DESC
+            DATE_FORMAT( gmt_create, '%Y-%m' ) = DATE_FORMAT( NOW(), '%Y-%m' )
+          AND is_deleted = 0
+          AND member_id = #{memberId}
     </select>
 
     <select id="SelectFreeVsPaid" resultType="top.keyle.online_video_learning_system.entity.vo.collectionVO.NumberOfFavorites">
