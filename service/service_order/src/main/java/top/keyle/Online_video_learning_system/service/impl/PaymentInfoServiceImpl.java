@@ -1,11 +1,15 @@
 package top.keyle.Online_video_learning_system.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.keyle.Online_video_learning_system.entity.OrderInfo;
 import top.keyle.Online_video_learning_system.entity.PaymentInfo;
 import top.keyle.Online_video_learning_system.mapper.PaymentInfoMapper;
+import top.keyle.Online_video_learning_system.service.OrderInfoService;
 import top.keyle.Online_video_learning_system.service.PaymentInfoService;
 
 import java.math.BigDecimal;
@@ -17,6 +21,8 @@ import java.util.Map;
 @Slf4j
 public class PaymentInfoServiceImpl extends ServiceImpl<PaymentInfoMapper, PaymentInfo> implements PaymentInfoService {
 
+    @Autowired
+    OrderInfoService orderInfoService;
     /**
      * 记录支付日志：支付宝
      * @param params
@@ -35,8 +41,10 @@ public class PaymentInfoServiceImpl extends ServiceImpl<PaymentInfoMapper, Payme
         //交易金额 total_fee
         String totalAmount = params.get("total_amount");
         // 交易完成时间
-        String payTime = params.get("pay_time");
-        Date payTimeDate = new Date(payTime);
+        QueryWrapper<OrderInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("order_no",orderNo);
+        OrderInfo orderInfo = orderInfoService.getOne(wrapper);
+        Date payTimeDate = orderInfo.getGmtModified();
         BigDecimal totalAmountBigDecimal = new BigDecimal(totalAmount);
 
 

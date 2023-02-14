@@ -57,6 +57,6 @@ public class CommentController {
         if(isSave){
             return RespBean.success();
         }
-        return RespBean.error();
+        return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);
     }
 }

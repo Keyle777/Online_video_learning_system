@@ -38,6 +38,9 @@ public class UcenterMemberController {
         //调用service方法实现登录
         //返回token值，使用jwt生成
         String token = memberService.login(member);
+        if(token == null){
+            return RespBean.error(RespBeanEnum.THE_ACCOUNT_IS_NOT_REGISTERED);
+        }
         return RespBean.success("token",token);
     }
 
@@ -70,6 +73,16 @@ public class UcenterMemberController {
         //根据用户id获取用户信息
         UcenterMember ucenterMember = memberService.getById(id);
         return ucenterMember;
+    }
+
+    @GetMapping("/getInfoUc2")
+    public RespBean getInfo2( String id) {
+        //根据用户id获取用户信息
+        UcenterMember ucenterMember = memberService.getById(id);
+        if (ucenterMember !=null){
+            return RespBean.success("memeber",ucenterMember);
+        }
+        return RespBean.error();
     }
 
     /**

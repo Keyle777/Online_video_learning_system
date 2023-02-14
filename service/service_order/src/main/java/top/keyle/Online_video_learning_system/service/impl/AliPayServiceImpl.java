@@ -69,7 +69,7 @@ public class AliPayServiceImpl implements AliPayService {
             //组装当前业务方法的请求参数
             JSONObject bizContent = new JSONObject();
             bizContent.put("out_trade_no", orderInfo.getOrderNo());
-            BigDecimal total = new BigDecimal(orderInfo.getTotalFee().toString()).divide(new BigDecimal("100"));
+            BigDecimal total = new BigDecimal(orderInfo.getTotalFee().toString());
             bizContent.put("total_amount", total);
             bizContent.put("pay_time", new Date().toString());
             bizContent.put("subject", orderInfo.getCourseTitle());

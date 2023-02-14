@@ -47,6 +47,9 @@ public class EduCommentServiceImpl extends ServiceImpl<EduCommentMapper, EduComm
         comment.setTeacherId(comment.getTeacherId());
         comment.setMemberId(memberId);
         UcenterMember info = ucenterClient.getInfo(memberId);
+        if(info == null){
+            return false;
+        }
         System.out.println(info);
         // 注意的点是，在2个类的启动类上都需要加上注解
         // 如果调用的那个方法的返回值是RespBean 那么重写的方法必须是RespBean，否则接收不到值。上面的方法我改成了返回UcenterMember。

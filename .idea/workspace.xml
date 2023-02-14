@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增订单相关功能">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="解决了我的收藏为空时的问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/resources/mapper/RefundInfoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/target/classes/mapper/ProductMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/target/classes/mapper/RefundInfoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseCollectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseCollectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/EduCourseCollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/EduCourseCollectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/EduCourseCollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/EduCourseCollectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/PaymentInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/PaymentInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +194,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UcenterApplication">
+  <component name="RunManager" selected="Spring Boot.OrderApplication">
     <configuration name="test1.tetete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -446,14 +445,7 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="88778000" />
-    </task>
-    <task id="LOCAL-00062" summary="新增了章节添加与显示">
-      <created>1674906042703</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1674906042703</updated>
+      <workItem from="1676034704317" duration="94115000" />
     </task>
     <task id="LOCAL-00063" summary="新增了小节添加">
       <created>1674909185338</created>
@@ -791,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676309748510</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="解决了我的收藏为空时的问题">
+      <created>1676311774068</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1676311774068</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -856,7 +855,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="引入了spring cloud" />
     <MESSAGE value="使用微服务" />
     <MESSAGE value="引入spring cloud" />
     <MESSAGE value="解决报错" />
@@ -881,7 +879,8 @@
     <MESSAGE value="优化" />
     <MESSAGE value="新增支付" />
     <MESSAGE value="新增订单相关功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增订单相关功能" />
+    <MESSAGE value="解决了我的收藏为空时的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决了我的收藏为空时的问题" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

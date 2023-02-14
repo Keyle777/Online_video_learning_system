@@ -87,6 +87,9 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
                 QueryWrapper<UcenterMember> wrapper = new QueryWrapper<>();
                 wrapper.eq("mobile",mobile);
                 UcenterMember mobileMember = baseMapper.selectOne(wrapper);
+                if(mobileMember == null){
+                    return null;
+                }
                 jwtToken = JwtUtils.getJwtToken(mobileMember.getId(), mobileMember.getNickname());
             }else{
                 throw new GlobalException(RespBeanEnum.CAPTCHA_ERROR);
