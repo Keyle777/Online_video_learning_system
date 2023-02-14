@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了支付功能">
-      <change afterPath="$PROJECT_DIR$/canal-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/impl/OrdersClientImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/OrderInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canal-client/src/main/java/top/keyle/CanalApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canal-client/src/main/java/top/keyle/Online_video_learning_system/CanalClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/OrdersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/OrdersClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/resources/alipay-sandbox.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/resources/alipay-sandbox.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/target/classes/alipay-sandbox.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/target/classes/alipay-sandbox.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/canal-client/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/canal-client/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +192,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.CanalApplication">
     <configuration name="test1.tetete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -261,6 +253,19 @@
       <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
       <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CanalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="canal-client" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CanalApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -355,9 +360,11 @@
       <item itemvalue="Spring Boot.VodApplication" />
       <item itemvalue="Spring Boot.CmsrApplication" />
       <item itemvalue="Spring Boot.UcenterApplication" />
+      <item itemvalue="Spring Boot.CanalApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.CanalApplication" />
         <item itemvalue="JUnit.test.test1 (2)" />
         <item itemvalue="JUnit.test.test1 (1)" />
         <item itemvalue="JUnit.test1.tetete" />
@@ -451,14 +458,7 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="100779000" />
-    </task>
-    <task id="LOCAL-00064" summary="新增了小节添加">
-      <created>1674911223727</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1674911223727</updated>
+      <workItem from="1676034704317" duration="101857000" />
     </task>
     <task id="LOCAL-00065" summary="新增发布课程功能">
       <created>1674981817558</created>
@@ -796,7 +796,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676357411202</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="优化了支付功能">
+      <created>1676365547076</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1676365547076</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
