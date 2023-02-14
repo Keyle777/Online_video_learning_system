@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service_comment" />
+        <module name="service_statistics" />
         <module name="service_vod" />
         <module name="service_edu" />
         <module name="universal-tool" />
@@ -34,6 +35,7 @@
       <module name="service_edu" options="-parameters" />
       <module name="service_msm" options="-parameters" />
       <module name="service_order" options="-parameters" />
+      <module name="service_statistics" options="-parameters" />
       <module name="service_ucenter" options="-parameters" />
       <module name="service_vod" options="-parameters" />
       <module name="universal-tool" options="-parameters" />

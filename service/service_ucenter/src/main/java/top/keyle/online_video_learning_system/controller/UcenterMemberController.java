@@ -84,31 +84,14 @@ public class UcenterMemberController {
         }
         return RespBean.error();
     }
-
-    /**
-     * 订单模块根据用户id获取用户信息
-     * @param id
-     * @return
-     */
-    /*@GetMapping("getUserInfoOrder/{id}")
-    public UcenterMemberOrder getUserInfoOrder(@PathVariable String id) {
-        //根据用户id获取用户信息
-        UcenterMember ucenterMember = memberService.getById(id);
-        //把member对象里面值复制给UcenterMemberOrder对象
-        UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
-        BeanUtils.copyProperties(ucenterMember,ucenterMemberOrder);
-        return ucenterMemberOrder;
-    }*/
-
     /**
      * 查询某一天注册人数
      * @param day 日期
      * @return 该日期下的注册人数
      */
     @GetMapping("/countRegister/{day}")
-    public RespBean countRegister(@PathVariable String day){
-        Integer count = memberService.countRegisterDay(day);
-        return RespBean.success("countRegister",count);
+    public Integer countRegister(@PathVariable String day){
+        return memberService.countRegisterDay(day);
     }
 
     @PostMapping("updateUserInformation")
