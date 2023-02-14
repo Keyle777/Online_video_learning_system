@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import top.keyle.Online_video_learning_system.entity.OrderInfo;
+import top.keyle.Online_video_learning_system.entity.orderVo.OrderVo;
 import top.keyle.Online_video_learning_system.enums.OrderStatus;
 import top.keyle.Online_video_learning_system.service.OrderInfoService;
 import top.keyle.Online_video_learning_system.vo.R;
@@ -41,6 +42,18 @@ public class OrderInfoController {
     public R list(){
         List<OrderInfo> list = orderInfoService.listOrderByCreateTimeDesc();
         return R.ok().data("list", list);
+    }
+
+    @ApiOperation(value = "条件分页查询订单列表")
+    @PostMapping("/pageAllListOrders/{current}/{limit}")
+    public RespBean pageAllListOrders(
+            @PathVariable Integer current,
+            @PathVariable Integer limit,
+            @RequestBody OrderVo orderVo
+            ) {
+        JsonPage<OrderInfo> jsonPage = orderInfoService
+                .pageAllListOrders(current, limit , orderVo);
+        return RespBean.success(jsonPage);
     }
 
     /**
@@ -95,6 +108,12 @@ public class OrderInfoController {
         hashMap.put("monthOrder",weekOrder);
         hashMap.put("allOrder",allOrder);
         return RespBean.success(hashMap);
+    }
+
+    @DeleteMapping("{id}")
+    public RespBean deleteOrder(@PathVariable String id){
+        orderInfoService.removeById(id);
+        return RespBean.success();
     }
 
 }

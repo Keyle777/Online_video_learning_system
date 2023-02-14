@@ -1,7 +1,9 @@
 package top.keyle.Online_video_learning_system.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -14,6 +16,7 @@ import top.keyle.Online_video_learning_system.entity.EduCourse;
 import top.keyle.Online_video_learning_system.entity.EduTeacher;
 import top.keyle.Online_video_learning_system.entity.OrderInfo;
 import top.keyle.Online_video_learning_system.entity.UcenterMember;
+import top.keyle.Online_video_learning_system.entity.orderVo.OrderVo;
 import top.keyle.Online_video_learning_system.enums.OrderStatus;
 import top.keyle.Online_video_learning_system.mapper.OrderInfoMapper;
 import top.keyle.Online_video_learning_system.service.OrderInfoService;
@@ -138,6 +141,21 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         return baseMapper.selectOne(queryWrapper);
     }
 
+    @Override
+    public JsonPage<OrderInfo> pageAllListOrders(Integer page, Integer pageSize , OrderVo orderVo) {
+        PageHelper.startPage(page, pageSize);
+        String begin = orderVo.getGmtCreate();
+        String end = orderVo.getGtmModified();
+        String mobile = orderVo.getMobile();
+        String status = orderVo.getStatus();
+        LambdaQueryWrapper<OrderInfo> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(!ObjectUtils.isEmpty(mobile),OrderInfo::getMobile,mobile)
+                .eq(!ObjectUtils.isEmpty(status),OrderInfo::getStatus,status)
+                .ge(!ObjectUtils.isEmpty(begin),OrderInfo::getGmtCreate,begin)
+                .le(!ObjectUtils.isEmpty(end),OrderInfo::getGmtModified,end);
+        List<OrderInfo> eduOrderInfoList = orderInfoMapper.selectList(wrapper);
+        return JsonPage.restPage(new PageInfo<>(eduOrderInfoList));
+    }
 
     /**
      * 根据用户ID和课程ID查询订单中是否存在订单或未支付的订单。

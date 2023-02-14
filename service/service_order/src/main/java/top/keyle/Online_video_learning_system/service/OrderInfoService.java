@@ -4,6 +4,7 @@ package top.keyle.Online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 import top.keyle.Online_video_learning_system.entity.OrderInfo;
+import top.keyle.Online_video_learning_system.entity.orderVo.OrderVo;
 import top.keyle.Online_video_learning_system.enums.OrderStatus;
 import top.keyle.universal_tool.JsonPage;
 
@@ -54,6 +55,8 @@ public interface OrderInfoService extends IService<OrderInfo> {
     OrderInfo getOrderByOrderNo(String orderNo);
 
     JsonPage<OrderInfo> pageListOrders(@Param("page") Integer page, @Param("pageSize") Integer pageSize,String memberId);
+
+    JsonPage<OrderInfo> pageAllListOrders(@Param("page") Integer page, @Param("pageSize") Integer pageSize , OrderVo orderVo);
 
 
     Integer selectCurrentWeekOrder(String memberId);
