@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import top.keyle.online_video_learning_system.client.OrdersClient;
 import top.keyle.online_video_learning_system.entry.EduCourse;
 import top.keyle.online_video_learning_system.entry.frontvo.CourseWebVo;
 import top.keyle.online_video_learning_system.entry.vo.chapter.ChapterVo;
@@ -35,8 +36,8 @@ public class CourseFrontController {
     @Autowired
     private EduChapterService chapterService;
 
-/*    @Autowired
-    private OrdersClient ordersClient;*/
+    @Autowired
+    private OrdersClient ordersClient;
 
     /**
      * 条件查询分页查询课程
@@ -84,11 +85,11 @@ public class CourseFrontController {
             // 请登陆后重试
             return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);
         }
-        // boolean buyCourse = ordersClient.isBuyCourse(courseId, memberId);
+        boolean buyCourse = ordersClient.isBuy(memberId,courseId);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("courseWebVo",courseWebVo);
         hashMap.put("chapterVideoList",chapterVideoList);
-        hashMap.put("isBuy",false);
+        hashMap.put("isBuy",buyCourse);
         return RespBean.success(hashMap);
 
     }

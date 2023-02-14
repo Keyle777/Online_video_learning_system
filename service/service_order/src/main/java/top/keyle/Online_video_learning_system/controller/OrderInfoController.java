@@ -1,5 +1,6 @@
 package top.keyle.Online_video_learning_system.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import top.keyle.Online_video_learning_system.service.OrderInfoService;
 import top.keyle.Online_video_learning_system.vo.R;
 import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -48,14 +50,30 @@ public class OrderInfoController {
      */
     @ApiOperation("查询本地订单状态")
     @GetMapping("/query-order-status/{orderNo}")
-    public R queryOrderStatus(@PathVariable String orderNo){
+    public RespBean queryOrderStatus(@PathVariable String orderNo){
 
         String orderStatus = orderInfoService.getOrderStatus(orderNo);
         if(OrderStatus.SUCCESS.getType().equals(orderStatus)){
-            return R.ok().setMessage("支付成功"); //支付成功
+            return RespBean.success("success","支付成功"); //支付成功
         }
+        return RespBean.success(RespBeanEnum.PAY);
+    }
 
-        return R.ok().setCode(101).setMessage("支付中......");
+    @ApiOperation("查询本地订单状态")
+    @GetMapping("/isBuy/{memberId}/{courseId}")
+    public Boolean isBuy(@PathVariable String memberId,@PathVariable String courseId){
+        if(memberId ==null || courseId ==null){
+            return false;
+        }
+        QueryWrapper<OrderInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("course_id",courseId)
+                .eq("member_id",memberId);
+        OrderInfo orderInfo = orderInfoService.getOne(wrapper);
+        if(orderInfo !=null){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @GetMapping("selectCurrentOrderTotal/{member}")
@@ -78,4 +96,5 @@ public class OrderInfoController {
         hashMap.put("allOrder",allOrder);
         return RespBean.success(hashMap);
     }
+
 }

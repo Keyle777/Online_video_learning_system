@@ -8,7 +8,8 @@
     <modules>
         <module>service</module>
         <module>common</module>
-<!--        <module>common/universal-tool</module>-->
+        <module>canal-client</module>
+        <!--        <module>common/universal-tool</module>-->
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

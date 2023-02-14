@@ -61,10 +61,10 @@ public class AliPayServiceImpl implements AliPayService {
             //调用支付宝接口
             AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
             //配置需要的公共请求参数
-            //支付完成后，支付宝向谷粒学院发起异步通知的地址
+            //支付完成后，支付宝发起异步通知的地址
             request.setNotifyUrl(config.getProperty("alipay.notify-url"));
-            //支付完成后，我们想让页面跳转回谷粒学院的页面，配置returnUrl
-            request.setReturnUrl(config.getProperty("alipay.return-url"));
+            //支付完成后，我们想让页面跳转回课程页面，配置returnUrl
+            request.setReturnUrl(config.getProperty("alipay.return-url")+orderInfo.getCourseId());
 
             //组装当前业务方法的请求参数
             JSONObject bizContent = new JSONObject();

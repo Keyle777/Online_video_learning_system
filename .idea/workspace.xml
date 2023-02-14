@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="解决了我的收藏为空时的问题">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了支付功能">
+      <change afterPath="$PROJECT_DIR$/canal-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/impl/OrdersClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/entry/OrderInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/RespBeanEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/OrdersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/client/OrdersClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/PaymentInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/PaymentInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/resources/alipay-sandbox.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/resources/alipay-sandbox.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_order/target/classes/alipay-sandbox.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/target/classes/alipay-sandbox.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +81,7 @@
     <setting file="file://$PROJECT_DIR$/service/service_order/pom.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/client/EduClient.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/AliPayController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" root0="SKIP_INSPECTION" />
     <setting file="jar://E:/Java-JDK-17/lib/src.zip!/java.base/java/util/HashMap.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://E:/apache-maven-3.8.5/repository/org/springframework/spring-webmvc/5.3.23/spring-webmvc-5.3.23-sources.jar!/org/springframework/web/servlet/config/annotation/CorsRegistry.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -174,11 +180,11 @@
       <recent name="top.keyle.Online_video_learning_system" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="top.keyle.online_video_learning_system.entry" />
+      <recent name="top.keyle.online_video_learning_system.client.impl" />
       <recent name="top.keyle.Online_video_learning_system.handler" />
       <recent name="top.keyle.Online_video_learning_system.entity" />
       <recent name="top.keyle.Online_video_learning_system.client.impl" />
-      <recent name="top.keyle.Online_video_learning_system.client" />
-      <recent name="top.keyle.Online_video_learning_system.entry" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -194,7 +200,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
+  <component name="RunManager" selected="Spring Boot.EduApplication">
     <configuration name="test1.tetete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -445,14 +451,7 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="94115000" />
-    </task>
-    <task id="LOCAL-00063" summary="新增了小节添加">
-      <created>1674909185338</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1674909185338</updated>
+      <workItem from="1676034704317" duration="100779000" />
     </task>
     <task id="LOCAL-00064" summary="新增了小节添加">
       <created>1674911223727</created>
@@ -790,7 +789,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676311774068</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="优化了支付功能">
+      <created>1676357411202</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1676357411202</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -855,7 +861,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="使用微服务" />
     <MESSAGE value="引入spring cloud" />
     <MESSAGE value="解决报错" />
     <MESSAGE value="优化了一些方法细节" />
@@ -880,7 +885,8 @@
     <MESSAGE value="新增支付" />
     <MESSAGE value="新增订单相关功能" />
     <MESSAGE value="解决了我的收藏为空时的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决了我的收藏为空时的问题" />
+    <MESSAGE value="优化了支付功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化了支付功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
