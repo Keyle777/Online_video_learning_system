@@ -4,12 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增数据统计模块">
-      <change afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/entity/orderVo/OrderVo.java" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增管理员订单列表页面">
+      <change afterPath="$PROJECT_DIR$/infrastructure/api-gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/java/top/keyle/ApiGatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/java/top/keyle/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/java/top/keyle/filter/AuthGlobalFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/OrderInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/OrderInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/OrderInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/OrderInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/canal-client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/canal-client/src/main/java/top/keyle/CanalApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/canal-client/src/main/java/top/keyle/Online_video_learning_system/CanalClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/canal-client/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/canal-client/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduTeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduTeacherController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +133,7 @@
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
     "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system",
-    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system",
+    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/infrastructure/api-gateway/src/main/java/top/keyle",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -130,7 +143,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
-    "spring.configuration.checksum": "57da4e8bf68c55469bd5ae735189adef",
+    "spring.configuration.checksum": "528e566c61120c5285d2ec9396faa007",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -155,11 +168,11 @@
       <recent name="top.keyle.online_video_learning_system.listener" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\infrastructure\api-gateway\src\main\java\top\keyle" />
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_infrastructure\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_statistics\src\main\java\top\keyle\Online_video_learning_system" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_order\src\main\java\top\keyle\Online_video_learning_system" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_order\src\main\resources" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_comment\src\main\resources" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_common\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_statistics\src\main\resources" />
@@ -193,39 +206,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
-    <configuration name="test1.tetete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service_edu" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.keyle.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="top.keyle" />
-      <option name="MAIN_CLASS_NAME" value="top.keyle.test1" />
-      <option name="METHOD_NAME" value="tetete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service_ucenter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.keyle.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="top.keyle" />
-      <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
     <configuration name="test.test1 (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_order" />
       <extension name="coverage">
@@ -274,9 +255,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CanalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="canal-client" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CanalApplication" />
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.ApiGatewayApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="top.keyle.*" />
@@ -302,6 +284,7 @@
       </method>
     </configuration>
     <configuration name="CommentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
       <module name="service_comment" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.CommentApplication" />
       <extension name="coverage">
@@ -344,6 +327,7 @@
       </method>
     </configuration>
     <configuration name="StatisticsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
       <module name="service_statistics" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.StatisticsApplication" />
       <extension name="coverage">
@@ -381,9 +365,8 @@
     <list>
       <item itemvalue="JUnit.test.test1" />
       <item itemvalue="JUnit.test.test1 (3)" />
-      <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test.test1 (2)" />
-      <item itemvalue="JUnit.test1.tetete" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.CommentApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.EduApplication" />
@@ -392,15 +375,11 @@
       <item itemvalue="Spring Boot.CmsrApplication" />
       <item itemvalue="Spring Boot.UcenterApplication" />
       <item itemvalue="Spring Boot.StatisticsApplication" />
-      <item itemvalue="Spring Boot.CanalApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.test.test1 (3)" />
-        <item itemvalue="Spring Boot.CanalApplication" />
         <item itemvalue="JUnit.test.test1 (2)" />
-        <item itemvalue="JUnit.test.test1 (1)" />
-        <item itemvalue="JUnit.test1.tetete" />
       </list>
     </recent_temporary>
   </component>
@@ -491,14 +470,8 @@
       <workItem from="1675772463042" duration="3133000" />
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
-      <workItem from="1676034704317" duration="118287000" />
-    </task>
-    <task id="LOCAL-00067" summary="新增发布课程功能">
-      <created>1675016546738</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1675016546738</updated>
+      <workItem from="1676034704317" duration="118973000" />
+      <workItem from="1676444597415" duration="7741000" />
     </task>
     <task id="LOCAL-00068" summary="新增发布课程功能">
       <created>1675016550715</created>
@@ -836,7 +809,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676373454967</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="新增管理员订单列表页面">
+      <created>1676388428030</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1676388428030</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -901,7 +881,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="优化了一些方法细节" />
     <MESSAGE value="优化了一些方法细节2" />
     <MESSAGE value="优化了一些方法细节3" />
     <MESSAGE value="新增了删除章节和清除课程功能" />
@@ -926,7 +905,8 @@
     <MESSAGE value="优化了支付功能" />
     <MESSAGE value="更新" />
     <MESSAGE value="新增数据统计模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增数据统计模块" />
+    <MESSAGE value="新增管理员订单列表页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增管理员订单列表页面" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

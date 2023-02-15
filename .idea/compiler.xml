@@ -11,28 +11,35 @@
         <module name="service_statistics" />
         <module name="service_vod" />
         <module name="service_edu" />
-        <module name="universal-tool" />
+        <module name="api-gateway" />
         <module name="service_msm" />
         <module name="service_order" />
+        <module name="universal-tool" />
         <module name="service_ucenter" />
-        <module name="canal-client" />
         <module name="service_cmsr" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api_gateway" target="17" />
+      <module name="canal-client" target="17" />
       <module name="service_cms" target="17" />
+      <module name="service_infrastructure" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Online_video_learning_system" options="" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="api_gateway" options="-parameters" />
       <module name="canal-client" options="-parameters" />
+      <module name="infrastructure" options="" />
       <module name="service" options="" />
       <module name="service-base" options="" />
       <module name="service_cms" options="-parameters" />
       <module name="service_cmsr" options="-parameters" />
       <module name="service_comment" options="-parameters" />
       <module name="service_edu" options="-parameters" />
+      <module name="service_infrastructure" options="-parameters" />
       <module name="service_msm" options="-parameters" />
       <module name="service_order" options="-parameters" />
       <module name="service_statistics" options="-parameters" />

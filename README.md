@@ -2849,6 +2849,13 @@ public Boolean removeVideoById(String id) {
 
 
 
+# 网关
+报错：网关出现503错误是因为全局过滤器没有加载（ReactiveLoadBalancerClientFilter），只需要将含有这个过滤器的依赖进行导入就行了
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+<version>3.1.5</version>
+</dependency>
 
 
 
