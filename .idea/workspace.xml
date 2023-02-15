@@ -4,36 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增网关">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增网关，和课程展示页面得一些数据">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/java/top/keyle/Online_video_learning_system/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduChapterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduChapterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduSubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduSubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduTeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduTeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduVideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduVideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/IndexFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/IndexFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/TeacherFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/TeacherFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/pingjiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/pingjiaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/test/java/top/keyle/test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/controller/MsmApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/src/main/java/top/keyle/msm_service/controller/MsmApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/client/EduClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/client/EduClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/client/impl/EduClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/client/impl/EduClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/AliPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/AliPayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/OrderInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/controller/StatisticsDailyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/controller/StatisticsDailyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseCollectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/EduCourseCollectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_vod/src/main/java/top/keyle/online_video_learning_system/controller/VodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_vod/src/main/java/top/keyle/online_video_learning_system/controller/VodController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_vod/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_vod/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/java/top/keyle/filter/AuthGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/java/top/keyle/filter/AuthGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/resources/mapper/OrderInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/resources/mapper/OrderInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_vod/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_vod/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -500,14 +475,7 @@
       <workItem from="1675775633035" duration="9583000" />
       <workItem from="1675845908003" duration="57599000" />
       <workItem from="1676034704317" duration="118973000" />
-      <workItem from="1676444597415" duration="19597000" />
-    </task>
-    <task id="LOCAL-00069" summary="新增发布课程功能">
-      <created>1675068666346</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1675068666346</updated>
+      <workItem from="1676444597415" duration="22709000" />
     </task>
     <task id="LOCAL-00070" summary="更新了课程列表">
       <created>1675479024795</created>
@@ -845,7 +813,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676452813303</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="新增网关，和课程展示页面得一些数据">
+      <created>1676471148509</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1676471148509</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -910,7 +885,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="优化了一些方法细节3" />
     <MESSAGE value="新增了删除章节和清除课程功能" />
     <MESSAGE value="新增了删除课程" />
     <MESSAGE value="优化了添加课程功能体验" />
@@ -935,7 +909,8 @@
     <MESSAGE value="新增数据统计模块" />
     <MESSAGE value="新增管理员订单列表页面" />
     <MESSAGE value="新增网关" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增网关" />
+    <MESSAGE value="新增网关，和课程展示页面得一些数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增网关，和课程展示页面得一些数据" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
