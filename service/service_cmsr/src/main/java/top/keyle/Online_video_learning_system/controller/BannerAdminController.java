@@ -18,7 +18,6 @@ import top.keyle.universal_tool.RespBeanEnum;
 @Api(tags = "后台Banner管理")
 @RestController
 @RequestMapping("/cmsService/crmBanner")
-@CrossOrigin
 public class BannerAdminController {
 
     @Autowired

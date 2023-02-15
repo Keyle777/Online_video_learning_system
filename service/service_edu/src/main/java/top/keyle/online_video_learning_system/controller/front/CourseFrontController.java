@@ -1,12 +1,16 @@
 package top.keyle.online_video_learning_system.controller.front;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import top.keyle.online_video_learning_system.client.OrdersClient;
 import top.keyle.online_video_learning_system.entry.EduCourse;
 import top.keyle.online_video_learning_system.entry.frontvo.CourseWebVo;
@@ -26,7 +30,6 @@ import java.util.List;
 @RestController
 @Api(tags = "前端课程控制器")
 @RequestMapping("/eduService/courseFront")
-@CrossOrigin
 @SuppressWarnings("all")
 public class CourseFrontController {
 
@@ -75,7 +78,6 @@ public class CourseFrontController {
     public RespBean getFrontCourseInfo(@PathVariable String courseId, HttpServletRequest request){
         // 根据课程id, 编写sql语句查询课程信息
         CourseWebVo courseWebVo = courseService.getBaseCourseInfo(courseId);
-
         // 根据课程id查询章节和小节
         List<ChapterVo> chapterVideoList =  chapterService.getChapterVideoByCourseId(courseId);
 
@@ -94,13 +96,6 @@ public class CourseFrontController {
 
     }
 
-/*    @PostMapping("getCourseInfoOrder/{id}")
-    public CourseWebVoOrder getCourseInfoOrder(@PathVariable String id){
-        CourseWebVo courseInfo = courseService.getBaseCourseInfo(id);
-        CourseWebVoOrder courseWebVoOrder = new CourseWebVoOrder();
-        BeanUtils.copyProperties(courseInfo,courseWebVoOrder);
-        return courseWebVoOrder;
-    }*/
 
     @GetMapping("/selectCollect/{courseid}/{memberId}")
     public RespBean selectCollect(
@@ -120,4 +115,24 @@ public class CourseFrontController {
         }
     }
 
+    @GetMapping("updateCourseBuyCount/{courseId}")
+    public RespBean updateCourse(@PathVariable String courseId){
+        EduCourse course = courseService.getById(courseId);
+        course.setBuyCount(course.getBuyCount()+1);
+        QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
+        wrapper.eq("id",courseId);
+        courseService.update(course,wrapper);
+        return RespBean.success();
+    }
+
+    @GetMapping("updateCourseViewCount/{courseId}")
+    public RespBean updateCourseViewCount(@PathVariable String courseId){
+        EduCourse courseInfo = courseService.getById(courseId);
+        Long viewCount = courseInfo.getViewCount();
+        if (courseInfo != null) {
+            courseInfo.setViewCount(viewCount + 1);
+            courseService.updateById(courseInfo);
+        }
+        return RespBean.success();
+    }
 }

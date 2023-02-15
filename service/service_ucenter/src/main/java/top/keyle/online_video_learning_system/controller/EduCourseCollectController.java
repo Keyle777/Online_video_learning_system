@@ -27,7 +27,6 @@ import java.util.List;
 @Api(tags = {"收藏管理"})
 @RestController
 @RequestMapping("/eduTraineeCenter/courseCollect")
-@CrossOrigin
 public class EduCourseCollectController {
     @Autowired
     EduCourseCollectService eduCourseCollectService;

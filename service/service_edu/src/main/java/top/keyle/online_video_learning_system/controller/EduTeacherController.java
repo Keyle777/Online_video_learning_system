@@ -25,7 +25,7 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/eduService/teacher")
 @Api(tags = {"讲师管理"})
-@CrossOrigin
+
 public class EduTeacherController {
     @Autowired
     private EduTeacherService eduTeacherService;

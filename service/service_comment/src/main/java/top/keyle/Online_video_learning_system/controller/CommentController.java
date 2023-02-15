@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/commentService/comment")
-@CrossOrigin
 @Api(tags = {"评论管理"})
 public class CommentController {
     @Autowired

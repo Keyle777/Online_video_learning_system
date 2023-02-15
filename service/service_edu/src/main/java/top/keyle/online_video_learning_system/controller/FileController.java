@@ -17,7 +17,6 @@ import top.keyle.universal_tool.RespBeanEnum;
 @Api(tags = {"文件管理"})
 @RestController
 @RequestMapping("/fileManagement")
-@CrossOrigin
 public class FileController {
 
     @Autowired

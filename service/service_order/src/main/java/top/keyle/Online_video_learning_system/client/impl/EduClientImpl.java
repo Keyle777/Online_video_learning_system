@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import top.keyle.Online_video_learning_system.client.EduClient;
 import top.keyle.Online_video_learning_system.entity.EduCourse;
 import top.keyle.Online_video_learning_system.entity.EduTeacher;
+import top.keyle.universal_tool.RespBean;
 
 
 @Component
@@ -18,6 +19,11 @@ public class EduClientImpl implements EduClient {
 
     @Override
     public EduTeacher getEduTeacherByIdFront(String id) {
+        return null;
+    }
+
+    @Override
+    public RespBean updateCourse(String courseId) {
         return null;
     }
 }

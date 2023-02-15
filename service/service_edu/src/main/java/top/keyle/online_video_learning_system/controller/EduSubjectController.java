@@ -3,7 +3,10 @@ package top.keyle.online_video_learning_system.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import top.keyle.online_video_learning_system.entry.vo.subject.OneSubject;
 import top.keyle.online_video_learning_system.service.EduSubjectService;
@@ -20,7 +23,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/eduService/edu_subject")
 @Api(tags = {"课程分类"})
-@CrossOrigin
 public class EduSubjectController {
 
     @Autowired

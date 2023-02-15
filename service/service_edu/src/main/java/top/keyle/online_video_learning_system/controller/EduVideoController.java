@@ -18,7 +18,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/eduService/video")
-@CrossOrigin
 @Api(tags = {"视频(课时)管理"})
 public class EduVideoController {
 

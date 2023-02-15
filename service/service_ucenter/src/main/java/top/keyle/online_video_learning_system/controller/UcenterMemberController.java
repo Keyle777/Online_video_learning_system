@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 @Api(tags = {"前端用户管理"})
 @RestController
 @RequestMapping("/eduTraineeCenter/member")
-@CrossOrigin
 public class UcenterMemberController {
 
     @Autowired

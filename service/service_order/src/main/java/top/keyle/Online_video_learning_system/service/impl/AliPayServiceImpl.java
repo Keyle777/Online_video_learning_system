@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import top.keyle.Online_video_learning_system.client.EduClient;
 import top.keyle.Online_video_learning_system.entity.OrderInfo;
 import top.keyle.Online_video_learning_system.enums.OrderStatus;
 import top.keyle.Online_video_learning_system.enums.wxpay.AliPayTradeState;
@@ -48,6 +49,8 @@ public class AliPayServiceImpl implements AliPayService {
     @Resource
     private PaymentInfoService paymentInfoService;
 
+    @Resource
+    EduClient eduClient;
     @Transactional(rollbackFor = Exception.class)
 
     @Override
@@ -77,11 +80,13 @@ public class AliPayServiceImpl implements AliPayService {
 
             request.setBizContent(bizContent.toString());
 
+            // 更新课程，购买人数+1
             //执行请求，调用支付宝接口
             AlipayTradePagePayResponse response = alipayClient.pageExecute(request);
 
             if(response.isSuccess()){
                 log.info("调用成功，返回结果 ===> " + response.getBody());
+                eduClient.updateCourse(courseId);
                 return response.getBody();
             } else {
                 log.info("调用失败，返回码 ===> " + response.getCode() + ", 返回描述 ===> " + response.getMsg());

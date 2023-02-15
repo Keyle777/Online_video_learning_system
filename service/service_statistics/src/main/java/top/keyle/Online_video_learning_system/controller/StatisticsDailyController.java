@@ -1,7 +1,10 @@
 package top.keyle.Online_video_learning_system.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import top.keyle.Online_video_learning_system.service.StatisticsDailyService;
 import top.keyle.universal_tool.RespBean;
 
@@ -13,7 +16,6 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/statisticsService/statistics/")
-@CrossOrigin
 public class StatisticsDailyController {
 
     @Autowired

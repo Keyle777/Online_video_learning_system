@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Map;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/orderService/ali-pay")
 @Api(tags = "网站支付宝支付")

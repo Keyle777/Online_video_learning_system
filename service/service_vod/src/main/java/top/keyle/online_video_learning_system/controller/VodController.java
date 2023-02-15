@@ -18,7 +18,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/vodService/video")
-@CrossOrigin
 @Api(tags = {"视频服务管理"})
 public class VodController {
     @Autowired

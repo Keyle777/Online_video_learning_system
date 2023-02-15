@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import top.keyle.Online_video_learning_system.client.impl.EduClientImpl;
 import top.keyle.Online_video_learning_system.entity.EduCourse;
 import top.keyle.Online_video_learning_system.entity.EduTeacher;
+import top.keyle.universal_tool.RespBean;
 
 @Component
 @FeignClient(name = "service-edu", fallback = EduClientImpl.class)
@@ -19,4 +20,7 @@ public interface EduClient {
     @GetMapping("/eduService/teacher/getEduTeacherByIdFront/{id}")
     public EduTeacher getEduTeacherByIdFront(@PathVariable String id);
 
+
+    @GetMapping("/eduService/courseFront/updateCourseBuyCount/{courseId}")
+    public RespBean updateCourse(@PathVariable String courseId);
 }

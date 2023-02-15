@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.keyle.online_video_learning_system.client.VodClient;
+import top.keyle.online_video_learning_system.entry.EduCourse;
 import top.keyle.online_video_learning_system.entry.EduVideo;
 import top.keyle.online_video_learning_system.mapper.EduCourseMapper;
 import top.keyle.online_video_learning_system.mapper.EduVideoMapper;
@@ -85,10 +86,17 @@ public class test1 {
 
     @Test
     public void deleteVideo(){
-        Boolean aBoolean = eduVideoService.removeVideoById("1622465136619536386");
-        System.out.println(aBoolean);
+        String courseId = "11";
+        EduCourse courseInfo = eduCourseService.getById(courseId);
+        if (courseInfo != null) {
+            Long viewCount = courseInfo.getViewCount();
+            courseInfo.setViewCount(viewCount+1);
+            eduCourseService.updateById(courseInfo);
+        }
+        System.out.println(eduCourseService.getById(courseId).getViewCount());
     }
     @Autowired
     EduTeacherService eduTeacherService;
+
 
 }
