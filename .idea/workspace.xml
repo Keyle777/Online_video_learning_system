@@ -4,57 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增我的学习板块功能">
-      <change afterPath="$PROJECT_DIR$/common/spring-security/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/config/TokenWebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/entity/SecurityUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/filter/TokenAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/filter/TokenLoginFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/DefaultPasswordEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/TokenLogoutHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/TokenManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/UnauthorizedEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/MD5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/ResponseUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/IndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/entity/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/entity/RolePermission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/handler/MyMetaObjectHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/helper/MemuHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/helper/PermissionHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/mapper/PermissionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/mapper/RolePermissionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/IndexService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/RolePermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/IndexServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/RolePermissionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/ServiceAclApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/RolePermissionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增权限管理">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -552,14 +504,7 @@
       <workItem from="1675845908003" duration="57599000" />
       <workItem from="1676034704317" duration="118973000" />
       <workItem from="1676444597415" duration="23894000" />
-      <workItem from="1676528975260" duration="29133000" />
-    </task>
-    <task id="LOCAL-00073" summary="引入了spring cloud">
-      <created>1675511539907</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1675511539907</updated>
+      <workItem from="1676528975260" duration="33084000" />
     </task>
     <task id="LOCAL-00074" summary="使用微服务">
       <created>1675529185841</created>
@@ -897,7 +842,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676541095484</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="新增权限管理">
+      <created>1676569090772</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1676569090773</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -962,7 +914,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="新增了删除课程" />
     <MESSAGE value="优化了添加课程功能体验" />
     <MESSAGE value="新增轮播图" />
     <MESSAGE value="新增轮播图管理功能" />
@@ -987,18 +938,14 @@
     <MESSAGE value="新增网关，和课程展示页面得一些数据" />
     <MESSAGE value="优化" />
     <MESSAGE value="新增我的学习板块功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增我的学习板块功能" />
+    <MESSAGE value="新增权限管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增权限管理" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/filter/TokenAuthenticationFilter.java</url>
           <line>52</line>

@@ -78,5 +78,11 @@ public class RoleController {
         roleService.removeByIds(idList);
         return RespBean.success();
     }
+
+    @GetMapping("getRoleNameList")
+    public RespBean getRoleNameList(){
+        List<Role> roleList = roleService.list();
+        return RespBean.success("roleList",roleList);
+    }
 }
 
