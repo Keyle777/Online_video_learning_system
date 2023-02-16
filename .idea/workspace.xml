@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化">
-      <change afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/entity/vo/courseVO/courseVO.java" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增我的学习板块功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/target/classes/mapper/OrderInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/target/classes/mapper/OrderInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/controller/UcenterMemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseCollectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/EduCourseCollectMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/UcenterMemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/mapper/UcenterMemberMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/EduCourseCollectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/EduCourseCollectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/UcenterMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/UcenterMemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseCollectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/EduCourseCollectServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/java/top/keyle/online_video_learning_system/service/impl/UcenterMemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/EduCourseCollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/EduCourseCollectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/UcenterMemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/mapper/UcenterMemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/EduCourseCollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/EduCourseCollectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/UcenterMemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/target/classes/mapper/UcenterMemberMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,14 +480,7 @@
       <workItem from="1675845908003" duration="57599000" />
       <workItem from="1676034704317" duration="118973000" />
       <workItem from="1676444597415" duration="23894000" />
-      <workItem from="1676528975260" duration="6396000" />
-    </task>
-    <task id="LOCAL-00071" summary="更新了课程列表">
-      <created>1675491117472</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1675491117472</updated>
+      <workItem from="1676528975260" duration="7748000" />
     </task>
     <task id="LOCAL-00072" summary="引入了spring cloud">
       <created>1675507258441</created>
@@ -829,7 +818,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676478306349</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="新增我的学习板块功能">
+      <created>1676539896334</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1676539896334</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -894,7 +890,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="新增了删除章节和清除课程功能" />
     <MESSAGE value="新增了删除课程" />
     <MESSAGE value="优化了添加课程功能体验" />
     <MESSAGE value="新增轮播图" />
@@ -919,7 +914,8 @@
     <MESSAGE value="新增网关" />
     <MESSAGE value="新增网关，和课程展示页面得一些数据" />
     <MESSAGE value="优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化" />
+    <MESSAGE value="新增我的学习板块功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增我的学习板块功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
