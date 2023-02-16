@@ -4,18 +4,20 @@ package top.keyle.online_video_learning_system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import top.keyle.online_video_learning_system.entity.UcenterMember;
 import top.keyle.online_video_learning_system.entity.vo.LoginVo;
 import top.keyle.online_video_learning_system.entity.vo.RegisterVo;
+import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
 import top.keyle.online_video_learning_system.mapper.UcenterMemberMapper;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
-import top.keyle.universal_tool.GlobalException;
-import top.keyle.universal_tool.JwtUtils;
-import top.keyle.universal_tool.RespBean;
-import top.keyle.universal_tool.RespBeanEnum;
+import top.keyle.universal_tool.*;
+
+import java.util.List;
 
 @Service
 public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, UcenterMember> implements UcenterMemberService {
@@ -144,5 +146,12 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
     @Override
     public RespBean loginOut() {
         return null;
+    }
+
+    @Override
+    public JsonPage<courseVO> selectCourseTostudy(Integer page, Integer pageSize, String id) {
+        PageHelper.startPage(page, pageSize);
+        List<courseVO> eduCourseCollectList = baseMapper.selectCourseTostudy(id);
+        return JsonPage.restPage(new PageInfo<>(eduCourseCollectList));
     }
 }

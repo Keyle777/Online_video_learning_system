@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entity.UcenterMember;
 import top.keyle.online_video_learning_system.entity.vo.LoginVo;
 import top.keyle.online_video_learning_system.entity.vo.RegisterVo;
+import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
+import top.keyle.online_video_learning_system.service.EduCourseCollectService;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
+import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.JwtUtils;
 import top.keyle.universal_tool.RespBean;
 import top.keyle.universal_tool.RespBeanEnum;
@@ -25,6 +28,8 @@ public class UcenterMemberController {
     @Autowired
     private UcenterMemberService memberService;
 
+    @Autowired
+    EduCourseCollectService eduCourseCollectService;
     /**
      * 登录
      * @param member 用户表单
@@ -110,6 +115,27 @@ public class UcenterMemberController {
         return RespBean.error(RespBeanEnum.UPDATE_ERROR);
     }
 
-
+    @ApiOperation(value = "分页查询我的学习数据列表")
+    @GetMapping("/selectToStudy/{current}/{limit}/{id}/{isFree}")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "页码", name = "current", example = "1"),
+            @ApiImplicitParam(value = "每页条数", name = "limit", example = "5"),
+            @ApiImplicitParam(value = "用户ID", name = "id", example = "1623698548130955265")
+    })
+    public RespBean pageCourseList(
+            @PathVariable Integer current,
+            @PathVariable Integer limit,
+            @PathVariable String id,
+            @PathVariable String isFree) {
+        // 免费
+        if ("free".equals(isFree)) {
+            JsonPage<courseVO> jsonPage1 = eduCourseCollectService.selectCourseCollectionTostudy(
+                    current, limit, id);
+            return RespBean.success(jsonPage1);
+        }
+        JsonPage<courseVO> jsonPage2 = memberService.selectCourseTostudy(
+                current, limit , id);
+        return RespBean.success(jsonPage2);
+    }
 }
 

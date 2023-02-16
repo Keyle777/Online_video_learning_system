@@ -24,7 +24,7 @@
             SUM(total_fee) as total
         FROM
             t_order
-        WHERE YEARWEEK(date_format(gmt_create,'%Y-%m-%d'),1) = YEARWEEK(now(),7)
+        WHERE gmt_create BETWEEN CONCAT(CURDATE(),' 00:00:00') AND CONCAT(CURDATE(),' 23:59:59')
         and status = '支付成功' and is_deleted = 0 and member_id = #{memberId}
     </select>
 

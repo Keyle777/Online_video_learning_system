@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import top.keyle.online_video_learning_system.entity.EduCourseCollect;
 import top.keyle.online_video_learning_system.entity.vo.collectionVO.CollectDetail;
 import top.keyle.online_video_learning_system.entity.vo.collectionVO.NumberOfFavorites;
+import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public interface EduCourseCollectMapper extends BaseMapper<EduCourseCollect> {
 
     Integer saveEduCourseCollect(EduCourseCollect eduCourseCollect);
 
+    List<courseVO> selectCourseCollectionTostudy(String id);
 }
 
 

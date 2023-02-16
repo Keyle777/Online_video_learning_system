@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import top.keyle.online_video_learning_system.entity.EduCourseCollect;
 import top.keyle.online_video_learning_system.entity.vo.collectionVO.CollectDetail;
 import top.keyle.online_video_learning_system.entity.vo.collectionVO.NumberOfFavorites;
+import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
 import top.keyle.online_video_learning_system.mapper.EduCourseCollectMapper;
 import top.keyle.online_video_learning_system.service.EduCourseCollectService;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
@@ -83,6 +84,13 @@ public class EduCourseCollectServiceImpl extends ServiceImpl<EduCourseCollectMap
     @Override
     public Integer saveEduCourseCollect(EduCourseCollect eduCourseCollect) {
         return eduCourseCollectMapper.saveEduCourseCollect(eduCourseCollect);
+    }
+
+    @Override
+    public JsonPage<courseVO> selectCourseCollectionTostudy(Integer page, Integer pageSize, String id) {
+        PageHelper.startPage(page, pageSize);
+        List<courseVO> eduCourseCollectList = baseMapper.selectCourseCollectionTostudy(id);
+        return JsonPage.restPage(new PageInfo<>(eduCourseCollectList));
     }
 }
 

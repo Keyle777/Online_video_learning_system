@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entity.EduCourseCollect;
 import top.keyle.online_video_learning_system.entity.vo.collectionVO.CollectDetail;
+import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
 import top.keyle.universal_tool.JsonPage;
 
 import java.util.HashMap;
@@ -48,4 +49,5 @@ public interface EduCourseCollectService extends IService<EduCourseCollect> {
 
     Integer saveEduCourseCollect(EduCourseCollect eduCourseCollect);
 
+    JsonPage<courseVO> selectCourseCollectionTostudy(@Param("page") Integer page, @Param("pageSize") Integer pageSize,String id);
 }
