@@ -9,12 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="service_comment" />
         <module name="service_statistics" />
+        <module name="service_acl" />
         <module name="service_vod" />
         <module name="service_edu" />
         <module name="api-gateway" />
         <module name="service_msm" />
         <module name="service_order" />
         <module name="universal-tool" />
+        <module name="spring-security" />
         <module name="service_ucenter" />
         <module name="service_cmsr" />
       </profile>
@@ -35,6 +37,7 @@
       <module name="infrastructure" options="" />
       <module name="service" options="" />
       <module name="service-base" options="" />
+      <module name="service_acl" options="-parameters" />
       <module name="service_cms" options="-parameters" />
       <module name="service_cmsr" options="-parameters" />
       <module name="service_comment" options="-parameters" />
@@ -45,6 +48,7 @@
       <module name="service_statistics" options="-parameters" />
       <module name="service_ucenter" options="-parameters" />
       <module name="service_vod" options="-parameters" />
+      <module name="spring-security" options="-parameters" />
       <module name="universal-tool" options="-parameters" />
     </option>
   </component>
