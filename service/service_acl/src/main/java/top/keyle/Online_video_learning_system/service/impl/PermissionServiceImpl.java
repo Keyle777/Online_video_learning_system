@@ -265,7 +265,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
      * @param id
      */
     @Override
-    public void removoChildByIdxGuli(String id) {
+    public void removoChildById(String id) {
         // 1. 创建list集合，用于封装所有删除菜单Id值
         List<String> idList = new ArrayList<>();
         // 2. 向idList集合设置删除菜单id
@@ -295,7 +295,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     }
 
     @Override
-    public void saveRolePermissionRealtionShipGuli(String roleId, String[] permissionIds) {
+    public void saveRolePermissionRealtionShips(String roleId, String[] permissionIds) {
         // roleId 角色id
         // permissionId菜单id 数组形式
         // 1 创建list集合，用于封装添加数据

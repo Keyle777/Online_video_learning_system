@@ -26,14 +26,14 @@ public class PermissionController {
     @ApiOperation(value="递归删除菜单")
     @DeleteMapping("remove/{id}")
     public RespBean remove(@PathVariable String id){
-        permissionService.removoChildByIdxGuli(id);
+        permissionService.removoChildById(id);
         return RespBean.success();
     }
 
     @ApiOperation(value="给角色分配权限")
     @PostMapping("/doAssign")
     public RespBean doAssign(String roleId, String[] permissionId){
-        permissionService.saveRolePermissionRealtionShipGuli(roleId,permissionId);
+        permissionService.saveRolePermissionRealtionShips(roleId,permissionId);
         return RespBean.success();
     }
 

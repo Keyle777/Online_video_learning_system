@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了权限分配一部分问题">
-      <change afterPath="$PROJECT_DIR$/service/service_acl/src/test/java/top/keyle/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/online_video_learning_system_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/sql.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -529,14 +525,7 @@
       <workItem from="1676034704317" duration="118973000" />
       <workItem from="1676444597415" duration="23894000" />
       <workItem from="1676528975260" duration="33392000" />
-      <workItem from="1676614979862" duration="19320000" />
-    </task>
-    <task id="LOCAL-00076" summary="解决报错">
-      <created>1675531033784</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1675531033784</updated>
+      <workItem from="1676614979862" duration="19455000" />
     </task>
     <task id="LOCAL-00077" summary="优化了一些方法细节">
       <created>1675581423666</created>
@@ -874,7 +863,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676632484879</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="优化了权限分配一部分问题">
+      <created>1676640654508</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1676640654508</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
