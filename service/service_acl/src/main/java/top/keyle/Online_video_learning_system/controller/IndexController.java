@@ -41,7 +41,10 @@ public class IndexController {
     public RespBean getMenu(){
         //获取当前登录用户用户名
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        System.out.println(username);
         List<JSONObject> permissionList = indexService.getMenu(username);
+        System.out.println("==============================");
+        System.out.println(permissionList);
         return RespBean.success("permissionList", permissionList);
     }
 

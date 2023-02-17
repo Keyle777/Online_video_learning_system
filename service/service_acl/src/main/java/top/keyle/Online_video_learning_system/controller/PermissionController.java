@@ -19,7 +19,7 @@ public class PermissionController {
     @ApiOperation(value = "查询所有菜单")
     @GetMapping
     public RespBean indexAllPermission(){
-        List<Permission> list = permissionService.queryAllMenuGuli();
+        List<Permission> list = permissionService.queryAllMenu();
         return RespBean.success("children",list);
     }
 

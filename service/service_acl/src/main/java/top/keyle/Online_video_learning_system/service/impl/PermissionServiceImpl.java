@@ -104,19 +104,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return permissionNode;
     }
 
-    //获取全部菜单
-    @Override
-    public List<Permission> queryAllMenu() {
-
-        QueryWrapper<Permission> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
-        List<Permission> permissionList = baseMapper.selectList(wrapper);
-
-        List<Permission> result = bulid(permissionList);
-
-        return result;
-    }
-
     //根据角色获取菜单
     @Override
     public List<Permission> selectAllMenu(String roleId) {
@@ -201,8 +188,10 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         } else {
             selectPermissionList = baseMapper.selectPermissionByUserId(userId);
         }
-
+        System.out.println("-----------------------------------");
+        System.out.println(selectPermissionList);
         List<Permission> permissionList = PermissionHelper.bulid(selectPermissionList);
+        System.out.println("result"+permissionList);
         List<JSONObject> result = MemuHelper.bulid(permissionList);
         return result;
     }
@@ -217,7 +206,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     private boolean isSysAdmin(String userId) {
         User user = userService.getById(userId);
 
-        if(null != user && "admin".equals(user.getUsername())) {
+        if(null != user && "1".equals(user.getRoleId())) {
             return true;
         }
         return false;
@@ -237,7 +226,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     }
 
     @Override
-    public List<Permission> queryAllMenuGuli() {
+    public List<Permission> queryAllMenu() {
         // 1. 查询菜单表所有数据
         QueryWrapper<Permission> wrapper = new QueryWrapper<>();
         wrapper.orderByDesc("id");

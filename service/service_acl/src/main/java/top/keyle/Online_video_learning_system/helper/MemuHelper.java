@@ -20,6 +20,7 @@ public class MemuHelper {
             Permission topNode = treeNodes.get(0);
             //左侧一级菜单
             List<Permission> oneMeunList = topNode.getChildren();
+            System.out.println("这是menu方法："+oneMeunList);
             for(Permission one :oneMeunList) {
                 JSONObject oneMeun = new JSONObject();
                 oneMeun.put("path", one.getPath());

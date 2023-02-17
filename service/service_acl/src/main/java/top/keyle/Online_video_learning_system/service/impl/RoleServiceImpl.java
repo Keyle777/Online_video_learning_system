@@ -3,6 +3,7 @@ package top.keyle.Online_video_learning_system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.keyle.Online_video_learning_system.entity.Role;
@@ -53,6 +54,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     //根据用户分配角色
     @Override
     public void saveUserRoleRealtionShip(String userId, String[] roleIds) {
+        User user = userService.getOne(new QueryWrapper<User>().eq("id", userId));
+        User user1 = new User();
+        BeanUtils.copyProperties(user,user1);
         userService.remove(new QueryWrapper<User>().eq("id", userId));
         List<User> userRoleList = new ArrayList<>();
         for(String roleId : roleIds) {
@@ -62,6 +66,11 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
             User userRole = new User();
             userRole.setId(userId);
             userRole.setRoleId(roleId);
+            userRole.setUsername(user1.getUsername());
+            userRole.setNickName(user1.getNickName());
+            userRole.setPassword(user1.getPassword());
+            userRole.setSalt(user1.getSalt());
+            userRole.setToken(user1.getToken());
             userRoleList.add(userRole);
         }
         userService.saveBatch(userRoleList);

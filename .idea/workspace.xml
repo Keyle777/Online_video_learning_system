@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增权限管理">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了权限分配一部分问题">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/DefaultPasswordEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/DefaultPasswordEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/helper/MemuHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/helper/MemuHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +136,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
-    "spring.configuration.checksum": "d4cc4dd518c8d49852ae9a8dc3d4e9c3",
+    "spring.configuration.checksum": "cfbb1e85fe36c9d9230e3b3bc1c22f08",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -504,14 +512,8 @@
       <workItem from="1675845908003" duration="57599000" />
       <workItem from="1676034704317" duration="118973000" />
       <workItem from="1676444597415" duration="23894000" />
-      <workItem from="1676528975260" duration="33084000" />
-    </task>
-    <task id="LOCAL-00074" summary="使用微服务">
-      <created>1675529185841</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1675529185841</updated>
+      <workItem from="1676528975260" duration="33392000" />
+      <workItem from="1676614979862" duration="14392000" />
     </task>
     <task id="LOCAL-00075" summary="引入spring cloud">
       <created>1675529825904</created>
@@ -849,7 +851,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676569090773</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="优化了权限分配一部分问题">
+      <created>1676574017901</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1676574017901</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -914,7 +923,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="优化了添加课程功能体验" />
     <MESSAGE value="新增轮播图" />
     <MESSAGE value="新增轮播图管理功能" />
     <MESSAGE value="前端课程模块" />
@@ -939,20 +947,12 @@
     <MESSAGE value="优化" />
     <MESSAGE value="新增我的学习板块功能" />
     <MESSAGE value="新增权限管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增权限管理" />
+    <MESSAGE value="优化了权限分配一部分问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化了权限分配一部分问题" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/filter/TokenAuthenticationFilter.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="top.keyle.online_video_learning_system.entity.vo.LoginVo" memberName="password" />
