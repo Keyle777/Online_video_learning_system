@@ -14,6 +14,7 @@ import top.keyle.Online_video_learning_system.helper.PermissionHelper;
 import top.keyle.Online_video_learning_system.mapper.PermissionMapper;
 import top.keyle.Online_video_learning_system.service.PermissionService;
 import top.keyle.Online_video_learning_system.service.RolePermissionService;
+import top.keyle.Online_video_learning_system.service.RoleService;
 import top.keyle.Online_video_learning_system.service.UserService;
 
 import java.util.ArrayList;
@@ -27,6 +28,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    RoleService roleService;
 
     /**
      * 使用递归方法建菜单
@@ -182,18 +186,38 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     @Override
     public List<JSONObject> selectPermissionByUserId(String userId) {
         List<Permission> selectPermissionList = null;
+        User user = userService.getById(userId);
+        String roleId = user.getRoleId();
+        String roleName = roleService.getById(roleId).getRoleName();
         if(this.isSysAdmin(userId)) {
             //如果是超级管理员，获取所有菜单
             selectPermissionList = baseMapper.selectList(null);
+            List<Permission> permissionList = PermissionHelper.bulid(selectPermissionList);
+            List<JSONObject> result = MemuHelper.bulid(permissionList);
+            return result;
         } else {
-            selectPermissionList = baseMapper.selectPermissionByUserId(userId);
+            selectPermissionList = baseMapper.selectList(null);
+            List<Permission> permissionList = PermissionHelper.bulid(selectPermissionList);
+            List<JSONObject> result = MemuHelper.bulid(permissionList);
+            //6是订单列表 5是幻灯片 4是统计分析 3是课程管理 2是课程分类管理 1是讲师管理 0是权限管理
+            List<JSONObject> jsonObjects = new ArrayList<>();
+            // 课程管理员拥有 3 2
+            if("课程管理员".equals(roleName)){
+                jsonObjects.add(result.get(3));
+                jsonObjects.add(result.get(2));
+            }
+            // 讲师管理员拥有 1
+            if("讲师管理员".equals(roleName)){
+                jsonObjects.add(result.get(1));
+            }
+            // 普通管理员拥有 4 5 6
+            if("普通管理员".equals(roleName)){
+                jsonObjects.add(result.get(4));
+                jsonObjects.add(result.get(5));
+                jsonObjects.add(result.get(6));
+            }
+            return jsonObjects;
         }
-        System.out.println("-----------------------------------");
-        System.out.println(selectPermissionList);
-        List<Permission> permissionList = PermissionHelper.bulid(selectPermissionList);
-        System.out.println("result"+permissionList);
-        List<JSONObject> result = MemuHelper.bulid(permissionList);
-        return result;
     }
 
     //========================递归查询所有菜单================================================

@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化了权限分配一部分问题">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_acl/src/test/java/top/keyle/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/online_video_learning_system_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/DefaultPasswordEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/spring-security/src/main/java/top/keyle/Online_video_learning_system/security/DefaultPasswordEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/PermissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/helper/MemuHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/helper/MemuHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/java/top/keyle/Online_video_learning_system/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/sql.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
     "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system",
-    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_acl/src/main/java/top/keyle",
+    "last_opened_file_path": "E:/apache-maven-3.8.5/repository/com/alibaba/fastjson/1.2.83/fastjson-1.2.83.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -224,6 +222,22 @@
       <option name="PACKAGE_NAME" value="top.keyle" />
       <option name="MAIN_CLASS_NAME" value="top.keyle.test1" />
       <option name="METHOD_NAME" value="deleteVideo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service_acl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.keyle" />
+      <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -399,6 +413,7 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.test.test1" />
+      <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test1.deleteVideo" />
       <item itemvalue="JUnit.test.test1 (3)" />
       <item itemvalue="JUnit.test.test1 (2)" />
@@ -416,6 +431,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.test1 (1)" />
         <item itemvalue="应用程序.MD5" />
         <item itemvalue="JUnit.test1.deleteVideo" />
         <item itemvalue="JUnit.test.test1 (3)" />
@@ -513,14 +529,7 @@
       <workItem from="1676034704317" duration="118973000" />
       <workItem from="1676444597415" duration="23894000" />
       <workItem from="1676528975260" duration="33392000" />
-      <workItem from="1676614979862" duration="14392000" />
-    </task>
-    <task id="LOCAL-00075" summary="引入spring cloud">
-      <created>1675529825904</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1675529825905</updated>
+      <workItem from="1676614979862" duration="19320000" />
     </task>
     <task id="LOCAL-00076" summary="解决报错">
       <created>1675531033784</created>
@@ -858,7 +867,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676574017901</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="优化了权限分配一部分问题">
+      <created>1676632484878</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1676632484879</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

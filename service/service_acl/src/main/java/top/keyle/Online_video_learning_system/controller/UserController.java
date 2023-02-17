@@ -1,7 +1,5 @@
 package top.keyle.Online_video_learning_system.controller;
 
-
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -13,11 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import top.keyle.Online_video_learning_system.entity.User;
 import top.keyle.Online_video_learning_system.service.RoleService;
 import top.keyle.Online_video_learning_system.service.UserService;
-import top.keyle.universal_tool.MD5SaltUtil;
+import top.keyle.universal_tool.MD5;
 import top.keyle.universal_tool.RespBean;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,11 +56,7 @@ public class UserController {
     @ApiOperation(value = "新增管理用户")
     @PostMapping("save")
     public RespBean save(@RequestBody User user) {
-        try {
-            user.setPassword(MD5SaltUtil.getEncryptedPwd(user.getPassword()));
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        user.setPassword(MD5.encrypt(user.getPassword()));
         userService.save(user);
         return RespBean.success();
     }
