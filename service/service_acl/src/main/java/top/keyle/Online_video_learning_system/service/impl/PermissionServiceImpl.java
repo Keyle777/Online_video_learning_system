@@ -2,7 +2,6 @@ package top.keyle.Online_video_learning_system.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -112,18 +111,8 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     @Override
     public List<Permission> selectAllMenu(String roleId) {
         List<Permission> allPermissionList = baseMapper.selectList(new QueryWrapper<Permission>().orderByAsc("CAST(id AS SIGNED)"));
-
         //根据角色id获取角色权限
         List<RolePermission> rolePermissionList = rolePermissionService.list(new QueryWrapper<RolePermission>().eq("role_id",roleId));
-        //转换给角色id与角色权限对应Map对象
-//        List<String> permissionIdList = rolePermissionList.stream().map(e -> e.getPermissionId()).collect(Collectors.toList());
-//        allPermissionList.forEach(permission -> {
-//            if(permissionIdList.contains(permission.getId())) {
-//                permission.setSelect(true);
-//            } else {
-//                permission.setSelect(false);
-//            }
-//        });
         for (int i = 0; i < allPermissionList.size(); i++) {
             Permission permission = allPermissionList.get(i);
             for (int m = 0; m < rolePermissionList.size(); m++) {
@@ -139,35 +128,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return permissionList;
     }
 
-    //给角色分配权限
-    @Override
-    public void saveRolePermissionRealtionShip(String roleId, String[] permissionIds) {
 
-        rolePermissionService.remove(new QueryWrapper<RolePermission>().eq("role_id", roleId));
-
-
-
-        List<RolePermission> rolePermissionList = new ArrayList<>();
-        for(String permissionId : permissionIds) {
-            if(StringUtils.isEmpty(permissionId)) continue;
-
-            RolePermission rolePermission = new RolePermission();
-            rolePermission.setRoleId(roleId);
-            rolePermission.setPermissionId(permissionId);
-            rolePermissionList.add(rolePermission);
-        }
-        rolePermissionService.saveBatch(rolePermissionList);
-    }
-
-    //递归删除菜单
-    @Override
-    public void removeChildById(String id) {
-        List<String> idList = new ArrayList<>();
-        this.selectChildListById(id, idList);
-
-        idList.add(id);
-        baseMapper.deleteBatchIds(idList);
-    }
 
     //根据用户id获取用户菜单
     @Override
