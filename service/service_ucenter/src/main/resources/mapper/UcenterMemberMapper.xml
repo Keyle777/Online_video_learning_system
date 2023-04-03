@@ -52,4 +52,9 @@
         WHERE o.`status` = '支付成功' AND o.is_deleted = 0 AND c.is_deleted = 0
         AND o.member_id = #{id}
     </select>
+    <update id="updateLoginCountById">
+        update ucenter_member
+        set login_count = login_count + 1
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 </mapper>

@@ -18,6 +18,7 @@ public interface UcenterMemberService extends IService<UcenterMember> {
      */
     String login(LoginVo member);
 
+    int updateLoginCountById(@Param("id") String id);
     /**
      * 注册用户
      * @param registerVo
@@ -55,4 +56,6 @@ public interface UcenterMemberService extends IService<UcenterMember> {
     RespBean loginOut();
 
     JsonPage<courseVO> selectCourseTostudy(@Param("page") Integer page, @Param("pageSize") Integer pageSize, String id);
+
+
 }

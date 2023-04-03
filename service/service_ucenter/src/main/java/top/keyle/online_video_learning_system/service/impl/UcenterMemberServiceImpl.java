@@ -22,6 +22,11 @@ import java.util.List;
 @Service
 public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, UcenterMember> implements UcenterMemberService {
 
+    @Override
+    public int updateLoginCountById(String id) {
+        return baseMapper.updateLoginCountById(id);
+    }
+
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
@@ -58,6 +63,7 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
             if (dbPassword.equals(password)) {
                 // 生成token字符串，使用jwt工具类
                 jwtToken = JwtUtils.getJwtToken(mobileMember.getId(), mobileMember.getNickname());
+                this.updateLoginCountById(mobileMember.getId());
             }else{
                 // 如果密码不匹配，抛出登录失败的全局异常
                 throw new GlobalException(RespBeanEnum.LOGIN_FAILED);
@@ -84,6 +90,7 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
             if (dbPassword.equals(password)) {
                 // 生成token字符串，使用jwt工具类
                 jwtToken = JwtUtils.getJwtToken(mobileMember.getId(), mobileMember.getNickname());
+                this.updateLoginCountById(mobileMember.getId());
             }else{
                 // 如果密码不匹配，抛出密码错误的全局异常
                 throw new GlobalException(RespBeanEnum.THE_PASSWORD_IS_INCORRECT);
@@ -106,6 +113,7 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
                     return null;
                 }
                 jwtToken = JwtUtils.getJwtToken(mobileMember.getId(), mobileMember.getNickname());
+                this.updateLoginCountById(mobileMember.getId());
             }else{
                 throw new GlobalException(RespBeanEnum.CAPTCHA_ERROR);
             }
@@ -179,6 +187,7 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
     public RespBean loginOut() {
         return null;
     }
+
 
     @Override
     public JsonPage<courseVO> selectCourseTostudy(Integer page, Integer pageSize, String id) {

@@ -2,6 +2,7 @@ package top.keyle.online_video_learning_system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import top.keyle.online_video_learning_system.entity.UcenterMember;
 import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
 
@@ -40,4 +41,6 @@ public interface UcenterMemberMapper extends BaseMapper<UcenterMember> {
      * @return
      */
     List<courseVO> selectCourseTostudy(String id);
+
+    int updateLoginCountById(@Param("id") String id);
 }
