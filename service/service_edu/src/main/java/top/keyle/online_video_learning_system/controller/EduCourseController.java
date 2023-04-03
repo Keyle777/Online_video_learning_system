@@ -89,7 +89,7 @@ public class EduCourseController {
         return RespBean.success();
     }
 
-    @ApiOperation(value = "根据ID获取课程发布信息")
+    @ApiOperation(value = "根据课程ID获取课程发布信息")
     @GetMapping("/coursePublishInfo/{id}")
     public RespBean getCoursePublishVoById(
             @ApiParam(name = "id", value = "课程ID", required = true)

@@ -91,9 +91,12 @@ public class EduTeacherController {
     @ApiOperation(value = "根据讲师实体添加讲师")
     @ApiImplicitParam(value = "讲师实体", name = "eduTeacher", paramType = "body", dataType = "EduTeacher")
     public RespBean insertEduTeacher(@RequestBody(required = false) EduTeacher eduTeacher) {
+        // 1 调用eduTeacherService的save方法添加EduTeacher对象，并判断是否添加成功
         if (eduTeacherService.save(eduTeacher)) {
+            // 2 添加成功则返回RespBean包装类的成功消息及添加后的EduTeacher对象
             return RespBean.success(eduTeacher);
         }
+        // 3 添加失败则返回RespBean包装类的错误消息
         return RespBean.error(RespBeanEnum.ADD_ERROR);
     }
 

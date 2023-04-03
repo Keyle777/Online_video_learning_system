@@ -2,6 +2,7 @@ package top.keyle.Online_video_learning_system.client.impl;
 
 import org.springframework.stereotype.Component;
 import top.keyle.Online_video_learning_system.client.UcenterClient;
+import top.keyle.universal_tool.RespBean;
 
 /**
  * @author TMJIE5200
@@ -12,6 +13,11 @@ import top.keyle.Online_video_learning_system.client.UcenterClient;
 public class UcenterClientImpl implements UcenterClient {
     @Override
     public Integer countRegister(String day) {
+        return null;
+    }
+
+    @Override
+    public RespBean statistics(String day) {
         return null;
     }
 }

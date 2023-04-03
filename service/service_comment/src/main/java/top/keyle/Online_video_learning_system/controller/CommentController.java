@@ -41,19 +41,23 @@ public class CommentController {
     }
 
     /**
-     * 保存用户评论
-     * @param comment
-     * @param request
-     * @return
+     * 保存评论
+     * @param comment 评论实体
+     * @param request HTTP请求对象
+     * @return 返回保存结果
      */
     @PostMapping("/auth/save")
     public RespBean save(@RequestBody EduComment comment, HttpServletRequest request){
+        // 获取当前登录用户ID
         String memberId = JwtUtils.getMemberIdByJwtToken(request);
         if(StringUtils.isEmpty(memberId)){
+            // 判断用户是否登录
             return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);
         }
+        // 调用评论服务保存评论
         boolean isSave = commentService.SaveComment(memberId, comment);
         if(isSave){
+            // 返回保存成功结果
             return RespBean.success();
         }
         return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);

@@ -33,6 +33,8 @@ public class StatisticsDailyController {
         return RespBean.success();
     }
 
+
+
     /**
      * 图表显示，返回两部分数据，日期json数组，数量json数组
      * @param type

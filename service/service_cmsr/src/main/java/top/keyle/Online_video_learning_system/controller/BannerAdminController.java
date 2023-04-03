@@ -46,16 +46,20 @@ public class BannerAdminController {
     }
 
     /**
-     * 添加banner
-     * @return
+     * 添加Banner的请求处理函数
+     *
+     * @param crmBanner 待添加的Banner对象
+     * @return 表示添加操作结果的RespBean对象
      */
     @PostMapping("addBanner")
     public RespBean addBanner(@RequestBody(required = false) CrmBanner crmBanner){
-        System.out.println(crmBanner);
+        //  调用bannerService的save方法将CrmBanner对象添加的数据库中
         boolean save = bannerService.save(crmBanner);
         if (save) {
+            // 添加操作成功，返回成功状态的RespBean对象
             return RespBean.success();
         }else{
+            // 添加操作失败，返回包含错误信息的RespBean对象
             return RespBean.error(RespBeanEnum.ADD_ERROR);
         }
     }

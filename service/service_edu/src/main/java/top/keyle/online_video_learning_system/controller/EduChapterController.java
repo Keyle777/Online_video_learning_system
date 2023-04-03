@@ -46,6 +46,7 @@ public class EduChapterController {
     public RespBean save(
             @ApiParam(name = "chapterVo", value = "章节对象", required = true)
             @RequestBody EduChapter chapter){
+        //  将章节对象保存到数据库中
         eduChapterService.save(chapter);
         return RespBean.success();
     }

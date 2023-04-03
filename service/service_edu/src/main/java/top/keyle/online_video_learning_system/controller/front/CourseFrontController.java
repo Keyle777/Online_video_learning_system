@@ -63,7 +63,7 @@ public class CourseFrontController {
             @ApiParam(name = "courseQuery", value = "查询对象", required = false)
             CourseFrontQuery courseFrontQuery)
     {
-        System.out.println(courseFrontQuery);
+        // 以json格式封装得到的课程列表
         JsonPage<EduCourse> jsonPage = courseService
                 .getCourseFrontList(page, limit, courseFrontQuery);
         return RespBean.success(jsonPage);
@@ -80,23 +80,31 @@ public class CourseFrontController {
         CourseWebVo courseWebVo = courseService.getBaseCourseInfo(courseId);
         // 根据课程id查询章节和小节
         List<ChapterVo> chapterVideoList =  chapterService.getChapterVideoByCourseId(courseId);
-
         //根据课程id和用户id查询当前课程是否已经支付过了
         String memberId = JwtUtils.getMemberIdByJwtToken(request);
         if(StringUtils.isEmpty(memberId)){
             // 请登陆后重试
             return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);
         }
+        //  返回是否购买过此课程，用来在前端显示
         boolean buyCourse = ordersClient.isBuy(memberId,courseId);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("courseWebVo",courseWebVo);
         hashMap.put("chapterVideoList",chapterVideoList);
         hashMap.put("isBuy",buyCourse);
         return RespBean.success(hashMap);
-
     }
 
 
+    /**
+     * 查询指定课程是否已被指定会员收藏
+     *
+     * @param courseid   课程ID
+     * @param memberId   会员ID
+     * @return 返回响应结果，包含以下字段：
+     *         collectId: 该会员已收藏该课程时的收藏记录ID，若未收藏则为null
+     *         IsCollect: 是否已被收藏，true表示已被收藏，false表示未被收藏
+     */
     @GetMapping("/selectCollect/{courseid}/{memberId}")
     public RespBean selectCollect(
             @PathVariable String courseid,
@@ -115,22 +123,41 @@ public class CourseFrontController {
         }
     }
 
+    /**
+
+     更新课程购买数量
+     @param courseId 课程ID
+     @return 返回操作结果，成功返回RespBean.success()
+     */
     @GetMapping("updateCourseBuyCount/{courseId}")
     public RespBean updateCourse(@PathVariable String courseId){
+        // 根据课程ID获取课程信息
         EduCourse course = courseService.getById(courseId);
+        // 将课程购买数量加1
         course.setBuyCount(course.getBuyCount()+1);
+        // 构建查询条件
         QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
         wrapper.eq("id",courseId);
+        // 更新课程购买数量
         courseService.update(course,wrapper);
         return RespBean.success();
     }
 
+    /**
+     更新课程的浏览量
+     @param courseId 课程id
+     @return RespBean 返回操作结果的响应对象
+     */
     @GetMapping("updateCourseViewCount/{courseId}")
     public RespBean updateCourseViewCount(@PathVariable String courseId){
+        // 获取课程信息
         EduCourse courseInfo = courseService.getById(courseId);
+        // 获取课程的浏览量
         Long viewCount = courseInfo.getViewCount();
         if (courseInfo != null) {
+            // 将课程的浏览量加1
             courseInfo.setViewCount(viewCount + 1);
+            // 更新课程信息
             courseService.updateById(courseInfo);
         }
         return RespBean.success();

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import top.keyle.online_video_learning_system.entity.UcenterMember;
 import top.keyle.online_video_learning_system.entity.vo.LoginVo;
 import top.keyle.online_video_learning_system.entity.vo.RegisterVo;
+import top.keyle.online_video_learning_system.entity.vo.StatisticsDaily;
 import top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO;
 import top.keyle.online_video_learning_system.service.EduCourseCollectService;
 import top.keyle.online_video_learning_system.service.UcenterMemberService;
@@ -30,22 +31,33 @@ public class UcenterMemberController {
 
     @Autowired
     EduCourseCollectService eduCourseCollectService;
+
     /**
-     * 登录
-     * @param member 用户表单
-     * @return token
+     * 注释：使用@PostMapping注解标识该方法为处理POST请求的方法
+     * 实现用户登录功能，接受请求体参数LoginVo对象
+     *
+     * @param member LoginVo类型的对象，封装了用户的手机号和密码
+     * @return 返回RespBean类型的对象，包含token值，使用jwt生成
      */
     @PostMapping("/login")
     public RespBean loginUser(@RequestBody LoginVo member){
-        System.out.println(member);
-        //member对象封装手机号和密码
-        //调用service方法实现登录
-        //返回token值，使用jwt生成
+        //  调用memberService的login方法实现用户登录，返回token值
         String token = memberService.login(member);
+        //  如果token为null，说明登录失败，返回错误信息
         if(token == null){
             return RespBean.error(RespBeanEnum.THE_ACCOUNT_IS_NOT_REGISTERED);
         }
+        //  如果登录成功，将token封装到RespBean中并返回
         return RespBean.success("token",token);
+    }
+    @GetMapping("/statistics/{day}")
+    public RespBean statistics(@PathVariable String day){
+        StatisticsDaily statisticsDaily = new StatisticsDaily();
+        statisticsDaily.setLoginNum(memberService.countLogin(day));
+        statisticsDaily.setCourseNum(memberService.countCourseInsert(day));
+        statisticsDaily.setRegisterNum(memberService.countRegisterDay(day));
+        statisticsDaily.setVideoViewNum(memberService.countVideoPlay(day));
+        return RespBean.success("statistics",statisticsDaily);
     }
 
     @PostMapping("/register")
@@ -98,6 +110,11 @@ public class UcenterMemberController {
         return memberService.countRegisterDay(day);
     }
 
+    /**
+     * 修改用户信息
+     * @param ucenterMember 用户对象
+     * @return 修改结果的响应实体
+     */
     @PostMapping("updateUserInformation")
     @ApiOperation(value = "修改用户信息")
     @ApiImplicitParams({
@@ -106,15 +123,27 @@ public class UcenterMemberController {
     public RespBean modifyLecturerInformation(
             @RequestBody(required = false) UcenterMember ucenterMember) {
         if(ucenterMember== null){
+            // 如果用户对象为空，返回修改失败的响应实体
             return RespBean.error(RespBeanEnum.UPDATE_ERROR);
         }
+        // 调用用户服务的更新方法，得到更新结果
         boolean flag = memberService.updateById(ucenterMember);
         if (flag) {
+            // 如果更新成功，返回成功的响应实体
             return RespBean.success();
         }
+        // 如果更新失败，返回修改失败的响应实体
         return RespBean.error(RespBeanEnum.UPDATE_ERROR);
     }
 
+    /**
+     分页查询我的学习数据列表
+     @param current 当前页码
+     @param limit 每页条数
+     @param id 用户ID
+     @param isFree 是否免费
+     @return 响应结果，包含分页查询结果的JsonPage对象
+     */
     @ApiOperation(value = "分页查询我的学习数据列表")
     @GetMapping("/selectToStudy/{current}/{limit}/{id}/{isFree}")
     @ApiImplicitParams({
@@ -127,12 +156,13 @@ public class UcenterMemberController {
             @PathVariable Integer limit,
             @PathVariable String id,
             @PathVariable String isFree) {
-        // 免费
+        // 判断是否是免费课程，如果是免费课程则放入我的收藏里面
         if ("free".equals(isFree)) {
             JsonPage<courseVO> jsonPage1 = eduCourseCollectService.selectCourseCollectionTostudy(
                     current, limit, id);
             return RespBean.success(jsonPage1);
         }
+        //  不是免费的课程则去查询用户购买的付费的课程
         JsonPage<courseVO> jsonPage2 = memberService.selectCourseTostudy(
                 current, limit , id);
         return RespBean.success(jsonPage2);

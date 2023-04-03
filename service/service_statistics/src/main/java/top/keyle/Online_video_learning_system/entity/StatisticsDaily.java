@@ -34,16 +34,16 @@ public class StatisticsDaily implements Serializable {
     @ApiModelProperty(value = "统计日期")
     private String dateCalculated;
 
-    @ApiModelProperty(value = "注册人数")
+    @ApiModelProperty(value = "学员注册人数")
     private Integer registerNum;
 
-    @ApiModelProperty(value = "登录人数")
+    @ApiModelProperty(value = "学员登录总数")
     private Integer loginNum;
 
-    @ApiModelProperty(value = "每日播放视频数")
+    @ApiModelProperty(value = "视频浏览次数")
     private Integer videoViewNum;
 
-    @ApiModelProperty(value = "每日新增课程数")
+    @ApiModelProperty(value = "新增课程数")
     private Integer courseNum;
 
     @ApiModelProperty(value = "创建时间")

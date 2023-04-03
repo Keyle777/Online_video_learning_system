@@ -40,7 +40,7 @@ public class TeacherFrontController {
      */
     @GetMapping("getTeacherFrontList/{current}/{limit}")
     public RespBean getTeacherFrontList(@PathVariable Integer current, @PathVariable Integer limit){
-        // 分页调用
+        // 分页调用，将查询的讲师列表数据以json格式封装为jsonPage对象。
         JsonPage<EduTeacher> jsonPage = eduTeacherService.paginateToGetAListOfInstructors(
                 current, limit);
         return RespBean.success(jsonPage);
@@ -53,6 +53,7 @@ public class TeacherFrontController {
         // 2. 根据讲师id查询所讲课程
         QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
         wrapper.eq("teacher_id",teacherId);
+        // 3. 根据条件查询并返回结果存入courseList中
         List<EduCourse> courseList = eduCourseService.list(wrapper);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("teacher",eduTeacher);

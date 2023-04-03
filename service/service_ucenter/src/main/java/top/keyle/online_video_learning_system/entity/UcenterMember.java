@@ -59,6 +59,9 @@ public class UcenterMember implements Serializable {
     @ApiModelProperty(value = "是否禁用 1（true）已禁用，  0（false）未禁用")
     private Integer isDisabled;
 
+    @ApiModelProperty(value = "登录次数")
+    private Integer loginCount;
+
     @TableLogic(value = "0", delval = "1")
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
     private Integer isDeleted;

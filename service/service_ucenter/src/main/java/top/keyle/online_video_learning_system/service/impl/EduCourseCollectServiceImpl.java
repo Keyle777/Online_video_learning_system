@@ -74,10 +74,20 @@ public class EduCourseCollectServiceImpl extends ServiceImpl<EduCourseCollectMap
         }
     }
 
+    /**
+     分页获取用户收藏列表
+     @param page 当前页码
+     @param pageSize 每页数据量
+     @param id 用户ID
+     @return 返回JsonPage对象，包含分页查询结果和相关分页信息
+     */
     @Override
     public JsonPage<CollectDetail> paginateToGetAListOfInstructors(Integer page, Integer pageSize,String id) {
+        // 设置分页信息，其中page 表示当前页码，pageSize 表示每页条数。
         PageHelper.startPage(page, pageSize);
+        // 从数据库中获取指定用户ID的收藏列表
         List<CollectDetail> eduCourseCollectList = eduCourseCollectMapper.selectCollectList(id);
+        // 返回一个包含分页信息和查询结果的JsonPage对象
         return JsonPage.restPage(new PageInfo<>(eduCourseCollectList));
     }
 

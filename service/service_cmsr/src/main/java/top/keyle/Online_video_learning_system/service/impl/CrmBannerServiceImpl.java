@@ -30,15 +30,23 @@ public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner
     @Autowired
     CrmBannerMapper crmBannerMapper;
 
+    /**
+     * 从数据库中获取前两条按 id 字段降序排列的 CrmBanner 对象列表，并将结果存储在缓存中。
+     *
+     * @return 前两条按 id 字段降序排列的 CrmBanner 对象列表
+     */
     @Cacheable(value = "banner",key = "'selectIndexList'")
     @Override
     public List<CrmBanner> selectAllBanner() {
-        // 根据id 进行降序排列，显示排列之后前两条记录
+        // 创建 QueryWrapper 对象，用于构建带有查询条件的 SQL 查询
         QueryWrapper<CrmBanner> wrapper = new QueryWrapper<>();
+        // 按 id 字段进行降序排列
         wrapper.orderByDesc("id");
-        // 使用last方法，拼接sql语句
+        // 使用 last 方法拼接 SQL 语句，将查询结果限制为前两条记录
         wrapper.last("limit 2");
+        // 执行查询，并将结果存储在一个 List 对象中
         List<CrmBanner> list = baseMapper.selectList(null);
+        // 返回查询结果列表
         return list;
     }
 

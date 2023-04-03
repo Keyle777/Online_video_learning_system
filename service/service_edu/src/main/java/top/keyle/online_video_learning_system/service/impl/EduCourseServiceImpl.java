@@ -100,27 +100,39 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         return baseMapper.deleteById(id) > 0;
     }
 
+
+    /**
+     * 根据查询条件获取课程列表，并进行分页
+     * @param page 当前页码
+     * @param pageSize 每页显示条数
+     * @param courseQuery 查询条件对象
+     * @return 返回查询结果的分页信息
+     */
     @Override
     public JsonPage<EduCourse> getAListOfCoursesBasedOnCriteria(
             Integer page,
             Integer pageSize,
             CourseQuery courseQuery) {
-
+        // 开启分页
         PageHelper.startPage(page, pageSize);
+        // 构造 Lambda 查询器
         LambdaQueryWrapper<EduCourse> wrapper = new LambdaQueryWrapper<>();
+        // 获取查询条件参数
         String title = courseQuery.getTitle();
         String teacherId = courseQuery.getTeacherId();
         String subjectParentId = courseQuery.getSubjectParentId();
         String subjectId = courseQuery.getSubjectId();
         String status = courseQuery.getStatus();
+        // 设置查询条件
         wrapper.like(!ObjectUtils.isEmpty(title), EduCourse::getTitle, title)
                 .eq(!ObjectUtils.isEmpty(teacherId), EduCourse::getTeacherId, teacherId)
                 .eq(!ObjectUtils.isEmpty(subjectParentId), EduCourse::getSubjectParentId, subjectParentId)
                 .eq(!ObjectUtils.isEmpty(subjectId), EduCourse::getSubjectId, subjectId)
                 .orderByDesc(EduCourse::getGmtCreate)
                 .eq(!ObjectUtils.isEmpty(status), EduCourse::getStatus, status);
-
+        // 执行查询
         List<EduCourse> eduCourseList = eduCourseMapper.selectList(wrapper);
+        // 将查询结果封装为 JsonPage 对象并返回
         return JsonPage.restPage(new PageInfo<>(eduCourseList));
     }
 
@@ -162,14 +174,25 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         return baseMapper.getBaseCourseInfo(courseId);
     }
 
+    /**
+     * 根据课程ID和用户ID查询收藏信息
+     *
+     * @param courseId 课程ID
+     * @param memberId 用户ID
+     * @return String 返回收藏信息的ID，若未收藏则返回null
+     */
     @Override
     public String selectCollectByCourseIdAndMemberId(String courseId, String memberId) {
+        // 构建课程查询条件
         QueryWrapper<EduCourse> courseQueryWrapper = new QueryWrapper<>();
         courseQueryWrapper.eq(!StringUtils.isEmpty(courseId),"id",courseId);
+        // 查询课程信息
         EduCourse eduCourse = eduCourseMapper.selectOne(courseQueryWrapper);
+        // 如果用户ID为空或课程信息不存在，则返回null
         if(memberId == null || eduCourse==null){
             return null;
         }
+        // 返回收藏信息的ID
         return eduCourseMapper.selectCollectByCourseIdAndMemberId(courseId,memberId);
     }
 }

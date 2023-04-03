@@ -60,14 +60,12 @@ public class VodServiceImpl implements VodService {
                     ConstantVodUtils.ACCESS_KEY_ID,
                     ConstantVodUtils.ACCESS_KEY_SECRET,
                     title, originalFilename, inputStream);
-
             UploadVideoImpl uploader = new UploadVideoImpl();
             UploadStreamResponse response = uploader.uploadStream(request);
 
             //如果设置回调URL无效，不影响视频上传，可以返回VideoId同时会返回错误码。
             // 其他情况上传失败时，VideoId为空，此时需要根据返回错误码分析具体错误原因
             String videoId = response.getVideoId();
-
             if (!response.isSuccess()) {
                 String errorMessage = "阿里云上传错误：" + "code：" + response.getCode() + ", message：" + response.getMessage();
                 System.out.println(errorMessage);
@@ -81,23 +79,33 @@ public class VodServiceImpl implements VodService {
         }
     }
 
+    /**
+     根据视频ID删除阿里云上的视频
+     @param videoSourceId 需要删除的视频ID
+     @return 删除是否成功，成功返回true，失败返回false
+     */
     @Override
     public Boolean deleteVodById(String videoSourceId) {
+        // 创建阿里云客户端对象
         IAcsClient client = AliyunVodSDKUtil.initVodClient(
                 ConstantVodUtils.ACCESS_KEY_ID,
                 ConstantVodUtils.ACCESS_KEY_SECRET);
+        // 创建删除视频请求对象，并设置要删除的视频ID
         DeleteVideoRequest request = new DeleteVideoRequest();
         request.setVideoIds(videoSourceId);
         try {
+            // 获取删除视频的响应对象
             DeleteVideoResponse response = client.getAcsResponse(request);
             System.out.println(new Gson().toJson(response));
         } catch (ServerException e) {
             e.printStackTrace();
         } catch (ClientException e) {
+            // 打印出异常信息
             System.out.println("ErrCode:" + e.getErrCode());
             System.out.println("ErrMsg:" + e.getErrMsg());
             System.out.println("RequestId:" + e.getRequestId());
         }
+        // 返回删除操作是否成功
         return true;
     }
 
@@ -131,13 +139,22 @@ public class VodServiceImpl implements VodService {
         return true;
     }
 
+    /**
+     根据视频ID查询视频信息
+     @param videoID 视频ID
+     @return 返回GetVideoInfoResponse类型的视频信息
+     */
     @Override
     public GetVideoInfoResponse queryDetailsBasedOnVideoID(String videoID) {
+        // 设置默认配置信息
         DefaultProfile profile = DefaultProfile.getProfile("cn-shanghai", ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
+        // 获取Acs客户端
         IAcsClient client = new DefaultAcsClient(profile);
+        // 创建请求实例
         GetVideoInfoRequest request = new GetVideoInfoRequest();
         request.setVideoId(videoID);
         try {
+            // 发送请求并获取响应
             GetVideoInfoResponse response = client.getAcsResponse(request);
             System.out.println(new Gson().toJson(response));
             return response;

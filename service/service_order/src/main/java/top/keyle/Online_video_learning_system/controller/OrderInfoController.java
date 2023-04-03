@@ -25,14 +25,25 @@ public class OrderInfoController {
     @Resource
     private OrderInfoService orderInfoService;
 
+    /**
+     * 注释：使用ApiOperation注解来标识该接口的作用
+     * 条件分页查询某用户订单列表
+     *
+     * @param current Integer型，表示当前页码
+     * @param limit Integer型，表示每页显示的记录数
+     * @param memberId String型，表示会员的ID
+     * @return 返回RespBean类型的对象，包含JsonPage<OrderInfo>类型的json数据
+     */
     @ApiOperation(value = "条件分页查询某用户订单列表")
     @PostMapping("/pageListOrders/{current}/{limit}/{memberId}")
     public RespBean pageListOrders(
             @PathVariable Integer current,
             @PathVariable Integer limit,
             @PathVariable String memberId) {
+        // 调用orderInfoService的pageListOrders方法进行分页查询
         JsonPage<OrderInfo> jsonPage = orderInfoService
                 .pageListOrders(current, limit, memberId);
+        // 将查询结果包装到RespBean中，并通过RespBean.success方法返回
         return RespBean.success(jsonPage);
     }
 
@@ -66,7 +77,8 @@ public class OrderInfoController {
 
         String orderStatus = orderInfoService.getOrderStatus(orderNo);
         if(OrderStatus.SUCCESS.getType().equals(orderStatus)){
-            return RespBean.success("success","支付成功"); //支付成功
+            //支付成功
+            return RespBean.success("success","支付成功");
         }
         return RespBean.success(RespBeanEnum.PAY);
     }
@@ -88,6 +100,11 @@ public class OrderInfoController {
         }
     }
 
+    /**
+     * 查询当前用户的订单总额
+     * @param member 用户ID
+     * @return
+     */
     @GetMapping("selectCurrentOrderTotal/{member}")
     public RespBean selectCurrentOrderTotal(@PathVariable String member){
         Integer dayOrder = orderInfoService.selectCurrentDayOrder(member);
@@ -109,6 +126,11 @@ public class OrderInfoController {
         return RespBean.success(hashMap);
     }
 
+    /**
+     * 删除订单记录
+     * @param id 订单ID号码
+     * @return
+     */
     @DeleteMapping("{id}")
     public RespBean deleteOrder(@PathVariable String id){
         orderInfoService.removeById(id);

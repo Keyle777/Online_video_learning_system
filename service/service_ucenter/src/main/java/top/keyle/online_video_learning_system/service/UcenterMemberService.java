@@ -25,11 +25,29 @@ public interface UcenterMemberService extends IService<UcenterMember> {
     RespBean register(RegisterVo registerVo);
 
     /**
-     * 查询某一天注册人数
+     * 统计某一天注册的人数
      * @param day
      * @return
      */
     Integer countRegisterDay(String day);
+
+    /**
+     * 统计视频播放总次数
+     * @param day
+     * @return
+     */
+    Integer countVideoPlay(String day);
+
+    /**
+     * 统计当天新上传的课程数
+     * @param day
+     * @return
+     */
+    Integer countCourseInsert(String day);
+    /**
+     * 学员登录数统计
+     */
+    Integer countLogin(String day);
 
     /**
      * @return 进行数据的注销操作

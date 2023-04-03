@@ -42,14 +42,24 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         return null != count && count > 0;
     }
 
+    /**
+     根据传入的视频信息表单保存视频信息
+     @param videoInfoForm 视频信息表单对象
+     @return 保存结果，true为保存成功，false为保存失败
+     @throws GlobalException 当保存失败时，抛出全局异常
+     */
     @Override
     public Boolean saveVideoInfo(VideoInfoForm videoInfoForm) {
+        // 创建EduVideo对象并将videoInfoForm中的属性复制到EduVideo对象中
         EduVideo video = new EduVideo();
         BeanUtils.copyProperties(videoInfoForm, video);
+        // 保存EduVideo对象
         boolean result = this.save(video);
+        // 如果保存失败，则抛出全局异常
         if (!result) {
             throw new GlobalException(RespBeanEnum.LESSON_SAVING_FAILED);
         }
+        // 保存成功，返回true
         return true;
     }
 

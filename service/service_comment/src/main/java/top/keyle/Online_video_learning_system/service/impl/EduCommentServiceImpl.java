@@ -30,31 +30,49 @@ public class EduCommentServiceImpl extends ServiceImpl<EduCommentMapper, EduComm
     @Autowired
     private UcenterClient ucenterClient;
 
+    /**
+     分页查询课程评论列表
+     @param page 当前页码
+     @param pageSize 每页数量
+     @param id 课程ID
+     @return 包含分页信息和课程评论列表的JsonPage对象
+     */
     @Override
     public JsonPage<EduComment> paginateToGetAListOfInstructors(Integer page, Integer pageSize,String id) {
+        // 使用PageHelper进行分页处理
         PageHelper.startPage(page, pageSize);
+        // 使用QueryWrapper封装查询条件
         QueryWrapper<EduComment> wrapper = new QueryWrapper<>();
         wrapper.eq(!StringUtils.isEmpty(id),"course_id",id);
+        // 查询课程评论列表
         List<EduComment> EduCommentList = eduCommentMapper.selectList(wrapper);
+        // 将查询结果封装成JsonPage对象返回
         return JsonPage.restPage(new PageInfo<>(EduCommentList));
     }
 
 
 
+    /**
+     保存评论信息
+     @param memberId 会员ID
+     @param comment 评论对象
+     @return 保存成功返回 true，否则返回 false
+     */
     @Override
     public boolean SaveComment(String memberId, EduComment comment) {
         comment.setCourseId(comment.getCourseId());
         comment.setTeacherId(comment.getTeacherId());
         comment.setMemberId(memberId);
+        // 获取会员信息
         UcenterMember info = ucenterClient.getInfo(memberId);
         if(info == null){
             return false;
         }
         System.out.println(info);
-        // 注意的点是，在2个类的启动类上都需要加上注解
-        // 如果调用的那个方法的返回值是RespBean 那么重写的方法必须是RespBean，否则接收不到值。上面的方法我改成了返回UcenterMember。
+        // 设置评论昵称和头像
         comment.setNickname(info.getNickname());
         comment.setAvatar(info.getAvatar());
+        // 插入评论记录到数据库
         return eduCommentMapper.insert(comment) > 0;
     }
 }

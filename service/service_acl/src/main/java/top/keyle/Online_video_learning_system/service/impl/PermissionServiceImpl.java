@@ -107,12 +107,19 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return permissionNode;
     }
 
-    //根据角色获取菜单
+    /**
+     * 查询所有菜单并根据角色 ID 设置选择状态
+     *
+     * @param roleId 角色 ID
+     * @return 菜单列表
+     */
     @Override
     public List<Permission> selectAllMenu(String roleId) {
+        // 查询所有菜单
         List<Permission> allPermissionList = baseMapper.selectList(new QueryWrapper<Permission>().orderByAsc("CAST(id AS SIGNED)"));
-        //根据角色id获取角色权限
+        // 根据角色 ID 获取角色权限
         List<RolePermission> rolePermissionList = rolePermissionService.list(new QueryWrapper<RolePermission>().eq("role_id",roleId));
+        // 遍历所有菜单，如果角色拥有该菜单的权限，则设置选择状态为 true
         for (int i = 0; i < allPermissionList.size(); i++) {
             Permission permission = allPermissionList.get(i);
             for (int m = 0; m < rolePermissionList.size(); m++) {
@@ -122,8 +129,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
                 }
             }
         }
-
-
         List<Permission> permissionList = bulid(allPermissionList);
         return permissionList;
     }
@@ -164,8 +169,10 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             List<JSONObject> jsonObjects = new ArrayList<>();
             // 课程管理员拥有 3 2
             if("课程管理员".equals(roleName)){
+                jsonObjects.add(result.get(4));
                 jsonObjects.add(result.get(3));
                 jsonObjects.add(result.get(2));
+                jsonObjects.add(result.get(1));
             }
             // 讲师管理员拥有 1
             if("讲师管理员".equals(roleName)){
@@ -173,7 +180,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             }
             // 普通管理员拥有 4 5 6
             if("普通管理员".equals(roleName)){
-                jsonObjects.add(result.get(4));
                 jsonObjects.add(result.get(5));
                 jsonObjects.add(result.get(6));
             }
@@ -210,6 +216,11 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         });
     }
 
+    /**
+     * 查询所有菜单
+     *
+     * @return 菜单列表
+     */
     @Override
     public List<Permission> queryAllMenu() {
         // 1. 查询菜单表所有数据
@@ -254,25 +265,27 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             this.selectPermissionChilderByid(item.getId(),idList);
         });
     }
-
+    /**
+     * 保存角色和权限之间的关系
+     * @param roleId 角色id
+     * @param permissionIds 菜单id数组
+     */
     @Override
     public void saveRolePermissionRealtionShips(String roleId, String[] permissionIds) {
         // roleId 角色id
         // permissionId菜单id 数组形式
         // 1 创建list集合，用于封装添加数据
         ArrayList<RolePermission> rolePermissionList = new ArrayList<>();
-        // 遍历所有菜单数组
+        // 2 遍历所有菜单数组
         for(String perId : permissionIds){
-            // RolePermission对象
+            // 3 创建RolePermission对象
             RolePermission rolePermission = new RolePermission();
             rolePermission.setRoleId(roleId);
             rolePermission.setPermissionId(perId);
-            // 封装到list集合
+            // 4 封装到list集合
             rolePermissionList.add(rolePermission);
         }
-        // 添加到角色菜单关系表
+        // 5 添加到角色菜单关系表
         rolePermissionService.saveBatch(rolePermissionList);
     }
-
-
 }

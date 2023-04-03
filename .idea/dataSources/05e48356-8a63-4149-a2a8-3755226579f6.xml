@@ -2711,31 +2711,35 @@ role_name</ColNames>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <column id="610" parent="323" name="is_deleted">
+    <column id="610" parent="323" name="login_count">
+      <DataType>int|0s</DataType>
+      <Position>11</Position>
+    </column>
+    <column id="611" parent="323" name="is_deleted">
       <Comment>逻辑删除 1（true）已删除， 0（false）未删除</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>11</Position>
-    </column>
-    <column id="611" parent="323" name="gmt_create">
-      <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>12</Position>
     </column>
-    <column id="612" parent="323" name="gmt_modified">
-      <Comment>更新时间</Comment>
+    <column id="612" parent="323" name="gmt_create">
+      <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <Position>13</Position>
     </column>
-    <index id="613" parent="323" name="PRIMARY">
+    <column id="613" parent="323" name="gmt_modified">
+      <Comment>更新时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+    </column>
+    <index id="614" parent="323" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="614" parent="323" name="PRIMARY">
+    <key id="615" parent="323" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

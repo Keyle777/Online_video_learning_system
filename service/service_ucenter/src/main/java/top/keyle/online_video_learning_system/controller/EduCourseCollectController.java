@@ -109,7 +109,7 @@ public class EduCourseCollectController {
             @ApiImplicitParam(value = "用户ID", name = "id", example = "1623698548130955265")
     })
     public RespBean pageCollectList(@PathVariable Integer current, @PathVariable Integer limit,@PathVariable String id) {
-        // 分页调用
+        // 分页调用根据用户
         JsonPage<CollectDetail> jsonPage = eduCourseCollectService.paginateToGetAListOfInstructors(
                 current, limit , id);
         return RespBean.success(jsonPage);

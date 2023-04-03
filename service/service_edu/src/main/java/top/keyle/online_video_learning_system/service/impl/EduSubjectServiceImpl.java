@@ -34,14 +34,19 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
     EduSubjectMapper eduSubjectMapper;
 
     /**
-     * 添加课程分类
+     保存学科信息
+     @param file 上传的Excel文件
+     @param eduSubjectService EduSubjectService对象，用于保存学科信息
      */
     @Override
     public void savaSubject(MultipartFile file, EduSubjectService eduSubjectService) {
         try {
+            // 1 获取上传的Excel文件流
             InputStream fileInputStream = file.getInputStream();
+            // 2 使用EasyExcel读取Excel文件，创建SubjectExcelListener监听器实例，用于处理读取的数据
             EasyExcel.read(fileInputStream, SubjectData.class, new SubjectExcelListener(eduSubjectService)).sheet().doRead();
         } catch (IOException e) {
+            // 3 如果出现异常，抛出GlobalException
             throw new GlobalException(RespBeanEnum.ERROR);
         }
     }
@@ -61,7 +66,6 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         QueryWrapper<EduSubject> wrapperTwo = new QueryWrapper<>();
         wrapperTwo.ne("parent_id", "0");
         List<EduSubject> twoList = eduSubjectMapper.selectList(wrapperTwo);
-
         ArrayList<OneSubject> finalList = new ArrayList<>();
         //封装一级分类 查询一级分类的list集合 得到每一个一级对象 获取每个一级分类的值
         for (EduSubject eduSubject : oneList) {
@@ -81,11 +85,11 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
                 }
             }
             oneSubject.setChildren(twoSubjectList);
-
             finalList.add(oneSubject);
         }
         return finalList;
     }
+
 }
 
 

@@ -2,7 +2,7 @@ package top.keyle.Online_video_learning_system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.apache.commons.lang3.RandomUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.keyle.Online_video_learning_system.client.UcenterClient;
@@ -26,26 +26,24 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
     @Autowired
     private UcenterClient ucenterClient;
 
+    /**
+     注册人数统计方法，每日调用一次，统计前一天的注册人数，并将结果存入统计分析表中
+     @param day 统计日期，格式为 yyyy-MM-dd
+     */
     @Override
     public void registerCount(String day) {
         // 添加记录之前删除之前相同的数据
         QueryWrapper<StatisticsDaily> wrapper = new QueryWrapper<>();
         wrapper.eq("date_calculated",day);
         baseMapper.delete(wrapper);
-
         // 远程调用得到某一天注册人数
-
-        Integer countRegister = ucenterClient.countRegister(day);
-
+        //Integer countRegister = ucenterClient.countRegister(day);
         // 把获取数据添加到数据库，统计分析表里面
+        Object data = ucenterClient.statistics(day).getData();
         StatisticsDaily sta = new StatisticsDaily();
-        // 注册人数
-        sta.setRegisterNum(countRegister);
-        // 统计日期
+        BeanUtils.copyProperties(sta, data);
+        // 设置随机生成的视频播放量、登录人数、新增课程数、注册人数
         sta.setDateCalculated(day);
-        sta.setVideoViewNum(RandomUtils.nextInt(100,200));
-        sta.setLoginNum(RandomUtils.nextInt(100,200));
-        sta.setCourseNum(RandomUtils.nextInt(100,200));
         baseMapper.insert(sta);
     }
 
@@ -63,13 +61,11 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
         wrapper.between("date_calculated",begin,end);
         wrapper.select("date_calculated",type);
         List<StatisticsDaily> staList = baseMapper.selectList(wrapper);
-
         // 因为返回两部分数据：日期 和 日期对应数量
         // 前端要求数组json结构，对应后端java代码时list集合
         // 创建两个list集合，一个日期list，一个数量list
         List<String> date_calculatedList = new ArrayList<>();
         List<Integer> munDataList = new ArrayList<>();
-
         for(int i =0; i < staList.size(); i++){
             StatisticsDaily daily = staList.get(i);
             // 封装日期list集合

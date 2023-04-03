@@ -51,6 +51,7 @@ public class PermissionController {
     @ApiOperation(value = "新增菜单")
     @PostMapping("save")
     public RespBean save(@RequestBody Permission permission) {
+        //  调用permissionService的save方法存储Permission对象到数据库中
         permissionService.save(permission);
         return RespBean.success();
     }
