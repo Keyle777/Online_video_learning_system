@@ -8,15 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service_comment" />
-        <module name="service_statistics" />
         <module name="service_acl" />
+        <module name="service_statistics" />
         <module name="service_vod" />
-        <module name="service_edu" />
         <module name="api-gateway" />
-        <module name="service_msm" />
-        <module name="service_order" />
+        <module name="service_edu" />
         <module name="universal-tool" />
         <module name="spring-security" />
+        <module name="service_order" />
+        <module name="service_msm" />
         <module name="service_ucenter" />
         <module name="service_cmsr" />
       </profile>

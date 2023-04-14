@@ -119,12 +119,20 @@ public class EduCourseCollectController {
     @Autowired
     EduCourseCollectMapper eduCourseCollectMapper;
 
+    /**
+     删除收藏
+     @param id 收藏ID
+     @return 返回操作结果
+     */
     @DeleteMapping("{id}")
     public RespBean deleteCollect(@PathVariable String id){
+        // 判断收藏ID是否为空
         if(StringUtils.isEmpty(id)){
             return RespBean.error();
         }
+        // 执行删除操作
         boolean removeById = eduCourseCollectService.removeById(id);
+        // 判断删除结果
         if (removeById){
             return RespBean.success();
         }

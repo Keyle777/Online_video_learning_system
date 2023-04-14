@@ -71,8 +71,9 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     // 修改课程信息
     @Override
     public void updateCourseInfo(EduCourse eduCourse, CourseInfoVO courseInfoVo) {
-        // 资源 目标
+        // 将修改课程表单数据转移到课程对象中，用于更新至数据库
         BeanUtils.copyProperties(courseInfoVo, eduCourse);
+        // 执行更新课程信息
         int update = baseMapper.updateById(eduCourse);
         if (update == 0) {
             throw new GlobalException(RespBeanEnum.FAILED_TO_MODIFY_COURSE);

@@ -91,7 +91,8 @@ public class OrderInfoController {
         }
         QueryWrapper<OrderInfo> wrapper = new QueryWrapper<>();
         wrapper.eq("course_id",courseId)
-                .eq("member_id",memberId);
+                .eq("member_id",memberId)
+                .eq("status","支付成功");
         OrderInfo orderInfo = orderInfoService.getOne(wrapper);
         if(orderInfo !=null){
             return true;

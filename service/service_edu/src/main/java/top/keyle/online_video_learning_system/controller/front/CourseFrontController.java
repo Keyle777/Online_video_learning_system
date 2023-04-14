@@ -21,7 +21,6 @@ import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.JwtUtils;
 import top.keyle.universal_tool.RespBean;
-import top.keyle.universal_tool.RespBeanEnum;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -82,15 +81,16 @@ public class CourseFrontController {
         List<ChapterVo> chapterVideoList =  chapterService.getChapterVideoByCourseId(courseId);
         //根据课程id和用户id查询当前课程是否已经支付过了
         String memberId = JwtUtils.getMemberIdByJwtToken(request);
-        if(StringUtils.isEmpty(memberId)){
-            // 请登陆后重试
-            return RespBean.error(RespBeanEnum.NOT_LOGGED_IN);
-        }
-        //  返回是否购买过此课程，用来在前端显示
-        boolean buyCourse = ordersClient.isBuy(memberId,courseId);
+        boolean buyCourse = false;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("courseWebVo",courseWebVo);
         hashMap.put("chapterVideoList",chapterVideoList);
+        if(StringUtils.isEmpty(memberId)){
+            hashMap.put("isBuy",buyCourse);
+            return RespBean.success(hashMap);
+        }
+        //  返回是否购买过此课程，用来在前端显示
+        buyCourse = ordersClient.isBuy(memberId,courseId);
         hashMap.put("isBuy",buyCourse);
         return RespBean.success(hashMap);
     }

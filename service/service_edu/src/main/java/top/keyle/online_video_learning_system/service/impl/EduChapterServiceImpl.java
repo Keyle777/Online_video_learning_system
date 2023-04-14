@@ -104,7 +104,6 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         }
         // 2、如果有不能删除直接false
         int i = eduChapterMapper.deleteByCourseId(courseId);
-
         // 3、删除章节
         return i == 1;
     }

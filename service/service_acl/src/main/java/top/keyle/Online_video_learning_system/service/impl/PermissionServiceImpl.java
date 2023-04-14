@@ -175,8 +175,10 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
                 jsonObjects.add(result.get(1));
             }
             // 讲师管理员拥有 1
-            if("讲师管理员".equals(roleName)){
-                jsonObjects.add(result.get(1));
+            if("讲师".equals(roleName)){
+                jsonObjects.add(result.get(2));
+                jsonObjects.add(result.get(3));
+                jsonObjects.add(result.get(4));
             }
             // 普通管理员拥有 4 5 6
             if("普通管理员".equals(roleName)){

@@ -128,7 +128,7 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
      */
     @Override
     public RespBean register(RegisterVo registerVo) {
-        //获取注册的数据
+        // 获取注册的数据
         String code = registerVo.getCode();
         String mobile = registerVo.getMobile();
         String nickname = registerVo.getNickname();

@@ -25,14 +25,14 @@ import java.util.List;
  * @createDate 2023-01-23 21:11:51
  */
 @Service
-public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
-        implements EduVideoService {
+public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> implements EduVideoService {
 
     @Autowired
     VodClient vodClient;
 
     @Autowired
     EduVideoMapper eduVideoMapper;
+
     @Override
     public Boolean getCountByChapterId(String chapterId) {
         QueryWrapper<EduVideo> queryWrapper = new QueryWrapper<>();
@@ -43,14 +43,15 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     }
 
     /**
-     根据传入的视频信息表单保存视频信息
-     @param videoInfoForm 视频信息表单对象
-     @return 保存结果，true为保存成功，false为保存失败
-     @throws GlobalException 当保存失败时，抛出全局异常
+     * 根据传入的视频信息表单保存视频信息
+     *
+     * @param videoInfoForm 视频信息表单对象
+     * @return 保存结果，true为保存成功，false为保存失败
+     * @throws GlobalException 当保存失败时，抛出全局异常
      */
     @Override
     public Boolean saveVideoInfo(VideoInfoForm videoInfoForm) {
-        // 创建EduVideo对象并将videoInfoForm中的属性复制到EduVideo对象中
+        // 创建EduVideo对象并将videoInfoForm中的属性复制到EduVideo对象中，用于把视频保存至数据库
         EduVideo video = new EduVideo();
         BeanUtils.copyProperties(videoInfoForm, video);
         // 保存EduVideo对象
@@ -63,24 +64,33 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         return true;
     }
 
-    @Override
+    /**
+     * 根据ID获取视频信息
+     *
+     * @param id 视频ID
+     * @return 返回视频信息
+     */
     public VideoInfoForm getVideoInfoFormById(String id) {
-        //从video表中取数据
+        // 从video表中获取数据
         EduVideo video = this.getById(id);
+        // 判断数据是否存在
         if (video == null) {
             throw new GlobalException(RespBeanEnum.THE_DATA_DOES_NOT_EXIST);
         }
-        //创建videoInfoForm对象
+        // 创建videoInfoForm对象
         VideoInfoForm videoInfoForm = new VideoInfoForm();
+        // 将video对象的属性拷贝到videoInfoForm对象中
         BeanUtils.copyProperties(video, videoInfoForm);
+        // 返回视频信息
         return videoInfoForm;
     }
 
     @Override
     public Boolean updateVideoInfoById(VideoInfoForm videoInfoForm) {
-        //保存课时基本信息
+        // 将修改表单数据转移到EduVideo对象中,用户后续从数据库删除记录
         EduVideo video = new EduVideo();
         BeanUtils.copyProperties(videoInfoForm, video);
+        // 执行删除操作
         boolean result = this.updateById(video);
         if (!result) {
             throw new GlobalException(RespBeanEnum.LESSON_SAVING_FAILED);
@@ -96,10 +106,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     @Override
     public Boolean deleteByVideoSourceId(String videoSourceId) {
         RespBean respBean = vodClient.deleteAliVideoByVideoSourceId(videoSourceId);
-        if(respBean.getCode() == 20000){
-            return true;
-        }
-        return false;
+        return respBean.getCode() == 20000;
     }
 
     @Override
@@ -122,15 +129,14 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     public Boolean removeVideoList(List<String> videoIdList) {
         ArrayList<String> videoSourceIds = new ArrayList<>();
         //1、根据视频ID获取阿里云视频ID并加入到List集合中
-        for (String videoID :
-                videoIdList) {
+        for (String videoID : videoIdList) {
             String videoSourceId = baseMapper.selectById(videoID).getVideoSourceId();
             if (!StringUtils.isEmpty(videoSourceId)) {
                 videoSourceIds.add(videoSourceId);
             }
         }
         //2、调用vod模块中的批量删除阿里云视频方法，删除视频资源。
-        if (videoSourceIds.size() > 0 ){
+        if (videoSourceIds.size() > 0) {
             RespBean respBean = vodClient.deleteBatchByVideoSourceIds(videoSourceIds);
             if (respBean.getCode() == 20008) {
                 throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
@@ -144,7 +150,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
     public Boolean removeVideoByCourseId(String courseId) {
         // 1. 根据课程id查询其下所有的video记录
         QueryWrapper<EduVideo> wrapperVideo = new QueryWrapper<>();
-        wrapperVideo.eq("course_id",courseId);
+        wrapperVideo.eq("course_id", courseId);
         wrapperVideo.select("video_source_id");
         List<EduVideo> eduVideoList = baseMapper.selectList(wrapperVideo);
         System.out.println(eduVideoList);
@@ -154,7 +160,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
             videoIds.add(video.getVideoSourceId());
         }
         // 3、根据多个视频id删除多个视频
-        if(videoIds.size() > 0){
+        if (videoIds.size() > 0) {
             RespBean respBean = vodClient.deleteBatchByVideoSourceIds(videoIds);
             if (respBean.getCode() == 20008) {
                 throw new GlobalException(RespBeanEnum.DELETING_VIDEO_FAILED);
@@ -162,7 +168,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo>
         }
         // 4、根据课程ID删除课程记录
         QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
-        wrapper.eq("course_id",courseId);
+        wrapper.eq("course_id", courseId);
         return baseMapper.delete(wrapper) > 0;
     }
 }

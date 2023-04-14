@@ -42,7 +42,7 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
         Object data = ucenterClient.statistics(day).getData();
         StatisticsDaily sta = new StatisticsDaily();
         BeanUtils.copyProperties(sta, data);
-        // 设置随机生成的视频播放量、登录人数、新增课程数、注册人数
+        // 设置StatisticsDaily对象数据，视频播放量、登录人数、新增课程数、注册人数
         sta.setDateCalculated(day);
         baseMapper.insert(sta);
     }

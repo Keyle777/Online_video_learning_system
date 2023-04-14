@@ -2712,6 +2712,7 @@ role_name</ColNames>
       <Position>10</Position>
     </column>
     <column id="610" parent="323" name="login_count">
+      <Comment>记录登录次数</Comment>
       <DataType>int|0s</DataType>
       <Position>11</Position>
     </column>

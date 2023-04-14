@@ -1,14 +1,7 @@
 spring:
   application:
     name: service-edu
-    # 项目在启动的时候根据下面的配置去寻找配置文件
-  cloud:
-    nacos:
-      config:
-        server-addr: localhost:8848 # 配置文件的地址
-        file-extension: yml # 文件类型
-
-
+  # 数据库相关配置
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

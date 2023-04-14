@@ -53,6 +53,7 @@ public class AliPayServiceImpl implements AliPayService {
     EduClient eduClient;
     @Transactional(rollbackFor = Exception.class)
 
+
     @Override
     public String tradeCreate(String courseId, String memberId) {
 
@@ -77,13 +78,9 @@ public class AliPayServiceImpl implements AliPayService {
             bizContent.put("pay_time", new Date().toString());
             bizContent.put("subject", orderInfo.getCourseTitle());
             bizContent.put("product_code", "FAST_INSTANT_TRADE_PAY");
-
             request.setBizContent(bizContent.toString());
-
-            // 更新课程，购买人数+1
             //执行请求，调用支付宝接口
             AlipayTradePagePayResponse response = alipayClient.pageExecute(request);
-
             if(response.isSuccess()){
                 log.info("调用成功，返回结果 ===> " + response.getBody());
                 eduClient.updateCourse(courseId);
@@ -110,15 +107,10 @@ public class AliPayServiceImpl implements AliPayService {
 
         //获取订单号
         String orderNo = params.get("out_trade_no");
-
-        /*在对业务数据进行状态检查和处理之前，
-        要采用数据锁进行并发控制，
-        以避免函数重入造成的数据混乱*/
-        //尝试获取锁：
+        // 尝试获取锁：
         // 成功获取则立即返回true，获取失败则立即返回false。不必一直等待锁的释放
         if(lock.tryLock()) {
             try {
-
                 //处理重复通知
                 //接口调用的幂等性：无论接口被调用多少次，以下业务执行一次
                 // 根据订单号获取订单状态

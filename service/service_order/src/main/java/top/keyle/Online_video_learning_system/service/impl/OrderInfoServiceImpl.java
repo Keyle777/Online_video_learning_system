@@ -177,7 +177,8 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     public JsonPage<OrderInfo> pageListOrders(Integer page, Integer pageSize, String memberId) {
         PageHelper.startPage(page, pageSize);
         QueryWrapper<OrderInfo> wrapper = new QueryWrapper<>();
-        wrapper.eq("member_id",memberId);
+        wrapper.eq("member_id",memberId)
+                .orderByDesc("gmt_create");
         List<OrderInfo> eduOrderInfoList = orderInfoMapper.selectList(wrapper);
         return JsonPage.restPage(new PageInfo<>(eduOrderInfoList));
     }

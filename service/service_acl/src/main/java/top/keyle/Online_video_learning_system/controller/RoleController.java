@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import top.keyle.Online_video_learning_system.entity.Role;
 import top.keyle.Online_video_learning_system.service.RoleService;
 import top.keyle.universal_tool.RespBean;
+import top.keyle.universal_tool.RespBeanEnum;
 
 import java.util.HashMap;
 import java.util.List;
@@ -80,7 +81,10 @@ public class RoleController {
     @ApiOperation(value = "删除角色")
     @DeleteMapping("remove/{id}")
     public RespBean remove(@PathVariable String id) {
-        roleService.removeById(id);
+        boolean b = roleService.removeById(id);
+        if(b){
+            return RespBean.error(RespBeanEnum.DELETE_ERROR);
+        }
         return RespBean.success();
     }
 
