@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import top.keyle.Online_video_learning_system.entry.CrmBanner;
@@ -35,7 +34,6 @@ public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner
      *
      * @return 前两条按 id 字段降序排列的 CrmBanner 对象列表
      */
-    @Cacheable(value = "banner",key = "'selectIndexList'")
     @Override
     public List<CrmBanner> selectAllBanner() {
         // 创建 QueryWrapper 对象，用于构建带有查询条件的 SQL 查询

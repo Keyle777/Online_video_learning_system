@@ -20,6 +20,7 @@ import top.keyle.online_video_learning_system.service.EduChapterService;
 import top.keyle.online_video_learning_system.service.EduCourseService;
 import top.keyle.universal_tool.JsonPage;
 import top.keyle.universal_tool.JwtUtils;
+import top.keyle.universal_tool.RedisCache;
 import top.keyle.universal_tool.RespBean;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +41,9 @@ public class CourseFrontController {
 
     @Autowired
     private OrdersClient ordersClient;
+
+    @Autowired
+    RedisCache redisCache;
 
     /**
      * 条件查询分页查询课程

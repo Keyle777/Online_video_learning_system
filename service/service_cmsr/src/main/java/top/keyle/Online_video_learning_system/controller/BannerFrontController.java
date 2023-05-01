@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.keyle.Online_video_learning_system.entry.CrmBanner;
 import top.keyle.Online_video_learning_system.service.CrmBannerService;
+import top.keyle.universal_tool.RedisCache;
 import top.keyle.universal_tool.RespBean;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class BannerFrontController {
     @Autowired
     private CrmBannerService bannerService;
 
+    @Autowired
+    RedisCache redisCache;
     /**
      * 查询所有的banner
      * @return
@@ -31,7 +34,12 @@ public class BannerFrontController {
 
     @GetMapping("getAllBanner")
     public RespBean getAllBanner(){
+        List<Object> bannaerList = redisCache.getCacheList("bannaerList");
+        if(bannaerList !=null && bannaerList.size() > 0){
+            return RespBean.success("list",bannaerList);
+        }
         List<CrmBanner> list = bannerService.selectAllBanner();
+        redisCache.setCacheList("bannaerList",list);
         return RespBean.success("list",list);
     }
 }
