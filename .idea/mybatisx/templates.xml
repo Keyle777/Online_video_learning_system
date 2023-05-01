@@ -7,7 +7,7 @@
           <GenerateConfig>
             <option name="annotationType" value="MYBATIS_PLUS3" />
             <option name="basePackage" value="top.keyle.Online_video_learning_system" />
-            <option name="basePath" value="service/service_statistics/src/main/java" />
+            <option name="basePath" value="service/service_search/src/main/java" />
             <option name="classNameStrategy" value="camel" />
             <option name="encoding" value="UTF-8" />
             <option name="extraClassSuffix" value="" />
@@ -69,8 +69,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="StatisticsDaily" />
-                  <option name="tableName" value="statistics_daily" />
+                  <option name="className" value="EduCourse" />
+                  <option name="tableName" value="edu_course" />
                 </TableUIInfo>
               </list>
             </option>

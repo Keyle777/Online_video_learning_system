@@ -22,6 +22,7 @@
         <module>service_order</module>
         <module>service_statistics</module>
         <module>service_acl</module>
+        <module>service_search</module>
     </modules>
 
     <dependencies>

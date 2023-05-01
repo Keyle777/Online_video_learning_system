@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service_comment" />
+        <module name="service_search" />
         <module name="service-base" />
         <module name="service_msm" />
         <module name="service_order" />
@@ -26,6 +27,7 @@
       <module name="api_gateway" target="17" />
       <module name="canal-client" target="17" />
       <module name="service_cms" target="17" />
+      <module name="service_elasticSearch" target="17" />
       <module name="service_infrastructure" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -46,6 +48,7 @@
       <module name="service_infrastructure" options="-parameters" />
       <module name="service_msm" options="-parameters" />
       <module name="service_order" options="-parameters" />
+      <module name="service_search" options="-parameters" />
       <module name="service_statistics" options="-parameters" />
       <module name="service_ucenter" options="-parameters" />
       <module name="service_vod" options="-parameters" />

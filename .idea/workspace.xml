@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="全部测试成功，已经修复明显存在的问题">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="更改前端轮播图为Redis存储">
+      <change afterPath="$PROJECT_DIR$/service/service_search/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/config/ElasticsearchConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/searchApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/impl/CrmBannerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/service/impl/CrmBannerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +85,7 @@
     <setting file="file://$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/client/EduClient.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/controller/AliPayController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/service/service_order/src/main/java/top/keyle/Online_video_learning_system/service/impl/AliPayServiceImpl.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/service/service_vod/pom.xml" root0="SKIP_INSPECTION" />
     <setting file="jar://E:/apache-maven-3.8.5/repository/org/springframework/spring-webmvc/5.3.23/spring-webmvc-5.3.23-sources.jar!/org/springframework/web/servlet/config/annotation/CorsRegistry.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -107,43 +120,43 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d26d984e99ae4f6e3f41e21b9637f658&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system",
+    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_search/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "spring.configuration.checksum": "ae0e74863988a2cf179de786506d08b0",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="Push.Settings">
     <force-push-targets>
       <force-push-target remote-path="origin" branch="main" />
@@ -157,29 +170,29 @@
       <recent name="top.keyle.online_video_learning_system.listener" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_search\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_cmsr\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_acl\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_edu\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_acl\src\main\java\top\keyle" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_acl\src\main\java\top\keyle\Online_video_learning_system" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_search\src\main\resources\mapper" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_acl\src\main\resources\mapper" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_statistics\src\main\resources" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_order\src\main\resources\mapper" />
       <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_comment\src\main\resources" />
-      <recent name="C:\Users\TMJIE5200\Desktop\Git版_基于SpringBoot的在线视频学习系统\Online_video_learning_system\service\service_common\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="top.keyle" />
       <recent name="top.keyle.Online_video_learning_system" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="top.keyle.online_video_learning_system.entity.vo" />
-      <recent name="top.keyle.Online_video_learning_system.handler" />
-      <recent name="top.keyle.online_video_learning_system.entry" />
-      <recent name="top.keyle.online_video_learning_system.client.impl" />
-      <recent name="top.keyle.Online_video_learning_system.entity" />
+      <recent name="top.keyle.Online_video_learning_system.entry" />
+      <recent name="top.keyle.Online_video_learning_system.config" />
+      <recent name="top.keyle.Online_video_learning_system.service" />
+      <recent name="top.keyle.Online_video_learning_system.service.impl" />
+      <recent name="top.keyle.config" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -195,7 +208,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.searchApplication">
     <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -396,12 +409,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="searchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="service_search" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.searchApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JUnit.test.test1" />
       <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test1.deleteVideo" />
       <item itemvalue="JUnit.test.test1 (3)" />
       <item itemvalue="JUnit.test.test1 (2)" />
+      <item itemvalue="Spring Boot.searchApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.ServiceAclApplication" />
       <item itemvalue="Spring Boot.CommentApplication" />
@@ -542,6 +569,7 @@
       <workItem from="1682470534562" duration="249000" />
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
+      <workItem from="1682954947466" duration="2500000" />
     </task>
     <task id="LOCAL-00085" summary="优化了添加课程功能体验">
       <created>1675681752878</created>
@@ -981,6 +1009,23 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java</url>
+          <line>46</line>
+          <properties>
+            <option name="lambda-ordinal" value="1" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="top.keyle.online_video_learning_system.entity.vo.LoginVo" memberName="password" />
