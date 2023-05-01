@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.keyle.Online_video_learning_system.mapper.OrderInfoMapper">
+
+
+
+    <select id="selectCourseByCourseId" resultType="top.keyle.Online_video_learning_system.entity.EduCourse">
+        SELECT * FROM `edu_course`
+        WHERE id =#{id} and is_deleted = 0
+    </select>
+
+    <select id="selectCurrentMonthOrder" resultType="Integer">
+        SELECT
+            SUM(total_fee) as total
+        FROM
+            t_order
+        WHERE
+                DATE_FORMAT( gmt_create, '%Y-%m' ) = DATE_FORMAT(NOW(),'%Y-%m')
+        and status = '支付成功' and is_deleted = 0 and member_id = #{memberId}
+    </select>
+
+    <select id="selectCurrentDayOrder" resultType="Integer">
+        SELECT
+            SUM(total_fee) as total
+        FROM
+            t_order
+        WHERE gmt_create BETWEEN CONCAT(CURDATE(),' 00:00:00') AND CONCAT(CURDATE(),' 23:59:59')
+        and status = '支付成功' and is_deleted = 0 and member_id = #{memberId}
+    </select>
+
+    <select id="selectCurrentAllOrder" resultType="Integer">
+        SELECT
+            SUM(total_fee) as total
+        FROM
+            t_order
+        WHERE  status = '支付成功' and is_deleted = 0 and member_id = #{memberId}
+    </select>
+
+</mapper>

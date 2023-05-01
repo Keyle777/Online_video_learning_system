@@ -5,37 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/common/universal-tool/src/main/java/top/keyle/universal_tool/universalTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05e48356-8a63-4149-a2a8-3755226579f6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/service-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/service-base/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/CmsrApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/CmsrApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_cmsr/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_msm/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_msm/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_order/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_order/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_statistics/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_ucenter/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_vod/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_vod/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_vod/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_vod/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,42 +107,43 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system",
-    "last_opened_file_path": "D:/CompanyDevelopment/base_query_elasticsearch-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "7357c7069ab63ca48b4d33e0cce2c46a",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d26d984e99ae4f6e3f41e21b9637f658&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <force-push-targets>
       <force-push-target remote-path="origin" branch="main" />
@@ -435,20 +409,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="universalTool" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="universal-tool" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="top.keyle.universal_tool.universalTool" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JUnit.test.test1" />
       <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test1.deleteVideo" />
       <item itemvalue="JUnit.test.test1 (3)" />
       <item itemvalue="JUnit.test.test1 (2)" />
-      <item itemvalue="Spring Boot.universalTool" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.ServiceAclApplication" />
       <item itemvalue="Spring Boot.CommentApplication" />
@@ -583,14 +549,14 @@
       <workItem from="1681350554507" duration="10916000" />
       <workItem from="1681453527891" duration="8841000" />
       <workItem from="1681788393386" duration="25099000" />
-      <workItem from="1681898246521" duration="25708000" />
-    </task>
-    <task id="LOCAL-00083" summary="新增了删除课程">
-      <created>1675662975455</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1675662975455</updated>
+      <workItem from="1681898246521" duration="27424000" />
+      <workItem from="1682210912456" duration="1764000" />
+      <workItem from="1682240541964" duration="754000" />
+      <workItem from="1682241346622" duration="743000" />
+      <workItem from="1682304410727" duration="22000" />
+      <workItem from="1682470534562" duration="249000" />
+      <workItem from="1682474693784" duration="652000" />
+      <workItem from="1682901464719" duration="6256000" />
     </task>
     <task id="LOCAL-00084" summary="优化了添加课程功能体验">
       <created>1675681655724</created>
@@ -928,7 +894,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681889531673</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="在线视频系统v2.0">
+      <created>1682066637217</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1682066637218</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -993,7 +966,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="增加了登录注册功能" />
     <MESSAGE value="整合了JWT登录功能" />
     <MESSAGE value="更新登录和注册功能" />
     <MESSAGE value="优化了前端展示页面" />
@@ -1018,11 +990,21 @@
     <MESSAGE value="新增了登录次数修改功能" />
     <MESSAGE value="优化系统" />
     <MESSAGE value="启用了nacos动态配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="启用了nacos动态配置" />
+    <MESSAGE value="在线视频系统v2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="在线视频系统v2.0" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/service_cmsr/src/main/java/top/keyle/Online_video_learning_system/controller/BannerFrontController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="top.keyle.online_video_learning_system.entity.vo.LoginVo" memberName="password" />

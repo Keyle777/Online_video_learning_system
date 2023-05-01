@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.keyle.online_video_learning_system.mapper.UcenterMemberMapper">
+
+    <resultMap id="BaseResultMap" type="top.keyle.online_video_learning_system.entity.UcenterMember">
+            <id property="id" column="id" jdbcType="CHAR"/>
+            <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="TINYINT"/>
+            <result property="age" column="age" jdbcType="TINYINT"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="sign" column="sign" jdbcType="VARCHAR"/>
+            <result property="isDisabled" column="is_disabled" jdbcType="TINYINT"/>
+            <result property="loginCount" column="login_count" jdbcType="INTEGER"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,mobile,password,
+        email,nickname,sex,
+        age,avatar,sign,
+        is_disabled,login_count,is_deleted,gmt_create,
+        gmt_modified
+    </sql>
+
+    <select id="countRegisterDay" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM ucenter_member as uc
+        WHERE DATE_FORMAT(gmt_create, '%Y-%m-%d') = #{day}
+    </select>
+
+    <select id="countCourseInsert" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM edu_course WHERE DATE_FORMAT(gmt_create, '%Y-%m-%d') = #{day}
+    </select>
+
+    <select id="countVideoPlay" resultType="java.lang.Integer">
+        SELECT SUM(play_count) FROM edu_video WHERE DATE_FORMAT(gmt_create, '%Y-%m-%d') = #{day}
+    </select>
+
+    <select id="countLogin" resultType="java.lang.Integer">
+        SELECT SUM(login_count) FROM ucenter_member WHERE DATE_FORMAT(gmt_create, '%Y-%m-%d') = #{day}
+    </select>
+
+    <select id="selectCourseTostudy" resultType="top.keyle.online_video_learning_system.entity.vo.courseVO.courseVO">
+         SELECT c.id as id, c.title as title , c.view_count as viewCount, c.cover as cover
+        FROM t_order o LEFT JOIN edu_course c ON o.course_id = c.id
+        WHERE o.`status` = '支付成功' AND o.is_deleted = 0 AND c.is_deleted = 0
+        AND o.member_id = #{id}
+    </select>
+    <update id="updateLoginCountById">
+        update ucenter_member
+        set login_count = login_count + 1
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>
