@@ -60,9 +60,9 @@ public class CourseFrontController {
     })
     public RespBean getFrontCourseList(
             @ApiParam(name = "page", value = "当前页码", required = true)
-            @PathVariable Integer page,
+            @PathVariable("page") Integer page,
             @ApiParam(name = "limit", value = "每页记录数", required = true)
-            @PathVariable Integer limit,
+            @PathVariable("limit") Integer limit,
             @ApiParam(name = "courseQuery", value = "查询对象", required = false)
             CourseFrontQuery courseFrontQuery)
     {

@@ -5,6 +5,8 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Data
 public class CourseInfo {
@@ -76,4 +78,6 @@ public class CourseInfo {
     private String description;
 
     private String teacherName;
+
+    private Map<String, List<String>> highLight;
 }

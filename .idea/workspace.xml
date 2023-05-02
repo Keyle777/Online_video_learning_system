@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化ES">
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/controller/searchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/core/SearchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/CourseInfo.java" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增ES查询">
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/CourseFrontQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/front/CourseFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/controller/searchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/controller/searchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/core/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/core/SearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/CourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/CourseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/searchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/searchApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +23,7 @@
       <list>
         <option value="jdbc" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -184,10 +181,10 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="top.keyle.Online_video_learning_system.entry" />
+      <recent name="top.keyle.Online_video_learning_system.client.Impl" />
+      <recent name="top.keyle.Online_video_learning_system.client" />
       <recent name="top.keyle.Online_video_learning_system.config" />
       <recent name="top.keyle.Online_video_learning_system.service" />
-      <recent name="top.keyle.Online_video_learning_system.service.impl" />
-      <recent name="top.keyle.config" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -583,14 +580,7 @@
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
       <workItem from="1682954947466" duration="7892000" />
-      <workItem from="1682988514350" duration="12488000" />
-    </task>
-    <task id="LOCAL-00088" summary="新增轮播图">
-      <created>1675777624147</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1675777624147</updated>
+      <workItem from="1682988514350" duration="24372000" />
     </task>
     <task id="LOCAL-00089" summary="新增轮播图">
       <created>1675778153829</created>
@@ -928,7 +918,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682993790746</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="新增ES查询">
+      <created>1683001809462</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1683001809462</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -993,7 +990,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="新增了我的收藏功能" />
     <MESSAGE value="新增了课程详情界面" />
     <MESSAGE value="完善了课程评论页面" />
     <MESSAGE value="新增支付" />
@@ -1018,7 +1014,8 @@
     <MESSAGE value="新增es" />
     <MESSAGE value="新增es,已修复" />
     <MESSAGE value="优化ES" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化ES" />
+    <MESSAGE value="新增ES查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增ES查询" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
