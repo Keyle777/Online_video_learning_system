@@ -15,7 +15,9 @@ public interface StatisticsDailyService extends IService<StatisticsDaily> {
      * 统计某一天注册人数，生成统计数据
      * @param day
      */
-    void registerCount(String day);
+    void generateStatistics(String day);
 
     Map<String, Object> getShowData(String type, String begin, String end);
+
+
 }

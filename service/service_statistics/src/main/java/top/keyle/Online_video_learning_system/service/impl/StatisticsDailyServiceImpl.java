@@ -31,13 +31,11 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
      @param day 统计日期，格式为 yyyy-MM-dd
      */
     @Override
-    public void registerCount(String day) {
+    public void generateStatistics(String day) {
         // 添加记录之前删除之前相同的数据
         QueryWrapper<StatisticsDaily> wrapper = new QueryWrapper<>();
         wrapper.eq("date_calculated",day);
         baseMapper.delete(wrapper);
-        // 远程调用得到某一天注册人数
-        //Integer countRegister = ucenterClient.countRegister(day);
         // 把获取数据添加到数据库，统计分析表里面
         Object data = ucenterClient.statistics(day).getData();
         StatisticsDaily sta = new StatisticsDaily();

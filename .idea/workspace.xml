@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化ES查询">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化课程分类展示页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduSubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/controller/EduSubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduSubjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/EduSubjectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduSubjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduSubjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/controller/StatisticsDailyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/controller/StatisticsDailyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/schedule/ScheduledTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/schedule/ScheduledTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/StatisticsDailyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/StatisticsDailyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/impl/StatisticsDailyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/impl/StatisticsDailyServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +199,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduApplication">
+  <component name="RunManager" selected="Spring Boot.StatisticsApplication">
     <configuration name="test1.deleteVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_edu" />
       <extension name="coverage">
@@ -232,22 +234,6 @@
     </configuration>
     <configuration name="test.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_acl" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.keyle.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="top.keyle" />
-      <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.test1 (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service_order" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="top.keyle.*" />
@@ -433,7 +419,6 @@
       <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test1.deleteVideo" />
       <item itemvalue="JUnit.test.test1 (3)" />
-      <item itemvalue="JUnit.test.test1 (2)" />
       <item itemvalue="Spring Boot.searchApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.ServiceAclApplication" />
@@ -452,7 +437,6 @@
         <item itemvalue="JUnit.test.test1 (1)" />
         <item itemvalue="JUnit.test1.deleteVideo" />
         <item itemvalue="JUnit.test.test1 (3)" />
-        <item itemvalue="JUnit.test.test1 (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -577,14 +561,7 @@
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
       <workItem from="1682954947466" duration="7892000" />
-      <workItem from="1682988514350" duration="27317000" />
-    </task>
-    <task id="LOCAL-00090" summary="新增轮播图管理功能">
-      <created>1675784005348</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1675784005348</updated>
+      <workItem from="1682988514350" duration="34871000" />
     </task>
     <task id="LOCAL-00091" summary="新增轮播图管理功能">
       <created>1675784052455</created>
@@ -922,7 +899,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683017474956</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="优化课程分类展示页面">
+      <created>1683025235916</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1683025235916</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -987,7 +971,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完善了课程评论页面" />
     <MESSAGE value="新增支付" />
     <MESSAGE value="新增订单相关功能" />
     <MESSAGE value="解决了我的收藏为空时的问题" />
@@ -1012,7 +995,8 @@
     <MESSAGE value="优化ES" />
     <MESSAGE value="新增ES查询" />
     <MESSAGE value="优化ES查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化ES查询" />
+    <MESSAGE value="优化课程分类展示页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化课程分类展示页面" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

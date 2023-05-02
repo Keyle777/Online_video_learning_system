@@ -92,7 +92,6 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         result.put("children", finalList);
         return result;
     }
-
 }
 
 

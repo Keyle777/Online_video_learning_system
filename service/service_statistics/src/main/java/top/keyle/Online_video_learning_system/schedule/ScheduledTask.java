@@ -33,6 +33,6 @@ public class ScheduledTask {
     @Scheduled(cron = "0 0 1 * * ?")
     public void task2(){
         log.info("registerCount 被执行......统计注册每日人数");
-        staService.registerCount(DateUtil.formatDate(DateUtil.addDays(new Date(),-1)));
+        staService.generateStatistics(DateUtil.formatDate(DateUtil.addDays(new Date(),-1)));
     }
 }
