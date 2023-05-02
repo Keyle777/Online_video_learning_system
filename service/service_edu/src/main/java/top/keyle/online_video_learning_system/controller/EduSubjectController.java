@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import top.keyle.online_video_learning_system.entry.vo.subject.OneSubject;
 import top.keyle.online_video_learning_system.service.EduSubjectService;
 import top.keyle.universal_tool.RespBean;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 /**
  * @author TMJIE5200
@@ -30,10 +28,8 @@ public class EduSubjectController {
     @ApiOperation(value = "课程科目列表")
     @GetMapping("")
     public RespBean nestedList(){
-        List<OneSubject> oneSubjectList = eduSubjectService.nestedList();
-        HashMap<String, List<OneSubject>> hashMap = new HashMap<>();
-        hashMap.put("items", oneSubjectList);
-        return RespBean.success(hashMap);
+        Map<String, Object> objectMap = eduSubjectService.nestedList();
+        return RespBean.success(objectMap);
     }
 
     /**
