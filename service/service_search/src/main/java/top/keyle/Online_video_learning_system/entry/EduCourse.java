@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -17,6 +20,8 @@ import java.util.Date;
  * @TableName edu_course
  */
 @TableName(value ="edu_course")
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @SuppressWarnings("all")
 public class EduCourse implements Serializable {
@@ -83,6 +88,7 @@ public class EduCourse implements Serializable {
     @TableField(fill = FieldFill.INSERT)
     @JSONField(format="yyyy年MM月dd日 HH:mm:ss")
     @ApiModelProperty(value = "创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ", timezone = "GMT+8")
     private Date gmtCreate;
     /**
      * 更新时间
@@ -90,6 +96,7 @@ public class EduCourse implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @JSONField(format="yyyy年MM月dd日 HH:mm:ss")
     @ApiModelProperty(value = "更新时间")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ", timezone = "GMT+8")
     private Date gmtModified;
 
     /**

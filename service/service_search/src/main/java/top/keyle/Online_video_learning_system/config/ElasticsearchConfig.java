@@ -3,6 +3,7 @@ package top.keyle.Online_video_learning_system.config;
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
+import co.elastic.clients.transport.TransportUtils;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+
+import javax.net.ssl.SSLContext;
 
 /**
  * @author kj_hxx
@@ -39,20 +42,29 @@ public class ElasticsearchConfig {
     @Value("${elasticsearch.port}")
     private String port;
 
-    @Bean
-    public ElasticsearchClient elasticsearchClient(){
+    @Value("${elasticsearch.scheme}")
+    private String scheme;
 
-       final   CredentialsProvider credentialsProvider =
+    @Bean
+    public ElasticsearchClient elasticsearchClient() {
+        String fingerprint = "1F:BD:28:7F:3C:58:44:BA:D2:A3:86:05:7B:75:AE:0F:5F:36:90:9B:31:DE:1A:1A:63:F3:5A:AD:4D:5B:A8:20";
+
+        SSLContext sslContext = TransportUtils
+                .sslContextFromCaFingerprint(fingerprint);
+
+        final CredentialsProvider credentialsProvider =
                 new BasicCredentialsProvider();
         // 因为具有权限设置，验证用户
         credentialsProvider.setCredentials(AuthScope.ANY,
                 new UsernamePasswordCredentials(userName, password));
         // 1.创建低级客户端
         RestClient builder = RestClient.builder(
-                        new HttpHost(hostname, Integer.parseInt(port)))
-                        .setHttpClientConfigCallback(httpClientBuilder -> httpClientBuilder
-                        .setDefaultCredentialsProvider(credentialsProvider))
-                        .build();
+                        new HttpHost(hostname, Integer.parseInt(port), scheme))
+                .setHttpClientConfigCallback(
+                        httpClientBuilder -> httpClientBuilder
+                                .setSSLContext(sslContext)
+                                .setDefaultCredentialsProvider(credentialsProvider))
+                .build();
 
         // 2.使用 Jackson 映射器创建传输
         ElasticsearchTransport transport = new RestClientTransport(

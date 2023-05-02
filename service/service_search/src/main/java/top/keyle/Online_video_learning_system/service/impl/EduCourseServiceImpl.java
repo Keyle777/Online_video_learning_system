@@ -3,16 +3,16 @@ package top.keyle.Online_video_learning_system.service.impl;
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch.core.BulkRequest;
 import co.elastic.clients.elasticsearch.core.BulkResponse;
-import co.elastic.clients.elasticsearch.core.bulk.BulkResponseItem;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.keyle.Online_video_learning_system.entry.EduCourse;
 import top.keyle.Online_video_learning_system.mapper.EduCourseMapper;
 import top.keyle.Online_video_learning_system.service.EduCourseService;
 
+import javax.annotation.Resource;
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
@@ -22,14 +22,12 @@ import java.util.List;
 * @createDate 2023-05-01 23:24:20
 */
 @Service
+@Slf4j
 public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse>
     implements EduCourseService{
 
-    @Autowired
-    ElasticsearchClient client;
-
-    @Value("${elasticsearch.indices-name}")
-    private String elasticsearchIndex;
+    @Resource
+    ElasticsearchClient elasticsearchClient;
 
     @Override
     public Date selectMaxModificationTime() {
@@ -37,7 +35,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     }
 
     @Override
-    public void modifyTheIndex() {
+    public void modifyTheIndex(String elasticsearchIndex) throws IOException {
         List<EduCourse> eduCourseList = baseMapper.selectList(null);
         // 批量添加文档
         BulkRequest.Builder br = new BulkRequest.Builder();
@@ -45,26 +43,17 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
             br.operations(op -> op
                     .index(idx -> idx
                             .index(elasticsearchIndex)
-                            .id(course.getId())
+                            .id(String.valueOf(course.getId()))
                             .document(course)
-                    )
-            );
+                    ));
         }
-        BulkResponse result = null;
-        try {
-            result = client.bulk(br.build());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        // Log errors, if any
-        if (result.errors()) {
-            log.error("Bulk had errors");
-            for (BulkResponseItem item: result.items()) {
-                if (item.error() != null) {
-                    log.error(item.error().reason());
-                }
-            }
+        // 进行一次批处理
+        BulkResponse bulk = elasticsearchClient.bulk(br.build());
+        if (bulk.errors()){
+            System.out.println("错误");
+            throw new RemoteException(bulk.toString());
+        }else {
+            log.info("成功插入数据");
         }
     }
 }

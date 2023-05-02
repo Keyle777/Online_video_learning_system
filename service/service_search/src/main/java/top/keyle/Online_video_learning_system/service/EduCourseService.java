@@ -3,6 +3,7 @@ package top.keyle.Online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import top.keyle.Online_video_learning_system.entry.EduCourse;
 
+import java.io.IOException;
 import java.util.Date;
 
 /**
@@ -12,5 +13,5 @@ import java.util.Date;
 */
 public interface EduCourseService extends IService<EduCourse> {
     Date selectMaxModificationTime();
-    void modifyTheIndex();
+    void modifyTheIndex(String elasticsearchIndex) throws IOException;
 }

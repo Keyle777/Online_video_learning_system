@@ -1,11 +1,13 @@
 package top.keyle.Online_video_learning_system.task;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import top.keyle.Online_video_learning_system.service.EduCourseService;
 
+import java.io.IOException;
 import java.util.Date;
 
 @Component
@@ -13,16 +15,22 @@ import java.util.Date;
 public class modifyTheIndex {
     @Autowired
     EduCourseService eduCourseService;
-    private Date lastDate = new Date(0);
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date lastDate = new Date();
     @Scheduled(cron = "0/5 * * * * ?")
-    public void verify(){
+    public void verify() {
         Date date = eduCourseService.selectMaxModificationTime();
-
-        if(lastDate !=date){
-            log.info("正在修改索引，最后一次更新时间为："+ lastDate);
-            eduCourseService.modifyTheIndex();
-            lastDate = date;
+        System.out.println("lastDate:" + lastDate);
+        if (!lastDate.equals(date)) {
+            log.info("正在修改索引，最后一次更新时间为：" + date);
+            try {
+                eduCourseService.modifyTheIndex("edu_course");
+                lastDate = date;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            log.info("一切正常，课程表未发生变化，继续运行。");
         }
-        log.info("一切正常，课程表未发生变化，继续运行。");
     }
 }

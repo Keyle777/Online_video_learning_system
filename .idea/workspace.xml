@@ -4,23 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="更改前端轮播图为Redis存储">
-      <change afterPath="$PROJECT_DIR$/service/service_search/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/config/ElasticsearchConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/searchApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增es">
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/core/indexRelated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eaff6f8f-6a12-490b-aefd-96d5b369c2bf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eaff6f8f-6a12-490b-aefd-96d5b369c2bf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RolePermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RolePermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_comment/target/classes/mapper/EduCommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/target/classes/mapper/EduCommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/config/ElasticsearchConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/config/ElasticsearchConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,43 +117,43 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_directory_selection": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system",
-    "last_opened_file_path": "C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_search/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "ae0e74863988a2cf179de786506d08b0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_comment/src/main/java/top/keyle/Online_video_learning_system&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TMJIE5200/Desktop/Git版_基于SpringBoot的在线视频学习系统/Online_video_learning_system/service/service_search/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;ae0e74863988a2cf179de786506d08b0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <force-push-targets>
       <force-push-target remote-path="origin" branch="main" />
@@ -569,14 +566,8 @@
       <workItem from="1682470534562" duration="249000" />
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
-      <workItem from="1682954947466" duration="2500000" />
-    </task>
-    <task id="LOCAL-00085" summary="优化了添加课程功能体验">
-      <created>1675681752878</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1675681752878</updated>
+      <workItem from="1682954947466" duration="7892000" />
+      <workItem from="1682988514350" duration="4307000" />
     </task>
     <task id="LOCAL-00086" summary="新增轮播图">
       <created>1675768927940</created>
@@ -914,7 +905,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682910947440</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="新增es">
+      <created>1682957732788</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1682957732788</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -979,7 +977,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="更新登录和注册功能" />
     <MESSAGE value="优化了前端展示页面" />
     <MESSAGE value="修复了后端接受前端的值，但是结果返回不到前端的问题，应该是不能用路径传。" />
     <MESSAGE value="新增了我的收藏功能" />
@@ -1004,28 +1001,12 @@
     <MESSAGE value="启用了nacos动态配置" />
     <MESSAGE value="在线视频系统v2.0" />
     <MESSAGE value="全部测试成功，已经修复明显存在的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="全部测试成功，已经修复明显存在的问题" />
+    <MESSAGE value="新增es" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增es" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java</url>
-          <line>46</line>
-          <properties>
-            <option name="lambda-ordinal" value="1" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="top.keyle.online_video_learning_system.entity.vo.LoginVo" memberName="password" />
