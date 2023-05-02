@@ -8,6 +8,7 @@ import lombok.Data;
  * @week 星期二
  */
 @Data
-public class countRegister {
-    private String total;
+public class countTheQuantity {
+    private String date;
+    private String count;
 }

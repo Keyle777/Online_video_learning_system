@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.keyle.Online_video_learning_system.client.UcenterClient;
 import top.keyle.Online_video_learning_system.entity.StatisticsDaily;
+import top.keyle.Online_video_learning_system.entity.countTheQuantity;
 import top.keyle.Online_video_learning_system.mapper.StatisticsDailyMapper;
 import top.keyle.Online_video_learning_system.service.StatisticsDailyService;
 
@@ -55,42 +56,75 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
     @Override
     public Map<String, Object> getShowData(String type, String begin, String end) {
         // 根据条件查询对应数据
-        QueryWrapper<StatisticsDaily> wrapper = new QueryWrapper<>();
+/*        QueryWrapper<StatisticsDaily> wrapper = new QueryWrapper<>();
         wrapper.between("date_calculated",begin,end);
-        wrapper.select("date_calculated",type);
-        List<StatisticsDaily> staList = baseMapper.selectList(wrapper);
-        // 因为返回两部分数据：日期 和 日期对应数量
-        // 前端要求数组json结构，对应后端java代码时list集合
-        // 创建两个list集合，一个日期list，一个数量list
+        wrapper.select("date_calculated",type);*/
+        //List<StatisticsDaily> staList = baseMapper.selectList(wrapper);
+        // 新增视频次数
+        List<countTheQuantity> insertCountList = baseMapper.selectTheNumberOfNewCourses(begin,end);
+        // 观看视频次数
+        List<countTheQuantity> viewCountList = baseMapper.selectTheNumberOfTimesTheCourseWasPlayed(begin,end);
+        // 登录次数
+        List<countTheQuantity> loginCountList = baseMapper.selectNumberOfLogins(begin,end);
+        // 注册人数
+        List<countTheQuantity> registerCountList = baseMapper.selectNumberOfEnrollees(begin,end);
+
         List<String> date_calculatedList = new ArrayList<>();
         List<Integer> munDataList = new ArrayList<>();
-        for(int i =0; i < staList.size(); i++){
-            StatisticsDaily daily = staList.get(i);
-            // 封装日期list集合
-            date_calculatedList.add(daily.getDateCalculated());
-            // 封装对应数量
-            switch (type){
-                case "login_num":
-                    munDataList.add(daily.getLoginNum());
-                    break;
-                case "register_num":
-                    munDataList.add(daily.getRegisterNum());
-                    break;
-                case "video_view_num":
-                    munDataList.add(daily.getVideoViewNum());
-                    break;
-                case "course_num":
-                    munDataList.add(daily.getCourseNum());
-                    break;
-                default:
-                    break;
-            }
+
+        switch (type){
+            case "login_num":
+                for (countTheQuantity quantity : loginCountList) {
+                    munDataList.add(Integer.parseInt(quantity.getCount()));
+                    date_calculatedList.add(quantity.getDate());
+                }
+                break;
+            case "register_num":
+                for (countTheQuantity quantity : registerCountList) {
+                    munDataList.add(Integer.parseInt(quantity.getCount()));
+                    date_calculatedList.add(quantity.getDate());
+                }
+                break;
+            case "video_view_num":
+                for (countTheQuantity quantity : viewCountList) {
+                    munDataList.add(Integer.parseInt(quantity.getCount()));
+                    date_calculatedList.add(quantity.getDate());
+                }
+                break;
+            case "course_num":
+                for (countTheQuantity quantity : insertCountList) {
+                    munDataList.add(Integer.parseInt(quantity.getCount()));
+                    date_calculatedList.add(quantity.getDate());
+                }
+                break;
+            default:
+                break;
         }
         // 把封装之后两个list集合放到map集合，进行返回
         Map<String, Object> map = new HashMap<>();
         map.put("date_calculatedList",date_calculatedList);
         map.put("numDataList",munDataList);
         return map;
+    }
+
+    @Override
+    public List<countTheQuantity> selectNumberOfEnrollees(String begin, String end) {
+        return baseMapper.selectNumberOfEnrollees(begin, end);
+    }
+
+    @Override
+    public List<countTheQuantity> selectNumberOfLogins(String begin, String end) {
+        return baseMapper.selectNumberOfLogins(begin, end);
+    }
+
+    @Override
+    public List<countTheQuantity> selectTheNumberOfTimesTheCourseWasPlayed(String begin, String end) {
+        return baseMapper.selectTheNumberOfTimesTheCourseWasPlayed(begin, end);
+    }
+
+    @Override
+    public List<countTheQuantity> selectTheNumberOfNewCourses(String begin, String end) {
+        return baseMapper.selectTheNumberOfNewCourses(begin, end);
     }
 }
 

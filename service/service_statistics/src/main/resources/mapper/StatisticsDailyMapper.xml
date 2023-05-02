@@ -19,4 +19,85 @@
         login_num,video_view_num,course_num,
         gmt_create,gmt_modified
     </sql>
+    <select id="selectNumberOfLogins" resultType="top.keyle.Online_video_learning_system.entity.countTheQuantity">
+        SELECT dates.date, COALESCE(COUNT(u.login_count), 0) AS count
+        FROM (
+                 SELECT #{begin} + INTERVAL n DAY AS date
+                 FROM (
+                          SELECT a.n + b.n * 10 AS n
+                          FROM (
+                                   SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                               ) AS a
+                                   CROSS JOIN (
+                              SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                          ) AS b
+                          ORDER BY n
+                      ) AS n
+                 WHERE #{begin} + INTERVAL n DAY <![CDATA[<=]]> #{end}
+             ) AS dates
+                 LEFT JOIN ucenter_member AS u ON DATE(u.gmt_modified) = dates.date
+        GROUP BY dates.date
+        ORDER BY dates.date ASC
+    </select>
+    <select id="selectTheNumberOfTimesTheCourseWasPlayed" resultType="top.keyle.Online_video_learning_system.entity.countTheQuantity">
+        SELECT dates.date, COALESCE(COUNT(u.view_count), 0) AS count
+        FROM (
+                 SELECT #{begin} + INTERVAL n DAY AS date
+                 FROM (
+                          SELECT a.n + b.n * 10  AS n
+                          FROM (
+                                   SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                               ) AS a
+                                   CROSS JOIN (
+                              SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                          ) AS b
+                          ORDER BY n
+                      ) AS n
+                 WHERE #{begin} + INTERVAL n DAY <![CDATA[<=]]> #{end}
+             ) AS dates
+                 LEFT JOIN edu_course AS u ON DATE(u.gmt_modified) = dates.date
+        GROUP BY dates.date
+        ORDER BY dates.date ASC
+    </select>
+    <select id="selectTheNumberOfNewCourses" resultType="top.keyle.Online_video_learning_system.entity.countTheQuantity">
+        SELECT dates.date, COALESCE(COUNT(u.id), 0) AS count
+        FROM (
+                 SELECT #{begin} + INTERVAL n DAY AS date
+                 FROM (
+                          SELECT a.n + b.n * 10  AS n
+                          FROM (
+                                   SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                               ) AS a
+                                   CROSS JOIN (
+                              SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                          ) AS b
+                          ORDER BY n
+                      ) AS n
+                 WHERE #{begin} + INTERVAL n DAY <![CDATA[<=]]> #{end}
+             ) AS dates
+                 LEFT JOIN edu_course AS u ON DATE(u.gmt_create) = dates.date
+        GROUP BY dates.date
+        ORDER BY dates.date ASC
+    </select>
+    <select id="selectNumberOfEnrollees" resultType="top.keyle.Online_video_learning_system.entity.countTheQuantity">
+        SELECT dates.date, COALESCE(COUNT(u.gmt_modified), 0) AS count
+        FROM (
+                 SELECT #{begin} + INTERVAL n DAY AS date
+                 FROM (
+                          SELECT a.n + b.n * 10 AS n
+                          FROM (
+                                   SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                               ) AS a
+                                   CROSS JOIN (
+                              SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+                          ) AS b
+                          ORDER BY n
+                      ) AS n
+                 WHERE #{begin} + INTERVAL n DAY <![CDATA[<=]]> #{end}
+             ) AS dates
+                 LEFT JOIN ucenter_member AS u ON DATE(u.gmt_modified) = dates.date
+        GROUP BY dates.date
+        ORDER BY dates.date ASC
+    </select>
+
 </mapper>

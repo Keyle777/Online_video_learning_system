@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化课程分类展示页面">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="更新">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduSubjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_edu/src/main/java/top/keyle/online_video_learning_system/service/impl/EduSubjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/controller/StatisticsDailyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/controller/StatisticsDailyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/schedule/ScheduledTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/schedule/ScheduledTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/entity/countRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/entity/countTheQuantity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/mapper/StatisticsDailyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/mapper/StatisticsDailyMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/StatisticsDailyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/StatisticsDailyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/impl/StatisticsDailyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/java/top/keyle/Online_video_learning_system/service/impl/StatisticsDailyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/src/main/resources/mapper/StatisticsDailyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/src/main/resources/mapper/StatisticsDailyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_statistics/target/classes/mapper/StatisticsDailyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_statistics/target/classes/mapper/StatisticsDailyMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -561,14 +562,7 @@
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
       <workItem from="1682954947466" duration="7892000" />
-      <workItem from="1682988514350" duration="34871000" />
-    </task>
-    <task id="LOCAL-00091" summary="新增轮播图管理功能">
-      <created>1675784052455</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1675784052455</updated>
+      <workItem from="1682988514350" duration="44014000" />
     </task>
     <task id="LOCAL-00092" summary="新增轮播图管理功能">
       <created>1675784515355</created>
@@ -906,7 +900,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683025235916</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="更新">
+      <created>1683036632803</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1683036632803</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -975,7 +976,6 @@
     <MESSAGE value="新增订单相关功能" />
     <MESSAGE value="解决了我的收藏为空时的问题" />
     <MESSAGE value="优化了支付功能" />
-    <MESSAGE value="更新" />
     <MESSAGE value="新增数据统计模块" />
     <MESSAGE value="新增管理员订单列表页面" />
     <MESSAGE value="新增网关" />
@@ -996,7 +996,8 @@
     <MESSAGE value="新增ES查询" />
     <MESSAGE value="优化ES查询" />
     <MESSAGE value="优化课程分类展示页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化课程分类展示页面" />
+    <MESSAGE value="更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
