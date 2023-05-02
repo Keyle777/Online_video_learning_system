@@ -5,7 +5,9 @@ import co.elastic.clients.elasticsearch.core.BulkRequest;
 import co.elastic.clients.elasticsearch.core.BulkResponse;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import top.keyle.Online_video_learning_system.entry.CourseInfo;
 import top.keyle.Online_video_learning_system.entry.EduCourse;
 import top.keyle.Online_video_learning_system.mapper.EduCourseMapper;
 import top.keyle.Online_video_learning_system.service.EduCourseService;
@@ -40,11 +42,15 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         // 批量添加文档
         BulkRequest.Builder br = new BulkRequest.Builder();
         for (EduCourse course : eduCourseList) {
+            String teacherName = baseMapper.selectTeacherName(course.getTeacherId());
+            CourseInfo courseInfo = new CourseInfo();
+            BeanUtils.copyProperties(course,courseInfo);
+            courseInfo.setTeacherName(teacherName);
             br.operations(op -> op
                     .index(idx -> idx
                             .index(elasticsearchIndex)
                             .id(String.valueOf(course.getId()))
-                            .document(course)
+                            .document(courseInfo)
                     ));
         }
         // 进行一次批处理
@@ -53,7 +59,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
             System.out.println("错误");
             throw new RemoteException(bulk.toString());
         }else {
-            log.info("成功插入数据");
+            log.info("已更新数据，更新时间" + new Date());
         }
     }
 }

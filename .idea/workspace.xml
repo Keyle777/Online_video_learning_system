@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增es,已修复">
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="优化ES">
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/controller/searchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/core/SearchService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/CourseInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/mapper/EduCourseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/resources/mapper/EduCourseMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +220,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.search" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service_search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.keyle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.keyle" />
+      <option name="MAIN_CLASS_NAME" value="top.keyle.test" />
+      <option name="METHOD_NAME" value="search" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service_acl" />
       <extension name="coverage">
@@ -410,6 +435,7 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.test.test1" />
+      <item itemvalue="JUnit.test.search" />
       <item itemvalue="JUnit.test.test1 (1)" />
       <item itemvalue="JUnit.test1.deleteVideo" />
       <item itemvalue="JUnit.test.test1 (3)" />
@@ -428,6 +454,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.search" />
         <item itemvalue="JUnit.test.test1 (1)" />
         <item itemvalue="JUnit.test1.deleteVideo" />
         <item itemvalue="JUnit.test.test1 (3)" />
@@ -556,14 +583,7 @@
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
       <workItem from="1682954947466" duration="7892000" />
-      <workItem from="1682988514350" duration="4872000" />
-    </task>
-    <task id="LOCAL-00087" summary="新增轮播图">
-      <created>1675769424144</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1675769424144</updated>
+      <workItem from="1682988514350" duration="12488000" />
     </task>
     <task id="LOCAL-00088" summary="新增轮播图">
       <created>1675777624147</created>
@@ -901,7 +921,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682993237252</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="优化ES">
+      <created>1682993790746</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1682993790746</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -966,7 +993,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="修复了后端接受前端的值，但是结果返回不到前端的问题，应该是不能用路径传。" />
     <MESSAGE value="新增了我的收藏功能" />
     <MESSAGE value="新增了课程详情界面" />
     <MESSAGE value="完善了课程评论页面" />
@@ -991,7 +1017,8 @@
     <MESSAGE value="全部测试成功，已经修复明显存在的问题" />
     <MESSAGE value="新增es" />
     <MESSAGE value="新增es,已修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增es,已修复" />
+    <MESSAGE value="优化ES" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化ES" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

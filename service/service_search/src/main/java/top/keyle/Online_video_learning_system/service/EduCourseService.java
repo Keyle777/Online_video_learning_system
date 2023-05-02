@@ -12,6 +12,16 @@ import java.util.Date;
 * @createDate 2023-05-01 23:24:20
 */
 public interface EduCourseService extends IService<EduCourse> {
+    /**
+     * 获取数据库中课程表最新的更新时间
+     * @return
+     */
     Date selectMaxModificationTime();
+
+    /**
+     * 批量新增数据和批量修改数据同为此方法
+     * @param elasticsearchIndex 索引名
+     * @throws IOException
+     */
     void modifyTheIndex(String elasticsearchIndex) throws IOException;
 }

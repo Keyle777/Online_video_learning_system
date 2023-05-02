@@ -33,4 +33,9 @@
     <select id="selectMaxGmtCreate" resultType="java.util.Date">
         SELECT MAX(gmt_modified) FROM edu_course;
     </select>
+    <select id="selectTeacherName" resultType="java.lang.String">
+        select name
+        from edu_teacher
+        where id = #{tid}
+    </select>
 </mapper>

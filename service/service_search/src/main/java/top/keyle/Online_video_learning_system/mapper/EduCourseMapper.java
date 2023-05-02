@@ -15,6 +15,8 @@ import java.util.Date;
 @Mapper
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
     Date selectMaxGmtCreate();
+
+    String selectTeacherName(String tid);
 }
 
 

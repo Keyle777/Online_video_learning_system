@@ -20,9 +20,8 @@ public class modifyTheIndex {
     @Scheduled(cron = "0/5 * * * * ?")
     public void verify() {
         Date date = eduCourseService.selectMaxModificationTime();
-        System.out.println("lastDate:" + lastDate);
         if (!lastDate.equals(date)) {
-            log.info("正在修改索引，最后一次更新时间为：" + date);
+            log.info("正在修改，最后一次更新时间为：" + lastDate);
             try {
                 eduCourseService.modifyTheIndex("edu_course");
                 lastDate = date;
@@ -30,7 +29,7 @@ public class modifyTheIndex {
                 throw new RuntimeException(e);
             }
         } else {
-            log.info("一切正常，课程表未发生变化，继续运行。");
+            log.info("一切正常，课程表未发生变化，继续运行，最新更新日期为："+lastDate);
         }
     }
 }
