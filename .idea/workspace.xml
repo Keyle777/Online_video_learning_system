@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增es">
-      <change afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/core/indexRelated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eaff6f8f-6a12-490b-aefd-96d5b369c2bf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eaff6f8f-6a12-490b-aefd-96d5b369c2bf.xml" afterDir="false" />
+    <list default="true" id="2e6cb774-7da4-40b1-8aec-2e056f4b96a1" name="变更" comment="新增es,已修复">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RolePermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/RolePermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_acl/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_comment/target/classes/mapper/EduCommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_comment/target/classes/mapper/EduCommentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/config/ElasticsearchConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/config/ElasticsearchConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/entry/EduCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/EduCourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/service/impl/EduCourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service_search/src/main/java/top/keyle/Online_video_learning_system/task/modifyTheIndex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -567,14 +556,7 @@
       <workItem from="1682474693784" duration="652000" />
       <workItem from="1682901464719" duration="8342000" />
       <workItem from="1682954947466" duration="7892000" />
-      <workItem from="1682988514350" duration="4307000" />
-    </task>
-    <task id="LOCAL-00086" summary="新增轮播图">
-      <created>1675768927940</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1675768927941</updated>
+      <workItem from="1682988514350" duration="4872000" />
     </task>
     <task id="LOCAL-00087" summary="新增轮播图">
       <created>1675769424144</created>
@@ -912,7 +894,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682957732788</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="新增es,已修复">
+      <created>1682993237252</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1682993237252</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -977,7 +966,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="优化了前端展示页面" />
     <MESSAGE value="修复了后端接受前端的值，但是结果返回不到前端的问题，应该是不能用路径传。" />
     <MESSAGE value="新增了我的收藏功能" />
     <MESSAGE value="新增了课程详情界面" />
@@ -1002,7 +990,8 @@
     <MESSAGE value="在线视频系统v2.0" />
     <MESSAGE value="全部测试成功，已经修复明显存在的问题" />
     <MESSAGE value="新增es" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增es" />
+    <MESSAGE value="新增es,已修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增es,已修复" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

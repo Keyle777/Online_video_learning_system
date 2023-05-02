@@ -1,6 +1,5 @@
 package top.keyle.Online_video_learning_system.entry;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -86,7 +85,6 @@ public class EduCourse implements Serializable {
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
-    @JSONField(format="yyyy年MM月dd日 HH:mm:ss")
     @ApiModelProperty(value = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ", timezone = "GMT+8")
     private Date gmtCreate;
@@ -94,7 +92,6 @@ public class EduCourse implements Serializable {
      * 更新时间
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    @JSONField(format="yyyy年MM月dd日 HH:mm:ss")
     @ApiModelProperty(value = "更新时间")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ", timezone = "GMT+8")
     private Date gmtModified;
