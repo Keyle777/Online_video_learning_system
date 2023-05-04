@@ -24,7 +24,7 @@ public class AliPayTask {
     /**
      * 从第0秒开始每隔30秒执行1次，查询创建超过5分钟，并且未支付的订单
      */
-    @Scheduled(cron = "0/30 * * * * ?")
+    @Scheduled(cron = "0/5 * * * * ?")
     public void orderConfirm(){
 
         log.info("orderConfirm 被执行......支付类型"+ PayType.ALIPAY.getType());

@@ -3,7 +3,9 @@ package top.keyle.online_video_learning_system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 import top.keyle.online_video_learning_system.entry.EduSubject;
+import top.keyle.online_video_learning_system.entry.vo.subject.OneSubject;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,8 +23,14 @@ public interface EduSubjectService extends IService<EduSubject> {
     void savaSubject(MultipartFile file,EduSubjectService eduSubjectService);
 
     /**
-     * 获取数据库中所有一级课程科目列表和其下的子课程科目列表
-     * @return 一级课程科目列表和其下的子课程科目列表
+     * 获取分类用户展示树状图
+     * @return
      */
     Map<String, Object> nestedList();
+
+    /**
+     * 获取分类
+     * @return
+     */
+    List<OneSubject> nestedListTwo();
 }

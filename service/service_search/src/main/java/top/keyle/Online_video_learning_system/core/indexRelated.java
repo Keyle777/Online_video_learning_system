@@ -23,20 +23,12 @@ public class indexRelated {
         ElasticsearchIndicesClient indices = elasticsearchClient.indices();
         boolean flag = indices.exists(request -> request.index(indexName)).value();
         if (flag) {
-            System.out.println("索引已经存在");
+            System.out.println("索引已经存在，即将删除旧索引！");
+            DeleteIndexResponse deleteIndexResponse = indices.delete(r -> r.index(indexName));
+            System.out.println("删除索引：" + deleteIndexResponse.acknowledged());
         } else {
             CreateIndexResponse createIndexResponse = indices.create(request -> request.index(indexName));
             System.out.println("创建索引:" + createIndexResponse.acknowledged());
         }
-
-        flag = indices.exists(r -> r.index(indexName)).value();
-        if (flag) {
-            System.out.println("索引已经存在");
-        }
-        DeleteIndexResponse deleteIndexResponse = indices.delete(r -> r.index(indexName));
-        System.out.println("删除索引：" + deleteIndexResponse.acknowledged());
     }
-
-
-
 }
