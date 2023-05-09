@@ -50,7 +50,10 @@ public class EduSubjectController {
      */
     @PostMapping("/import")
     public RespBean addSubject(MultipartFile file) {
+        //eduSubjectService.deleteAll();
         eduSubjectService.savaSubject(file,eduSubjectService);
+        // 更新旧的课程表 中的 subjectid 和 paratSubjectId
+
         return RespBean.success();
     }
 }

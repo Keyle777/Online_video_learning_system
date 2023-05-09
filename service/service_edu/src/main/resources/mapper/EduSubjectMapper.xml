@@ -17,6 +17,8 @@
         id,title,parent_id,
         sort,gmt_create,gmt_modified
     </sql>
-
+    <delete id="deleteAll">
+        DELETE FROM edu_subject
+    </delete>
 
 </mapper>

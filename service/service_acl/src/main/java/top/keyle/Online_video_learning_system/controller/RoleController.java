@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/acl/role")
-public class RoleController {
+public class    RoleController {
 
     @Autowired
     private RoleService roleService;
@@ -82,7 +82,7 @@ public class RoleController {
     @DeleteMapping("remove/{id}")
     public RespBean remove(@PathVariable String id) {
         boolean b = roleService.removeById(id);
-        if(b){
+        if(!b){
             return RespBean.error(RespBeanEnum.DELETE_ERROR);
         }
         return RespBean.success();

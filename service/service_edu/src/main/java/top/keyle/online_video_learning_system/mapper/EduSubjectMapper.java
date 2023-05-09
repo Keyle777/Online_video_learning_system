@@ -13,7 +13,7 @@ import top.keyle.online_video_learning_system.entry.EduSubject;
 */
 @Mapper
 public interface EduSubjectMapper extends BaseMapper<EduSubject> {
-
+    void deleteAll();
 }
 
 

@@ -135,6 +135,11 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         }
         return finalList;
     }
+
+    @Override
+    public void deleteAll() {
+        baseMapper.deleteAll();
+    }
 }
 
 

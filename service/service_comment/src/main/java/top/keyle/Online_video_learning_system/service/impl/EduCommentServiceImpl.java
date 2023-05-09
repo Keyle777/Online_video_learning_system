@@ -46,6 +46,12 @@ public class EduCommentServiceImpl extends ServiceImpl<EduCommentMapper, EduComm
         wrapper.eq(!StringUtils.isEmpty(id),"course_id",id);
         // 查询课程评论列表
         List<EduComment> EduCommentList = eduCommentMapper.selectList(wrapper);
+        for (EduComment eduComment : EduCommentList) {
+            UcenterMember info = ucenterClient.getInfo(eduComment.getMemberId());
+            // 设置评论昵称和头像
+            eduComment.setNickname(info.getNickname());
+            eduComment.setAvatar(info.getAvatar());
+        }
         // 将查询结果封装成JsonPage对象返回
         return JsonPage.restPage(new PageInfo<>(EduCommentList));
     }
@@ -63,15 +69,6 @@ public class EduCommentServiceImpl extends ServiceImpl<EduCommentMapper, EduComm
         comment.setCourseId(comment.getCourseId());
         comment.setTeacherId(comment.getTeacherId());
         comment.setMemberId(memberId);
-        // 获取会员信息
-        UcenterMember info = ucenterClient.getInfo(memberId);
-        if(info == null){
-            return false;
-        }
-        System.out.println(info);
-        // 设置评论昵称和头像
-        comment.setNickname(info.getNickname());
-        comment.setAvatar(info.getAvatar());
         // 插入评论记录到数据库
         return eduCommentMapper.insert(comment) > 0;
     }

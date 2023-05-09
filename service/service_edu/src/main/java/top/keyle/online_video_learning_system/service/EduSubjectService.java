@@ -33,4 +33,6 @@ public interface EduSubjectService extends IService<EduSubject> {
      * @return
      */
     List<OneSubject> nestedListTwo();
+
+    void deleteAll();
 }

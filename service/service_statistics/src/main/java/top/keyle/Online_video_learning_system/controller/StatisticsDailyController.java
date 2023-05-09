@@ -28,7 +28,15 @@ public class StatisticsDailyController {
     @Autowired
     private StatisticsDailyService staService;
 
+    /**
+     * 获取指定日期范围内的所有日期
+     *
+     * @param startDateStr 开始日期字符串，格式为 yyyy-MM-dd
+     * @param endDateStr   结束日期字符串，格式为 yyyy-MM-dd
+     * @return 包含指定日期范围内所有日期的列表
+     */
     public static List<String> getDatesInRange(String startDateStr, String endDateStr) {
+        // 使用 DateTimeFormatter 解析日期字符串
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate startDate = LocalDate.parse(startDateStr, formatter);
         LocalDate endDate = LocalDate.parse(endDateStr, formatter);
@@ -36,9 +44,12 @@ public class StatisticsDailyController {
         List<String> dates = new ArrayList<>();
         LocalDate current = startDate;
         while (!current.isAfter(endDate)) {
+            // 将当前日期字符串添加到日期列表中
             dates.add(current.toString());
+            // 将当前日期加 1 天
             current = current.plusDays(1);
         }
+        // 返回包含所有日期字符串的列表
         return dates;
     }
 
@@ -56,7 +67,7 @@ public class StatisticsDailyController {
     }
 
     /**
-     * 统计某一天注册人数，生成统计数据
+     * 生成某日期范围内的数据
      * @param day
      * @return
      */

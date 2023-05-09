@@ -168,20 +168,20 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             //6是订单列表 5是幻灯片 4是统计分析 3是课程管理 2是课程分类管理 1是讲师管理 0是权限管理
             List<JSONObject> jsonObjects = new ArrayList<>();
             // 课程管理员拥有 3 2
-            if("课程管理员".equals(roleName)){
+            if(roleName.contains("课程")){
                 jsonObjects.add(result.get(4));
                 jsonObjects.add(result.get(3));
                 jsonObjects.add(result.get(2));
                 jsonObjects.add(result.get(1));
             }
             // 讲师管理员拥有 1
-            if("讲师".equals(roleName)){
+            if(roleName.contains("讲师")){
                 jsonObjects.add(result.get(2));
                 jsonObjects.add(result.get(3));
                 jsonObjects.add(result.get(4));
             }
             // 普通管理员拥有 4 5 6
-            if("普通管理员".equals(roleName)){
+            if(roleName.contains("普通")){
                 jsonObjects.add(result.get(5));
                 jsonObjects.add(result.get(6));
             }

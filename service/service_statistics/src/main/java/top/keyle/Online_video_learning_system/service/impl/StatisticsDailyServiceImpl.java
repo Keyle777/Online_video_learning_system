@@ -55,11 +55,6 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
      */
     @Override
     public Map<String, Object> getShowData(String type, String begin, String end) {
-        // 根据条件查询对应数据
-/*        QueryWrapper<StatisticsDaily> wrapper = new QueryWrapper<>();
-        wrapper.between("date_calculated",begin,end);
-        wrapper.select("date_calculated",type);*/
-        //List<StatisticsDaily> staList = baseMapper.selectList(wrapper);
         // 新增视频次数
         List<countTheQuantity> insertCountList = baseMapper.selectTheNumberOfNewCourses(begin,end);
         // 观看视频次数
@@ -68,10 +63,8 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
         List<countTheQuantity> loginCountList = baseMapper.selectNumberOfLogins(begin,end);
         // 注册人数
         List<countTheQuantity> registerCountList = baseMapper.selectNumberOfEnrollees(begin,end);
-
         List<String> date_calculatedList = new ArrayList<>();
         List<Integer> munDataList = new ArrayList<>();
-
         switch (type){
             case "login_num":
                 for (countTheQuantity quantity : loginCountList) {
