@@ -2,7 +2,7 @@
 
 前排提示：该项目是基于SpringBoot的在线视频学习系统，仅作学习交流使用，**请勿商用**!
 
-此项目建议，如果自建强烈建议使用阿里云原生脚手架：[阿里云原生脚手架](https://start.aliyun.com/bootstrap.html)
+此项目学习建议：搭建本项目的初始环境，强烈建议使用阿里云原生脚手架：[阿里云原生脚手架](https://start.aliyun.com/bootstrap.html)
 # 项目基本信息:
 
 **SpringBoot版本：2.7.5**
